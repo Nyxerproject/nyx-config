@@ -106,6 +106,7 @@
     wget
     git
     alejandra
+    mako
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
