@@ -22,6 +22,9 @@
     hostName = "nixos"; # Define your hostname.
   };
 
+  hardware.bluetooth.enable = true;
+  services.blueman.enable = true;
+
   # Set your time zone.
   time.timeZone = "America/Chicago";
 
