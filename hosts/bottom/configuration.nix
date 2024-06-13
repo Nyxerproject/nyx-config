@@ -122,7 +122,7 @@
     vimAlias = true;
   };
 
-  environment.variables.EDITOR = "nvim";
+  environment.variables.EDITOR = "lvim";
 
   # List services that you want to enable:
 
