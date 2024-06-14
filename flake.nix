@@ -27,7 +27,7 @@
         system = "x86_64-linux";
         modules = [
           ./hosts/bottom
-          #hosts/common
+          ./hosts/common
           #hosts/common/desktop
           #hosts/common/desktop/vr
           home-manager.nixosModules.home-manager
