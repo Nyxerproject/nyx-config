@@ -20,6 +20,7 @@
     self,
     nixpkgs,
     home-manager,
+    nixpkgs-xr,
     ...
   } @ inputs: {
     nixosConfigurations = {
@@ -27,11 +28,14 @@
         system = "x86_64-linux";
         modules = [
           ./hosts/bottom
+          nixpkgs-xr.nixosModules.nixpkgs-xr
           home-manager.nixosModules.home-manager
           {
-            home-manager.useGlobalPkgs = true;
-            home-manager.useUserPackages = true;
-            home-manager.users.nyx = import ./home/nyx/bottom.nix;
+            home-manager = {
+              useGlobalPkgs = true;
+              useUserPackages = true;
+              users.nyx = import ./home/nyx/bottom.nix;
+            };
           }
         ];
       };
