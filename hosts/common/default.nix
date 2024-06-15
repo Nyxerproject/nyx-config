@@ -3,5 +3,5 @@
   #lib,
   ...
 }: {
-  #programs.partition-manager.enable = true;
+  programs.partition-manager.enable = true;
 }
