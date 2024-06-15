@@ -1,7 +1,7 @@
 {
   imports = [
     ./configuration.nix
-    ../common
+    #../common
     #../common/desktop
     #../common/desktop/vr
   ];
