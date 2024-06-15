@@ -28,6 +28,7 @@
         system = "x86_64-linux";
         modules = [
           ./hosts/bottom
+          ./hosts/common/desktop/gaming.nix
           nixpkgs-xr.nixosModules.nixpkgs-xr
           home-manager.nixosModules.home-manager
           {

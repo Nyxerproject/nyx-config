@@ -4,10 +4,6 @@
   pkgs,
   ...
 }: {
-  nixpkgs.overlays = [
-    inputs.prismlauncher.overlays.default
-  ];
-
   environment.systemPackages = with pkgs; [
     #dolphin-emu
     #prismlauncher
