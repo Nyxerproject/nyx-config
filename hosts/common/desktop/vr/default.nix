@@ -16,12 +16,8 @@
 {
   #options.profile.vr.enableHighPrioKernelPatch = mkEnableOption "kernel patch to allow high priority graphics for all clients";
 
-  #imports = [
-  #  inputs.nixpkgs-xr.nixosModules.nixpkgs-xr
-  #];
-
   #config = {
-  #nixpkgs.xr.enableUnstripped = true;
+  nixpkgs.xr.enableUnstripped = true;
 
   #boot.extraModulePackages = mkIf cfg.enableHighPrioKernelPatch [
   #(amdgpu-kernel-module.overrideAttrs (prev: {
@@ -41,8 +37,8 @@
   };
 
   environment.systemPackages = with pkgs; [
-    #index_camera_passthrough
-    #opencomposite-helper
+    index_camera_passthrough
+    opencomposite-helper
     wlx-overlay-s
   ];
 
