@@ -1,7 +1,7 @@
 {
   config,
   inputs,
-  #lib,
+  lib,
   pkgs,
   ...
 }:
@@ -35,30 +35,30 @@
   };
 
   environment.systemPackages = with pkgs; [
-    index_camera_passthrough
-    opencomposite-helper
+    #index_camera_passthrough
+    #opencomposite-helper
     wlx-overlay-s
   ];
 
-  hm.xdg.configFile."openvr/openvrpaths.vrpath".text = ''
-    {
-      "config" :
-      [
-        "${config.hm.xdg.dataHome}/Steam/config"
-      ],
-      "external_drivers" : null,
-      "jsonid" : "vrpathreg",
-      "log" :
-      [
-        "${config.hm.xdg.dataHome}/Steam/logs"
-      ],
-      "runtime" :
-      [
-        "${pkgs.opencomposite}/lib/opencomposite",
-        "${config.hm.xdg.dataHome}/Steam/steamapps/common/SteamVR"
-      ],
-      "version" : 1
-    }
-  '';
+  #hm.xdg.configFile."openvr/openvrpaths.vrpath".text = ''
+  # {
+  #   "config" :
+  #   [
+  #     "${config.hm.xdg.dataHome}/Steam/config"
+  #   ],
+  #   "external_drivers" : null,
+  #   "jsonid" : "vrpathreg",
+  #   "log" :
+  #   [
+  #     "${config.hm.xdg.dataHome}/Steam/logs"
+  #   ],
+  #   "runtime" :
+  #   [
+  #     "${pkgs.opencomposite}/lib/opencomposite",
+  #     "${config.hm.xdg.dataHome}/Steam/steamapps/common/SteamVR"
+  #   ],
+  #   "version" : 1
+  # }
+  #'';
   #};
 }

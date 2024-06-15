@@ -3,6 +3,6 @@
     ./configuration.nix
     #../common
     #../common/desktop
-    #../common/desktop/vr
+    ../common/desktop/vr
   ];
 }
