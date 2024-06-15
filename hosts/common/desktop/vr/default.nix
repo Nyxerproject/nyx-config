@@ -32,6 +32,7 @@
   systemd.user.services.monado.environment = {
     STEAMVR_LH_ENABLE = "1";
     XRT_COMPOSITOR_COMPUTE = "1";
+    WMR_HANDTRACKING = "0";
   };
 
   services.monado = {
@@ -45,25 +46,5 @@
     wlx-overlay-s
   ];
 
-  #hm.xdg.configFile."openvr/openvrpaths.vrpath".text = ''
-  # {
-  #   "config" :
-  #   [
-  #     "${config.hm.xdg.dataHome}/Steam/config"
-  #   ],
-  #   "external_drivers" : null,
-  #   "jsonid" : "vrpathreg",
-  #   "log" :
-  #   [
-  #     "${config.hm.xdg.dataHome}/Steam/logs"
-  #   ],
-  #   "runtime" :
-  #   [
-  #     "${pkgs.opencomposite}/lib/opencomposite",
-  #     "${config.hm.xdg.dataHome}/Steam/steamapps/common/SteamVR"
-  #   ],
-  #   "version" : 1
-  # }
-  #'';
   #};
 }
