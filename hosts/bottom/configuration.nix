@@ -23,6 +23,7 @@
     hostName = "nixos"; # Define your hostname.
   };
 
+  hardware.nvidia.package = config.boot.kernelPackages.nvidiaPackages.stable;
   hardware.bluetooth.enable = true;
   services.blueman.enable = true;
 
