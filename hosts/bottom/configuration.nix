@@ -109,9 +109,24 @@
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
+  hardware.opengl = {
+    enable = true;
+    driSupport = true;
+    driSupport32Bit = true;
+  };
+
   services.xserver.videoDrivers = ["nvidia"];
 
-  #hardware.nvidia.package = config.boot.kernelPackages.nvidiaPackages.stable;
+  hardware.nvidia = {
+    modesetting.enable = true;
+    powerManagement = {
+      enable = false;
+      finegrained = false;
+    };
+    open = false;
+    nvidiaSettings = true;
+    package = config.boot.kernelPackages.nvidiaPackages.stable;
+  };
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
