@@ -64,7 +64,7 @@
       btop # replacement of htop/nmon
       iotop # io monitoring
       iftop # network monitoring
-      nvtop # gpu monitoring
+      nvtopPackages.full # gpu monitoring
       bottom # cpu monitoring
 
       # system call monitoring

@@ -53,7 +53,7 @@
   # Enable the X11 windowing system.
   #HELLLNOOOOO
   services.xserver.enable = true;
-  services.xserver.displayManager.defaultSession = "plasma";
+  services.displayManager.defaultSession = "plasma";
 
   services.displayManager = {
     sddm.wayland.enable = true;
