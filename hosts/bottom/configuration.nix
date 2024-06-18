@@ -23,7 +23,6 @@
     hostName = "nixos"; # Define your hostname.
   };
 
-  hardware.nvidia.package = config.boot.kernelPackages.nvidiaPackages.stable;
   hardware.bluetooth.enable = true;
   services.blueman.enable = true;
 
@@ -109,6 +108,10 @@
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
+
+  services.xserver.videoDrivers = ["nvidia"];
+
+  #hardware.nvidia.package = config.boot.kernelPackages.nvidiaPackages.stable;
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
