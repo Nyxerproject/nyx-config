@@ -30,7 +30,6 @@
       "runtime" :
       [
         "${pkgs.opencomposite}/lib/opencomposite",
-        "${config.xdg.dataHome}/Steam/steamapps/common/SteamVR"
       ],
       "version" : 1
     }
