@@ -66,6 +66,9 @@
       iftop # network monitoring
       nvtopPackages.full # gpu monitoring
       bottom # cpu monitoring
+      vulkan-tools
+      wayland-utils
+      corectrl
 
       # system call monitoring
       strace # system call monitoring
