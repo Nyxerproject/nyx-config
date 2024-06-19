@@ -14,6 +14,12 @@
       url = "github:nix-community/nixpkgs-xr";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    #envision = {
+    # url = "gitlab:gabmus/envision";
+    #url = "gitlab:gabmus/envision?ref=pull/11/head#envision";
+    # inputs.nixpkgs.follows = "nixpkgs";
+    # };
   };
 
   outputs = {

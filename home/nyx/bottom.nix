@@ -61,6 +61,10 @@
       #hugo # static site generator
       #glow # markdown previewer in terminal
 
+      # desktop notifications
+      libnotify
+      mako
+
       btop # replacement of htop/nmon
       iotop # io monitoring
       iftop # network monitoring
