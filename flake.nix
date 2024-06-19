@@ -15,11 +15,11 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    #envision = {
-    # url = "gitlab:gabmus/envision";
-    #url = "gitlab:gabmus/envision?ref=pull/11/head#envision";
-    # inputs.nixpkgs.follows = "nixpkgs";
-    # };
+    envision = {
+      url = "gitlab:Scrumplex/envision/nix";
+      # url = "gitlab:gabmus/envision?ref=pull/11/head";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = {
