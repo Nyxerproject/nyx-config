@@ -59,8 +59,8 @@
     #lemurs.enable = true;
   };
 
-  #services.desktopManager.plasma6.enable = true;
-  services.xserver.desktopManager.plasma5.enable = true;
+  services.desktopManager.plasma6.enable = true;
+  # services.xserver.desktopManager.plasma5.enable = true;
 
   # Configure keymap in X11
   #services.xserver.xkb = {
@@ -126,7 +126,7 @@
     };
     open = false;
     nvidiaSettings = true;
-    package = config.boot.kernelPackages.nvidiaPackages.stable;
+    package = config.boot.kernelPackages.nvidiaPackages.beta;
   };
 
   # List packages installed in system profile. To search, run:
