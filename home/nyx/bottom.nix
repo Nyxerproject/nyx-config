@@ -61,6 +61,9 @@
       #hugo # static site generator
       #glow # markdown previewer in terminal
 
+      # keyboard tools
+      zmkBATx
+
       # desktop notifications
       libnotify
       mako
