@@ -27,6 +27,7 @@
     nixpkgs,
     home-manager,
     nixpkgs-xr,
+    envision,
     ...
   } @ inputs: {
     nixosConfigurations = {
@@ -42,9 +43,24 @@
             home-manager = {
               useGlobalPkgs = true;
               useUserPackages = true;
-              users.nyx = import ./home/nyx/bottom.nix;
+              users.nyx =
+                import
+                ./home/nyx/bottom.nix;
             };
           }
+          ({pkgs, ...}: {
+            # Adding the package to `nixpkgs.overlays`. This means that when we use `pkgs` the package will be added to
+            # it. Overlay function takes two arguments: `final` and `prev`. We do not need these for this case as we are
+            # not overriding something that exists we are adding something new, so I used `_` for those. I am creating a
+            # new package called `tkiat-custom-st` and setting that equal to the flake's defaultPackage. I did this
+            # because this flake only defines a defaultPackage (it should define an overlay, and a package)
+            nixpkgs.overlays = [
+              (_: _: {envision = inputs.envision;})
+            ];
+
+            # We can now add the package from our overlays
+            environment.systemPackages = [pkgs.envision];
+          })
         ];
       };
     };
