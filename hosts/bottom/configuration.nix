@@ -11,6 +11,17 @@
     ./hardware-configuration.nix
   ];
 
+  systemd.user.services.monado.environment = {
+    STEAMVR_LH_ENABLE = "0";
+    XRT_COMPOSITOR_COMPUTE = "1";
+    WMR_HANDTRACKING = "0";
+  };
+
+  services.monado = {
+    enable = true;
+    defaultRuntime = true;
+  };
+
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
@@ -138,6 +149,14 @@
     nvd
     comma
     nix-health
+
+    # VR stuff
+    # environment.systemPackages = with pkgs; [
+    index_camera_passthrough
+    opencomposite-helper
+    opencomposite
+    wlx-overlay-s
+    # ];
   ];
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.

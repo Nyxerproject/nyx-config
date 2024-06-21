@@ -4,6 +4,6 @@
     #../common
     #../common/desktop
     #../common/desktop/gaming.nix
-    ../common/desktop/vr
+    # ../common/desktop/vr
   ];
 }
