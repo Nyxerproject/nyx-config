@@ -24,7 +24,6 @@ in {
     # ];
 
     systemd.user.services.monado.environment = {
-      # systemd.nyx.services.monado.environment = {
       STEAMVR_LH_ENABLE = "1";
       XRT_COMPOSITOR_COMPUTE = "1";
       WMR_HANDTRACKING = "0";
@@ -38,6 +37,7 @@ in {
     environment.systemPackages = with pkgs; [
       index_camera_passthrough
       opencomposite-helper
+      opencomposite
       wlx-overlay-s
     ];
   };
