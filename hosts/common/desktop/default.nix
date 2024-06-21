@@ -13,6 +13,7 @@
       monocraft
       fira-code
       roboto
+      hack-font
     ];
 
     enableDefaultPackages = true;
@@ -25,21 +26,9 @@
     fontconfig = {
       cache32Bit = true;
       defaultFonts = {
-        sansSerif = ["Fira Sans"];
-        monospace = ["Fira Code"];
+        sansSerif = ["hack-font"];
+        monospace = ["hack-font"];
       };
-    };
-
-    symbols = {
-      enable = true;
-      fonts = [
-        "Fira Code"
-        "Fira Code,Fira Code Light"
-        "Fira Code,Fira Code Medium"
-        "Fira Code,Fira Code Retina"
-        "Fira Code,Fira Code SemiBold"
-        "Monocraft"
-      ];
     };
   };
 }
