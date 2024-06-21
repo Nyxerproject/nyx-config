@@ -3,17 +3,22 @@
   inputs,
   lib,
   pkgs,
+  envision,
   ...
-}: let
-  # inherit (lib.modules) mkIf;
-  # inherit (lib.options) mkEnableOption;
-  #cfg = config.profile.vr;
-  # amdgpu-kernel-module = pkgs.callPackage ./amdgpu.nix {
-  # kernel = config.boot.kernelPackages.kernel;
-  # };
-in {
+  # }: let
+}:
+# inherit (lib.modules) mkIf;
+# inherit (lib.options) mkEnableOption;
+#cfg = config.profile.vr;
+# amdgpu-kernel-module = pkgs.callPackage ./amdgpu.nix {
+# kernel = config.boot.kernelPackages.kernel;
+# };
+# in {
+{
   # options.profile.vr.enableHighPrioKernelPatch = mkEnableOption "kernel patch to allow high priority graphics for all clients";
-
+  imports = [
+    ./envision.nix
+  ];
   config = {
     # nixpkgs.xr.enableUnstripped = true;
 
@@ -24,7 +29,7 @@ in {
     # ];
 
     systemd.user.services.monado.environment = {
-      STEAMVR_LH_ENABLE = "0";
+      STEAMVR_LH_ENABLE = "1";
       XRT_COMPOSITOR_COMPUTE = "1";
       WMR_HANDTRACKING = "0";
     };

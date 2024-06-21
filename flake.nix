@@ -38,6 +38,7 @@
     home-manager,
     nixpkgs-xr,
     flake-utils,
+    envision,
     ...
   } @ inputs: {
     nixosConfigurations = {
