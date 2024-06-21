@@ -130,7 +130,14 @@
     alacritty
     wget
     git
+
+    # nixos stuff
     alejandra
+    nix-output-monitor
+    nh
+    nvd
+    comma
+    nix-health
   ];
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.

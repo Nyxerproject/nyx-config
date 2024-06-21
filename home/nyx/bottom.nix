@@ -55,13 +55,8 @@
       #
       # it provides the command `nom` works just like `nix`
       # with more details log output
-      nix-output-monitor
-      nh
-      nvd
-      comma
-      nix-health
-
       # productivity
+
       #hugo # static site generator
       #glow # markdown previewer in terminal
 
