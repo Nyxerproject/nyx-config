@@ -15,7 +15,7 @@
 
   programs.steam = {
     enable = true;
-    localNetworkGameTransfers.openFirewall = true;
+    # localNetworkGameTransfers.openFirewall = true;
     remotePlay.openFirewall = true;
 
     extraCompatPackages = with pkgs; [
@@ -30,21 +30,21 @@
     ];
   };
 
-  programs.gamemode = {
-    enable = true;
-    settings = {
-      general = {
-        defaultgov = config.powerManagement.cpuFreqGovernor;
-        desiredgov = "performance";
-        softrealtime = "on";
-        renice = 10;
-        ioprio = 1;
-        inhibit_screensaver = 0;
-      };
-      custom = {
-        start = "${pkgs.libnotify}/bin/notify-send 'GameMode started'";
-        stop = "${pkgs.libnotify}/bin/notify-send 'GameMode ended'";
-      };
-    };
-  };
+  # programs.gamemode = {
+  # enable = true;
+  # settings = {
+  # general = {
+  # defaultgov = config.powerManagement.cpuFreqGovernor;
+  # desiredgov = "performance";
+  # softrealtime = "on";
+  # renice = 10;
+  # ioprio = 1;
+  # inhibit_screensaver = 0;
+  # };
+  # custom = {
+  # start = "${pkgs.libnotify}/bin/notify-send 'GameMode started'";
+  # stop = "${pkgs.libnotify}/bin/notify-send 'GameMode ended'";
+  # };
+  # };
+  #};
 }
