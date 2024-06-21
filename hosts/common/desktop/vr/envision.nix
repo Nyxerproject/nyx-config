@@ -5,6 +5,6 @@
   ...
 }: {
   environment.systemPackages = [
-    #envision.packages.${system}.default
+    envision.packages.x86_64-linux
   ];
 }

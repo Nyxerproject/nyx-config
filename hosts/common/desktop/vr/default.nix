@@ -3,7 +3,6 @@
   inputs,
   lib,
   pkgs,
-  envision,
   ...
   # }: let
 }:
@@ -17,7 +16,7 @@
 {
   # options.profile.vr.enableHighPrioKernelPatch = mkEnableOption "kernel patch to allow high priority graphics for all clients";
   imports = [
-    ./envision.nix
+    # ./envision.nix
   ];
   config = {
     # nixpkgs.xr.enableUnstripped = true;
