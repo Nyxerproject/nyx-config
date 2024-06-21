@@ -8,7 +8,6 @@
   ...
 }: {
   imports = [
-    # Include the results of the hardware scan.
     ./hardware-configuration.nix
   ];
 
@@ -20,7 +19,7 @@
   # Enable networking
   networking = {
     networkmanager.enable = true;
-    hostName = "nixos"; # Define your hostname.
+    hostName = "bottom"; # Define your hostname.
   };
 
   hardware.bluetooth.enable = true;
@@ -50,7 +49,6 @@
   };
 
   # Enable the X11 windowing system.
-  #HELLLNOOOOO
   services.xserver.enable = true;
   services.displayManager.defaultSession = "plasma";
 
@@ -88,10 +86,6 @@
     #media-session.enable = true;
   };
 
-  # Enable touchpad support (enabled default in most desktopManager).
-  # services.xserver.libinput.enable = true;
-
-  # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.nyx = {
     isNormalUser = true;
     description = "nyx";
@@ -126,7 +120,7 @@
     };
     open = false;
     nvidiaSettings = true;
-    package = config.boot.kernelPackages.nvidiaPackages.beta;
+    package = config.boot.kernelPackages.nvidiaPackages.stable;
   };
 
   # List packages installed in system profile. To search, run:
@@ -138,7 +132,6 @@
     git
     alejandra
   ];
-
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
   # programs.mtr.enable = true;
@@ -156,6 +149,9 @@
   };
 
   environment.variables.EDITOR = "lvim";
+  environment.sessionVariables = {
+    FLAKE = "/home/nyx/nyx-config";
+  };
 
   # List services that you want to enable:
 
