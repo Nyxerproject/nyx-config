@@ -45,9 +45,9 @@
         system = "x86_64-linux";
         modules = [
           ./hosts/bottom
-          ./hosts/common/desktop/gaming.nix
-          ./hosts/common/desktop
-          ./hosts/common/desktop/mullvad.nix
+          # ./hosts/common/desktop/gaming.nix
+          # ./hosts/common/desktop
+          # ./hosts/common/desktop/mullvad.nix
           nixpkgs-xr.nixosModules.nixpkgs-xr
           home-manager.nixosModules.home-manager
           {

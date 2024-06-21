@@ -1,4 +1,9 @@
 {pkgs, ...}: {
+  imports = [
+    ./vr
+    ./gaming.nix
+    ./mullvad.nix
+  ];
   environment.systemPackages = with pkgs; [
     qpwgraph
     webcord
