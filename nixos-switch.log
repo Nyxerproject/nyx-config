@@ -1,45 +1,110 @@
 warning: Git tree '/home/nyx/nyx-config' is dirty
+warning: updating lock file '/home/nyx/nyx-config/flake.lock':
+• Added input 'envision':
+    'gitlab:Scrumplex/envision/fbc27499afa3dc11a25b4ce06fc6d6548cbbff6f' (2024-05-21)
+• Added input 'envision/flake-compat':
+    'https://api.flakehub.com/f/pinned/edolstra/flake-compat/1.0.1/018afb31-abd1-7bff-a5e4-cff7e18efb7a/source.tar.gz?narHash=sha256-kvjfFW7WAETZlt09AgDn1MrtKzP7t90Vf7vypd3OL1U%3D' (2023-10-04)
+• Added input 'envision/flake-parts':
+    'github:hercules-ci/flake-parts/8dc45382d5206bd292f9c2768b8058a8fd8311d9' (2024-05-16)
+• Added input 'envision/flake-parts/nixpkgs-lib':
+    follows 'envision/nixpkgs'
+• Added input 'envision/nixpkgs':
+    follows 'nixpkgs'
+• Added input 'flake-utils':
+    'github:numtide/flake-utils/b1d9ab70662946ef0850d488da1c9019f3a9752a' (2024-03-11)
+• Added input 'flake-utils/systems':
+    'github:nix-systems/default/da67096a3b9bf56a91d16901293e51ba5b49a27e' (2023-04-09)
+• Added input 'niri':
+    'github:YaLTeR/niri/d96a66ddff1a6b88dbe3e23b049f7075533b216f' (2024-05-18)
+• Added input 'niri/crane':
+    'github:ipetkov/crane/81c393c776d5379c030607866afef6406ca1be57' (2024-03-05)
+• Added input 'niri/crane/nixpkgs':
+    follows 'niri/nixpkgs'
+• Added input 'niri/fenix':
+    'github:nix-community/fenix/4be608f4f81d351aacca01b21ffd91028c23cc22' (2024-03-01)
+• Added input 'niri/fenix/nixpkgs':
+    follows 'niri/nixpkgs'
+• Added input 'niri/fenix/rust-analyzer-src':
+    'github:rust-lang/rust-analyzer/9efa23c4dacee88b93540632eb3d88c5dfebfe17' (2024-02-29)
+• Added input 'niri/flake-utils':
+    'github:numtide/flake-utils/d465f4819400de7c8d874d50b982301f28a84605' (2024-02-28)
+• Added input 'niri/flake-utils/systems':
+    'github:nix-systems/default/da67096a3b9bf56a91d16901293e51ba5b49a27e' (2023-04-09)
+• Added input 'niri/nix-filter':
+    'github:numtide/nix-filter/3449dc925982ad46246cfc36469baf66e1b64f17' (2024-01-15)
+• Added input 'niri/nixpkgs':
+    follows 'nixpkgs'
+• Added input 'niri-flake':
+    'github:sodiboo/niri-flake/b9b0aec13c8a96798950c0c6e4efd442ddda66b6' (2024-06-20)
+• Added input 'niri-flake/crate2nix':
+    'github:nix-community/crate2nix/4fcd1d9485634d10a83635e4d9e5a7c69f9a3884' (2024-06-16)
+• Added input 'niri-flake/crate2nix/cachix':
+    'github:cachix/cachix/be97b37989f11b724197b5f4c7ffd78f12c8c4bf' (2024-03-06)
+• Added input 'niri-flake/crate2nix/cachix/devenv':
+    follows 'niri-flake/crate2nix'
+• Added input 'niri-flake/crate2nix/cachix/flake-compat':
+    follows 'niri-flake/crate2nix'
+• Added input 'niri-flake/crate2nix/cachix/nixpkgs':
+    'github:NixOS/nixpkgs/19cbff58383a4ae384dea4d1d0c823d72b49d614' (2023-11-22)
+• Added input 'niri-flake/crate2nix/cachix/pre-commit-hooks':
+    follows 'niri-flake/crate2nix'
+• Added input 'niri-flake/crate2nix/crate2nix_stable':
+    'github:nix-community/crate2nix/75ac2973affa6b9b4f661a7b592cba6e4f51d426' (2023-12-17)
+• Added input 'niri-flake/crate2nix/crate2nix_stable/flake-utils':
+    'github:numtide/flake-utils/ff7b65b44d01cf9ba6a71320833626af21126384' (2023-09-12)
+• Added input 'niri-flake/crate2nix/crate2nix_stable/flake-utils/systems':
+    'github:nix-systems/default/da67096a3b9bf56a91d16901293e51ba5b49a27e' (2023-04-09)
+• Added input 'niri-flake/crate2nix/devshell':
+    'github:numtide/devshell/2d45b54ca4a183f2fdcf4b19c895b64fbf620ee8' (2024-03-22)
+• Added input 'niri-flake/crate2nix/devshell/flake-utils':
+    'github:numtide/flake-utils/4022d587cbbfd70fe950c1e2083a02621806a725' (2023-12-04)
+• Added input 'niri-flake/crate2nix/devshell/flake-utils/systems':
+    'github:nix-systems/default/da67096a3b9bf56a91d16901293e51ba5b49a27e' (2023-04-09)
+• Added input 'niri-flake/crate2nix/devshell/nixpkgs':
+    follows 'niri-flake/crate2nix/nixpkgs'
+• Added input 'niri-flake/crate2nix/flake-compat':
+    'https://api.flakehub.com/f/pinned/edolstra/flake-compat/1.0.1/018afb31-abd1-7bff-a5e4-cff7e18efb7a/source.tar.gz?narHash=sha256-kvjfFW7WAETZlt09AgDn1MrtKzP7t90Vf7vypd3OL1U%3D' (2023-10-04)
+• Added input 'niri-flake/crate2nix/flake-parts':
+    'github:hercules-ci/flake-parts/9126214d0a59633752a136528f5f3b9aa8565b7d' (2024-04-01)
+• Added input 'niri-flake/crate2nix/flake-parts/nixpkgs-lib':
+    follows 'niri-flake/crate2nix/nixpkgs'
+• Added input 'niri-flake/crate2nix/nix-test-runner':
+    'github:stoeffel/nix-test-runner/c45d45b11ecef3eb9d834c3b6304c05c49b06ca2' (2020-05-06)
+• Added input 'niri-flake/crate2nix/nixpkgs':
+    'github:NixOS/nixpkgs/080a4a27f206d07724b88da096e27ef63401a504' (2024-04-02)
+• Added input 'niri-flake/crate2nix/pre-commit-hooks':
+    'github:cachix/pre-commit-hooks.nix/e35aed5fda3cc79f88ed7f1795021e559582093a' (2024-04-02)
+• Added input 'niri-flake/crate2nix/pre-commit-hooks/flake-compat':
+    follows 'niri-flake/crate2nix/flake-compat'
+• Added input 'niri-flake/crate2nix/pre-commit-hooks/flake-utils':
+    'github:numtide/flake-utils/b1d9ab70662946ef0850d488da1c9019f3a9752a' (2024-03-11)
+• Added input 'niri-flake/crate2nix/pre-commit-hooks/flake-utils/systems':
+    'github:nix-systems/default/da67096a3b9bf56a91d16901293e51ba5b49a27e' (2023-04-09)
+• Added input 'niri-flake/crate2nix/pre-commit-hooks/gitignore':
+    'github:hercules-ci/gitignore.nix/637db329424fd7e46cf4185293b9cc8c88c95394' (2024-02-28)
+• Added input 'niri-flake/crate2nix/pre-commit-hooks/gitignore/nixpkgs':
+    follows 'niri-flake/crate2nix/pre-commit-hooks/nixpkgs'
+• Added input 'niri-flake/crate2nix/pre-commit-hooks/nixpkgs':
+    follows 'niri-flake/crate2nix/nixpkgs'
+• Added input 'niri-flake/crate2nix/pre-commit-hooks/nixpkgs-stable':
+    follows 'niri-flake/crate2nix/nixpkgs'
+• Added input 'niri-flake/flake-parts':
+    'github:hercules-ci/flake-parts/2a55567fcf15b1b1c7ed712a2c6fadaec7412ea8' (2024-06-01)
+• Added input 'niri-flake/flake-parts/nixpkgs-lib':
+    'https://github.com/NixOS/nixpkgs/archive/eb9ceca17df2ea50a250b6b27f7bf6ab0186f198.tar.gz?narHash=sha256-lIbdfCsf8LMFloheeE6N31%2BBMIeixqyQWbSr2vk79EQ%3D' (2024-06-01)
+• Added input 'niri-flake/niri-stable':
+    follows 'niri'
+• Added input 'niri-flake/niri-unstable':
+    follows 'niri'
+• Added input 'niri-flake/nixpkgs':
+    follows 'nixpkgs'
+• Added input 'niri-flake/nixpkgs-stable':
+    follows 'nixpkgs'
+warning: Git tree '/home/nyx/nyx-config' is dirty
 building the system configuration...
 warning: Git tree '/home/nyx/nyx-config' is dirty
-these 16 derivations will be built:
-  /nix/store/5w5mhy6f2grk6adnbrzpgfxk3kbfc0j3-system-path.drv
-  /nix/store/aycmvlxkjni3pkq32p7bbqs12g1r07si-dbus-1.drv
-  /nix/store/hcdcvxfk7kdmsw857slxymkvg9srvc1r-system_fish-completions.drv
-  /nix/store/k5mbis4a5lqiigd2vmh88yk7vh5i3yws-X-Restart-Triggers-dbus.drv
-  /nix/store/a6damdwgwqa4a9s4g8r0bfxswvzbs4y3-unit-dbus.service.drv
-  /nix/store/vl1h4cfqazda0m704dxakwxdclzy6fjp-user-units.drv
-  /nix/store/dmvm07fyqfw3pkb9a43lydbzb3s3z2cx-X-Restart-Triggers-polkit.drv
-  /nix/store/b2331yn2mwjz65ybhldk5895ykl9cc23-unit-polkit.service.drv
-  /nix/store/hgcazj0vg6msri663lzyhyg2hvh48nag-unit-dbus.service.drv
-  /nix/store/nma349ilb1dbcjvs7ridqjdaqs4lahc7-unit-accounts-daemon.service.drv
-  /nix/store/vz83n97kq1hgkaicp7nb9hb2f3yg7jf8-system-units.drv
-  /nix/store/q6wc1ad20b0qj2dr75dzq4n0f1dzrgg8-man-paths.drv
-  /nix/store/917iqd2sw9ffg3jwnn87dbg3j5rwx8mj-man-cache.drv
-  /nix/store/yik7alg6v6i6n1asgb8m03dvil59gwwx-etc-man_db.conf.drv
-  /nix/store/54r1z7a7wxyj1y9nh9fpf097svaxl6i4-etc.drv
-  /nix/store/6kd8jcxb3yivriqd2jkjridakcx6hhx5-nixos-system-bottom-24.11.20240618.c00d587.drv
-building '/nix/store/5w5mhy6f2grk6adnbrzpgfxk3kbfc0j3-system-path.drv'...
-building '/nix/store/hcdcvxfk7kdmsw857slxymkvg9srvc1r-system_fish-completions.drv'...
-building '/nix/store/q6wc1ad20b0qj2dr75dzq4n0f1dzrgg8-man-paths.drv'...
-building '/nix/store/917iqd2sw9ffg3jwnn87dbg3j5rwx8mj-man-cache.drv'...
-building '/nix/store/dmvm07fyqfw3pkb9a43lydbzb3s3z2cx-X-Restart-Triggers-polkit.drv'...
-building '/nix/store/aycmvlxkjni3pkq32p7bbqs12g1r07si-dbus-1.drv'...
-building '/nix/store/nma349ilb1dbcjvs7ridqjdaqs4lahc7-unit-accounts-daemon.service.drv'...
-building '/nix/store/k5mbis4a5lqiigd2vmh88yk7vh5i3yws-X-Restart-Triggers-dbus.drv'...
-building '/nix/store/b2331yn2mwjz65ybhldk5895ykl9cc23-unit-polkit.service.drv'...
-building '/nix/store/a6damdwgwqa4a9s4g8r0bfxswvzbs4y3-unit-dbus.service.drv'...
-building '/nix/store/hgcazj0vg6msri663lzyhyg2hvh48nag-unit-dbus.service.drv'...
-building '/nix/store/vl1h4cfqazda0m704dxakwxdclzy6fjp-user-units.drv'...
-building '/nix/store/vz83n97kq1hgkaicp7nb9hb2f3yg7jf8-system-units.drv'...
-building '/nix/store/yik7alg6v6i6n1asgb8m03dvil59gwwx-etc-man_db.conf.drv'...
-building '/nix/store/54r1z7a7wxyj1y9nh9fpf097svaxl6i4-etc.drv'...
-building '/nix/store/6kd8jcxb3yivriqd2jkjridakcx6hhx5-nixos-system-bottom-24.11.20240618.c00d587.drv'...
-stopping the following units: accounts-daemon.service
 activating the configuration...
 setting up /etc...
 reloading user units for nyx...
 restarting sysinit-reactivation.target
-reloading the following units: dbus.service
-restarting the following units: polkit.service
-starting the following units: accounts-daemon.service
 the following new units were started: sysinit-reactivation.target, systemd-tmpfiles-resetup.service
