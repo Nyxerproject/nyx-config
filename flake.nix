@@ -49,12 +49,12 @@
     # config.allowUnfree = true;
     # hostPlatform.config = "x86_64-unknown-linux-gnu";
     # };
-    # pkgsmndvlknlyrs = import pkgs-mndvlknlyrs {
-    # config.allowUnfree = true;
-    # hostPlatform.config = "x86_64-unknown-linux-gnu";
-    # config.cudaSupport = true;
-    # config.cudaVersion = "12";
-    # };
+    pkgsmndvlknlyrs = import pkgs-mndvlknlyrs {
+      config.allowUnfree = true;
+      hostPlatform.config = "x86_64-unknown-linux-gnu";
+      # config.cudaSupport = true;
+      # config.cudaVersion = "12";
+    };
   in {
     nixosConfigurations = {
       bottom = nixpkgs.lib.nixosSystem {
@@ -78,6 +78,7 @@
         ];
         specialArgs = {
           # inherit inputs outputs pkgs pkgsmndvlknlyrs;
+          inherit inputs pkgsmndvlknlyrs;
         };
       };
     };
