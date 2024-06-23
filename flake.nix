@@ -69,7 +69,6 @@
           # ./hosts/common/desktop/gaming.nix
           # ./hosts/common/desktop
           # ./hosts/common/desktop/mullvad.nix
-          nixpkgs-xr.nixosModules.nixpkgs-xr
           home-manager.nixosModules.home-manager
           {
             home-manager = {
