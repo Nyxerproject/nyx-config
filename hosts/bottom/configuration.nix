@@ -3,10 +3,11 @@
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 {
   config,
-  pkgs,
   inputs,
   envision,
-  system,
+  pkgsmndvlknlyrs,
+  system ? builtins.currentSystem,
+  pkgs ? import <nixpkgs> {inherit system;},
   ...
 }: {
   imports = [
@@ -110,10 +111,17 @@
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
+  # hardware.graphics = {
+  # enable = true;
+  # enable32Bit = true;
+  # extraPackages = [pkgsmndvlknlyrs.monado-vulkan-layers];
+  # };
+
   hardware.opengl = {
     enable = true;
     driSupport = true;
     driSupport32Bit = true;
+    extraPackages = [pkgsmndvlknlyrs.monado-vulkan-layers];
   };
 
   services.xserver.videoDrivers = ["nvidia"];

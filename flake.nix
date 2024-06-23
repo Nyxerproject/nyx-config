@@ -44,14 +44,19 @@
     pkgs-mndvlknlyrs,
     ...
   } @ inputs: let
+    # overlay = final: prev: {
+    # inherit (pkgs-mndvlknlyrs.legacyPackages.${prev.system})
+    # monado-vulkan-layers;
+    # };
     # inherit (self) outputs;
     # pkgs = import nixpkgs {
-    # config.allowUnfree = true;
-    # hostPlatform.config = "x86_64-unknown-linux-gnu";
+    # system = "x86_64-linux";
+    # overlays = [ overlay ];
     # };
     pkgsmndvlknlyrs = import pkgs-mndvlknlyrs {
       config.allowUnfree = true;
-      hostPlatform.config = "x86_64-unknown-linux-gnu";
+      system = "x86_64-linux";
+      # hostPlatform.config = "x86_64-unknown-linux-gnu";
       # config.cudaSupport = true;
       # config.cudaVersion = "12";
     };
@@ -77,7 +82,6 @@
           }
         ];
         specialArgs = {
-          # inherit inputs outputs pkgs pkgsmndvlknlyrs;
           inherit inputs pkgsmndvlknlyrs;
         };
       };
