@@ -44,6 +44,7 @@
     opencomposite
     wlx-overlay-s
     libsurvive
+    xrgears
   ];
   # };
 }
