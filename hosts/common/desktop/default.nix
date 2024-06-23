@@ -4,6 +4,7 @@
     ./gaming.nix
     ./mullvad.nix
   ];
+
   environment.systemPackages = with pkgs; [
     qpwgraph
     webcord
@@ -11,14 +12,15 @@
     tdesktop
     wl-clipboard
   ];
+
   fonts = {
     packages = with pkgs; [
+      hack-font
       noto-fonts-cjk-sans
       fira
       monocraft
       fira-code
       roboto
-      hack-font
     ];
 
     enableDefaultPackages = true;

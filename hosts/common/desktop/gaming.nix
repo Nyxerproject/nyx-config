@@ -1,14 +1,10 @@
 {
   config,
-  inputs,
   pkgs,
   ...
 }: {
   environment.systemPackages = with pkgs; [
-    #dolphin-emu
-    #prismlauncher
     r2modman
-    #ryujinx
     steam-run
     protontricks
   ];
@@ -16,7 +12,7 @@
   hardware.steam-hardware.enable = true;
   programs.steam = {
     enable = true;
-    # localNetworkGameTransfers.openFirewall = true;
+    localNetworkGameTransfers.openFirewall = true;
     remotePlay.openFirewall = true;
 
     extraCompatPackages = with pkgs; [

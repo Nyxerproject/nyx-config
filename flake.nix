@@ -56,9 +56,6 @@
     pkgsmndvlknlyrs = import pkgs-mndvlknlyrs {
       config.allowUnfree = true;
       system = "x86_64-linux";
-      # hostPlatform.config = "x86_64-unknown-linux-gnu";
-      # config.cudaSupport = true;
-      # config.cudaVersion = "12";
     };
   in {
     nixosConfigurations = {
@@ -66,17 +63,12 @@
         system = "x86_64-linux";
         modules = [
           ./hosts/bottom
-          # ./hosts/common/desktop/gaming.nix
-          # ./hosts/common/desktop
-          # ./hosts/common/desktop/mullvad.nix
           home-manager.nixosModules.home-manager
           {
             home-manager = {
               useGlobalPkgs = true;
               useUserPackages = true;
-              users.nyx =
-                import
-                ./home/nyx/bottom.nix;
+              users.nyx = import ./home/nyx/bottom.nix;
             };
           }
         ];
