@@ -18,31 +18,31 @@
   imports = [
     # ./envision.nix
   ];
-  config = {
-    # nixpkgs.xr.enableUnstripped = true;
+  # config = {
+  # nixpkgs.xr.enableUnstripped = true;
 
-    #boot.extraModulePackages = mkIf cfg.enableHighPrioKernelPatch [
-    # (amdgpu-kernel-module.overrideAttrs (prev: {
-    # patches = (prev.patches or []) ++ [inputs.scrumpkgs.kernelPatches.cap_sys_nice_begone.patch];
-    # }))
-    # ];
+  #boot.extraModulePackages = mkIf cfg.enableHighPrioKernelPatch [
+  # (amdgpu-kernel-module.overrideAttrs (prev: {
+  # patches = (prev.patches or []) ++ [inputs.scrumpkgs.kernelPatches.cap_sys_nice_begone.patch];
+  # }))
+  # ];
 
-    systemd.user.services.monado.environment = {
-      STEAMVR_LH_ENABLE = "1";
-      XRT_COMPOSITOR_COMPUTE = "1";
-      WMR_HANDTRACKING = "0";
-    };
-
-    services.monado = {
-      enable = true;
-      defaultRuntime = false;
-    };
-
-    environment.systemPackages = with pkgs; [
-      index_camera_passthrough
-      opencomposite-helper
-      opencomposite
-      wlx-overlay-s
-    ];
+  systemd.user.services.monado.environment = {
+    STEAMVR_LH_ENABLE = "1";
+    XRT_COMPOSITOR_COMPUTE = "1";
+    WMR_HANDTRACKING = "0";
   };
+
+  services.monado = {
+    enable = true;
+    defaultRuntime = true;
+  };
+
+  environment.systemPackages = with pkgs; [
+    index_camera_passthrough
+    opencomposite-helper
+    opencomposite
+    wlx-overlay-s
+  ];
+  # };
 }
