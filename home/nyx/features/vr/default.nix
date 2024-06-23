@@ -29,7 +29,8 @@
       ],
       "runtime" :
       [
-        "${pkgs.opencomposite}/lib/opencomposite"
+        "${pkgs.opencomposite}/lib/opencomposite",
+        "/home/nyx/.local/share/Steam/steamapps/common/SteamVR"
       ],
       "version" : 1
     }

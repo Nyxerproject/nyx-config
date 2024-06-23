@@ -35,7 +35,7 @@
 
     services.monado = {
       enable = true;
-      defaultRuntime = true;
+      defaultRuntime = false;
     };
 
     environment.systemPackages = with pkgs; [
