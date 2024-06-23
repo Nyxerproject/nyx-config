@@ -43,6 +43,7 @@
     opencomposite-helper
     opencomposite
     wlx-overlay-s
+    libsurvive
   ];
   # };
 }
