@@ -28,7 +28,7 @@
   # ];
 
   systemd.user.services.monado.environment = {
-    STEAMVR_LH_ENABLE = "0";
+    STEAMVR_LH_ENABLE = "1";
     XRT_COMPOSITOR_COMPUTE = "1";
     WMR_HANDTRACKING = "0";
     XRT_HAVE_STEAM = "YES";
