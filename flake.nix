@@ -30,17 +30,32 @@
       url = "gitlab:Scrumplex/envision/nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    pkgs-mndvlknlyrs.url = "github:Scrumplex/nixpkgs/nixos/monado/vulkan-layers"; # TODO: remove when merged
   };
 
   outputs = {
     self,
     nixpkgs,
+    systems,
     home-manager,
     nixpkgs-xr,
     flake-utils,
     envision,
+    pkgs-mndvlknlyrs,
     ...
-  } @ inputs: {
+  } @ inputs: let
+    # inherit (self) outputs;
+    # pkgs = import nixpkgs {
+    # config.allowUnfree = true;
+    # hostPlatform.config = "x86_64-unknown-linux-gnu";
+    # };
+    # pkgsmndvlknlyrs = import pkgs-mndvlknlyrs {
+    # config.allowUnfree = true;
+    # hostPlatform.config = "x86_64-unknown-linux-gnu";
+    # config.cudaSupport = true;
+    # config.cudaVersion = "12";
+    # };
+  in {
     nixosConfigurations = {
       bottom = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
@@ -61,6 +76,9 @@
             };
           }
         ];
+        specialArgs = {
+          # inherit inputs outputs pkgs pkgsmndvlknlyrs;
+        };
       };
     };
   };
