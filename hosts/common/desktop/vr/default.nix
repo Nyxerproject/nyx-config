@@ -8,7 +8,7 @@
   ];
 
   config = {
-    nixpkgs.xr.enableUnstripped = true;
+    # nixpkgs.xr.enableUnstripped = true;
 
     # environment.variables = {
     # systemd.user.services.monado.environment = {
