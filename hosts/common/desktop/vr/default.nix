@@ -10,8 +10,8 @@
   config = {
     nixpkgs.xr.enableUnstripped = true;
 
-    # environment.variables = {
-    systemd.user.services.monado.environment = {
+    environment.variables = {
+      # systemd.user.services.monado.environment = {
       STEAMVR_LH_ENABLE = "1";
       XRT_COMPOSITOR_COMPUTE = "1";
       WMR_HANDTRACKING = "0";
