@@ -3,9 +3,9 @@
   pkgs,
   ...
 }: {
-  imports = [
-    inputs.nixpkgs-xr.nixosModules.nixpkgs-xr
-  ];
+  # imports = [
+  # inputs.nixpkgs-xr.nixosModules.nixpkgs-xr
+  # ];
 
   config = {
     # nixpkgs.xr.enableUnstripped = true;
@@ -18,6 +18,7 @@
     # XRT_HAVE_STEAM = "YES";
     # };
     systemd.user.services.monado.environment = {
+      WMR_HANDTRACKING = "0";
       STEAMVR_LH_ENABLE = "1";
       XRT_COMPOSITOR_COMPUTE = "1";
     };
@@ -28,8 +29,8 @@
     };
 
     environment.systemPackages = with pkgs; [
-      index_camera_passthrough
-      opencomposite-helper
+      # index_camera_passthrough
+      # opencomposite-helper
       opencomposite
       wlx-overlay-s
       libsurvive
