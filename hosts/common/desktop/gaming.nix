@@ -1,5 +1,6 @@
 {
   config,
+  lib,
   pkgs,
   ...
 }: {
@@ -8,23 +9,33 @@
     steam-run
     protontricks
   ];
-
   programs.steam = {
     enable = true;
-    localNetworkGameTransfers.openFirewall = true;
     remotePlay.openFirewall = true;
-
-    # extraCompatPackages = with pkgs; [
-    # proton-ge-bin
-    # (proton-ge-bin.overrideAttrs (finalAttrs: _: {
-    # version = "GE-Proton9-4-rtsp7";
-    # src = pkgs.fetchzip {
-    # url = "https://github.com/SpookySkeletons/proton-ge-rtsp/releases/download/${finalAttrs.version}/${finalAttrs.version}.tar.gz";
-    # hash = "sha256-l/zt/Kv6g1ZrAzcxDNENByHfUp/fce3jOHVAORc5oy0=";
-    # };
-    # }))
-    # ];
+    dedicatedServer.openFirewall = false;
+    localNetworkGameTransfers.openFirewall = true;
+    extraCompatPackages = with pkgs; [
+      proton-ge-bin
+    ];
   };
+  programs.gamemode.enable = true;
+  nixpkgs.config.allowUnfreePredicate = pkg:
+    builtins.elem (lib.getName pkg) [
+      "steam"
+      "steam-original"
+      "steam-runtime"
+    ];
+
+  # extraCompatPackages = with pkgs; [
+  # proton-ge-bin
+  # (proton-ge-bin.overrideAttrs (finalAttrs: _: {
+  # version = "GE-Proton9-4-rtsp7";
+  # src = pkgs.fetchzip {
+  # url = "https://github.com/SpookySkeletons/proton-ge-rtsp/releases/download/${finalAttrs.version}/${finalAttrs.version}.tar.gz";
+  # hash = "sha256-l/zt/Kv6g1ZrAzcxDNENByHfUp/fce3jOHVAORc5oy0=";
+  # };
+  # }))
+  # ];
 
   # programs.gamemode = {
   # enable = true;
