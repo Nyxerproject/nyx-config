@@ -64,6 +64,7 @@
         modules = [
           ./hosts/bottom
           home-manager.nixosModules.home-manager
+          nixpkgs-xr.nixosModules.nixpkgs-xr
           {
             home-manager = {
               useGlobalPkgs = true;
