@@ -16,6 +16,23 @@
     localNetworkGameTransfers.openFirewall = true;
     extraCompatPackages = with pkgs; [
       proton-ge-bin
+      # proton-ge-bin_11
+      # (proton-ge-bin_11.overrideAttrs (finalAttrs: _: {
+      (proton-ge-bin.overrideAttrs (finalAttrs: _: {
+        urlVersion = "GE-Proton9-9-rtsp11";
+        version = "GE-Proton9-5-rtsp11";
+        src = pkgs.fetchzip {
+          url = "https://github.com/SpookySkeletons/proton-ge-rtsp/releases/download/${finalAttrs.urlVersion}/${finalAttrs.version}.tar.gz";
+          hash = "sha256-NMG/rJBeUTOawGUuMmBqanQuNjrjjpKg5oZkjE/ikJU=";
+        };
+      }))
+      (proton-ge-bin.overrideAttrs (finalAttrs: _: {
+        version = "GE-Proton9-4-rtsp7";
+        src = pkgs.fetchzip {
+          url = "https://github.com/SpookySkeletons/proton-ge-rtsp/releases/download/${finalAttrs.version}/${finalAttrs.version}.tar.gz";
+          hash = "sha256-l/zt/Kv6g1ZrAzcxDNENByHfUp/fce3jOHVAORc5oy0=";
+        };
+      }))
     ];
   };
   programs.gamemode.enable = true;
