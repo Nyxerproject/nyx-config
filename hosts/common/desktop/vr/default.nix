@@ -24,6 +24,7 @@
     WMR_HANDTRACKING = "0";
   };
 
+  #environment.sessionVariables = {
   environment.variables = {
     LIBMONADO_PATH = "${pkgs.monado}";
   };
