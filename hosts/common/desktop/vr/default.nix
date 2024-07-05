@@ -26,7 +26,7 @@
 
   #environment.sessionVariables = {
   environment.variables = {
-    LIBMONADO_PATH = "${pkgs.monado}";
+    LIBMONADO_PATH = "${pkgs.monado}/lib/";
   };
   services.monado = {
     enable = true;
