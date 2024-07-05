@@ -17,12 +17,16 @@
   # WMR_HANDTRACKING = "0";
   # XRT_HAVE_STEAM = "YES";
   # };
+  # environment.variables = {
   systemd.user.services.monado.environment = {
     STEAMVR_LH_ENABLE = "1";
     XRT_COMPOSITOR_COMPUTE = "1";
     WMR_HANDTRACKING = "0";
   };
 
+  environment.variables = {
+    LIBMONADO_PATH = "${pkgs.monado}";
+  };
   services.monado = {
     enable = true;
     defaultRuntime = true;
