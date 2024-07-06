@@ -49,6 +49,8 @@
       config.allowUnfree = true;
       inherit system;
     };
+    # nixpkgs-xr = final: prev: {
+    # };
     # nixpkgs-xr-overlay = final: prev: {
     #   default.monado = prev.monado.overrideAttrs {
     #     src = prev.fetchFromGitLab {
@@ -61,9 +63,10 @@
     #   };
     # };
     # pkgs = nixpkgs.legacyPackages.${system};
+    # pkgs = nixpkgs.legacyPackages.${system};
     # pkgs = import nixpkgs {
     #  inherit system;
-    # overlays = [nixpkgs-xr-overlay];
+    #  overlays = [nixpkgs-xr-overlay];
     #};
   in {
     nixosConfigurations = {
