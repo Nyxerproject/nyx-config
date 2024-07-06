@@ -28,14 +28,14 @@
   environment.variables = {
     LIBMONADO_PATH = "${pkgs.monado}/lib/libmonado.so";
   };
+
   services.monado = {
     enable = true;
     defaultRuntime = true;
   };
 
   environment.systemPackages = with pkgs; [
-    # index_camera_passthrough
-    # opencomposite-helper
+    index_camera_passthrough
     opencomposite
     wlx-overlay-s
     libsurvive
