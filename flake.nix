@@ -44,23 +44,32 @@
     pkgs-mndvlknlyrs,
     ...
   } @ inputs: let
-    # overlay = final: prev: {
-    # inherit (pkgs-mndvlknlyrs.legacyPackages.${prev.system})
-    # monado-vulkan-layers;
-    # };
-    # inherit (self) outputs;
-    # pkgs = import nixpkgs {
-    # system = "x86_64-linux";
-    # overlays = [ overlay ];
-    # };
+    system = "x86_64-linux";
     pkgsmndvlknlyrs = import pkgs-mndvlknlyrs {
       config.allowUnfree = true;
-      system = "x86_64-linux";
+      inherit system;
     };
+    # nixpkgs-xr-overlay = final: prev: {
+    #   default.monado = prev.monado.overrideAttrs {
+    #     src = prev.fetchFromGitLab {
+    #       domain = "gitlab:freedesktop.org";
+    #       owner = "monado";
+    #       repo = "monado";
+    #       rev = "557dfa8bf14f75faa185af278e621c1e468b6cde";
+    #       hash = "sha256-LcKdj0fI1462UswyRojfb2awtbKUPPlJohIOJUSNYA0=";
+    #     };
+    #   };
+    # };
+    # pkgs = nixpkgs.legacyPackages.${system};
+    # pkgs = import nixpkgs {
+    #  inherit system;
+    # overlays = [nixpkgs-xr-overlay];
+    #};
   in {
     nixosConfigurations = {
       bottom = nixpkgs.lib.nixosSystem {
-        system = "x86_64-linux";
+        inherit system;
+        # inherit pkgs;
         modules = [
           ./hosts/bottom
           home-manager.nixosModules.home-manager
@@ -77,6 +86,9 @@
           inherit inputs pkgsmndvlknlyrs;
         };
       };
+    };
+    nixConfig = {
+      experimental-features = ["nix-command" "flakes"];
     };
   };
 }

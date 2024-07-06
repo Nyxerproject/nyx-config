@@ -3,7 +3,7 @@
   inputs,
   pkgsmndvlknlyrs,
   system ? builtins.currentSystem,
-  pkgs ? import <nixpkgs> {inherit system;},
+  pkgs,
   ...
 }: {
   imports = [
