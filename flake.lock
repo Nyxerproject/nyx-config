@@ -950,15 +950,15 @@
         ]
       },
       "locked": {
-        "lastModified": 1720059781,
-        "narHash": "sha256-bP4RWcXtBEVce9M1VpI44r4K5CEY7L2lyuukdiTRe5I=",
-        "owner": "nix-community",
+        "lastModified": 1720243608,
+        "narHash": "sha256-R5cOgjDkYK9eGNQwaqoODoGaCWC5qMxdk+JRWSEh6X4=",
+        "owner": "nyxerproject",
         "repo": "nixpkgs-xr",
-        "rev": "957d452b2e78d306276aaac986abebeef417fefa",
+        "rev": "066eb3e4667fdfa35b3d4d7e41107bf530a8dc04",
         "type": "github"
       },
       "original": {
-        "owner": "nix-community",
+        "owner": "nyxerproject",
         "repo": "nixpkgs-xr",
         "type": "github"
       }

@@ -12,7 +12,7 @@
       url = "github:numtide/flake-utils";
     };
     nixpkgs-xr = {
-      url = "github:nix-community/nixpkgs-xr";
+      url = "github:nyxerproject/nixpkgs-xr";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     niri = {
