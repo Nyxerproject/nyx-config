@@ -76,6 +76,7 @@
       vulkan-tools
       wayland-utils
       corectrl
+      pavucontrol
 
       # system call monitoring
       strace # system call monitoring
