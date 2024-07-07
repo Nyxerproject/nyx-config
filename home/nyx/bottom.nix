@@ -75,7 +75,6 @@
       bottom # cpu monitoring
       vulkan-tools
       wayland-utils
-      corectrl
       pavucontrol
 
       # system call monitoring

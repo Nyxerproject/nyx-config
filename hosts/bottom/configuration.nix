@@ -197,6 +197,7 @@ in {
     alacritty
     wget
     git
+    corectrl
 
     # nixos stuff
     alejandra
