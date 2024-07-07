@@ -191,6 +191,7 @@ in {
   # };
 
   # List packages installed in system profile. To search, run:
+  services.tailscale.enable = true;
   # $ nix search wget
   environment.systemPackages = with pkgs; [
     zlib
