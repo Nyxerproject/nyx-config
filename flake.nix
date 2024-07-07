@@ -76,7 +76,11 @@
         modules = [
           ./hosts/bottom
           home-manager.nixosModules.home-manager
-          nixpkgs-xr.nixosModules.nixpkgs-xr
+          # nixpkgs-xr.nixosModules.nixpkgs-xr
+          {
+            nixpkgs.overlays = [nixpkgs-xr.overlays.default];
+          }
+
           {
             home-manager = {
               useGlobalPkgs = true;
