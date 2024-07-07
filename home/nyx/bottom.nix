@@ -75,7 +75,9 @@
       bottom # cpu monitoring
       vulkan-tools
       wayland-utils
-      pavucontrol
+      pwvucontrol
+      helvum
+      coppwr
 
       # system call monitoring
       strace # system call monitoring
