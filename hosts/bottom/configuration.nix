@@ -215,9 +215,11 @@
     vimAlias = true;
   };
 
-  environment.variables.EDITOR = "lvim";
+  # environment.variables.EDITOR = "lvim";
   environment.sessionVariables = {
     FLAKE = "/home/nyx/nyx-config";
+    EDITOR = "lvim";
+    MOZ_ENABLE_WAYLAND = 0;
   };
 
   # List services that you want to enable:
