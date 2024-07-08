@@ -101,9 +101,9 @@ in {
 
   # Enable the X11 windowing system.
   services = {
-    # services.desktopManager.plasma6.enable = true;
+    desktopManager.plasma6.enable = true;
     xserver = {
-      desktopManager.plasma5.enable = true;
+      # desktopManager.plasma5.enable = true;
       enable = true;
       xkb = {
         # Configure keymap in X11
