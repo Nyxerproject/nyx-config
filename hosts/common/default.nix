@@ -1,5 +1,5 @@
 {
   imports = [
-    # ./scripts.nix
+    ./scripts.nix
   ];
 }
