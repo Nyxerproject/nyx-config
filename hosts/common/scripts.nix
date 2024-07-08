@@ -37,5 +37,15 @@
         # Notify all OK!
         notify-send -e "NixOS Rebuilt OK!" --icon=software-update-available
       '';
-  in [nyx-rebuild];
+    yippee =
+      pkgs.writers.writeBashBin "nyx-rebuild" {}
+      /*
+      bash
+      */
+      ''
+        monado-service
+        sleep 20
+        wlx-overlay --openxr --replace
+      '';
+  in [nyx-rebuild yippee];
 }
