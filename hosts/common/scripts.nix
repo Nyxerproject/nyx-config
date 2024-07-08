@@ -43,7 +43,7 @@
       bash
       */
       ''
-        exec monado-service
+        monado-service &
         sleep 20
         wlx-overlay --openxr --replace
       '';
