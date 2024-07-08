@@ -76,11 +76,7 @@
         modules = [
           ./hosts/bottom
           home-manager.nixosModules.home-manager
-          # nixpkgs-xr.nixosModules.nixpkgs-xr
-          {
-            nixpkgs.overlays = [nixpkgs-xr.overlays.default];
-          }
-
+          nixpkgs-xr.nixosModules.nixpkgs-xr
           {
             home-manager = {
               useGlobalPkgs = true;
@@ -90,7 +86,7 @@
           }
         ];
         specialArgs = {
-          inherit inputs pkgsmndvlknlyrs;
+          inherit pkgsmndvlknlyrs;
         };
       };
     };
