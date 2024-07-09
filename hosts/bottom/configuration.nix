@@ -66,6 +66,7 @@
   hardware.bluetooth.enable = true;
   services.blueman.enable = true;
   zramSwap.enable = true;
+  zramSwap.memoryPercent = 200;
 
   boot.extraModprobeConfig = ''
     # Fix Nintendo Switch Pro Controller disconnects
@@ -214,6 +215,7 @@
     viAlias = true;
     vimAlias = true;
   };
+  # programs.envision.enable = true;
 
   # environment.variables.EDITOR = "lvim";
   environment.sessionVariables = {
