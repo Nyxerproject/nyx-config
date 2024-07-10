@@ -26,29 +26,20 @@
       inputs.niri-unstable.follows = "niri";
       inputs.niri-stable.follows = "niri";
     };
-    envision = {
-      url = "gitlab:Scrumplex/envision/nix";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
     pkgs-mndvlknlyrs.url = "github:Scrumplex/nixpkgs/nixos/monado/vulkan-layers"; # TODO: remove when merged
   };
 
   outputs = {
     self,
     nixpkgs,
-    systems,
-    home-manager,
-    nixpkgs-xr,
-    flake-utils,
-    envision,
-    pkgs-mndvlknlyrs,
     ...
   } @ inputs: let
     system = "x86_64-linux";
-    pkgsmndvlknlyrs = import pkgs-mndvlknlyrs {
+    pkgsmndvlknlyrs = import inputs.pkgs-mndvlknlyrs {
       config.allowUnfree = true;
       inherit system;
     };
+  in {
     # nixpkgs-xr = final: prev: {
     # };
     # nixpkgs-xr-overlay = final: prev: {
@@ -68,15 +59,15 @@
     #  inherit system;
     #  overlays = [nixpkgs-xr-overlay];
     #};
-  in {
+    # in {
     nixosConfigurations = {
       bottom = nixpkgs.lib.nixosSystem {
         inherit system;
         # inherit pkgs;
         modules = [
           ./hosts/bottom
-          home-manager.nixosModules.home-manager
-          nixpkgs-xr.nixosModules.nixpkgs-xr
+          inputs.nixpkgs-xr.nixosModules.nixpkgs-xr
+          inputs.home-manager.nixosModules.home-manager
           {
             home-manager = {
               useGlobalPkgs = true;
