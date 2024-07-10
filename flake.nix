@@ -8,9 +8,6 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    flake-utils = {
-      url = "github:numtide/flake-utils";
-    };
     nixpkgs-xr = {
       url = "github:nyxerproject/nixpkgs-xr";
       inputs.nixpkgs.follows = "nixpkgs";
