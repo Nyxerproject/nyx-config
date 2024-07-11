@@ -19,6 +19,7 @@
   # };
   # systemd.user.services.monado.environment = {
   environment.variables = {
+    LH_DEFAULT_BRIGHTNESS = 1;
     STEAMVR_LH_ENABLE = "1";
     XRT_COMPOSITOR_COMPUTE = "1";
     WMR_HANDTRACKING = "0";

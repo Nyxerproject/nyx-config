@@ -2,7 +2,7 @@
   config,
   inputs,
   system,
-  pkgsmndvlknlyrs,
+  monadoVulkanLayer,
   pkgs,
   ...
 }:
@@ -153,7 +153,7 @@
   hardware.opengl = {
     enable = true;
     driSupport32Bit = true;
-    extraPackages = [pkgsmndvlknlyrs.monado-vulkan-layers];
+    extraPackages = [monadoVulkanLayer.monado-vulkan-layers];
   };
 
   services.xserver.videoDrivers = ["nvidia"];

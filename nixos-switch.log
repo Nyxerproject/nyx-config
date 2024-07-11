@@ -1,9 +1,14 @@
 warning: Git tree '/home/nyx/nyx-config' is dirty
+warning: updating lock file '/home/nyx/nyx-config/flake.lock':
+• Added input 'monadoVulkanLayer':
+    'github:Scrumplex/nixpkgs/99549054367787f11e9a118770a354d6dbb5a831' (2024-06-30)
+• Removed input 'pkgsmndvlknlyrs'
+warning: Git tree '/home/nyx/nyx-config' is dirty
 building the system configuration...
 warning: Git tree '/home/nyx/nyx-config' is dirty
-trace: warning: The option `hardware.opengl.extraPackages' defined in `/nix/store/gjbdbj12g4yizxk03rzkj74l063hj5hk-source/hosts/bottom/configuration.nix' has been renamed to `hardware.graphics.extraPackages'.
-trace: warning: The option `hardware.opengl.driSupport32Bit' defined in `/nix/store/gjbdbj12g4yizxk03rzkj74l063hj5hk-source/hosts/bottom/configuration.nix' has been renamed to `hardware.graphics.enable32Bit'.
-trace: warning: The option `hardware.opengl.enable' defined in `/nix/store/gjbdbj12g4yizxk03rzkj74l063hj5hk-source/hosts/bottom/configuration.nix' has been renamed to `hardware.graphics.enable'.
+trace: warning: The option `hardware.opengl.extraPackages' defined in `/nix/store/rvkdm2gi03fphb11xb90359bsq256rw6-source/hosts/bottom/configuration.nix' has been renamed to `hardware.graphics.extraPackages'.
+trace: warning: The option `hardware.opengl.driSupport32Bit' defined in `/nix/store/rvkdm2gi03fphb11xb90359bsq256rw6-source/hosts/bottom/configuration.nix' has been renamed to `hardware.graphics.enable32Bit'.
+trace: warning: The option `hardware.opengl.enable' defined in `/nix/store/rvkdm2gi03fphb11xb90359bsq256rw6-source/hosts/bottom/configuration.nix' has been renamed to `hardware.graphics.enable'.
 activating the configuration...
 setting up /etc...
 reloading user units for nyx...

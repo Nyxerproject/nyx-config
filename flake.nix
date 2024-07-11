@@ -23,7 +23,7 @@
       inputs.niri-unstable.follows = "niri";
       inputs.niri-stable.follows = "niri";
     };
-    pkgsmndvlknlyrs.url = "github:Scrumplex/nixpkgs/nixos/monado/vulkan-layers"; # TODO: remove when merged
+    monadoVulkanLayer.url = "github:Scrumplex/nixpkgs/nixos/monado/vulkan-layers"; # TODO: remove when merged
   };
 
   outputs = {
@@ -32,7 +32,7 @@
     ...
   } @ inputs: let
     system = "x86_64-linux";
-    pkgsmndvlknlyrs = import inputs.pkgsmndvlknlyrs {
+    monadoVulkanLayer = import inputs.monadoVulkanLayer {
       config.allowUnfree = true;
       inherit system;
     };
@@ -73,7 +73,7 @@
           }
         ];
         specialArgs = {
-          inherit pkgsmndvlknlyrs;
+          inherit monadoVulkanLayer;
           inherit inputs;
         };
       };
