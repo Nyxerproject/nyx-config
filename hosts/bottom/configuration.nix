@@ -5,57 +5,12 @@
   monadoVulkanLayer,
   pkgs,
   ...
-}:
-# let
-#   nyx-rebuild =
-#     pkgs.writers.writeBashBin "nyx-rebuild" {}
-#     /*
-#     bash
-#     */
-#     ''
-#       #!/usr/bin/env bash
-#       # A rebuild script that commits on a successful build
-#       set -e
-#       # Edit your config
-#       $EDITOR ~/nyx-config/
-#       # cd to your config dir
-#       pushd ~/nyx-config/
-#       # Early return if no changes were detected (thanks @singiamtel!)
-#       #if git diff --cached --quiet HEAD -- '*.nix'; then
-#       if git diff --quiet HEAD -- '*.nix'; then
-#           echo "No changes detected, exiting."
-#           popd
-#           exit 0
-#       fi
-#       # Autoformat your nix files
-#       alejandra . &>/dev/null \
-#         || ( alejandra . ; echo "formatting failed!" && exit 1)
-#       # Shows your changes
-#       git diff -U0 '*.nix'
-#       echo "NixOS Rebuilding..."
-#       # Rebuild, output simplified errors, log trackebacks
-#       sudo nixos-rebuild switch --flake .#bottom &>nixos-switch.log || (cat nixos-switch.log | grep --color error && exit 1)
-#       # Get current generation metadata
-#       current=$(nixos-rebuild list-generations | grep current)
-#       # Commit all changes witih the generation metadata
-#       git commit -am "$current"
-#       # Back to where you were
-#       popd
-#       # Notify all OK!
-#       notify-send -e "NixOS Rebuilt OK!" --icon=software-update-available
-#     '';
-# in
-{
+}: {
   imports = [
     ./hardware-configuration.nix
     ../common/desktop
     ../common
   ];
-
-  # Bootloader.
-  boot.loader.systemd-boot.enable = true;
-  boot.loader.efi.canTouchEfiVariables = true;
-  boot.kernelPackages = pkgs.linuxKernel.packages.linux_zen;
 
   # Enable networking
   networking = {
@@ -63,8 +18,14 @@
     hostName = "bottom"; # Define your hostname.
   };
 
+  # Bootloader.
+  boot.loader.systemd-boot.enable = true;
+  boot.loader.efi.canTouchEfiVariables = true;
+  boot.kernelPackages = pkgs.linuxKernel.packages.linux_zen;
+
   hardware.bluetooth.enable = true;
   services.blueman.enable = true;
+
   zramSwap.enable = true;
   zramSwap.memoryPercent = 200;
 
@@ -215,9 +176,8 @@
     viAlias = true;
     vimAlias = true;
   };
-  # programs.envision.enable = true;
+  programs.envision.enable = true;
 
-  # environment.variables.EDITOR = "lvim";
   environment.sessionVariables = {
     FLAKE = "/home/nyx/nyx-config";
     EDITOR = "lvim";
@@ -225,17 +185,9 @@
   };
 
   # List services that you want to enable:
-
-  # Enable the OpenSSH daemon.
   services.openssh.enable = true;
 
-  # This value determines the NixOS release from which the default
-  # settings for stateful data, like file locations and database versions
-  # on your system were taken. It‘s perfectly fine and recommended to leave
-  # this value at the release version of the first install of this system.
-  # Before changing this value read the documentation for this option
-  # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
-  system.stateVersion = "23.11"; # Did you read the comment?
+  system.stateVersion = "23.11"; #DONT TOUCH!
 
   nix.settings.experimental-features = ["nix-command" "flakes"];
 }
