@@ -1,8 +1,8 @@
 {
   config,
   inputs,
-  pkgsmndvlknlyrs,
   system,
+  pkgsmndvlknlyrs,
   pkgs,
   ...
 }:

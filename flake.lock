@@ -975,7 +975,7 @@
         "type": "github"
       }
     },
-    "pkgs-mndvlknlyrs": {
+    "pkgsmndvlknlyrs": {
       "locked": {
         "lastModified": 1719775014,
         "narHash": "sha256-NR6Ff3N3yFBpPYJH0Lsng/KbyP1sEzMNhgm30hj8udQ=",
@@ -1108,7 +1108,7 @@
         "nixos-hardware": "nixos-hardware",
         "nixpkgs": "nixpkgs_7",
         "nixpkgs-xr": "nixpkgs-xr",
-        "pkgs-mndvlknlyrs": "pkgs-mndvlknlyrs"
+        "pkgsmndvlknlyrs": "pkgsmndvlknlyrs"
       }
     },
     "rust-analyzer-src": {

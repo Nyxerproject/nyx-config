@@ -1,14 +1,11 @@
 warning: Git tree '/home/nyx/nyx-config' is dirty
-warning: updating lock file '/home/nyx/nyx-config/flake.lock':
-• Removed input 'flake-utils'
-• Removed input 'flake-utils/systems'
-warning: Git tree '/home/nyx/nyx-config' is dirty
 building the system configuration...
 warning: Git tree '/home/nyx/nyx-config' is dirty
-trace: warning: The option `hardware.opengl.extraPackages' defined in `/nix/store/16wk0zfnzk1vbimprcyzsy3ywhq2h7dx-source/hosts/bottom/configuration.nix' has been renamed to `hardware.graphics.extraPackages'.
-trace: warning: The option `hardware.opengl.driSupport32Bit' defined in `/nix/store/16wk0zfnzk1vbimprcyzsy3ywhq2h7dx-source/hosts/bottom/configuration.nix' has been renamed to `hardware.graphics.enable32Bit'.
-trace: warning: The option `hardware.opengl.enable' defined in `/nix/store/16wk0zfnzk1vbimprcyzsy3ywhq2h7dx-source/hosts/bottom/configuration.nix' has been renamed to `hardware.graphics.enable'.
+trace: warning: The option `hardware.opengl.extraPackages' defined in `/nix/store/gjbdbj12g4yizxk03rzkj74l063hj5hk-source/hosts/bottom/configuration.nix' has been renamed to `hardware.graphics.extraPackages'.
+trace: warning: The option `hardware.opengl.driSupport32Bit' defined in `/nix/store/gjbdbj12g4yizxk03rzkj74l063hj5hk-source/hosts/bottom/configuration.nix' has been renamed to `hardware.graphics.enable32Bit'.
+trace: warning: The option `hardware.opengl.enable' defined in `/nix/store/gjbdbj12g4yizxk03rzkj74l063hj5hk-source/hosts/bottom/configuration.nix' has been renamed to `hardware.graphics.enable'.
 activating the configuration...
 setting up /etc...
 reloading user units for nyx...
 restarting sysinit-reactivation.target
+the following new units were started: sysinit-reactivation.target, systemd-tmpfiles-resetup.service

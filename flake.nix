@@ -23,7 +23,7 @@
       inputs.niri-unstable.follows = "niri";
       inputs.niri-stable.follows = "niri";
     };
-    pkgs-mndvlknlyrs.url = "github:Scrumplex/nixpkgs/nixos/monado/vulkan-layers"; # TODO: remove when merged
+    pkgsmndvlknlyrs.url = "github:Scrumplex/nixpkgs/nixos/monado/vulkan-layers"; # TODO: remove when merged
   };
 
   outputs = {
@@ -32,7 +32,7 @@
     ...
   } @ inputs: let
     system = "x86_64-linux";
-    pkgsmndvlknlyrs = import inputs.pkgs-mndvlknlyrs {
+    pkgsmndvlknlyrs = import inputs.pkgsmndvlknlyrs {
       config.allowUnfree = true;
       inherit system;
     };
@@ -60,7 +60,6 @@
     nixosConfigurations = {
       bottom = nixpkgs.lib.nixosSystem {
         inherit system;
-        # inherit pkgs;
         modules = [
           ./hosts/bottom
           inputs.nixpkgs-xr.nixosModules.nixpkgs-xr
@@ -75,6 +74,7 @@
         ];
         specialArgs = {
           inherit pkgsmndvlknlyrs;
+          inherit inputs;
         };
       };
     };
