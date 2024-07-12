@@ -1,20 +1,11 @@
 warning: Git tree '/home/nyx/nyx-config' is dirty
-warning: updating lock file '/home/nyx/nyx-config/flake.lock':
-• Added input 'kiara':
-    'github:StardustXR/kiara/7daaa0a2e3822d949e6c4abf93af159eae9a544a' (2024-07-07)
-• Added input 'kiara/crane':
-    'github:ipetkov/crane/220387ac8e99cbee0ca4c95b621c4bc782b6a235' (2024-04-09)
-• Added input 'kiara/crane/nixpkgs':
-    follows 'kiara/nixpkgs'
-• Added input 'kiara/nixpkgs':
-    follows 'nixpkgs'
-warning: Git tree '/home/nyx/nyx-config' is dirty
 building the system configuration...
 warning: Git tree '/home/nyx/nyx-config' is dirty
-trace: warning: The option `hardware.opengl.extraPackages' defined in `/nix/store/3wzq0z085fv769ildc3ihvqryflymvi3-source/hosts/bottom/configuration.nix' has been renamed to `hardware.graphics.extraPackages'.
-trace: warning: The option `hardware.opengl.driSupport32Bit' defined in `/nix/store/3wzq0z085fv769ildc3ihvqryflymvi3-source/hosts/bottom/configuration.nix' has been renamed to `hardware.graphics.enable32Bit'.
-trace: warning: The option `hardware.opengl.enable' defined in `/nix/store/3wzq0z085fv769ildc3ihvqryflymvi3-source/hosts/bottom/configuration.nix' has been renamed to `hardware.graphics.enable'.
+stopping the following units: accounts-daemon.service, systemd-tmpfiles-resetup.service
 activating the configuration...
 setting up /etc...
 reloading user units for nyx...
 restarting sysinit-reactivation.target
+reloading the following units: dbus.service
+restarting the following units: polkit.service
+starting the following units: accounts-daemon.service, systemd-tmpfiles-resetup.service
