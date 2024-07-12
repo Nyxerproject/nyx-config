@@ -105,6 +105,27 @@
     "crane": {
       "inputs": {
         "nixpkgs": [
+          "kiara",
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1712681629,
+        "narHash": "sha256-bMDXn4AkTXLCpoZbII6pDGoSeSe9gI87jxPsHRXgu/E=",
+        "owner": "ipetkov",
+        "repo": "crane",
+        "rev": "220387ac8e99cbee0ca4c95b621c4bc782b6a235",
+        "type": "github"
+      },
+      "original": {
+        "owner": "ipetkov",
+        "repo": "crane",
+        "type": "github"
+      }
+    },
+    "crane_2": {
+      "inputs": {
+        "nixpkgs": [
           "niri",
           "nixpkgs"
         ]
@@ -701,6 +722,27 @@
         "type": "github"
       }
     },
+    "kiara": {
+      "inputs": {
+        "crane": "crane",
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1720323073,
+        "narHash": "sha256-5j83e2kcCStPgbwAkr3OFjOpJIErXAPJ6z06BlmtuHE=",
+        "owner": "StardustXR",
+        "repo": "kiara",
+        "rev": "7daaa0a2e3822d949e6c4abf93af159eae9a544a",
+        "type": "github"
+      },
+      "original": {
+        "owner": "StardustXR",
+        "repo": "kiara",
+        "type": "github"
+      }
+    },
     "monadoVulkanLayer": {
       "locked": {
         "lastModified": 1719775014,
@@ -719,7 +761,7 @@
     },
     "niri": {
       "inputs": {
-        "crane": "crane",
+        "crane": "crane_2",
         "fenix": "fenix",
         "flake-utils": "flake-utils",
         "nix-filter": "nix-filter",
@@ -1103,6 +1145,7 @@
     "root": {
       "inputs": {
         "home-manager": "home-manager",
+        "kiara": "kiara",
         "monadoVulkanLayer": "monadoVulkanLayer",
         "niri": "niri",
         "niri-flake": "niri-flake",

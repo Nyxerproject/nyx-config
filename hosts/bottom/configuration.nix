@@ -55,7 +55,6 @@
   services = {
     desktopManager.plasma6.enable = true;
     xserver = {
-      # desktopManager.plasma5.enable = true;
       enable = true;
       xkb = {
         # Configure keymap in X11
@@ -110,7 +109,6 @@
   # enable32Bit = true;
   # extraPackages = [pkgsmndvlknlyrs.monado-vulkan-layers];
   # };
-
   hardware.opengl = {
     enable = true;
     driSupport32Bit = true;
