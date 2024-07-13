@@ -110,11 +110,11 @@
   # enable32Bit = true;
   # extraPackages = [pkgsmndvlknlyrs.monado-vulkan-layers];
   # };
-  # hardware.opengl = {
-  #   enable = true;
-  #   driSupport32Bit = true;
-  #   extraPackages = [monadoVulkanLayer.monado-vulkan-layers];
-  # };
+  hardware.opengl = {
+    enable = true;
+    driSupport32Bit = true;
+    extraPackages = [monadoVulkanLayer.monado-vulkan-layers];
+  };
 
   services.xserver.videoDrivers = ["nvidia"];
 
