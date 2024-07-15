@@ -1,14 +1,10 @@
 warning: Git tree '/home/nyx/nyx-config' is dirty
 building the system configuration...
 warning: Git tree '/home/nyx/nyx-config' is dirty
-trace: warning: The option `hardware.opengl.extraPackages' defined in `/nix/store/j3viiwf31ma5xghqsnhd896576nl6sgb-source/hosts/bottom/configuration.nix' has been renamed to `hardware.graphics.extraPackages'.
-trace: warning: The option `hardware.opengl.driSupport32Bit' defined in `/nix/store/j3viiwf31ma5xghqsnhd896576nl6sgb-source/hosts/bottom/configuration.nix' has been renamed to `hardware.graphics.enable32Bit'.
-trace: warning: The option `hardware.opengl.enable' defined in `/nix/store/j3viiwf31ma5xghqsnhd896576nl6sgb-source/hosts/bottom/configuration.nix' has been renamed to `hardware.graphics.enable'.
-stopping the following units: accounts-daemon.service, systemd-tmpfiles-resetup.service
+trace: warning: The option `hardware.opengl.extraPackages' defined in `/nix/store/62jdbr3kmrgvpz1z5k3bmdxfgrxffb4v-source/hosts/bottom/configuration.nix' has been renamed to `hardware.graphics.extraPackages'.
+trace: warning: The option `hardware.opengl.driSupport32Bit' defined in `/nix/store/62jdbr3kmrgvpz1z5k3bmdxfgrxffb4v-source/hosts/bottom/configuration.nix' has been renamed to `hardware.graphics.enable32Bit'.
+trace: warning: The option `hardware.opengl.enable' defined in `/nix/store/62jdbr3kmrgvpz1z5k3bmdxfgrxffb4v-source/hosts/bottom/configuration.nix' has been renamed to `hardware.graphics.enable'.
 activating the configuration...
 setting up /etc...
 reloading user units for nyx...
 restarting sysinit-reactivation.target
-reloading the following units: dbus.service
-restarting the following units: polkit.service
-starting the following units: accounts-daemon.service, systemd-tmpfiles-resetup.service
