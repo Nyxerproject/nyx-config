@@ -19,8 +19,9 @@
       (proton-ge-bin.overrideAttrs (finalAttrs: _: {
         version = "GE-Proton9-10-rtsp12";
         src = pkgs.fetchzip {
-          url = "https://github.com/SpookySkeletons/proton-ge-rtsp/releases/download/${finalAttrs.version}/${finalAttrs.version}.tar.gz";
-          hash = "sha256-NMG/rJBeUTOawGUuMmBqanQuNjrjjpKg5oZkjE/ikJU=";
+          # url = "https://github.com/SpookySkeletons/proton-ge-rtsp/releases/download/${finalAttrs.version}/${finalAttrs.version}.tar.gz";
+          url = "https://github.com/SpookySkeletons/proton-ge-rtsp/releases/download/GE-Proton9-10-rtsp12/GE-Proton9-10-rtsp12.tar.gz";
+          hash = "sha256-aHKOKhaOs1v+LwJdtQMDblcd5Oee9GzLC8SLYPA9jQQ=";
         };
       }))
       (proton-ge-bin.overrideAttrs (finalAttrs: _: {
