@@ -8,6 +8,9 @@
 }: {
   imports = [
     ./hardware-configuration.nix
+    ../common/desktop/vr
+    ../common/desktop/gaming.nix
+    ../common/desktop/mullvad.nix
     ../common/desktop
     ../common
     # ./graphics.nix
@@ -68,9 +71,11 @@
       sddm.wayland.enable = true;
       #lemurs.enable = true;
     };
-    # Enable CUPS to print documents.
+    autoLogin.enable = true;
+    autoLogin.user = "nyx";
     printing.enable = true;
   };
+
 
   # Enable sound with pipewire.
   services.pipewire = {
@@ -93,11 +98,8 @@
       firefox
       htop
     ];
+    hashedPassword = "$y$j9T$d2moNWhXMPaPXQQlBS9J7/$uQKwf.Y0xRKzbaOZCFybnrUeqB3HAnUiuzL17wA7/P3";
   };
-
-  # Enable automatic login for the user.
-  services.displayManager.autoLogin.enable = true;
-  services.displayManager.autoLogin.user = "nyx";
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
@@ -126,21 +128,8 @@
     package = config.boot.kernelPackages.nvidiaPackages.stable;
   };
 
-  # this should get moved
-  # nyx-rebuild = pkgs.writeShellScriptBin "nyx-rebuild" /* bash */ ''
-  # nyx-rebuild = pkgs.writers.writeBashBin "nyx-rebuild"  /* bash */ ''
-  # pkgs.writeShellApplication {
-  #   name = "nyx-rebuild";
-  #   text =
-  #     /*
-  #     bash
-  #     */
-  #     ''
-  # };
-
   # List packages installed in system profile. To search, run:
   services.tailscale.enable = true;
-  # $ nix search wget
   environment.systemPackages = with pkgs; [
     zlib
     lunarvim

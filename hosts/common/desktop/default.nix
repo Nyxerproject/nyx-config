@@ -1,8 +1,8 @@
 {pkgs, ...}: {
   imports = [
-    ./vr
-    ./gaming.nix
-    ./mullvad.nix
+    # ./vr
+    # ./gaming.nix
+    # ./mullvad.nix
   ];
 
   environment.systemPackages = with pkgs; [
