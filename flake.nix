@@ -38,10 +38,10 @@
     };
 
     sops-nix.url = "github:Mic92/sops-nix";
-   
+
     stylix.url = "github:danth/stylix";
 
-    nix-index-database = { 
+    nix-index-database = {
       url = "github:nix-community/nix-index-database";
       inputs.nixpkgs.follows = "nixpkgs";
     };
@@ -83,7 +83,7 @@
         modules = [
           ./hosts/down
           inputs.niri-flake.nixosModules.niri
-          ({pkgs, ...} : { programs.niri.enable = true;})
+          ({pkgs, ...}: {programs.niri.enable = true;})
           inputs.disko.nixosModules.disko
         ];
       };

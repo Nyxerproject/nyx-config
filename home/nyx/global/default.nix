@@ -5,10 +5,11 @@
 }: {
   home = {
     stateVersion = "24.05";
-    packages = with pkgs; [ # Packages that should be installed to the user profile.
+    packages = with pkgs; [
+      # Packages that should be installed to the user profile.
       # here is some command line tools I use frequently
       yazi # terminal file manager
-      
+
       # archives
       zip
       xz
@@ -86,8 +87,9 @@
     ];
   };
 
-  programs = { 
-    alacritty = { # TODO create alacritty nix file (or better yet options like in the vimjoyer)
+  programs = {
+    alacritty = {
+      # TODO create alacritty nix file (or better yet options like in the vimjoyer)
       settings = {
         env.TERM = "xterm-256color";
         font.size = 12;

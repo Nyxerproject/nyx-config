@@ -55,39 +55,23 @@
     };
   };
 
-  # Enable the X11 windowing system.
   services = {
     desktopManager.plasma6.enable = true;
-    xserver = {
-      enable = true;
-      xkb = {
-        # Configure keymap in X11
-        layout = "us";
-        variant = "";
-      };
-    };
+    xserver.enable = true;
     displayManager = {
       defaultSession = "plasma";
       sddm.wayland.enable = true;
-      #lemurs.enable = true;
+      autoLogin.enable = true;
+      autoLogin.user = "nyx";
     };
-    autoLogin.enable = true;
-    autoLogin.user = "nyx";
     printing.enable = true;
-  };
-
-
-  # Enable sound with pipewire.
-  services.pipewire = {
-    enable = true;
-    alsa.enable = true;
-    alsa.support32Bit = true;
-    pulse.enable = true;
-    jack.enable = true; # If you want to use JACK applications, uncomment this
-
-    # use the example session manager (no others are packaged yet so this is enabled by default,
-    # no need to redefine it in your config for now)
-    #media-session.enable = true;
+    pipewire = {
+      enable = true;
+      alsa.enable = true;
+      alsa.support32Bit = true;
+      pulse.enable = true;
+      jack.enable = true;
+    };
   };
 
   users.users.nyx = {
@@ -96,19 +80,12 @@
     extraGroups = ["networkmanager" "wheel"];
     packages = with pkgs; [
       firefox
-      htop
     ];
     hashedPassword = "$y$j9T$d2moNWhXMPaPXQQlBS9J7/$uQKwf.Y0xRKzbaOZCFybnrUeqB3HAnUiuzL17wA7/P3";
   };
 
-  # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
-  # hardware.graphics = {
-  # enable = true;
-  # enable32Bit = true;
-  # extraPackages = [pkgsmndvlknlyrs.monado-vulkan-layers];
-  # };
   hardware.opengl = {
     enable = true;
     driSupport32Bit = true;
@@ -131,28 +108,9 @@
   # List packages installed in system profile. To search, run:
   services.tailscale.enable = true;
   environment.systemPackages = with pkgs; [
-    zlib
-    lunarvim
     alacritty
-    wget
-    git
     corectrl
-
-    # nixos stuff
-    alejandra
-    nix-output-monitor
-    nh
-    nvd
-    comma
-    nix-health
   ];
-  # Some programs need SUID wrappers, can be configured further or are
-  # started in user sessions.
-  # programs.mtr.enable = true;
-  # programs.gnupg.agent = {
-  #   enable = true;
-  #   enableSSHSupport = true;
-  # };
 
   programs.fish.enable = true;
   programs.neovim = {
@@ -169,10 +127,9 @@
     MOZ_ENABLE_WAYLAND = 0;
   };
 
-  # List services that you want to enable:
   services.openssh.enable = true;
 
-  system.stateVersion = "23.11"; #DONT TOUCH!
+  system.stateVersion = "24.05"; #DONT TOUCH!
 
   nix.settings.experimental-features = ["nix-command" "flakes"];
 }

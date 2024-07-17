@@ -1,5 +1,9 @@
-{ config, lib, pkgs, ... }:
 {
+  config,
+  lib,
+  pkgs,
+  ...
+}: {
   imports = [
     ./hardware-configuration.nix
     ./disko-config.nix
@@ -8,7 +12,7 @@
   ];
 
   # filesystems, disks, and bootloading
-  boot.loader.grub = { 
+  boot.loader.grub = {
     enable = true;
     efiSupport = true;
     efiInstallAsRemovable = true;
@@ -31,18 +35,22 @@
   time.timeZone = "America/Chicago";
   i18n.defaultLocale = "en_US.UTF-8";
 
-  services = { # services and background things
-    xserver = { # display things
+  services = {
+    # services and background things
+    xserver = {
+      # display things
       enable = true;
     };
     displayManager = {
+      autoLogin.enable = true;
       autoLogin.user = "nyx"; # login things
     };
     printing.enable = true; # printing
     openssh.enable = true; # networking things
     tailscale.enable = true;
 
-    pipewire = { # sound stuff
+    pipewire = {
+      # sound stuff
       enable = true;
       alsa.enable = true;
       alsa.support32Bit = true;
@@ -51,30 +59,45 @@
     };
   };
 
-  # bloat?
-  #security.rtkit.enable = true;
-
-  users.users.nyx = { # TODO move to seporate nix file (module?)
+  users.users.nyx = {
+    # TODO move to seporate nix file (module?)
     isNormalUser = true;
-    extraGroups = [ "networkmanager" "wheel" ];
+    extraGroups = ["networkmanager" "wheel"];
     packages = with pkgs; [
       firefox
     ];
     hashedPassword = "$y$j9T$d2moNWhXMPaPXQQlBS9J7/$uQKwf.Y0xRKzbaOZCFybnrUeqB3HAnUiuzL17wA7/P3";
   };
 
-  environment.systemPackages = with pkgs; [ # TODO creat
-    neovim
-    lunarvim
-    niri
-    git
-    wget
-    alacritty
-    rio
-    fuzzel
-  ];
+  environment = {
+    systemPackages = with pkgs; [
+      # TODO creat
+      neovim
+      lunarvim
+      niri
+      git
+      wget
+      alacritty
+      rio
+      fuzzel
+    ];
+    sessionVariables = {
+      FLAKE = "/home/nyx/nyx-config";
+      EDITOR = "lvim";
+    };
+  };
 
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+  programs = {
+    fish.enable = true;
+    neovim = {
+      enable = true;
+      defaultEditor = true;
+      viAlias = true;
+      vimAlias = true;
+    };
+  };
+
+  nix.settings.experimental-features = ["nix-command" "flakes"];
 
   system.stateVersion = "24.05";
 }
