@@ -87,6 +87,31 @@
           inputs.niri-flake.nixosModules.niri
           ({pkgs, ...}: {programs.niri.enable = true;})
           inputs.disko.nixosModules.disko
+          inputs.home-manager.nixosModules.home-manager
+          {
+            home-manager = {
+              useGlobalPkgs = true;
+              useUserPackages = true;
+              users.nyx = import ./home/nyx/down.nix;
+            };
+          }
+        ];
+      };
+      muon = nixpkgs.lib.nixosSystem {
+        inherit system;
+        modules = [
+          ./hosts/muon
+          inputs.niri-flake.nixosModules.niri
+          ({pkgs, ...}: {programs.niri.enable = true;})
+          inputs.disko.nixosModules.disko
+          inputs.home-manager.nixosModules.home-manager
+          {
+            home-manager = {
+              useGlobalPkgs = true;
+              useUserPackages = true;
+              users.nyx = import ./home/nyx/muon.nix;
+            };
+          }
         ];
       };
     };
