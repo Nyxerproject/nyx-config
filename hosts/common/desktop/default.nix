@@ -8,6 +8,7 @@
   environment.systemPackages = with pkgs; [
     qpwgraph
     webcord
+    element-desktop
     element-desktop-wayland
     tdesktop
     wl-clipboard
