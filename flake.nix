@@ -16,7 +16,7 @@
     };
 
     nixpkgs-xr = {
-      url = "github:nyxerproject/nixpkgs-xr";
+      url = "github:nix-community/nixpkgs-xr";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
