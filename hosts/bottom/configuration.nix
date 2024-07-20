@@ -124,7 +124,7 @@
   environment.sessionVariables = {
     FLAKE = "/home/nyx/nyx-config";
     EDITOR = "lvim";
-    MOZ_ENABLE_WAYLAND = 0;
+    MOZ_ENABLE_WAYLAND = 0; # TODO move to firefox.nix
   };
 
   services.openssh.enable = true;

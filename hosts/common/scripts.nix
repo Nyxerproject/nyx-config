@@ -7,11 +7,8 @@
       */
       ''
         #!/usr/bin/env bash
-        # A rebuild script that commits on a successful build
-        set -e
-        # Edit your config
-        $EDITOR ~/nyx-config/
-        # cd to your config dir
+        set -e # Edit your config
+        $EDITOR ~/nyx-config/ # cd to your config dir
         pushd ~/nyx-config/
         # Early return if no changes were detected (thanks @singiamtel!)
         #if git diff --cached --quiet HEAD -- '*.nix'; then
@@ -37,16 +34,5 @@
         # Notify all OK!
         notify-send -e "NixOS Rebuilt OK!" --icon=software-update-available
       '';
-
-    yippee =
-      pkgs.writers.writeBashBin "yippee" {}
-      /*
-      bash
-      */
-      ''
-        monado-service &
-        sleep 20
-        wlx-overlay --openxr --replace
-      '';
-  in [nyx-rebuild yippee];
+  in [nyx-rebuild];
 }
