@@ -11,5 +11,8 @@
     wl-clipboard
     # audio
     qpwgraph
+
+    # tools
+    gparted
   ];
 }
