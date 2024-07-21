@@ -1,7 +1,5 @@
 {
   config,
-  inputs,
-  system,
   monadoVulkanLayer,
   pkgs,
   ...
@@ -27,32 +25,17 @@
   boot.loader.efi.canTouchEfiVariables = true;
   boot.kernelPackages = pkgs.linuxKernel.packages.linux_zen;
 
-  hardware.bluetooth.enable = true;
-  services.blueman.enable = true;
-
   zramSwap.enable = true;
   zramSwap.memoryPercent = 200;
 
-  boot.extraModprobeConfig = ''
-    # Fix Nintendo Switch Pro Controller disconnects
-    options bluetooth disable_ertm=1
-  '';
-
-  time.timeZone = "America/Chicago";
-
-  i18n = {
-    defaultLocale = "en_US.UTF-8";
-    extraLocaleSettings = {
-      LC_ADDRESS = "en_US.UTF-8";
-      LC_IDENTIFICATION = "en_US.UTF-8";
-      LC_MEASUREMENT = "en_US.UTF-8";
-      LC_MONETARY = "en_US.UTF-8";
-      LC_NAME = "en_US.UTF-8";
-      LC_NUMERIC = "en_US.UTF-8";
-      LC_PAPER = "en_US.UTF-8";
-      LC_TELEPHONE = "en_US.UTF-8";
-      LC_TIME = "en_US.UTF-8";
-    };
+  users.users.nyx = {
+    isNormalUser = true;
+    description = "nyx";
+    extraGroups = ["networkmanager" "wheel"];
+    packages = with pkgs; [
+      firefox
+    ];
+    hashedPassword = "$y$j9T$d2moNWhXMPaPXQQlBS9J7/$uQKwf.Y0xRKzbaOZCFybnrUeqB3HAnUiuzL17wA7/P3";
   };
 
   services = {
@@ -74,25 +57,15 @@
     };
   };
 
-  users.users.nyx = {
-    isNormalUser = true;
-    description = "nyx";
-    extraGroups = ["networkmanager" "wheel"];
-    packages = with pkgs; [
-      firefox
-    ];
-    hashedPassword = "$y$j9T$d2moNWhXMPaPXQQlBS9J7/$uQKwf.Y0xRKzbaOZCFybnrUeqB3HAnUiuzL17wA7/P3";
-  };
-
-  nixpkgs.config.allowUnfree = true;
+  services.openssh.enable = true;
+  services.tailscale.enable = true;
+  services.xserver.videoDrivers = ["nvidia"];
 
   hardware.opengl = {
     enable = true;
     driSupport32Bit = true;
     extraPackages = [monadoVulkanLayer.monado-vulkan-layers];
   };
-
-  services.xserver.videoDrivers = ["nvidia"];
 
   hardware.nvidia = {
     modesetting.enable = true;
@@ -105,8 +78,6 @@
     package = config.boot.kernelPackages.nvidiaPackages.stable;
   };
 
-  # List packages installed in system profile. To search, run:
-  services.tailscale.enable = true;
   environment.systemPackages = with pkgs; [
     alacritty
     corectrl
@@ -127,9 +98,8 @@
     MOZ_ENABLE_WAYLAND = 0; # TODO move to firefox.nix
   };
 
-  services.openssh.enable = true;
+  nixpkgs.config.allowUnfree = true;
+  nix.settings.experimental-features = ["nix-command" "flakes"];
 
   system.stateVersion = "24.05"; #DONT TOUCH!
-
-  nix.settings.experimental-features = ["nix-command" "flakes"];
 }

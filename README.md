@@ -42,7 +42,6 @@ Its not much but its mine. Feel free to take a look and open any issues/pull req
  - manix
  - comma
  - nix-health
- - 
  - sddm theme
  - stylix
 

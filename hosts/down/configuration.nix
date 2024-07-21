@@ -1,5 +1,4 @@
 {
-  config,
   lib,
   pkgs,
   ...
@@ -17,12 +16,8 @@
     efiSupport = true;
     efiInstallAsRemovable = true;
     device = "/dev/disk/by-id/nvme-WDC_PC_SN730_SDBPNTY-512G-1006_20204F801215_1";
-    # device = disko.devices.disk.main.devices; # or something like that. idk, im bad at nix
+    # TODO fix and remove this. disko should automatically set this
   };
-
-  # hardware.enableRedistributableFirmware = lib.mkDefault true;
-  # hardware stuff # TODO move hardware to seporate nix file
-  hardware.bluetooth.enable = true; # this can prob be removed with the addition of an applet
 
   # networking
   networking = {
@@ -31,26 +26,36 @@
     firewall.enable = true;
   };
 
-  # localization # TODO move to seporate nix file
-  time.timeZone = "America/Chicago";
-  i18n.defaultLocale = "en_US.UTF-8";
-
+  # services and background things
   services = {
-    # services and background things
+    # display things
     xserver = {
-      # display things
       enable = true;
     };
     displayManager = {
-      autoLogin.enable = true;
       autoLogin.user = "nyx"; # login things
+      sddm = {
+        enable = true;
+        wayland.enable = true;
+        sugarCandyNix = {
+          enable = true; # set SDDM's theme to "sddm-sugar-candy-nix".
+          settings = {
+            Background = lib.cleanSource ../common/theme/backgrounds/background.png;
+            ScreenWidth = 1920;
+            ScreenHeight = 1080;
+            FormPosition = "left";
+            HaveFormBackground = true;
+            PartialBlur = true;
+          };
+        };
+      };
     };
     printing.enable = true; # printing
     openssh.enable = true; # networking things
     tailscale.enable = true;
 
+    # sound stuff
     pipewire = {
-      # sound stuff
       enable = true;
       alsa.enable = true;
       alsa.support32Bit = true;
@@ -63,9 +68,6 @@
     # TODO move to seporate nix file (module?)
     isNormalUser = true;
     extraGroups = ["networkmanager" "wheel"];
-    packages = with pkgs; [
-      firefox
-    ];
     hashedPassword = "$y$j9T$d2moNWhXMPaPXQQlBS9J7/$uQKwf.Y0xRKzbaOZCFybnrUeqB3HAnUiuzL17wA7/P3";
   };
 
@@ -90,14 +92,13 @@
   programs = {
     fish.enable = true;
     neovim = {
+      # TODO remove with nixvim update
       enable = true;
       defaultEditor = true;
       viAlias = true;
       vimAlias = true;
     };
   };
-
-  nix.settings.experimental-features = ["nix-command" "flakes"];
 
   system.stateVersion = "24.05";
 }

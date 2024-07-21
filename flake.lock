@@ -1005,11 +1005,11 @@
         "xwayland-satellite": "xwayland-satellite"
       },
       "locked": {
-        "lastModified": 1721437515,
-        "narHash": "sha256-ntQgt6lMJcDbpm9WIvKI2cNIA4uWfDIFZ4BxyVrLxJM=",
+        "lastModified": 1721500757,
+        "narHash": "sha256-Vm2weI4w/viQ/WfF1Ffkz7zx4pUSP7AVWu0Evt82q50=",
         "owner": "sodiboo",
         "repo": "niri-flake",
-        "rev": "03f12378e6586af2ad310b83afe066a209467636",
+        "rev": "216a95a7ecbcc78dfdd13e84b3c1df22e7fc8506",
         "type": "github"
       },
       "original": {
@@ -1440,6 +1440,7 @@
         "nixos-hardware": "nixos-hardware",
         "nixpkgs": "nixpkgs_8",
         "nixpkgs-xr": "nixpkgs-xr",
+        "sddm-sugar-candy-nix": "sddm-sugar-candy-nix",
         "sops-nix": "sops-nix",
         "stylix": "stylix"
       }
@@ -1478,6 +1479,26 @@
         "type": "github"
       }
     },
+    "sddm-sugar-candy-nix": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1717241028,
+        "narHash": "sha256-GO96asMkQ1hQGBJWyxkbM9cplypqXY2Wb5TpKRMfxiE=",
+        "owner": "Zhaith-Izaliel",
+        "repo": "sddm-sugar-candy-nix",
+        "rev": "b410c02eb404db9456cce766bd3ff7944a86ccb2",
+        "type": "gitlab"
+      },
+      "original": {
+        "owner": "Zhaith-Izaliel",
+        "repo": "sddm-sugar-candy-nix",
+        "type": "gitlab"
+      }
+    },
     "sops-nix": {
       "inputs": {
         "nixpkgs": "nixpkgs_9",
@@ -1512,11 +1533,11 @@
         "nixpkgs": "nixpkgs_10"
       },
       "locked": {
-        "lastModified": 1721429336,
-        "narHash": "sha256-DTJUvI4Xkj4KC5tdq15OEUkPpk7Ebvqcz356dIT6jtY=",
+        "lastModified": 1721478802,
+        "narHash": "sha256-+WMQs0fMAmpWPsKNgIFQoKLtvS4qtTj+mC++cD1May4=",
         "owner": "danth",
         "repo": "stylix",
-        "rev": "6bbae4f85b891df2e6e48b649919420434088507",
+        "rev": "6f36b27afd7b7ac8664bb62b7b27728540972c82",
         "type": "github"
       },
       "original": {

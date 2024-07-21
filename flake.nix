@@ -43,6 +43,12 @@
 
     stylix.url = "github:danth/stylix";
 
+    sddm-sugar-candy-nix = {
+      url = "gitlab:Zhaith-Izaliel/sddm-sugar-candy-nix";
+      # Optional, by default this flake follows nixpkgs-unstable.
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     nix-index-database = {
       url = "github:nix-community/nix-index-database";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -87,12 +93,20 @@
           inputs.niri-flake.nixosModules.niri
           ({pkgs, ...}: {programs.niri.enable = true;})
           inputs.disko.nixosModules.disko
+          inputs.sddm-sugar-candy-nix.nixosModules.default
           inputs.home-manager.nixosModules.home-manager
           {
             home-manager = {
               useGlobalPkgs = true;
               useUserPackages = true;
               users.nyx = import ./home/nyx/down.nix;
+            };
+          }
+          {
+            nixpkgs = {
+              overlays = [
+                inputs.sddm-sugar-candy-nix.overlays.default
+              ];
             };
           }
         ];

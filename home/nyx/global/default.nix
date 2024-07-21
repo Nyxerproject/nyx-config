@@ -5,6 +5,8 @@
 }: {
   home = {
     stateVersion = "24.05";
+    # TODO this is a mix of cli and gui stuff. it should be broken into parts
+    # TODO cleanup
     packages = with pkgs; [
       # Packages that should be installed to the user profile.
       # here is some command line tools I use frequently
@@ -23,7 +25,6 @@
       eza # A modern replacement for ‘ls’
       lsd
       fzf # A command-line fuzzy finder
-      zoxide # TODO alias this to cd
 
       # networking tools
       #mtr # A network diagnostic tool
@@ -73,6 +74,9 @@
       helvum
       coppwr
 
+      # necessary stuff
+      firefox
+
       # system call monitoring
       strace # system call monitoring
       ltrace # library call monitoring
@@ -97,6 +101,11 @@
         selection.save_to_clipboard = true;
       };
     };
+
+    zoxide = {
+      enable = true;
+      options = ["--cmd cd"];
+    }; # TODO alias this to cd
 
     git = {
       enable = true;
