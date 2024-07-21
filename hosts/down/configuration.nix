@@ -33,6 +33,7 @@
       enable = true;
     };
     displayManager = {
+      autoLogin.enable = false;
       autoLogin.user = "nyx"; # login things
       sddm = {
         enable = true;
