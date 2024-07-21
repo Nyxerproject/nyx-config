@@ -104,6 +104,7 @@
 
     zoxide = {
       enable = true;
+      enableBashIntegration = true;
       # options = ["--cmd cd"];
     }; # TODO alias this to cd
 
