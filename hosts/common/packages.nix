@@ -5,6 +5,7 @@
     curl
     git
     htop
+    zoxide
 
     # nixos stuff
     alejandra
