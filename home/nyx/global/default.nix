@@ -102,6 +102,7 @@
       };
     };
 
+    bash.enable = true;
     zoxide = {
       enable = true;
       enableBashIntegration = true;
