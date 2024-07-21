@@ -104,7 +104,7 @@
 
     zoxide = {
       enable = true;
-      options = ["--cmd cd"];
+      # options = ["--cmd cd"];
     }; # TODO alias this to cd
 
     git = {
