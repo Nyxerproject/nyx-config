@@ -1,4 +1,8 @@
 {pkgs, ...}: {
+  imports = [
+    ../../nyx/features/alacritty
+  ];
+
   home = {
     stateVersion = "24.05";
     # TODO this is a mix of cli and gui stuff. it should be broken into parts

@@ -1,5 +1,6 @@
 {
   imports = [
+    ./niri
     ./bluetooth.nix
     ./mullvad-vpn.nix
     ./variables.nix
