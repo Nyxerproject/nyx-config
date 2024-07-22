@@ -6,24 +6,25 @@
   imports = [
     ./hardware-configuration.nix
     ./disko-config.nix
+    ../common/desktop/niri
     ../common/desktop
     ../common
   ];
-
-  # filesystems, disks, and bootloading
-  boot.loader.grub = {
-    enable = true;
-    efiSupport = true;
-    efiInstallAsRemovable = true;
-    device = "/dev/disk/by-id/nvme-WDC_PC_SN730_SDBPNTY-512G-1006_20204F801215_1";
-    # TODO fix and remove this. disko should automatically set this
-  };
 
   # networking
   networking = {
     hostName = "down";
     networkmanager.enable = true;
     firewall.enable = true;
+  };
+
+  # filesystems, disks, and bootloading
+  boot.loader.grub = {
+    enable = true;
+    efiSupport = true;
+    efiInstallAsRemovable = true;
+    # TODO fix and remove this. disko should automatically set this
+    device = "/dev/disk/by-id/nvme-WDC_PC_SN730_SDBPNTY-512G-1006_20204F801215_1";
   };
 
   # services and background things
@@ -35,33 +36,6 @@
     displayManager = {
       autoLogin.enable = false;
       autoLogin.user = "nyx"; # login things
-      sddm = {
-        enable = true;
-        wayland.enable = true;
-        sugarCandyNix = {
-          enable = true; # set SDDM's theme to "sddm-sugar-candy-nix".
-          settings = {
-            Background = lib.cleanSource ../common/theme/backgrounds/background.png;
-            ScreenWidth = 1920;
-            ScreenHeight = 1080;
-            FormPosition = "left";
-            HaveFormBackground = true;
-            PartialBlur = true;
-          };
-        };
-      };
-    };
-    printing.enable = true; # printing
-    openssh.enable = true; # networking things
-    tailscale.enable = true;
-
-    # sound stuff
-    pipewire = {
-      enable = true;
-      alsa.enable = true;
-      alsa.support32Bit = true;
-      pulse.enable = true;
-      jack.enable = true;
     };
   };
 
@@ -74,30 +48,11 @@
 
   environment = {
     systemPackages = with pkgs; [
-      # TODO creat
-      neovim
-      lunarvim
-      niri
-      git
-      wget
-      alacritty
       rio
       fuzzel
     ];
     sessionVariables = {
       FLAKE = "/home/nyx/nyx-config";
-      EDITOR = "lvim";
-    };
-  };
-
-  programs = {
-    fish.enable = true;
-    neovim = {
-      # TODO remove with nixvim update
-      enable = true;
-      defaultEditor = true;
-      viAlias = true;
-      vimAlias = true;
     };
   };
 

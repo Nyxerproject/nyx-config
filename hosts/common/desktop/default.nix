@@ -5,5 +5,7 @@
     ./variables.nix
     ./packages.nix
     ./fonts.nix
+    ./printing.nix
+    ./pipewire.nix
   ];
 }

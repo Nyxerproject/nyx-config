@@ -1,17 +1,23 @@
 warning: Git tree '/home/nyx/nyx-config' is dirty
-building the system configuration...
-warning: Git tree '/home/nyx/nyx-config' is dirty
-trace: warning: lib.cartesianProductOfSets is a deprecated alias of lib.cartesianProduct.
-these 3 derivations will be built:
-  /nix/store/xadl0ssaknq848gpnpi44y7g4z14w632-sddm.conf.drv
-  /nix/store/0xb75mszgm6r06nhjm4k2anr6kfbdni9-etc.drv
-  /nix/store/18lz6pprf845rq1p3cahlib1sak4a99s-nixos-system-down-24.11.20240719.1d9c2c9.drv
-building '/nix/store/xadl0ssaknq848gpnpi44y7g4z14w632-sddm.conf.drv'...
-building '/nix/store/0xb75mszgm6r06nhjm4k2anr6kfbdni9-etc.drv'...
-building '/nix/store/18lz6pprf845rq1p3cahlib1sak4a99s-nixos-system-down-24.11.20240719.1d9c2c9.drv'...
-updating GRUB 2 menu...
-activating the configuration...
-setting up /etc...
-reloading user units for nyx...
-restarting sysinit-reactivation.target
-the following new units were started: sysinit-reactivation.target, systemd-tmpfiles-resetup.service
+error:
+       … while calling the 'seq' builtin
+
+         at /nix/store/l6spwdi1xs20q24fqfi3xwxx0d2x9q2m-source/lib/modules.nix:334:18:
+
+          333|         options = checked options;
+          334|         config = checked (removeAttrs config [ "_module" ]);
+             |                  ^
+          335|         _module = checked (config._module);
+
+       … while evaluating a branch condition
+
+         at /nix/store/l6spwdi1xs20q24fqfi3xwxx0d2x9q2m-source/lib/modules.nix:273:9:
+
+          272|       checkUnmatched =
+          273|         if config._module.check && config._module.freeformType == null && merged.unmatchedDefns != [] then
+             |         ^
+          274|           let
+
+       (stack trace truncated; use '--show-trace' to show the full trace)
+
+       error: getting status of '/nix/store/zw4sa4wiyzrmgmhj917m4lps7y39qhvg-source/hosts/common/desktop/mullvad.nix': No such file or directory

@@ -72,6 +72,8 @@
         modules = [
           ./hosts/bottom
           inputs.nixpkgs-xr.nixosModules.nixpkgs-xr
+          inputs.niri-flake.nixosModules.niri
+          inputs.sddm-sugar-candy-nix.nixosModules.default
           inputs.home-manager.nixosModules.home-manager
           {
             home-manager = {
@@ -91,7 +93,6 @@
         modules = [
           ./hosts/down
           inputs.niri-flake.nixosModules.niri
-          ({pkgs, ...}: {programs.niri.enable = true;})
           inputs.disko.nixosModules.disko
           inputs.sddm-sugar-candy-nix.nixosModules.default
           inputs.home-manager.nixosModules.home-manager
@@ -102,13 +103,6 @@
               users.nyx = import ./home/nyx/down.nix;
             };
           }
-          {
-            nixpkgs = {
-              overlays = [
-                inputs.sddm-sugar-candy-nix.overlays.default
-              ];
-            };
-          }
         ];
       };
       muon = nixpkgs.lib.nixosSystem {
@@ -116,8 +110,8 @@
         modules = [
           ./hosts/muon
           inputs.niri-flake.nixosModules.niri
-          ({pkgs, ...}: {programs.niri.enable = true;})
           inputs.disko.nixosModules.disko
+          inputs.sddm-sugar-candy-nix.nixosModules.default
           inputs.home-manager.nixosModules.home-manager
           {
             home-manager = {

@@ -7,6 +7,8 @@
   # inputs.nixpkgs-xr.nixosModules.nixpkgs-xr
   # ];
 
+  programs.envision.enable = true;
+
   environment.variables = {
     LH_DEFAULT_BRIGHTNESS = 1;
     STEAMVR_LH_ENABLE = "1";

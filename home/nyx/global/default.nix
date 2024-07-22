@@ -1,8 +1,4 @@
-{
-  config,
-  pkgs,
-  ...
-}: {
+{pkgs, ...}: {
   home = {
     stateVersion = "24.05";
     # TODO this is a mix of cli and gui stuff. it should be broken into parts
@@ -11,6 +7,14 @@
       # Packages that should be installed to the user profile.
       # here is some command line tools I use frequently
       yazi # terminal file manager
+
+      # Instant messaging packages
+      # TODO --consider moving to home. shouldn't be on every desktop and user--
+      # TODO make sure these work well
+      webcord
+      tdesktop
+      element-desktop-wayland
+      iamb
 
       # archives
       zip
