@@ -3,11 +3,12 @@
     ./theme
     ./niri
     ./bluetooth.nix
-    ./mullvad-vpn.nix
-    ./variables.nix
-    ./packages.nix
     ./fonts.nix
-    ./printing.nix
+    ./mullvad-vpn.nix
+    ./packages.nix
     ./pipewire.nix
+    ./printing.nix
+    ./sddm.nix
+    ./variables.nix
   ];
 }
