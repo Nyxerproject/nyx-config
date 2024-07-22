@@ -1,5 +1,5 @@
 {
-  import = [
+  imports = [
     ./sddm-sugar-candy.nix
   ];
 }

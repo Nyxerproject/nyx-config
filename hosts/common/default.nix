@@ -1,5 +1,6 @@
 {
   imports = [
+    ./theme
     ./fish.nix
     ./localization.nix
     ./mullvad.nix

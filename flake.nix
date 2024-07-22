@@ -104,6 +104,10 @@
             };
           }
         ];
+        specialArgs = {
+          inherit monadoVulkanLayer;
+          inherit inputs;
+        };
       };
       muon = nixpkgs.lib.nixosSystem {
         inherit system;
