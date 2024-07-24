@@ -1,8 +1,4 @@
 {
-  lib,
-  pkgs,
-  ...
-}: {
   imports = [
     ./hardware-configuration.nix
     ./disko-config.nix
@@ -47,10 +43,6 @@
   };
 
   environment = {
-    systemPackages = with pkgs; [
-      rio
-      fuzzel
-    ];
     sessionVariables = {
       FLAKE = "/home/nyx/nyx-config";
     };

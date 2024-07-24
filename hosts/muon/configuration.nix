@@ -69,10 +69,6 @@
   };
 
   environment = {
-    systemPackages = with pkgs; [
-      rio
-      fuzzel
-    ];
     sessionVariables = {
       FLAKE = "/home/nyx/nyx-config";
     };
