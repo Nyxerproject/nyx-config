@@ -8,7 +8,7 @@
     ../../users/nyx.nix
     ./hardware-configuration.nix
     ../common/desktop/vr
-    #../common/desktop/niri
+    ../common/desktop/niri
     ../common/desktop
     ../common/desktop/gaming.nix
     ../common/zram.nix
@@ -31,7 +31,7 @@
   };
 
   services = {
-    desktopManager.plasma6.enable = true;
+    # desktopManager.plasma6.enable = true;
     xserver = {
       enable = true;
       videoDrivers = ["nvidia"];
