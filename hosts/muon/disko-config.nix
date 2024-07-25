@@ -4,7 +4,6 @@
       main = {
         type = "disk";
         device = "/dev/disk/by-id/ata-Samsung_SSD_840_EVO_250GB_S1DBNSAFA52140Y";
-        #device = "/dev/disk/by-id/ata-SAMSUNG_MZ7PD256HCGM-000H7_S1N8NSAG656577";
         content = {
           type = "gpt";
           partitions = {

@@ -26,13 +26,8 @@
 
   # services and background things
   services = {
-    # display things
     xserver = {
       enable = true;
-    };
-    displayManager = {
-      autoLogin.enable = false;
-      autoLogin.user = "nyx"; # login things
     };
   };
 

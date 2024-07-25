@@ -8,6 +8,7 @@
     ../../users/nyx.nix
     ./hardware-configuration.nix
     ../common/desktop/vr
+    ../common/desktop/niri
     ../common/desktop
     ../common/desktop/gaming.nix
     ../common/zram.nix
@@ -35,52 +36,42 @@
       enable = true;
       videoDrivers = ["nvidia"];
     };
-    displayManager = {
-      defaultSession = "plasma";
-      sddm.wayland.enable = true;
-      autoLogin.enable = true;
-      autoLogin.user = "nyx";
-    };
+    displayManager = {defaultSession = "plasma";};
     printing.enable = true;
-    pipewire = {
-      enable = true;
-      alsa.enable = true;
-      alsa.support32Bit = true;
-      pulse.enable = true;
-      jack.enable = true;
-    };
     openssh.enable = true;
     tailscale.enable = true;
   };
 
-  hardware.opengl = {
-    enable = true;
-    driSupport32Bit = true;
-    extraPackages = let
-      monadoVulkanLayer = import inputs.monadoVulkanLayer {
-        config.allowUnfree = true;
-        system = "x86_64-linux";
+  hardware = {
+    opengl = {
+      enable = true;
+      driSupport32Bit = true;
+      extraPackages = let
+        monadoVulkanLayer = import inputs.monadoVulkanLayer {
+          config.allowUnfree = true;
+          system = "x86_64-linux";
+        };
+      in [monadoVulkanLayer.monado-vulkan-layers];
+    };
+
+    nvidia = {
+      modesetting.enable = true;
+      powerManagement = {
+        enable = false;
+        finegrained = false;
       };
-    in [monadoVulkanLayer.monado-vulkan-layers];
+      open = false;
+      nvidiaSettings = true;
+      package = config.boot.kernelPackages.nvidiaPackages.stable;
+    };
   };
 
-  hardware.nvidia = {
-    modesetting.enable = true;
-    powerManagement = {
-      enable = false;
-      finegrained = false;
-    };
-    open = false;
-    nvidiaSettings = true;
-    package = config.boot.kernelPackages.nvidiaPackages.stable;
-  };
+  programs.fish.enable = true;
 
   # TODO make a seporate packages file
   environment.systemPackages = with pkgs; [
     corectrl
   ];
-
-  programs.fish.enable = true;
 
   environment.sessionVariables = {
     FLAKE = "/home/nyx/nyx-config";
