@@ -4,6 +4,7 @@
   ...
 }: {
   imports = [
+    # ./niri.nix
     ./notifications
     ./fuzzel.nix
   ];
@@ -14,7 +15,7 @@
       niri
       fuzzel # niri defaults
       alacritty # niri defaults
-      inputs.xwayland-satellite.packages.x86_64-linux.default
+      xwayland-satellite
     ];
   };
   programs.niri.enable = true;
