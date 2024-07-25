@@ -1442,7 +1442,8 @@
         "nixpkgs-xr": "nixpkgs-xr",
         "sddm-sugar-candy-nix": "sddm-sugar-candy-nix",
         "sops-nix": "sops-nix",
-        "stylix": "stylix"
+        "stylix": "stylix",
+        "xwayland-satellite": "xwayland-satellite_2"
       }
     },
     "rust-analyzer-src": {
@@ -1648,6 +1649,26 @@
       },
       "original": {
         "owner": "Supreeeme",
+        "repo": "xwayland-satellite",
+        "type": "github"
+      }
+    },
+    "xwayland-satellite_2": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1720823430,
+        "narHash": "sha256-yzsHZrxndl1L8gWAd2lnnbJpl3veyE9LoPAJ2q295Ac=",
+        "owner": "gabthebab",
+        "repo": "xwayland-satellite",
+        "rev": "4430ad17f2d4e6bab202b2d08f8c561240c3fd08",
+        "type": "github"
+      },
+      "original": {
+        "owner": "gabthebab",
         "repo": "xwayland-satellite",
         "type": "github"
       }
