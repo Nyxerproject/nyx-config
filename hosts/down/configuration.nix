@@ -1,5 +1,6 @@
 {
   imports = [
+    ../../users/nyx.nix
     ./hardware-configuration.nix
     ./disko-config.nix
     ../common/desktop/niri
@@ -33,13 +34,6 @@
       autoLogin.enable = false;
       autoLogin.user = "nyx"; # login things
     };
-  };
-
-  users.users.nyx = {
-    # TODO move to seporate nix file (module?)
-    isNormalUser = true;
-    extraGroups = ["networkmanager" "wheel"];
-    hashedPassword = "$y$j9T$d2moNWhXMPaPXQQlBS9J7/$uQKwf.Y0xRKzbaOZCFybnrUeqB3HAnUiuzL17wA7/P3";
   };
 
   environment = {

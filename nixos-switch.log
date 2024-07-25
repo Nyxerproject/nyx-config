@@ -1,8 +1,16 @@
 warning: Git tree '/home/nyx/nyx-config' is dirty
 building the system configuration...
 warning: Git tree '/home/nyx/nyx-config' is dirty
+trace: warning: lib.cartesianProductOfSets is a deprecated alias of lib.cartesianProduct.
+trace: warning: The option `hardware.opengl.extraPackages' defined in `/nix/store/skvq12sy34splg54d973icph5x5bwda1-source/hosts/bottom/configuration.nix' has been renamed to `hardware.graphics.extraPackages'.
+trace: warning: The option `hardware.opengl.driSupport32Bit' defined in `/nix/store/skvq12sy34splg54d973icph5x5bwda1-source/hosts/bottom/configuration.nix' has been renamed to `hardware.graphics.enable32Bit'.
+trace: warning: The option `hardware.opengl.enable' defined in `/nix/store/skvq12sy34splg54d973icph5x5bwda1-source/hosts/bottom/configuration.nix' has been renamed to `hardware.graphics.enable'.
+stopping the following units: accounts-daemon.service
 activating the configuration...
 setting up /etc...
 reloading user units for nyx...
 restarting sysinit-reactivation.target
+reloading the following units: dbus.service
+restarting the following units: home-manager-nyx.service, polkit.service
+starting the following units: accounts-daemon.service
 the following new units were started: sysinit-reactivation.target, systemd-tmpfiles-resetup.service

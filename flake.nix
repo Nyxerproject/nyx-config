@@ -61,10 +61,10 @@
     ...
   } @ inputs: let
     system = "x86_64-linux";
-    monadoVulkanLayer = import inputs.monadoVulkanLayer {
-      config.allowUnfree = true;
-      inherit system;
-    };
+    # monadoVulkanLayer = import inputs.monadoVulkanLayer {
+    #   config.allowUnfree = true;
+    #   inherit system;
+    # };
   in {
     nixosConfigurations = {
       bottom = nixpkgs.lib.nixosSystem {
@@ -84,7 +84,6 @@
           }
         ];
         specialArgs = {
-          inherit monadoVulkanLayer;
           inherit inputs;
         };
       };
@@ -105,7 +104,7 @@
           }
         ];
         specialArgs = {
-          inherit monadoVulkanLayer;
+          # inherit monadoVulkanLayer;
           inherit inputs;
         };
       };

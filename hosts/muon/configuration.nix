@@ -1,9 +1,6 @@
-{
-  lib,
-  pkgs,
-  ...
-}: {
+{lib, ...}: {
   imports = [
+    ../../users/nyx.nix
     ./hardware-configuration.nix
     ./disko-config.nix
     ../common/desktop/niri
@@ -59,13 +56,6 @@
       pulse.enable = true;
       jack.enable = true;
     };
-  };
-
-  # TODO move to seporate nix file (module?)
-  users.users.nyx = {
-    isNormalUser = true;
-    extraGroups = ["networkmanager" "wheel"];
-    hashedPassword = "$y$j9T$d2moNWhXMPaPXQQlBS9J7/$uQKwf.Y0xRKzbaOZCFybnrUeqB3HAnUiuzL17wA7/P3";
   };
 
   environment = {

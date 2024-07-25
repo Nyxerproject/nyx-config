@@ -1,7 +1,5 @@
 {
   config,
-  inputs,
-  lib,
   pkgs,
   ...
 }: {
@@ -29,11 +27,10 @@
       ],
       "runtime" :
       [
-        "${pkgs.opencomposite}/lib/opencomposite"
+        "${pkgs.opencomposite}/lib/opencomposite",
+        "${config.xdg.dataHome}/Steam/steamapps/common/SteamVR"
       ],
       "version" : 1
     }
   '';
-  #"${pkgs.opencomposite}/lib/opencomposite",
-  #"${config.xdg.dataHome}/Steam/steamapps/common/SteamVR"
 }

@@ -1,23 +1,23 @@
 {
   config,
-  monadoVulkanLayer,
+  inputs,
   pkgs,
   ...
 }: {
   imports = [
+    ../../users/nyx.nix
     ./hardware-configuration.nix
     ../common/desktop/vr
     ../common/desktop
     ../common/desktop/gaming.nix
     ../common/zram.nix
     ../common
-    # ./graphics.nix
   ];
 
   # Enable networking
   networking = {
     networkmanager.enable = true;
-    hostName = "bottom"; # Define your hostname.
+    hostName = "bottom";
   };
 
   # Bootloader.
@@ -29,16 +29,12 @@
     };
   };
 
-  users.users.nyx = {
-    isNormalUser = true;
-    description = "nyx";
-    extraGroups = ["networkmanager" "wheel"];
-    hashedPassword = "$y$j9T$d2moNWhXMPaPXQQlBS9J7/$uQKwf.Y0xRKzbaOZCFybnrUeqB3HAnUiuzL17wA7/P3";
-  };
-
   services = {
     desktopManager.plasma6.enable = true;
-    xserver.enable = true;
+    xserver = {
+      enable = true;
+      videoDrivers = ["nvidia"];
+    };
     displayManager = {
       defaultSession = "plasma";
       sddm.wayland.enable = true;
@@ -53,16 +49,19 @@
       pulse.enable = true;
       jack.enable = true;
     };
+    openssh.enable = true;
+    tailscale.enable = true;
   };
-
-  services.openssh.enable = true;
-  services.tailscale.enable = true;
-  services.xserver.videoDrivers = ["nvidia"];
 
   hardware.opengl = {
     enable = true;
     driSupport32Bit = true;
-    extraPackages = [monadoVulkanLayer.monado-vulkan-layers];
+    extraPackages = let
+      monadoVulkanLayer = import inputs.monadoVulkanLayer {
+        config.allowUnfree = true;
+        system = "x86_64-linux";
+      };
+    in [monadoVulkanLayer.monado-vulkan-layers];
   };
 
   hardware.nvidia = {
@@ -76,8 +75,8 @@
     package = config.boot.kernelPackages.nvidiaPackages.stable;
   };
 
+  # TODO make a seporate packages file
   environment.systemPackages = with pkgs; [
-    alacritty
     corectrl
   ];
 
