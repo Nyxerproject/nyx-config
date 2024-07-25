@@ -36,7 +36,7 @@
       enable = true;
       videoDrivers = ["nvidia"];
     };
-    displayManager = {defaultSession = "plasma";};
+    # displayManager = {defaultSession = "plasma";};
     printing.enable = true;
     openssh.enable = true;
     tailscale.enable = true;
