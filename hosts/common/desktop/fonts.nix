@@ -7,6 +7,7 @@
       monocraft
       fira-code
       roboto
+      gohufont
     ];
 
     enableDefaultPackages = true;
@@ -20,7 +21,7 @@
       cache32Bit = true;
       defaultFonts = {
         sansSerif = ["hack-font"];
-        monospace = ["hack-font"];
+        monospace = ["gohufont"];
       };
     };
   };
