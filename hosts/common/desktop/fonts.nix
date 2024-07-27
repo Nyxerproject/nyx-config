@@ -20,7 +20,8 @@
     fontconfig = {
       cache32Bit = true;
       defaultFonts = {
-        sansSerif = ["hack-font"];
+        serif = ["gohufont"];
+        sansSerif = ["gohufont"];
         monospace = ["gohufont"];
       };
     };
