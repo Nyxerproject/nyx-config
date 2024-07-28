@@ -1,4 +1,64 @@
 warning: Git tree '/home/nyx/nyx-config' is dirty
 building the system configuration...
 warning: Git tree '/home/nyx/nyx-config' is dirty
-error: interrupted by the user
+trace: evaluation warning: The option `hardware.opengl.extraPackages' defined in `/nix/store/8f2a4z5b41a5hhadbp6p5x0h9clgp0i8-source/hosts/bottom/configuration.nix' has been renamed to `hardware.graphics.extraPackages'.
+trace: evaluation warning: The option `hardware.opengl.driSupport32Bit' defined in `/nix/store/8f2a4z5b41a5hhadbp6p5x0h9clgp0i8-source/hosts/bottom/configuration.nix' has been renamed to `hardware.graphics.enable32Bit'.
+trace: evaluation warning: The option `hardware.opengl.enable' defined in `/nix/store/8f2a4z5b41a5hhadbp6p5x0h9clgp0i8-source/hosts/bottom/configuration.nix' has been renamed to `hardware.graphics.enable'.
+these 15 derivations will be built:
+  /nix/store/v81blz40c62dzgcj4mgn91qv1qq800v1-system-path.drv
+  /nix/store/8kr3nnh8pz0cfk433mhhlyl50y7rlfx0-dbus-1.drv
+  /nix/store/9vcpyzkn8sgmgxi2nxvjdy5z9ajk0hw3-system_fish-completions.drv
+  /nix/store/ar840kc4njpx9i1ghzkmnhy1xvmjl3ka-man-paths.drv
+  /nix/store/x944qgihk98l40c9aspgb5zxvr9hq1cw-man-cache.drv
+  /nix/store/adcfygrhwzgim39v7gcx6bxycpsy90dn-etc-man_db.conf.drv
+  /nix/store/nngcwasw2ijlvfc5bxh0kqqx8hjdc7mz-X-Restart-Triggers-dbus.drv
+  /nix/store/86cx09kylpzvrb4h5y4hm68scs204xah-unit-dbus.service.drv
+  /nix/store/d36ap0jv1jx8brlrjqf9j6gw00sc20h6-user-units.drv
+  /nix/store/nasskg8jbjfkhfchi1a1p0x79iq87rzq-unit-dbus.service.drv
+  /nix/store/s67hcccvdjsyd39d2cvpgpjv0qwwlq5g-X-Restart-Triggers-polkit.drv
+  /nix/store/ykvzvzg3kmrvdg0ik9v0p9by38w4q169-unit-polkit.service.drv
+  /nix/store/jkwjw4i6l8rr3slgwndwn434773mpcy8-system-units.drv
+  /nix/store/67rc5v72vg4d40qfqab52iqrislb1msx-etc.drv
+  /nix/store/131wk466xp41hcd0swa2j8d04v3ivajq-nixos-system-bottom-24.11.20240727.b73c222.drv
+building '/nix/store/v81blz40c62dzgcj4mgn91qv1qq800v1-system-path.drv'...
+building '/nix/store/9vcpyzkn8sgmgxi2nxvjdy5z9ajk0hw3-system_fish-completions.drv'...
+building '/nix/store/ar840kc4njpx9i1ghzkmnhy1xvmjl3ka-man-paths.drv'...
+building '/nix/store/x944qgihk98l40c9aspgb5zxvr9hq1cw-man-cache.drv'...
+building '/nix/store/s67hcccvdjsyd39d2cvpgpjv0qwwlq5g-X-Restart-Triggers-polkit.drv'...
+building '/nix/store/8kr3nnh8pz0cfk433mhhlyl50y7rlfx0-dbus-1.drv'...
+building '/nix/store/ykvzvzg3kmrvdg0ik9v0p9by38w4q169-unit-polkit.service.drv'...
+building '/nix/store/nngcwasw2ijlvfc5bxh0kqqx8hjdc7mz-X-Restart-Triggers-dbus.drv'...
+building '/nix/store/86cx09kylpzvrb4h5y4hm68scs204xah-unit-dbus.service.drv'...
+building '/nix/store/nasskg8jbjfkhfchi1a1p0x79iq87rzq-unit-dbus.service.drv'...
+building '/nix/store/d36ap0jv1jx8brlrjqf9j6gw00sc20h6-user-units.drv'...
+building '/nix/store/jkwjw4i6l8rr3slgwndwn434773mpcy8-system-units.drv'...
+building '/nix/store/adcfygrhwzgim39v7gcx6bxycpsy90dn-etc-man_db.conf.drv'...
+building '/nix/store/67rc5v72vg4d40qfqab52iqrislb1msx-etc.drv'...
+building '/nix/store/131wk466xp41hcd0swa2j8d04v3ivajq-nixos-system-bottom-24.11.20240727.b73c222.drv'...
+activating the configuration...
+setting up /etc...
+reloading user units for nyx...
+restarting sysinit-reactivation.target
+reloading the following units: dbus.service
+restarting the following units: polkit.service
+warning: the following units failed: home-manager-nyx.service
+
+× home-manager-nyx.service - Home Manager environment for nyx
+     Loaded: loaded (/etc/systemd/system/home-manager-nyx.service; enabled; preset: enabled)
+     Active: failed (Result: exit-code) since Sat 2024-07-27 22:48:06 CDT; 38ms ago
+    Process: 17594 ExecStart=/nix/store/qznyj3wda5rqh2j67g6xhgnf9b1wgijw-hm-setup-env /nix/store/iz24mw0g8xnzc92hv7gzv199kb7c5i61-home-manager-generation (code=exited, status=1/FAILURE)
+   Main PID: 17594 (code=exited, status=1/FAILURE)
+         IP: 0B in, 0B out
+        CPU: 72ms
+
+Jul 27 22:48:06 bottom hm-activate-nyx[17700]: Please do one of the following:
+Jul 27 22:48:06 bottom hm-activate-nyx[17700]: - Move or remove the above files and try again.
+Jul 27 22:48:06 bottom hm-activate-nyx[17700]: - In standalone mode, use 'home-manager switch -b backup' to back up
+Jul 27 22:48:06 bottom hm-activate-nyx[17700]:   files automatically.
+Jul 27 22:48:06 bottom hm-activate-nyx[17700]: - When used as a NixOS or nix-darwin module, set
+Jul 27 22:48:06 bottom hm-activate-nyx[17700]:     'home-manager.backupFileExtension'
+Jul 27 22:48:06 bottom hm-activate-nyx[17700]:   to, for example, 'backup' and rebuild.
+Jul 27 22:48:06 bottom systemd[1]: home-manager-nyx.service: Main process exited, code=exited, status=1/FAILURE
+Jul 27 22:48:06 bottom systemd[1]: home-manager-nyx.service: Failed with result 'exit-code'.
+Jul 27 22:48:06 bottom systemd[1]: Failed to start Home Manager environment for nyx.
+warning: error(s) occurred while switching to the new configuration

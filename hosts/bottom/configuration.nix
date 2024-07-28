@@ -8,7 +8,7 @@
     ../../users/nyx.nix
     ./hardware-configuration.nix
     ../common/desktop/vr
-    ../common/desktop/niri
+    # ../common/desktop/niri
     ../common/desktop
     ../common/desktop/gaming.nix
     ../common/zram.nix
@@ -41,7 +41,7 @@
     openssh.enable = true;
     tailscale.enable = true;
   };
-    
+
   home-manager = {
     useGlobalPkgs = true;
     useUserPackages = true;
@@ -55,7 +55,7 @@
       extraPackages = let
         monadoVulkanLayer = import inputs.monadoVulkanLayer {
           config.allowUnfree = true;
-          system = "x86_64-linux"; # TODO there is prob a better way of declaring this 
+          system = "x86_64-linux"; # TODO there is prob a better way of declaring this
         };
       in [monadoVulkanLayer.monado-vulkan-layers];
     };

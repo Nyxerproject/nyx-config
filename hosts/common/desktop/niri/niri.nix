@@ -1,10 +1,4 @@
 {
-  pkgs,
-  nixpkgs,
-  inputs,
-  config,
-  ...
-}: {
   # config.home-manager.programs.niri.config = {
   home-manager.users.nyx.programs.niri.settings = {
     # input = {
@@ -38,10 +32,10 @@
       ];
 
       # decoration = {
-        # gradient = {
-          # from = "rgb(255, 121, 198)";
-          # to = "rgb(189, 147, 249)";
-        # };
+      # gradient = {
+      # from = "rgb(255, 121, 198)";
+      # to = "rgb(189, 147, 249)";
+      # };
       # };
 
       focus-ring = {
@@ -85,6 +79,9 @@
       #   ];
       # }
       {command = ["bash" "-c" "nm-applet" "&"];}
+      {command = ["bash" "-c" "cosmic-applet-bluetooth" "&"];}
+      {command = ["bash" "-c" "cosmic-applet-time" "&"];}
+      {command = ["bash" "-c" "cosmic-applet-audio" "&"];}
       {command = ["bash" "-c" "blueman-applet" "&"];}
       # {
       #   command = [

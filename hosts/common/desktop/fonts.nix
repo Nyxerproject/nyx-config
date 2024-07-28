@@ -20,9 +20,9 @@
     fontconfig = {
       cache32Bit = true;
       defaultFonts = {
-        serif = ["gohufont"];
-        sansSerif = ["gohufont"];
-        monospace = ["gohufont"];
+        serif = ["hack-font"];
+        sansSerif = ["hack-font"];
+        monospace = ["hack-font"];
       };
     };
   };

@@ -1,7 +1,4 @@
-{
-  pkgs,
-  ...
-}: {
+{pkgs, ...}: {
   imports = [
     ./niri.nix
     ./notifications
@@ -11,10 +8,12 @@
   environment = {
     systemPackages = with pkgs; [
       # add other things for niri
-      niri
       fuzzel # niri defaults
       alacritty # niri defaults
+      niri
       xwayland-satellite
+      gamescope
+      xwayland-run
     ];
   };
   programs.niri.enable = true;

@@ -1,7 +1,7 @@
 {
   imports = [
     ./theme
-    # ./niri
+    ./niri
     ./bluetooth.nix
     ./fonts.nix
     ./mullvad-vpn.nix
@@ -10,5 +10,7 @@
     ./printing.nix
     ./sddm.nix
     ./variables.nix
+    ./applets
+    ./decorations
   ];
 }
