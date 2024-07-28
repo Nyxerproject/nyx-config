@@ -27,7 +27,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    niri-flake = {
+    niri = {
       url = "github:sodiboo/niri-flake";
       inputs.nixpkgs.follows = "nixpkgs";
     };
@@ -66,7 +66,7 @@
         modules = [
           ./hosts/bottom
           inputs.nixpkgs-xr.nixosModules.nixpkgs-xr
-          inputs.niri-flake.nixosModules.niri
+          inputs.niri.nixosModules.niri
           inputs.sddm-sugar-candy-nix.nixosModules.default
           inputs.home-manager.nixosModules.home-manager
         ];
@@ -78,7 +78,7 @@
         inherit system;
         modules = [
           ./hosts/down
-          inputs.niri-flake.nixosModules.niri
+          inputs.niri.nixosModules.niri
           inputs.disko.nixosModules.disko
           inputs.sddm-sugar-candy-nix.nixosModules.default
           inputs.home-manager.nixosModules.home-manager
@@ -91,7 +91,7 @@
         inherit system;
         modules = [
           ./hosts/muon
-          inputs.niri-flake.nixosModules.niri
+          inputs.niri.nixosModules.niri
           inputs.disko.nixosModules.disko
           inputs.sddm-sugar-candy-nix.nixosModules.default
           inputs.home-manager.nixosModules.home-manager

@@ -117,16 +117,16 @@
     "cachix": {
       "inputs": {
         "devenv": [
-          "niri-flake",
+          "niri",
           "crate2nix"
         ],
         "flake-compat": [
-          "niri-flake",
+          "niri",
           "crate2nix"
         ],
         "nixpkgs": "nixpkgs_2",
         "pre-commit-hooks": [
-          "niri-flake",
+          "niri",
           "crate2nix"
         ]
       },
@@ -148,18 +148,18 @@
     "cachix_2": {
       "inputs": {
         "devenv": [
-          "niri-flake",
+          "niri",
           "crate2nix",
           "crate2nix_stable"
         ],
         "flake-compat": [
-          "niri-flake",
+          "niri",
           "crate2nix",
           "crate2nix_stable"
         ],
         "nixpkgs": "nixpkgs_3",
         "pre-commit-hooks": [
-          "niri-flake",
+          "niri",
           "crate2nix",
           "crate2nix_stable"
         ]
@@ -182,20 +182,20 @@
     "cachix_3": {
       "inputs": {
         "devenv": [
-          "niri-flake",
+          "niri",
           "crate2nix",
           "crate2nix_stable",
           "crate2nix_stable"
         ],
         "flake-compat": [
-          "niri-flake",
+          "niri",
           "crate2nix",
           "crate2nix_stable",
           "crate2nix_stable"
         ],
         "nixpkgs": "nixpkgs_4",
         "pre-commit-hooks": [
-          "niri-flake",
+          "niri",
           "crate2nix",
           "crate2nix_stable",
           "crate2nix_stable"
@@ -337,7 +337,7 @@
       "inputs": {
         "flake-utils": "flake-utils_2",
         "nixpkgs": [
-          "niri-flake",
+          "niri",
           "crate2nix",
           "crate2nix_stable",
           "crate2nix_stable",
@@ -362,7 +362,7 @@
       "inputs": {
         "flake-utils": "flake-utils_3",
         "nixpkgs": [
-          "niri-flake",
+          "niri",
           "crate2nix",
           "crate2nix_stable",
           "nixpkgs"
@@ -386,7 +386,7 @@
       "inputs": {
         "flake-utils": "flake-utils_4",
         "nixpkgs": [
-          "niri-flake",
+          "niri",
           "crate2nix",
           "nixpkgs"
         ]
@@ -523,7 +523,7 @@
     "flake-parts": {
       "inputs": {
         "nixpkgs-lib": [
-          "niri-flake",
+          "niri",
           "crate2nix",
           "crate2nix_stable",
           "crate2nix_stable",
@@ -547,7 +547,7 @@
     "flake-parts_2": {
       "inputs": {
         "nixpkgs-lib": [
-          "niri-flake",
+          "niri",
           "crate2nix",
           "crate2nix_stable",
           "nixpkgs"
@@ -570,7 +570,7 @@
     "flake-parts_3": {
       "inputs": {
         "nixpkgs-lib": [
-          "niri-flake",
+          "niri",
           "crate2nix",
           "nixpkgs"
         ]
@@ -737,7 +737,7 @@
     "gitignore": {
       "inputs": {
         "nixpkgs": [
-          "niri-flake",
+          "niri",
           "crate2nix",
           "crate2nix_stable",
           "crate2nix_stable",
@@ -762,7 +762,7 @@
     "gitignore_2": {
       "inputs": {
         "nixpkgs": [
-          "niri-flake",
+          "niri",
           "crate2nix",
           "crate2nix_stable",
           "pre-commit-hooks",
@@ -786,7 +786,7 @@
     "gitignore_3": {
       "inputs": {
         "nixpkgs": [
-          "niri-flake",
+          "niri",
           "crate2nix",
           "pre-commit-hooks",
           "nixpkgs"
@@ -899,7 +899,7 @@
         "type": "github"
       }
     },
-    "niri-flake": {
+    "niri": {
       "inputs": {
         "crate2nix": "crate2nix",
         "flake-parts": "flake-parts_4",
@@ -912,11 +912,11 @@
         "xwayland-satellite": "xwayland-satellite"
       },
       "locked": {
-        "lastModified": 1722139033,
-        "narHash": "sha256-AdOPS/AeMQdEwsa3kVPUJcwVHeQLrUvuC9Slufl6MaU=",
+        "lastModified": 1722158996,
+        "narHash": "sha256-ELS9DJEQHOGhCfY9v4kKTSy3+evx4ZJ4CVXZkAmaTD4=",
         "owner": "sodiboo",
         "repo": "niri-flake",
-        "rev": "2492f723c315c5b953d68c95ce3a40658f47beb2",
+        "rev": "d29f3f11738026b60a3db5be6300c62fde5e49e7",
         "type": "github"
       },
       "original": {
@@ -1263,7 +1263,7 @@
     "pre-commit-hooks": {
       "inputs": {
         "flake-compat": [
-          "niri-flake",
+          "niri",
           "crate2nix",
           "crate2nix_stable",
           "crate2nix_stable",
@@ -1271,14 +1271,14 @@
         ],
         "gitignore": "gitignore",
         "nixpkgs": [
-          "niri-flake",
+          "niri",
           "crate2nix",
           "crate2nix_stable",
           "crate2nix_stable",
           "nixpkgs"
         ],
         "nixpkgs-stable": [
-          "niri-flake",
+          "niri",
           "crate2nix",
           "crate2nix_stable",
           "crate2nix_stable",
@@ -1302,20 +1302,20 @@
     "pre-commit-hooks_2": {
       "inputs": {
         "flake-compat": [
-          "niri-flake",
+          "niri",
           "crate2nix",
           "crate2nix_stable",
           "flake-compat"
         ],
         "gitignore": "gitignore_2",
         "nixpkgs": [
-          "niri-flake",
+          "niri",
           "crate2nix",
           "crate2nix_stable",
           "nixpkgs"
         ],
         "nixpkgs-stable": [
-          "niri-flake",
+          "niri",
           "crate2nix",
           "crate2nix_stable",
           "nixpkgs"
@@ -1338,19 +1338,19 @@
     "pre-commit-hooks_3": {
       "inputs": {
         "flake-compat": [
-          "niri-flake",
+          "niri",
           "crate2nix",
           "flake-compat"
         ],
         "flake-utils": "flake-utils_5",
         "gitignore": "gitignore_3",
         "nixpkgs": [
-          "niri-flake",
+          "niri",
           "crate2nix",
           "nixpkgs"
         ],
         "nixpkgs-stable": [
-          "niri-flake",
+          "niri",
           "crate2nix",
           "nixpkgs"
         ]
@@ -1375,7 +1375,7 @@
         "home-manager": "home-manager",
         "kiara": "kiara",
         "monadoVulkanLayer": "monadoVulkanLayer",
-        "niri-flake": "niri-flake",
+        "niri": "niri",
         "nix-index-database": "nix-index-database",
         "nixos-hardware": "nixos-hardware",
         "nixpkgs": "nixpkgs_8",

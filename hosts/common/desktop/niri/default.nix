@@ -22,10 +22,10 @@
   };
   programs.niri.package = pkgs.niri-unstable;
   programs.niri.enable = true;
-  niri-flake.cache.enable = true;
+  # niri.cache.enable = true;
   nixpkgs = {
     overlays = [
-      inputs.niri-flake.overlays.niri
+      inputs.niri.overlays.niri
     ];
   };
 }
