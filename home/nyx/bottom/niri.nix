@@ -10,7 +10,7 @@
       transform.rotation = 90;
       position = {
         x = 1920;
-        y = 0;
+        y = 540;
       };
     };
 
