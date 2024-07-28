@@ -2,6 +2,7 @@
   config,
   pkgs,
   lib,
+  inputs,
   ...
 }: {
   home-manager.users.nyx.programs.niri.settings = {
@@ -23,14 +24,14 @@
     # };
 
     layout = {
-      #   gaps = 12;
-      #   center-focused-column = "never";
-      #   default-column-width = {proportion = 0.5;};
-      #   preset-column-widths = [
-      #     {proportion = 0.333;}
-      #     {proportion = 0.5;}
-      #     {proportion = 0.667;}
-      #   ];
+      gaps = 12;
+      center-focused-column = "never";
+      default-column-width = {proportion = 0.5;};
+      preset-column-widths = [
+        {proportion = 0.333;}
+        {proportion = 0.5;}
+        {proportion = 0.667;}
+      ];
 
       # decoration = {
       # gradient = {
@@ -103,7 +104,6 @@
 
     # binds = with config.lib.niri-flake.actions; {
     binds = with config.lib.niri.actions; {
-      # Generally important binds
       # "Mod+Shift+Slash".action = show-hotkey-overlay;
       "Alt+Return".action.spawn = "alacritty";
       "Alt+Shift+Return".action.spawn = "fuzzel";
@@ -127,7 +127,7 @@
     # "Alt+Shift+Up".action = move-window-up;
     # "Alt+Shift+Down".action = move-window-down;
 
-    # # Workspaces and monitors
+    # #  Workspaces and monitors
     # "Mod+Up".action = focus-workspace-up;
     # "Mod+Down".action = focus-workspace-down;
     # "Mod+Shift+Up".action = move-window-to-workspace-up;
