@@ -42,7 +42,7 @@
         enable = true;
         active = {color = "rgb(68, 71, 90)";};
         inactive = {color = "rgb(40 42 54)";};
-        width = 2;
+        width = 9;
       };
     };
 

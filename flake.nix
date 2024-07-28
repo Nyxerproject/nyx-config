@@ -27,17 +27,9 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    niri = {
-      url = "github:YaLTeR/niri/v0.1.6";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
     niri-flake = {
       url = "github:sodiboo/niri-flake";
       inputs.nixpkgs.follows = "nixpkgs";
-      inputs.nixpkgs-stable.follows = "nixpkgs";
-      inputs.niri-unstable.follows = "niri";
-      inputs.niri-stable.follows = "niri";
     };
 
     kiara = {
@@ -74,7 +66,6 @@
         modules = [
           ./hosts/bottom
           inputs.nixpkgs-xr.nixosModules.nixpkgs-xr
-          inputs.niri-flake.nixosModules.niri
           inputs.sddm-sugar-candy-nix.nixosModules.default
           inputs.home-manager.nixosModules.home-manager
         ];

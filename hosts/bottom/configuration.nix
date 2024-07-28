@@ -43,6 +43,7 @@
   };
 
   home-manager = {
+    backupFileExtension = "backup";
     useGlobalPkgs = true;
     useUserPackages = true;
     users.nyx = import ../../home/nyx/bottom;

@@ -9,6 +9,7 @@
     ./niri.nix
     ./notifications
     ./fuzzel.nix
+    inputs.niri-flake.nixosModules.niri
   ];
 
   environment = {
@@ -16,12 +17,12 @@
       # add other things for niri
       fuzzel # niri defaults
       alacritty # niri defaults
-      niri
       # xwayland-satellite
       # gamescope
       # xwayland-run
     ];
   };
+  programs.niri.package = pkgs.niri-unstable;
   programs.niri.enable = true;
   # niri-flake.cache.enable = true;
   nixpkgs = {
