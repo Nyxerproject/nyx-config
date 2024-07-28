@@ -3,6 +3,6 @@
     ../global
     ../features/games/gaming.nix
     ../features/vr
-    ./niri.nix
+    ./niri-monitors.nix
   ];
 }
