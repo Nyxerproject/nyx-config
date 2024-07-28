@@ -7,9 +7,9 @@
         width = 1920;
         refresh = 60.0;
       };
-      transform.rotation = 270;
+      transform.rotation = 90;
       position = {
-        x = 0;
+        x = 1920;
         y = 0;
       };
     };
@@ -21,7 +21,7 @@
         refresh = 144.01;
       };
       position = {
-        x = 1200;
+        x = 0;
         y = 0;
       };
     };
