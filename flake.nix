@@ -67,6 +67,7 @@
   } @ inputs: let
     system = "x86_64-linux";
   in {
+    nixpkgs.overlays = [inputs.niri.overlays.niri];
     nixosConfigurations = {
       bottom = nixpkgs.lib.nixosSystem {
         inherit system;
@@ -91,7 +92,6 @@
           inputs.home-manager.nixosModules.home-manager
         ];
         specialArgs = {
-          # inherit monadoVulkanLayer;
           inherit inputs;
         };
       };
@@ -104,6 +104,9 @@
           inputs.sddm-sugar-candy-nix.nixosModules.default
           inputs.home-manager.nixosModules.home-manager
         ];
+        specialArgs = {
+          inherit inputs;
+        };
       };
     };
     nixConfig = {

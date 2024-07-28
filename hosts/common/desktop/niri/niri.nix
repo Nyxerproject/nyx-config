@@ -83,16 +83,16 @@
       {command = ["bash" "-c" "cosmic-applet-time" "&"];}
       {command = ["bash" "-c" "cosmic-applet-audio" "&"];}
       {command = ["bash" "-c" "blueman-applet" "&"];}
-      # {
-      #   command = [
-      #     "bash"
-      #     "-c"
-      #     "dbus-update-activation-environment"
-      #     "--systemd"
-      #     "WAYLAND_DISPLAY"
-      #     "XDG_CURRENT_DESKTOP &"
-      #   ];
-      # }
+      {
+        command = [
+          "bash"
+          "-c"
+          "dbus-update-activation-environment"
+          "--systemd"
+          "WAYLAND_DISPLAY"
+          "XDG_CURRENT_DESKTOP &"
+        ];
+      }
       # {command = ["bash" "-c" "export" "$(dbus-launch)"];}
       # {command = ["bash" "-c" "kdeconnect-indicator" "&"];}
       {command = ["bash" "-c" "xwayland-satellite" "&"];}

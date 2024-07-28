@@ -1,4 +1,5 @@
-{
+{pkgs, ...}: {
+  programs.niri.package = pkgs.niri-stable;
   programs.niri.settings = {
     outputs."DP-1" = {
       mode = {
