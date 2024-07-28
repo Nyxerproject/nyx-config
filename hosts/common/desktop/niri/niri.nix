@@ -1,11 +1,8 @@
-{
+{config, ...}: {
   # config.home-manager.programs.niri.config = {
   home-manager.users.nyx.programs.niri.settings = {
     # input = {
     #   keyboard.xkb = {
-    #     layout = "de,us";
-    #     variant = "dvorak,euro";
-    #     options = "grp:win_space_toggle";
     #   };
     #   touchpad = {
     #     dwt = true;
@@ -102,7 +99,7 @@
 
     # binds = with config.lib.niri.actions; {
     #   # Generally important binds
-    #   "Alt+Shift+Slash".action = show-hotkey-overlay;
+    #   "Mod+Shift+Slash".action = show-hotkey-overlay;
     #   "Alt+Return".action.spawn = "alacritty";
     #   "Alt+Shift+Return".action.spawn = "fuzzel";
     #   "Alt+L".action.spawn = ["swaylock" "-f" "--image" "~/Pictures/wallpaper-master/nixos.png" "--clock"];

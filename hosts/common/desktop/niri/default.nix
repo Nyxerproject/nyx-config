@@ -7,7 +7,6 @@
     ./niri.nix
     ./notifications
     ./fuzzel.nix
-    inputs.niri-flake.nixosModules.niri
   ];
 
   environment = {
