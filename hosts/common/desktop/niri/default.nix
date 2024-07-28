@@ -1,10 +1,9 @@
 {
   pkgs,
-  inputs,
   ...
 }: {
   imports = [
-    # ./niri.nix
+    ./niri.nix
     ./notifications
     ./fuzzel.nix
   ];

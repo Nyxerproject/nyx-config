@@ -31,6 +31,12 @@
     };
   };
 
+  home-manager = {
+    useGlobalPkgs = true;
+    useUserPackages = true;
+    users.nyx = import ../../home/nyx/down;
+  };
+
   environment = {
     sessionVariables = {
       FLAKE = "/home/nyx/nyx-config";

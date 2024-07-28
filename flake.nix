@@ -1,5 +1,5 @@
 {
-  description = "A simple NixOS flake";
+  description = "My silly (bad) flake :3";
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
@@ -66,10 +66,6 @@
     ...
   } @ inputs: let
     system = "x86_64-linux";
-    # monadoVulkanLayer = import inputs.monadoVulkanLayer {
-    #   config.allowUnfree = true;
-    #   inherit system;
-    # };
   in {
     nixosConfigurations = {
       bottom = nixpkgs.lib.nixosSystem {
@@ -80,13 +76,6 @@
           inputs.niri-flake.nixosModules.niri
           inputs.sddm-sugar-candy-nix.nixosModules.default
           inputs.home-manager.nixosModules.home-manager
-          {
-            home-manager = {
-              useGlobalPkgs = true;
-              useUserPackages = true;
-              users.nyx = import ./home/nyx/bottom.nix;
-            };
-          }
         ];
         specialArgs = {
           inherit inputs;
@@ -100,13 +89,6 @@
           inputs.disko.nixosModules.disko
           inputs.sddm-sugar-candy-nix.nixosModules.default
           inputs.home-manager.nixosModules.home-manager
-          {
-            home-manager = {
-              useGlobalPkgs = true;
-              useUserPackages = true;
-              users.nyx = import ./home/nyx/down.nix;
-            };
-          }
         ];
         specialArgs = {
           # inherit monadoVulkanLayer;
@@ -121,13 +103,6 @@
           inputs.disko.nixosModules.disko
           inputs.sddm-sugar-candy-nix.nixosModules.default
           inputs.home-manager.nixosModules.home-manager
-          {
-            home-manager = {
-              useGlobalPkgs = true;
-              useUserPackages = true;
-              users.nyx = import ./home/nyx/muon.nix;
-            };
-          }
         ];
       };
     };

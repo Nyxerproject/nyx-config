@@ -8,7 +8,7 @@
     ../../users/nyx.nix
     ./hardware-configuration.nix
     ../common/desktop/vr
-    # ../common/desktop/niri
+    ../common/desktop/niri
     ../common/desktop
     ../common/desktop/gaming.nix
     ../common/zram.nix
@@ -31,7 +31,7 @@
   };
 
   services = {
-    desktopManager.plasma6.enable = true;
+    # desktopManager.plasma6.enable = true;
     xserver = {
       enable = true;
       videoDrivers = ["nvidia"];
@@ -41,6 +41,12 @@
     openssh.enable = true;
     tailscale.enable = true;
   };
+    
+  home-manager = {
+    useGlobalPkgs = true;
+    useUserPackages = true;
+    users.nyx = import ../../home/nyx/bottom;
+  };
 
   hardware = {
     opengl = {
@@ -49,7 +55,7 @@
       extraPackages = let
         monadoVulkanLayer = import inputs.monadoVulkanLayer {
           config.allowUnfree = true;
-          system = "x86_64-linux";
+          system = "x86_64-linux"; # TODO there is prob a better way of declaring this 
         };
       in [monadoVulkanLayer.monado-vulkan-layers];
     };

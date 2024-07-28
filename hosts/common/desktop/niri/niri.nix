@@ -1,10 +1,12 @@
 {
+  pkgs,
   nixpkgs,
   inputs,
   config,
   ...
 }: {
-  programs.niri.settings = {
+  # config.home-manager.programs.niri.config = {
+  home-manager.users.nyx.programs.niri.settings = {
     # input = {
     #   keyboard.xkb = {
     #     layout = "de,us";
@@ -25,107 +27,81 @@
       size = 12;
     };
 
-    outputs."DP-1" = {
-      mode = {
-        height = 1200;
-        width = 1920;
-        refresh = 60.0;
+    layout = {
+      gaps = 12;
+      center-focused-column = "never";
+      default-column-width = {proportion = 0.5;};
+      preset-column-widths = [
+        {proportion = 0.333;}
+        {proportion = 0.5;}
+        {proportion = 0.667;}
+      ];
+
+      # decoration = {
+        # gradient = {
+          # from = "rgb(255, 121, 198)";
+          # to = "rgb(189, 147, 249)";
+        # };
+      # };
+
+      focus-ring = {
+        enable = true;
+        active = {color = "rgb(68, 71, 90)";};
+        inactive = {color = "rgb(40 42 54)";};
+        width = 2;
       };
-      transform.rotation = 270;
-      position = {
-        x = 0;
-        y = 0;
+
+      border = {
+        enable = true;
+        width = 5;
+        active = {
+          gradient = {
+            from = "#0C0B11";
+            to = "#CAD4ED";
+            angle = 0;
+            relative-to = "window";
+          };
+        };
+
+        inactive = {
+          gradient = {
+            from = "#EFE6EE";
+            to = "#762316";
+            angle = 0;
+            relative-to = "window";
+          };
+        };
       };
     };
 
-    outputs."DP-3" = {
-      mode = {
-        height = 1080;
-        width = 1920;
-        refresh = 144.01;
-      };
-      position = {
-        x = 1200;
-        y = 0;
-      };
-    };
+    spawn-at-startup = [
+      # { command = ["bash" "-c" "~/.config/start.sh"]; }
+      {command = ["bash" "-c" "waybar &"];}
+      # {command = ["bash" "-c" "waypaper --restore &"];}
+      # {command = [
+      #     "bash"
+      #     "-c"
+      #     "swayidle -w timeout 300 'swaylock -f --image ~/Pictures/wallpaper-master/nixos.png --clock' before-sleep 'swaylock -f --image ~/Pictures/wallpaper-master/nixos.png --clock' lock 'swaylock -f --image ~/Pictures/wallpaper-master/nixos.png --clock'"
+      #   ];
+      # }
+      {command = ["bash" "-c" "nm-applet" "&"];}
+      {command = ["bash" "-c" "blueman-applet" "&"];}
+      # {
+      #   command = [
+      #     "bash"
+      #     "-c"
+      #     "dbus-update-activation-environment"
+      #     "--systemd"
+      #     "WAYLAND_DISPLAY"
+      #     "XDG_CURRENT_DESKTOP &"
+      #   ];
+      # }
+      # {command = ["bash" "-c" "export" "$(dbus-launch)"];}
+      # {command = ["bash" "-c" "kdeconnect-indicator" "&"];}
+      {command = ["bash" "-c" "xwayland-satellite" "&"];}
+    ];
 
-    # layout = {
-    #   gaps = 12;
-    #   center-focused-column = "never";
-    #   default-column-width = {proportion = 0.5;};
-    #   preset-column-widths = [
-    #     {proportion = 0.333;}
-    #     {proportion = 0.5;}
-    #     {proportion = 0.667;}
-    #   ];
-
-    #   # decoration = {
-    #   #   gradient = {
-    #   #     from = "rgb(255, 121, 198)";
-    #   #     to = "rgb(189, 147, 249)";
-    #   #   }
-    #   # };
-
-    #   focus-ring = {
-    #     enable = true;
-    #     active = {color = "rgb(68, 71, 90)";};
-    #     inactive = {color = "rgb(40 42 54)";};
-    #     width = 2;
-    #   };
-
-    #   border = {
-    #     enable = true;
-    #     width = 5;
-    #     active = {
-    #       gradient = {
-    #         from = "#0C0B11";
-    #         to = "#CAD4ED";
-    #         angle = 0;
-    #         relative-to = "window";
-    #       };
-    #     };
-
-    #     inactive = {
-    #       gradient = {
-    #         from = "#EFE6EE";
-    #         to = "#762316";
-    #         angle = 0;
-    #         relative-to = "window";
-    #       };
-    #     };
-    #   };
-    # };
-
-    # spawn-at-startup = [
-    #   # { command = ["bash" "-c" "~/.config/start.sh"]; }
-    #   {command = ["bash" "-c" "waybar &"];}
-    #   {command = ["bash" "-c" "waypaper --restore &"];}
-    #   {
-    #     command = [
-    #       "bash"
-    #       "-c"
-    #       "swayidle -w timeout 300 'swaylock -f --image ~/Pictures/wallpaper-master/nixos.png --clock' before-sleep 'swaylock -f --image ~/Pictures/wallpaper-master/nixos.png --clock' lock 'swaylock -f --image ~/Pictures/wallpaper-master/nixos.png --clock'"
-    #     ];
-    #   }
-    #   {command = ["bash" "-c" "nm-applet" "&"];}
-    #   {command = ["bash" "-c" "blueman-applet" "&"];}
-    #   {
-    #     command = [
-    #       "bash"
-    #       "-c"
-    #       "dbus-update-activation-environment"
-    #       "--systemd"
-    #       "WAYLAND_DISPLAY"
-    #       "XDG_CURRENT_DESKTOP &"
-    #     ];
-    #   }
-    #   {command = ["bash" "-c" "export" "$(dbus-launch)"];}
-    #   {command = ["bash" "-c" "kdeconnect-indicator" "&"];}
-    #   {command = ["bash" "-c" "xwayland-satellite" "&"];}
-    # ];
-
-    # screenshot-path = "~/Pictures/Screenshots/Screenshot from %Y-%m-%d %H-%M-%s.png";
+    screenshot-path = "~/Pictures/Screenshots/Screenshot from %Y-%m-%d %H-%M-%s.png";
 
     # binds = with config.lib.niri.actions; {
     #   # Generally important binds

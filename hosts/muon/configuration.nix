@@ -29,6 +29,13 @@
     };
   };
 
+  home-manager = {
+    useGlobalPkgs = true;
+    useUserPackages = true;
+    users.nyx = import ../../home/nyx/muon;
+  };
+
+
   environment = {
     sessionVariables = {
       FLAKE = "/home/nyx/nyx-config";

@@ -6,6 +6,7 @@
   services = {
     displayManager = {
       sddm = {
+        theme = "sddm-sugar-candy-nix";
         sugarCandyNix = {
           enable = true; # set SDDM's theme to "sddm-sugar-candy-nix".
           settings = {
