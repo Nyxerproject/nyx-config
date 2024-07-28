@@ -1,6 +1,4 @@
 {
-  config,
-  lib,
   inputs,
   pkgs,
   ...
@@ -19,12 +17,13 @@
       alacritty # niri defaults
       xwayland-satellite
       # gamescope
+      # cage
       # xwayland-run
     ];
   };
   programs.niri.package = pkgs.niri-unstable;
   programs.niri.enable = true;
-  # niri-flake.cache.enable = true;
+  niri-flake.cache.enable = true;
   nixpkgs = {
     overlays = [
       inputs.niri-flake.overlays.niri
