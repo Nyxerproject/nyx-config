@@ -17,19 +17,19 @@
     #   };
     # };
 
-    cursor = {
-      size = 12;
-    };
+    # cursor = {
+    #   size = 12;
+    # };
 
     layout = {
-      gaps = 12;
-      center-focused-column = "never";
-      default-column-width = {proportion = 0.5;};
-      preset-column-widths = [
-        {proportion = 0.333;}
-        {proportion = 0.5;}
-        {proportion = 0.667;}
-      ];
+      #   gaps = 12;
+      #   center-focused-column = "never";
+      #   default-column-width = {proportion = 0.5;};
+      #   preset-column-widths = [
+      #     {proportion = 0.333;}
+      #     {proportion = 0.5;}
+      #     {proportion = 0.667;}
+      #   ];
 
       # decoration = {
       # gradient = {
@@ -44,61 +44,62 @@
         inactive = {color = "rgb(40 42 54)";};
         width = 2;
       };
-
-      border = {
-        enable = true;
-        width = 5;
-        active = {
-          gradient = {
-            from = "#0C0B11";
-            to = "#CAD4ED";
-            angle = 0;
-            relative-to = "window";
-          };
-        };
-
-        inactive = {
-          gradient = {
-            from = "#EFE6EE";
-            to = "#762316";
-            angle = 0;
-            relative-to = "window";
-          };
-        };
-      };
     };
 
-    spawn-at-startup = [
-      # { command = ["bash" "-c" "~/.config/start.sh"]; }
-      {command = ["bash" "-c" "waybar &"];}
-      # {command = ["bash" "-c" "waypaper --restore &"];}
-      # {command = [
-      #     "bash"
-      #     "-c"
-      #     "swayidle -w timeout 300 'swaylock -f --image ~/Pictures/wallpaper-master/nixos.png --clock' before-sleep 'swaylock -f --image ~/Pictures/wallpaper-master/nixos.png --clock' lock 'swaylock -f --image ~/Pictures/wallpaper-master/nixos.png --clock'"
-      #   ];
-      # }
-      {command = ["bash" "-c" "nm-applet" "&"];}
-      {command = ["bash" "-c" "cosmic-applet-bluetooth" "&"];}
-      {command = ["bash" "-c" "cosmic-applet-time" "&"];}
-      {command = ["bash" "-c" "cosmic-applet-audio" "&"];}
-      {command = ["bash" "-c" "blueman-applet" "&"];}
-      {
-        command = [
-          "bash"
-          "-c"
-          "dbus-update-activation-environment"
-          "--systemd"
-          "WAYLAND_DISPLAY"
-          "XDG_CURRENT_DESKTOP &"
-        ];
-      }
-      # {command = ["bash" "-c" "export" "$(dbus-launch)"];}
-      # {command = ["bash" "-c" "kdeconnect-indicator" "&"];}
-      {command = ["bash" "-c" "xwayland-satellite" "&"];}
-    ];
+    #   border = {
+    #     enable = true;
+    #     width = 5;
+    #     active = {
+    #       gradient = {
+    #         from = "#0C0B11";
+    #         to = "#CAD4ED";
+    #         angle = 0;
+    #         relative-to = "window";
+    #       };
+    #     };
 
-    screenshot-path = "~/Pictures/Screenshots/Screenshot from %Y-%m-%d %H-%M-%s.png";
+    #     inactive = {
+    #       gradient = {
+    #         from = "#EFE6EE";
+    #         to = "#762316";
+    #         angle = 0;
+    #         relative-to = "window";
+    #       };
+    #     };
+    #   };
+    # };
+
+    # spawn-at-startup = [
+    #   # { command = ["bash" "-c" "~/.config/start.sh"]; }
+    #   {command = ["bash" "-c" "waybar &"];}
+    #   # {command = ["bash" "-c" "waypaper --restore &"];}
+    #   # {command = [
+    #   #     "bash"
+    #   #     "-c"
+    #   #     "swayidle -w timeout 300 'swaylock -f --image ~/Pictures/wallpaper-master/nixos.png --clock' before-sleep 'swaylock -f --image ~/Pictures/wallpaper-master/nixos.png --clock' lock 'swaylock -f --image ~/Pictures/wallpaper-master/nixos.png --clock'"
+    #   #   ];
+    #   # }
+    #   {command = ["bash" "-c" "nm-applet" "&"];}
+    #   {command = ["bash" "-c" "cosmic-applet-bluetooth" "&"];}
+    #   {command = ["bash" "-c" "cosmic-applet-time" "&"];}
+    #   {command = ["bash" "-c" "cosmic-applet-audio" "&"];}
+    #   {command = ["bash" "-c" "blueman-applet" "&"];}
+    #   {
+    #     command = [
+    #       "bash"
+    #       "-c"
+    #       "dbus-update-activation-environment"
+    #       "--systemd"
+    #       "WAYLAND_DISPLAY"
+    #       "XDG_CURRENT_DESKTOP &"
+    #     ];
+    #   }
+    #   # {command = ["bash" "-c" "export" "$(dbus-launch)"];}
+    #   # {command = ["bash" "-c" "kdeconnect-indicator" "&"];}
+    #   {command = ["bash" "-c" "xwayland-satellite" "&"];}
+    # ];
+
+    # screenshot-path = "~/Pictures/Screenshots/Screenshot from %Y-%m-%d %H-%M-%s.png";
 
     # binds = with config.lib.niri.actions; {
     #   # Generally important binds
