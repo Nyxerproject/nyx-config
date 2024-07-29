@@ -100,7 +100,7 @@
       }
       {command = ["bash" "-c" "export" "$(dbus-launch)"];}
       # {command = ["bash" "-c" "kdeconnect-indicator" "&"];}
-      {command = ["bash" "-c" "xwayland-satellite" "&"];}
+      {command = ["bash" "-c" "DISPLAY=:0 xwayland-satellite" "&"];}
     ];
 
     screenshot-path = "~/Pictures/Screenshots/Screenshot from %Y-%m-%d %H-%M-%s.png";
