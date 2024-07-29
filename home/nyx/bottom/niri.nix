@@ -69,7 +69,10 @@
         };
       };
     };
-
+    environment = {
+      SDL_VIDEO_WAYLAND_PREFER_LIBDECOR = "1";
+      DISPLAY = ":0";
+    };
     spawn-at-startup = [
       # { command = ["bash" "-c" "~/.config/start.sh"]; }
       {command = ["bash" "-c" "waybar &"];}
