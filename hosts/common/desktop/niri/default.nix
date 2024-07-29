@@ -21,6 +21,9 @@
       xwayland-run
     ];
   };
+  programs.xwayland = {
+    enable = true;
+  };
   programs.niri.package = pkgs.niri-unstable;
   programs.niri.enable = true;
   niri-flake.cache.enable = true;
