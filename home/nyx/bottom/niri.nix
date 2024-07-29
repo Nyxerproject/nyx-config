@@ -107,7 +107,7 @@
       "Alt+Return".action.spawn = "alacritty";
       "Alt+Shift+Return".action.spawn = "fuzzel";
 
-      "Alt+L".action.spawn = ["swaylock" "-f" "--image" "~/Pictures/wallpaper-master/nixos.png" "--clock"];
+      # "Alt+L".action.spawn = ["swaylock" "-f" "--image" "~/Pictures/wallpaper-master/nixos.png" "--clock"];
       "XF86AudioRaiseVolume".action.spawn = ["wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "0.1+"];
       "XF86AudioLowerVolume".action.spawn = ["wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "0.1-"];
       "XF86AudioMute".action.spawn = ["wpctl" "set-mute" "@DEFAULT_AUDIO_SINK@" "toggle"];
@@ -117,30 +117,30 @@
 
       # Everything regarding windows
       "Alt+Shift+C".action = close-window;
-      "Alt+Left".action = focus-column-left;
-      "Alt+Right".action = focus-column-right;
-      "Alt+Up".action = focus-window-up;
-      "Alt+Down".action = focus-window-down;
-      "Alt+Shift+Left".action = move-column-left;
-      "Alt+Shift+Right".action = move-column-right;
-      "Alt+Shift+Up".action = move-window-up;
-      "Alt+Shift+Down".action = move-window-down;
+      "Alt+H".action = focus-column-left;
+      "Alt+L".action = focus-column-right;
+      "Alt+I".action = focus-window-up;
+      "Alt+K".action = focus-window-down;
+      "Alt+Shift+H".action = move-column-left;
+      "Alt+Shift+L".action = move-column-right;
+      "Alt+Shift+I".action = move-window-up;
+      "Alt+Shift+K".action = move-window-down;
 
       # Workspaces and monitors
-      "Mod+Up".action = focus-workspace-up;
-      "Mod+Down".action = focus-workspace-down;
-      "Mod+Shift+Up".action = move-window-to-workspace-up;
-      "Mod+Shift+Down".action = move-window-to-workspace-down;
-      "Mod+Ctrl+Up".action = move-column-to-workspace-up;
-      "Mod+Ctrl+Down".action = move-column-to-workspace-down;
-      "Alt+Ctrl+Down".action = move-workspace-down;
-      "Alt+Ctrl+Up".action = move-workspace-up;
-      "Alt+Ctrl+Left".action = focus-monitor-left;
-      "Alt+Ctrl+Right".action = focus-monitor-right;
-      "Alt+Shift+Ctrl+Left".action = move-window-to-monitor-left;
-      "Alt+Shift+Ctrl+Right".action = move-window-to-monitor-right;
-      "Mod+Alt+Shift+Ctrl+Left".action = move-column-to-monitor-left;
-      "Mod+Alt+Shift+Ctrl+Right".action = move-column-to-monitor-right;
+      "Mod+I".action = focus-workspace-up;
+      "Mod+K".action = focus-workspace-down;
+      "Mod+Shift+I".action = move-window-to-workspace-up;
+      "Mod+Shift+K".action = move-window-to-workspace-down;
+      "Mod+Ctrl+I".action = move-column-to-workspace-up;
+      "Mod+Ctrl+K".action = move-column-to-workspace-down;
+      "Alt+Ctrl+K".action = move-workspace-down;
+      "Alt+Ctrl+I".action = move-workspace-up;
+      "Alt+Ctrl+H".action = focus-monitor-left;
+      "Alt+Ctrl+L".action = focus-monitor-right;
+      "Alt+Shift+Ctrl+H".action = move-window-to-monitor-left;
+      "Alt+Shift+Ctrl+L".action = move-window-to-monitor-right;
+      "Mod+Alt+Shift+Ctrl+H".action = move-column-to-monitor-left;
+      "Mod+Alt+Shift+Ctrl+L".action = move-column-to-monitor-right;
       "Alt+1".action = focus-workspace 1;
       "Alt+2".action = focus-workspace 2;
       "Alt+3".action = focus-workspace 3;
