@@ -34,17 +34,17 @@
       ];
 
       # decoration = {
-      # gradient = {
-      # from = "rgb(255, 121, 198)";
-      # to = "rgb(189, 147, 249)";
-      # };
+      #   gradient = {
+      #     from = "rgb(255, 121, 198)";
+      #     to = "rgb(189, 147, 249)";
+      #   };
       # };
 
       focus-ring = {
         enable = true;
         active = {color = "rgb(68, 71, 90)";};
         inactive = {color = "rgb(40 42 54)";};
-        width = 9;
+        width = 3;
       };
 
       border = {

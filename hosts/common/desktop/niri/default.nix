@@ -16,9 +16,9 @@
       alacritty # niri defaults
       xwayland-satellite
       niri-unstable
-      # gamescope
-      # cage
-      # xwayland-run
+      gamescope
+      cage
+      xwayland-run
     ];
   };
   programs.niri.package = pkgs.niri-unstable;
