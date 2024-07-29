@@ -95,7 +95,7 @@
           "XDG_CURRENT_DESKTOP &"
         ];
       }
-      # {command = ["bash" "-c" "export" "$(dbus-launch)"];}
+      {command = ["bash" "-c" "export" "$(dbus-launch)"];}
       # {command = ["bash" "-c" "kdeconnect-indicator" "&"];}
       {command = ["bash" "-c" "xwayland-satellite" "&"];}
     ];
