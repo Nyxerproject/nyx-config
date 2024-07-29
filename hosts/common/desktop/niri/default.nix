@@ -24,7 +24,7 @@
   programs.xwayland = {
     enable = true;
   };
-  programs.niri.package = pkgs.niri-unstable;
+  programs.niri.package = pkgs.niri-stable;
   programs.niri.enable = true;
   niri-flake.cache.enable = true;
   nixpkgs = {
