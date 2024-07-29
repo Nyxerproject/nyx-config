@@ -139,8 +139,8 @@
       "Alt+Ctrl+L".action = focus-monitor-right;
       "Alt+Shift+Ctrl+H".action = move-window-to-monitor-left;
       "Alt+Shift+Ctrl+L".action = move-window-to-monitor-right;
-      "Mod+Alt+Shift+Ctrl+H".action = move-column-to-monitor-left;
-      "Mod+Alt+Shift+Ctrl+L".action = move-column-to-monitor-right;
+      "Mod+Alt+Shift+H".action = move-column-to-monitor-left;
+      "Mod+Alt+Shift+L".action = move-column-to-monitor-right;
       "Alt+1".action = focus-workspace 1;
       "Alt+2".action = focus-workspace 2;
       "Alt+3".action = focus-workspace 3;
