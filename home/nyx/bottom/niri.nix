@@ -6,9 +6,12 @@
   ...
 }: {
   programs.niri.settings = {
-    # input = {
-    #   keyboard.xkb = {
-    #   };
+    input = {
+      keyboard.xkb = {
+        layout = "us";
+        variant = "";
+      };
+    };
     #   touchpad = {
     #     dwt = true;
     #     tap = true;
@@ -70,7 +73,7 @@
       };
     };
     environment = {
-      SDL_VIDEO_WAYLAND_PREFER_LIBDECOR = "1";
+      # SDL_VIDEO_WAYLAND_PREFER_LIBDECOR = "1";
       DISPLAY = ":0";
     };
     spawn-at-startup = [
@@ -95,9 +98,9 @@
       #     "XDG_CURRENT_DESKTOP &"
       #   ];
       # }
-      {command = ["bash" "-c" "export" "$(dbus-launch)"];}
+      # {command = ["bash" "-c" "export" "$(dbus-launch)"];}
       # {command = ["bash" "-c" "kdeconnect-indicator" "&"];}
-      # {command = ["bash" "-c" "xwayland-satellite" "&"];}
+      {command = ["bash" "-c" "xwayland-satellite" "&"];}
     ];
 
     screenshot-path = "~/Pictures/Screenshots/Screenshot from %Y-%m-%d %H-%M-%s.png";
