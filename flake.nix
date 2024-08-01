@@ -40,6 +40,8 @@
 
     stylix.url = "github:danth/stylix";
 
+    nixos-wsl.url = "github:nix-community/NixOS-WSL/main";
+
     sddm-sugar-candy-nix = {
       url = "gitlab:Zhaith-Izaliel/sddm-sugar-candy-nix";
       # Optional, by default this flake follows nixpkgs-unstable.
@@ -95,6 +97,22 @@
           inputs.disko.nixosModules.disko
           inputs.sddm-sugar-candy-nix.nixosModules.default
           inputs.home-manager.nixosModules.home-manager
+        ];
+        specialArgs = {
+          inherit inputs;
+        };
+      };
+      strange = nixpkgs.lib.nixosSystem {
+        inherit system;
+        modules = [
+          ./hosts/strange
+          inputs.home-manager.nixosModules.home-manager
+          inputs.nixos-wsl.nixosModules.default
+          {
+            system.stateVersion = "24.05";
+            wsl.enable = true;
+            wsl.defaultUser = "nyx";
+          }
         ];
         specialArgs = {
           inherit inputs;

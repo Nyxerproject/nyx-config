@@ -1,8 +1,4 @@
 {pkgs, ...}: {
-  imports = [
-    ../../nyx/features/alacritty
-  ];
-
   home = {
     stateVersion = "24.05";
     # TODO this is a mix of cli and gui stuff. it should be broken into parts
@@ -11,15 +7,6 @@
       # Packages that should be installed to the user profile.
       # here is some command line tools I use frequently
       yazi # terminal file manager
-
-      # Instant messaging packages
-      # TODO --consider moving to home. shouldn't be on every desktop and user--
-      # TODO make sure these work well
-      webcord
-      tdesktop
-      element-desktop-wayland
-      iamb
-
       # archives
       zip
       xz
@@ -64,26 +51,11 @@
       #hugo # static site generator
       #glow # markdown previewer in terminal
 
-      # keyboard tools
-      zmkBATx # TODO shouldn't be here
-
-      # desktop notifications # TODO shouldn't be in home defaults
-      libnotify
-      mako
-
       btop # replacement of htop/nmon
       iotop # io monitoring
       iftop # network monitoring
-      nvtopPackages.full # gpu monitoring
+      # nvtopPackages.full # gpu monitoring # TODO do some work to make this install without unfree=true
       bottom # cpu monitoring
-      vulkan-tools
-      wayland-utils
-      pwvucontrol
-      helvum
-      coppwr
-
-      # necessary stuff
-      firefox
 
       # system call monitoring
       strace # system call monitoring
@@ -100,22 +72,12 @@
   };
 
   programs = {
-    alacritty = {
-      # TODO create alacritty nix file (or better yet options like in the vimjoyer)
-      settings = {
-        env.TERM = "xterm-256color";
-        font.size = 12;
-        scrolling.multiplier = 5;
-        selection.save_to_clipboard = true;
-      };
-    };
-
     bash.enable = true;
     zoxide = {
       enable = true;
       enableBashIntegration = true;
       enableFishIntegration = true;
-      # options = ["--cmd cd"];
+      options = ["--cmd cd"];
     }; # TODO alias this to cd
 
     git = {
