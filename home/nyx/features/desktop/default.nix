@@ -1,6 +1,6 @@
 {pkgs, ...}: {
   imports = [
-    ../nyx/features/alacritty
+    ../alacritty/default.nix
   ];
 
   home = {
