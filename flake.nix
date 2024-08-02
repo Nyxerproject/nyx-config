@@ -22,11 +22,6 @@
 
     monadoVulkanLayer.url = "github:Scrumplex/nixpkgs/nixos/monado/vulkan-layers"; # TODO: remove when merged
 
-    xwayland-satellite = {
-      url = "github:gabthebab/xwayland-satellite";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
     niri = {
       url = "github:sodiboo/niri-flake";
       inputs.nixpkgs.follows = "nixpkgs";

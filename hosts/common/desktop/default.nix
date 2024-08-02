@@ -12,5 +12,6 @@
     ./variables.nix
     ./applets
     ./decorations
+    ./sway
   ];
 }
