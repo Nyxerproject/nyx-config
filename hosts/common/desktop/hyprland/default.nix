@@ -1,5 +1,4 @@
-{pkgs, ...}: 
-{
+{pkgs, ...}: {
   programs.hyprland = {
     # Install the packages from nixpkgs
     enable = true;

@@ -32,7 +32,7 @@ in {
         version = "GE-Proton9-10-rtsp12-hotfix";
         src = pkgs.fetchzip {
           url = "https://github.com/SpookySkeletons/proton-ge-rtsp/releases/download/${finalAttrs.urlVersion}/${finalAttrs.version}.tar.gz";
-          hash = "sha256-0000000000000000000000000000000000000000000=";
+          hash = "sha256-o5YfTsmLzkCZWjn+J6v38AbuTXcKSAcVJdqt+Km4jwA=";
         };
       }))
       (proton-ge-bin.overrideAttrs (finalAttrs: _: {
