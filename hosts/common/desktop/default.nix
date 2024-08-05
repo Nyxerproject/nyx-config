@@ -13,5 +13,6 @@
     ./applets
     ./decorations
     ./sway
+    ./hyprland
   ];
 }

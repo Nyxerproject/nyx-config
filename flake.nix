@@ -31,6 +31,11 @@
       url = "github:StardustXR/kiara";
     };
 
+    # nixpkgs-wayland = {
+    #   url = "github:nix-community/nixpkgs-wayland";
+    #   inputs.nixpkgs.follows = "nixpkgs";
+    # };
+
     sops-nix.url = "github:Mic92/sops-nix";
 
     stylix.url = "github:danth/stylix";

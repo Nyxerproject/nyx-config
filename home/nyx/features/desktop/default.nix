@@ -18,7 +18,6 @@
       zmkBATx # TODO shouldn't be here
 
       # desktop notifications # TODO shouldn't be in home defaults
-      libnotify # TODO remove this
       mako
 
       vulkan-tools
