@@ -18,6 +18,7 @@ in {
     WMR_HANDTRACKING = "0";
     LIBMONADO_PATH = "${pkgs.monado}/lib/libmonado.so";
     U_PACING_APP_IMMEDIATE_WAIT_FRAME_RETURN = "1";
+    U_PACING_APP_USE_MIN_WAKE_PERIOD = "1";
   };
 
   programs.envision.enable = true;
