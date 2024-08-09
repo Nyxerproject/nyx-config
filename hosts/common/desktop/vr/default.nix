@@ -1,9 +1,4 @@
-{
-  config,
-  inputs,
-  pkgs,
-  ...
-}: let
+{pkgs, ...}: let
   monado = pkgs.monado.overrideAttrs (previousAttrs: {
     src = previousAttrs.src.override {
       rev = "9baa28ee235ba0af9672650363de0eb86db6f646";
