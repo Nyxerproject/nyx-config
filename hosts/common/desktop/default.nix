@@ -14,5 +14,6 @@
     ./decorations
     ./sway
     ./hyprland
+    ./rustdesk
   ];
 }
