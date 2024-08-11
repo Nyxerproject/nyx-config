@@ -28,34 +28,10 @@ in {
     extraCompatPackages = with pkgs; [
       proton-ge-bin
       (proton-ge-bin.overrideAttrs (finalAttrs: _: {
-        urlVersion = "rtsp6-hotfix";
-        version = "GE-Proton9-10-rtsp12-hotfix";
-        src = pkgs.fetchzip {
-          url = "https://github.com/SpookySkeletons/proton-ge-rtsp/releases/download/${finalAttrs.urlVersion}/${finalAttrs.version}.tar.gz";
-          hash = "sha256-o5YfTsmLzkCZWjn+J6v38AbuTXcKSAcVJdqt+Km4jwA=";
-        };
-      }))
-      (proton-ge-bin.overrideAttrs (finalAttrs: _: {
-        version = "GE-Proton9-10-rtsp12";
-        src = pkgs.fetchzip {
-          # url = "https://github.com/SpookySkeletons/proton-ge-rtsp/releases/download/${finalAttrs.version}/${finalAttrs.version}.tar.gz";
-          url = "https://github.com/SpookySkeletons/proton-ge-rtsp/releases/download/GE-Proton9-10-rtsp12/GE-Proton9-10-rtsp12.tar.gz";
-          hash = "sha256-aHKOKhaOs1v+LwJdtQMDblcd5Oee9GzLC8SLYPA9jQQ=";
-        };
-      }))
-      (proton-ge-bin.overrideAttrs (finalAttrs: _: {
-        urlVersion = "GE-Proton9-9-rtsp11";
-        version = "GE-Proton9-9-rtsp11";
-        src = pkgs.fetchzip {
-          url = "https://github.com/SpookySkeletons/proton-ge-rtsp/releases/download/${finalAttrs.urlVersion}/${finalAttrs.version}.tar.gz";
-          hash = "sha256-NMG/rJBeUTOawGUuMmBqanQuNjrjjpKg5oZkjE/ikJU=";
-        };
-      }))
-      (proton-ge-bin.overrideAttrs (finalAttrs: _: {
-        version = "GE-Proton9-5-rtsp8";
+        version = "GE-Proton9-10-rtsp13";
         src = pkgs.fetchzip {
           url = "https://github.com/SpookySkeletons/proton-ge-rtsp/releases/download/${finalAttrs.version}/${finalAttrs.version}.tar.gz";
-          hash = "sha256-4q7pjxhNHnsOmlsWq3lMONRF2l3UK27GsNeMflVv1k0=";
+          hash = "sha256-0000000000000000000000000000000000000000000=";
         };
       }))
       (proton-ge-bin.overrideAttrs (finalAttrs: _: {
