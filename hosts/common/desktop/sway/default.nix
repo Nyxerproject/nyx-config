@@ -1,25 +1,26 @@
 {
-  pkgs,
-  config,
   inputs,
+  pkgs,
   ...
 }: {
-  # nix.settings = {
-  #   # add binary caches
-  #   trusted-public-keys = [
-  #     "cache.nixos.org-1:6NCHdD59X431o0gWypbMrAURkbJ16ZPMQFGspcDShjY="
-  #     "nixpkgs-wayland.cachix.org-1:3lwxaILxMRkVhehr5StQprHdEo4IrE8sRho9R9HOLYA="
-  #   ];
-  #   substituters = [
-  #     "https://cache.nixos.org"
-  #     "https://nixpkgs-wayland.cachix.org"
-  #   ];
-  # };
-
-  # use it as an overlay
-  # nixpkgs.overlays = [inputs.nixpkgs-wayland.overlay];
+  imports = [
+    ../niri/fuzzel.nix
+    ../niri/notifications
+  ];
 
   programs.sway = {
+    enable = true;
+  };
+
+  environment = {
+    systemPackages = with pkgs; [
+      # add other things for niri
+      fuzzel # niri defaults
+      alacritty # niri defaults
+      kitty
+    ];
+  };
+  programs.xwayland = {
     enable = true;
   };
 }

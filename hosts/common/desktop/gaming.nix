@@ -31,7 +31,7 @@ in {
         version = "GE-Proton9-10-rtsp13";
         src = pkgs.fetchzip {
           url = "https://github.com/SpookySkeletons/proton-ge-rtsp/releases/download/${finalAttrs.version}/${finalAttrs.version}.tar.gz";
-          hash = "sha256-0000000000000000000000000000000000000000000=";
+          hash = "sha256-jf1p33Kuqtriycf6gOw/IBdx/ts/P7PJd+pjxonAS/U=";
         };
       }))
       (proton-ge-bin.overrideAttrs (finalAttrs: _: {
