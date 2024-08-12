@@ -3,6 +3,7 @@
 Its not much but its mine. Feel free to take a look and open any issues/pull requests if you have any questions, comments, concerns, or suggestions.
 
 # TODO
+ - add git-hooks to automatically format nix files
  - add impermenance
  - add sops-nix and/or agenix
  - add rekeying for secrets

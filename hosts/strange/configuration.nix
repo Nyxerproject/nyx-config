@@ -7,8 +7,9 @@
   # networking
   networking = {
     hostName = "strange";
-    # networkmanager.enable = true;
+    networkmanager.enable = true;
     # firewall.enable = true;
+    dhcpcd.enable = false;
   };
 
   # services and background things
