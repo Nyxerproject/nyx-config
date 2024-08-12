@@ -7,10 +7,8 @@
   imports = [
     ../../users/nyx.nix
     ./hardware-configuration.nix
-    ../common/desktop/vr
     ../common/desktop/niri
     ../common/desktop
-    ../common/desktop/gaming.nix
     ../common/zram.nix
     ../common
   ];
@@ -18,7 +16,7 @@
   # Enable networking
   networking = {
     networkmanager.enable = true;
-    hostName = "bottom";
+    hostName = "bwah";
   };
 
   # Bootloader.
@@ -46,19 +44,13 @@
     backupFileExtension = "backup";
     useGlobalPkgs = true;
     useUserPackages = true;
-    users.nyx = import ../../home/nyx/bottom;
+    users.tami= import ../../home/nyx/bottom;
   };
 
   hardware = {
     opengl = {
       enable = true;
       driSupport32Bit = true;
-      extraPackages = let
-        monadoVulkanLayer = import inputs.monadoVulkanLayer {
-          config.allowUnfree = true;
-          system = "x86_64-linux"; # TODO there is prob a better way of declaring this
-        };
-      in [monadoVulkanLayer.monado-vulkan-layers];
     };
 
     nvidia = {

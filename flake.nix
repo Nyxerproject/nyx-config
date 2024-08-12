@@ -15,20 +15,9 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    nixpkgs-xr = {
-      url = "github:nix-community/nixpkgs-xr";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
-    monadoVulkanLayer.url = "github:Scrumplex/nixpkgs/nixos/monado/vulkan-layers"; # TODO: remove when merged
-
     niri = {
       url = "github:sodiboo/niri-flake";
       inputs.nixpkgs.follows = "nixpkgs";
-    };
-
-    kiara = {
-      url = "github:StardustXR/kiara";
     };
 
     # nixpkgs-wayland = {
@@ -63,56 +52,13 @@
   in {
     nixpkgs.overlays = [inputs.niri.overlays.niri];
     nixosConfigurations = {
-      bottom = nixpkgs.lib.nixosSystem {
+      bwah = nixpkgs.lib.nixosSystem {
         inherit system;
         modules = [
           ./hosts/bottom
-          inputs.nixpkgs-xr.nixosModules.nixpkgs-xr
           inputs.niri.nixosModules.niri
           inputs.sddm-sugar-candy-nix.nixosModules.default
           inputs.home-manager.nixosModules.home-manager
-        ];
-        specialArgs = {
-          inherit inputs;
-        };
-      };
-      down = nixpkgs.lib.nixosSystem {
-        inherit system;
-        modules = [
-          ./hosts/down
-          inputs.niri.nixosModules.niri
-          inputs.disko.nixosModules.disko
-          inputs.sddm-sugar-candy-nix.nixosModules.default
-          inputs.home-manager.nixosModules.home-manager
-        ];
-        specialArgs = {
-          inherit inputs;
-        };
-      };
-      muon = nixpkgs.lib.nixosSystem {
-        inherit system;
-        modules = [
-          ./hosts/muon
-          inputs.niri.nixosModules.niri
-          inputs.disko.nixosModules.disko
-          inputs.sddm-sugar-candy-nix.nixosModules.default
-          inputs.home-manager.nixosModules.home-manager
-        ];
-        specialArgs = {
-          inherit inputs;
-        };
-      };
-      strange = nixpkgs.lib.nixosSystem {
-        inherit system;
-        modules = [
-          ./hosts/strange
-          inputs.home-manager.nixosModules.home-manager
-          inputs.nixos-wsl.nixosModules.default
-          {
-            system.stateVersion = "24.05";
-            wsl.enable = true;
-            wsl.defaultUser = "nyx";
-          }
         ];
         specialArgs = {
           inherit inputs;
