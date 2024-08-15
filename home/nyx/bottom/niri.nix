@@ -78,7 +78,7 @@
     };
     environment = {
       # SDL_VIDEO_WAYLAND_PREFER_LIBDECOR = "1";
-      DISPLAY = ":21";
+      DISPLAY = ":5";
     };
     spawn-at-startup = [
       # { command = ["bash" "-c" "~/.config/start.sh"]; }
@@ -105,7 +105,7 @@
       {command = ["bash" "-c" "export" "$(dbus-launch)"];}
       # {command = ["bash" "-c" "kdeconnect-indicator" "&"];}
       # {command = ["bash" "-c" "xwayland-satellite" "&"];}
-      {command = ["${lib.meta.getExe pkgs.xwayland-satellite}" ":21"];}
+      {command = ["${lib.meta.getExe pkgs.xwayland-satellite}" ":5"];}
     ];
 
     screenshot-path = "~/Pictures/Screenshots/Screenshot from %Y-%m-%d %H-%M-%s.png";

@@ -1,7 +1,8 @@
 {
   services = {
     displayManager = {
-      autoLogin.enable = false;
+      autoLogin.enable = true;
+      autoLogin.user = "nyx";
       sddm = {
         enable = true;
         wayland.enable = true;
