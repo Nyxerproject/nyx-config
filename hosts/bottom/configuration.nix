@@ -33,7 +33,7 @@
   services = {
     desktopManager.plasma6.enable = true;
     displayManager = {
-      defaultSession = "plasma";
+      defaultSession = "niri";
     };
     xserver = {
       config = "Option \"AllowHMD\" \"yes\"";
