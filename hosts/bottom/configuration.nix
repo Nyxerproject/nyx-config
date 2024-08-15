@@ -7,7 +7,6 @@
   imports = [
     ../../users/nyx.nix
     ./hardware-configuration.nix
-    ../common/desktop/niri
     ../common/desktop
     ../common/zram.nix
     ../common
@@ -44,7 +43,7 @@
     backupFileExtension = "backup";
     useGlobalPkgs = true;
     useUserPackages = true;
-    users.tami= import ../../home/nyx/bottom;
+    users.tami = import ../../home/nyx/bottom;
   };
 
   hardware = {

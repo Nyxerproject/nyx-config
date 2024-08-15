@@ -1,7 +1,6 @@
 {
   imports = [
     ./theme
-    ./niri
     ./bluetooth.nix
     ./fonts.nix
     ./mullvad-vpn.nix
