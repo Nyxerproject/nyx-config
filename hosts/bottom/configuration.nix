@@ -33,7 +33,7 @@
   services = {
     desktopManager.plasma6.enable = true;
     displayManager = {
-      defaultSession = "niri";
+      defaultSession = "plasma";
     };
     xserver = {
       enable = true;
