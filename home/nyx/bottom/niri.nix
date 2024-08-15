@@ -5,6 +5,10 @@
   inputs,
   ...
 }: {
+  home.packages = with pkgs; [
+    xwayland
+    xwayland-satellite
+  ];
   programs.niri.settings = {
     input = {
       keyboard.xkb = {
@@ -74,7 +78,7 @@
     };
     environment = {
       # SDL_VIDEO_WAYLAND_PREFER_LIBDECOR = "1";
-      DISPLAY = ":0";
+      DISPLAY = ":21";
     };
     spawn-at-startup = [
       # { command = ["bash" "-c" "~/.config/start.sh"]; }
@@ -100,7 +104,8 @@
       }
       {command = ["bash" "-c" "export" "$(dbus-launch)"];}
       # {command = ["bash" "-c" "kdeconnect-indicator" "&"];}
-      {command = ["bash" "-c" "xwayland-satellite" "&"];}
+      # {command = ["bash" "-c" "xwayland-satellite" "&"];}
+      {command = ["${lib.meta.getExe pkgs.xwayland-satellite}" ":21"];}
     ];
 
     screenshot-path = "~/Pictures/Screenshots/Screenshot from %Y-%m-%d %H-%M-%s.png";
