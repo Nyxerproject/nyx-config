@@ -31,13 +31,13 @@
       };
     };
 
-    # outputs."DP-2" = {
-    #   mode = {
-    #     height = 2880;
-    #     width = 1600;
-    #     refresh = 144.000;
-    #   };
-    # };
+    outputs."lease-DP-2" = {
+      mode = {
+        height = 2880;
+        width = 1600;
+        refresh = 144.00;
+      };
+    };
 
     outputs."DP-3" = {
       mode = {
