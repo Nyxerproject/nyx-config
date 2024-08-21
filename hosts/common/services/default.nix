@@ -4,5 +4,6 @@
     ./synapse
     ./jellyfin
     ./nextcloud
+    ./attic
   ];
 }

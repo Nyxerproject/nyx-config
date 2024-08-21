@@ -1,5 +1,5 @@
 {pkgs, ...}: {
-  environment.systempackages = with pkgs; [
+  environment.systemPackages = with pkgs; [
     super-slicer-beta
   ];
 }

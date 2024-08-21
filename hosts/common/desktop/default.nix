@@ -15,5 +15,6 @@
     ./sway
     ./hyprland
     ./rustdesk
+    ./printing
   ];
 }
