@@ -125,22 +125,22 @@
       "Alt+Shift+C".action = close-window;
       "Alt+H".action = focus-column-left;
       "Alt+L".action = focus-column-right;
-      "Alt+I".action = focus-window-up;
-      "Alt+K".action = focus-window-down;
+      "Alt+K".action = focus-window-up;
+      "Alt+J".action = focus-window-down;
       "Alt+Shift+H".action = move-column-left;
       "Alt+Shift+L".action = move-column-right;
-      "Alt+Shift+I".action = move-window-up;
-      "Alt+Shift+K".action = move-window-down;
+      "Alt+Shift+K".action = move-window-up;
+      "Alt+Shift+J".action = move-window-down;
 
       # Workspaces and monitors
-      "Mod+I".action = focus-workspace-up;
-      "Mod+K".action = focus-workspace-down;
-      "Mod+Shift+I".action = move-window-to-workspace-up;
-      "Mod+Shift+K".action = move-window-to-workspace-down;
-      "Mod+Ctrl+I".action = move-column-to-workspace-up;
-      "Mod+Ctrl+K".action = move-column-to-workspace-down;
-      "Alt+Ctrl+K".action = move-workspace-down;
-      "Alt+Ctrl+I".action = move-workspace-up;
+      "Mod+K".action = focus-workspace-up;
+      "Mod+J".action = focus-workspace-down;
+      "Mod+Shift+K".action = move-window-to-workspace-up;
+      "Mod+Shift+J".action = move-window-to-workspace-down;
+      "Mod+Ctrl+K".action = move-column-to-workspace-up;
+      "Mod+Ctrl+J".action = move-column-to-workspace-down;
+      "Alt+Ctrl+K".action = move-workspace-up;
+      "Alt+Ctrl+J".action = move-workspace-down;
       "Alt+Ctrl+H".action = focus-monitor-left;
       "Alt+Ctrl+L".action = focus-monitor-right;
       "Alt+Shift+Ctrl+H".action = move-window-to-monitor-left;
