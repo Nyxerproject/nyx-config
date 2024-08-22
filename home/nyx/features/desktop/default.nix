@@ -2,6 +2,7 @@
   imports = [
     ../alacritty
     ../pkm
+    ./niri
   ];
 
   home = {
@@ -15,7 +16,6 @@
       element-desktop
       element-desktop-wayland
       kdePackages.neochat
-
       iamb
 
       # keyboard tools
