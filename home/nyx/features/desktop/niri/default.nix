@@ -14,20 +14,19 @@
         layout = "us";
         variant = "";
       };
+      touchpad = {
+        dwt = true;
+        tap = true;
+        natural-scroll = false;
+      };
+      mouse = {
+        natural-scroll = false;
+      };
     };
-    #   touchpad = {
-    #     dwt = true;
-    #     tap = true;
-    #     natural-scroll = false;
-    #   };
-    #   mouse = {
-    #     natural-scroll = false;
-    #   };
-    # };
 
-    # cursor = {
-    #   size = 12;
-    # };
+    cursor = {
+      size = 12;
+    };
 
     layout = {
       gaps = 12;
