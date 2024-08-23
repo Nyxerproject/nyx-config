@@ -112,7 +112,7 @@
             system.stateVersion = "24.05";
             wsl.enable = true;
             wsl.defaultUser = "nyx";
-            services.resolved.enable = true;
+            # services.resolved.enable = true;
           }
         ];
         specialArgs = {
