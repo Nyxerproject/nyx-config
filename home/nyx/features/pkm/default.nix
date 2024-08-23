@@ -1,5 +1,5 @@
 {pkgs, ...}: {
-  environment.systemPackages = [
-    pkgs.markdown-oxide
+  home.packages = with pkgs; [
+    markdown-oxide
   ];
 }
