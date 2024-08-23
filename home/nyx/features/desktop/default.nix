@@ -1,6 +1,7 @@
 {pkgs, ...}: {
   imports = [
-    ../alacritty/default.nix
+    ../alacritty
+    ../pkm
   ];
 
   home = {

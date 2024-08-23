@@ -32,6 +32,8 @@
 
   services = {
     desktopManager.plasma6.enable = true;
+    # there is an issue with the theme and qt6 vs qt5.
+    # TODO fix: https://github.com/NixOS/nixpkgs/issues/292761
     displayManager = {
       defaultSession = "niri";
     };
