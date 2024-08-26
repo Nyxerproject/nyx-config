@@ -14,7 +14,7 @@ in {
     LIBMONADO_PATH = "${pkgs.monado}/lib/libmonado.so";
     # U_PACING_APP_IMMEDIATE_WAIT_FRAME_RETURN = "1";
     # U_PACING_APP_USE_MIN_WAKE_PERIOD = "1";
-    U_PACING_COMP_MIN_TIME_MS = "16";
+    U_PACING_COMP_MIN_TIME_MS = "32";
   };
 
   programs.envision.enable = true;
