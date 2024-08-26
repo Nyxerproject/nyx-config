@@ -22,6 +22,8 @@
 
     monadoVulkanLayer.url = "github:Scrumplex/nixpkgs/nixos/monado/vulkan-layers"; # TODO: remove when merged
 
+    chaotic.url = "github:chaotic-cx/nyx/nyxpkgs-unstable";
+
     niri = {
       url = "github:sodiboo/niri-flake";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -71,6 +73,7 @@
           inputs.niri.nixosModules.niri
           inputs.sddm-sugar-candy-nix.nixosModules.default
           inputs.home-manager.nixosModules.home-manager
+          inputs.chaotic.nixosModules.default
         ];
         specialArgs = {
           inherit inputs;

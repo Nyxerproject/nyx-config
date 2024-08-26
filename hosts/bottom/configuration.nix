@@ -23,12 +23,15 @@
 
   # Bootloader.
   boot = {
-    kernelPackages = pkgs.linuxKernel.packages.linux_zen;
+    kernelPackages = pkgs.linuxPackages_cachyos;
+
     loader = {
       systemd-boot.enable = true;
       efi.canTouchEfiVariables = true;
     };
   };
+  chaotic.scx.enable = true; # by default uses scx_rustland scheduler
+  chaotic.scx.scheduler = "scx_rusty";
 
   services = {
     desktopManager.plasma6.enable = true;
