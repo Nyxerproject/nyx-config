@@ -2,7 +2,7 @@
   description = "My silly (bad) flake :3";
 
   inputs = {
-    nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
+    nixpkgs.url = "github:NixOS/nixpkgs/271ffd08a7c5cf41e9d367bbbf9e549fd166868c";
     nixos-hardware.url = "github:NixOS/nixos-hardware";
 
     disko = {
