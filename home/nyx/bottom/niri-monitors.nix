@@ -18,7 +18,7 @@
     # anki-bin
   ];
   programs.niri.settings = {
-    outputs."DP-1" = {
+    outputs."DP-2" = {
       mode = {
         height = 1200;
         width = 1920;
@@ -31,13 +31,13 @@
       };
     };
 
-    outputs."lease-DP-2" = {
-      mode = {
-        height = 2880;
-        width = 1600;
-        refresh = 144.00;
-      };
-    };
+    # outputs."lease-DP-2" = {
+    #   mode = {
+    #     height = 2880;
+    #     width = 1600;
+    #     refresh = 144.00;
+    #   };
+    # };
 
     outputs."DP-3" = {
       mode = {
