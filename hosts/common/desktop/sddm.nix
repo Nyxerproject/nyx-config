@@ -1,7 +1,7 @@
 {
   services = {
     displayManager = {
-      autoLogin.enable = true;
+      autoLogin.enable = false;
       autoLogin.user = "nyx";
       sddm = {
         enable = true;

@@ -54,28 +54,28 @@
     users.nyx = import ../../home/nyx/bottom;
   };
 
-  # hardware = {
-  #   opengl = {
-  #     enable = true;
-  #     driSupport32Bit = true;
-  #     extraPackages = let
-  #       monadoVulkanLayer = import inputs.monadoVulkanLayer {
-  #         config.allowUnfree = true;
-  #         system = "x86_64-linux"; # TODO there is prob a better way of declaring this
-  #       };
-  #     in [monadoVulkanLayer.monado-vulkan-layers];
-  #   };
+  hardware = {
+    opengl = {
+      enable = true;
+      driSupport32Bit = true;
+      extraPackages = let
+        monadoVulkanLayer = import inputs.monadoVulkanLayer {
+          config.allowUnfree = true;
+          system = "x86_64-linux"; # TODO there is prob a better way of declaring this
+        };
+      in [monadoVulkanLayer.monado-vulkan-layers];
+    };
 
-  #   nvidia = {
-  #     modesetting.enable = true;
-  #     powerManagement = {
-  #       enable = false;
-  #       finegrained = false;
-  #     };
-  #     nvidiaSettings = true;
-  #     package = config.boot.kernelPackages.nvidiaPackages.stable;
-  #   };
-  # };
+    nvidia = {
+      modesetting.enable = true;
+      powerManagement = {
+        enable = false;
+        finegrained = false;
+      };
+      nvidiaSettings = true;
+      package = config.boot.kernelPackages.nvidiaPackages.stable;
+    };
+  };
 
   programs.fish.enable = true;
 
