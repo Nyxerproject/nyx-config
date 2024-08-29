@@ -1,4 +1,8 @@
 {
+  lib,
+  pkgs,
+  ...
+}: {
   services = {
     displayManager = {
       autoLogin.enable = true;
@@ -6,6 +10,7 @@
       sddm = {
         enable = true;
         wayland.enable = true;
+        package = pkgs.libsForQt5.sddm;
       };
     };
   };
