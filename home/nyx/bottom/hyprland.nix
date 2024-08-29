@@ -17,7 +17,7 @@
       bind =
         [
           "$mod, F, exec, firefox"
-          "$mod, K, exec, firefox"
+          "$mod, K, exec, kickoff"
           "$mod, enter, exec, kickoff"
           ", Print, exec, grimblast copy area"
         ]
