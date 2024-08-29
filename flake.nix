@@ -33,6 +33,8 @@
 
     jeezyvim.url = "github:LGUG2Z/JeezyVim";
 
+    nixvim.url = "github:nix-community/nixvim";
+
     # nixpkgs-wayland = {
     #   url = "github:nix-community/nixpkgs-wayland";
     #   inputs.nixpkgs.follows = "nixpkgs";
@@ -70,6 +72,7 @@
         modules = [
           ./hosts/bottom
           inputs.nixpkgs-xr.nixosModules.nixpkgs-xr
+          inputs.nixvim.nixosModules.nixvim
           inputs.niri.nixosModules.niri
           inputs.sddm-sugar-candy-nix.nixosModules.default
           inputs.home-manager.nixosModules.home-manager
@@ -110,6 +113,7 @@
           ./hosts/strange
           inputs.home-manager.nixosModules.home-manager
           inputs.nixos-wsl.nixosModules.default
+          inputs.nixvim.nixosModules.nixvim
           {
             system.stateVersion = "24.05";
             wsl.enable = true;
