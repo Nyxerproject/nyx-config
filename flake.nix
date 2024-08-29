@@ -22,6 +22,8 @@
 
     monadoVulkanLayer.url = "github:Scrumplex/nixpkgs/nixos/monado/vulkan-layers"; # TODO: remove when merged
 
+    hyprland.url = "github:hyprwm/Hyprland";
+
     chaotic.url = "github:chaotic-cx/nyx/nyxpkgs-unstable";
 
     niri = {

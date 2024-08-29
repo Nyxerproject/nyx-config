@@ -6,5 +6,6 @@
     ../features/vr
     ./niri-monitors.nix
     ./niri.nix
+    ./hyprland.nix
   ];
 }
