@@ -3,9 +3,9 @@
     EDITOR = "lvim";
   };
   programs.neovim = {
-    defaultEditor = true;
+    # defaultEditor = true;
     enable = true;
-    viAlias = true;
-    vimAlias = true;
+    # viAlias = true;
+    # vimAlias = true;
   };
 }
