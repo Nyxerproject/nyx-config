@@ -1,7 +1,5 @@
 {pkgs, ...}: {
   environment.systemPackages = with pkgs; [
-    neovim
-    lunarvim
     wget
     curl
     git

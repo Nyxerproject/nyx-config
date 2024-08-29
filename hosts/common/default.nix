@@ -1,6 +1,7 @@
 {
   imports = [
     ./theme
+    ./nvim
     ./fish.nix
     ./localization.nix
     ./mullvad.nix

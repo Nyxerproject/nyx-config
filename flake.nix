@@ -31,6 +31,8 @@
       url = "github:StardustXR/kiara";
     };
 
+    jeezyvim.url = "github:LGUG2Z/JeezyVim";
+
     # nixpkgs-wayland = {
     #   url = "github:nix-community/nixpkgs-wayland";
     #   inputs.nixpkgs.follows = "nixpkgs";
