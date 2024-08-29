@@ -12,7 +12,7 @@
     enable = true;
 
     settings = {
-      monitors = ["DP-2, 1920x1200@60, 1920x-540, 1, transform, 1" "DP-3, 1920x1080@144, 0x0,1"];
+      monitor = ["DP-2, 1920x1200@60, 1920x-540, 1, transform, 1" "DP-3, 1920x1080@144, 0x0,1"];
       "$mod" = "SUPER";
       bind =
         [
