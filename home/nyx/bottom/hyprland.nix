@@ -18,7 +18,7 @@
         [
           "$mod, F, exec, firefox"
           "$mod, K, exec, kickoff"
-          "$mod, enter, exec, kickoff"
+          "$mod, ENTER, exec, kickoff"
           ", Print, exec, grimblast copy area"
         ]
         ++ (

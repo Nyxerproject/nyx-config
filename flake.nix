@@ -62,11 +62,7 @@
     };
   };
 
-  outputs = {
-    self,
-    nixpkgs,
-    ...
-  } @ inputs: let
+  outputs = {nixpkgs, ...} @ inputs: let
     system = "x86_64-linux";
   in {
     nixpkgs.overlays = [inputs.niri.overlays.niri];
