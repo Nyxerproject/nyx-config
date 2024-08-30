@@ -108,6 +108,18 @@
           inherit inputs;
         };
       };
+      top = nixpkgs.lib.nixosSystem {
+        inherit system;
+        modules = [
+          ./hosts/top
+          inputs.home-manager.nixosModules.home-manager
+          inputs.disko.nixosModules.disko
+          inputs.nixvim.nixosModules.nixvim
+        ];
+        specialArgs = {
+          inherit inputs;
+        };
+      };
       strange = nixpkgs.lib.nixosSystem {
         inherit system;
         modules = [
