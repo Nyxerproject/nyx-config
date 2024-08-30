@@ -20,8 +20,8 @@
       wine = true;
       no_display = true;
       background_alpha = "0.5";
-      toggle_hud = "Shift_R+F12";
       toggle_fps_limit = "Shift_R+F1";
+      toggle_hud = "Shift_R+F2";
     };
   };
 }
