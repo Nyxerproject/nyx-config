@@ -31,7 +31,7 @@
     };
   };
   chaotic.scx.enable = true; # by default uses scx_rustland scheduler
-  chaotic.scx.scheduler = "scx_rustland";
+  chaotic.scx.scheduler = "scx_rusty";
 
   services = {
     desktopManager.plasma6.enable = true;
