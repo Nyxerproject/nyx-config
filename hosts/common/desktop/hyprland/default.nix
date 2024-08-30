@@ -1,9 +1,11 @@
-{pkgs, ...}: {
+{
+  inputs,
+  pkgs,
+  ...
+}: {
   programs.hyprland = {
-    # Install the packages from nixpkgs
     enable = true;
-    # Whether to enable XWayland
+    # package = inputs.hyprland.packages."${pkgs.system}".hyprland;
     xwayland.enable = true;
   };
-  # ...
 }

@@ -41,7 +41,6 @@
       defaultSession = "niri";
     };
     xserver = {
-      config = "Option \"AllowHMD\" \"yes\"";
       enable = true;
       videoDrivers = ["nvidia"];
     };
