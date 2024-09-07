@@ -13,6 +13,7 @@
     ../common/desktop/gaming.nix
     ../common/zram.nix
     ../common
+    "${inputs.pkgs-wivrn}/nixos/modules/services/video/wivrn.nix"
   ];
 
   # Enable networking
@@ -38,7 +39,7 @@
     # there is an issue with the theme and qt6 vs qt5.
     # TODO fix: https://github.com/NixOS/nixpkgs/issues/292761
     displayManager = {
-      defaultSession = "niri";
+      # defaultSession = "niri";
     };
     xserver = {
       enable = true;
@@ -85,6 +86,7 @@
   # TODO make a seporate packages file
   environment.systemPackages = with pkgs; [
     corectrl
+    ungoogled-chromium
   ];
 
   environment.sessionVariables = {

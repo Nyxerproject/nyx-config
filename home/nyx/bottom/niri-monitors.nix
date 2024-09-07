@@ -1,6 +1,5 @@
 {pkgs, ...}: {
   home.packages = with pkgs; [
-    xwayland-satellite
     lazygit
     # wofi
     # clipman

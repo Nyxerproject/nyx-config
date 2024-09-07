@@ -14,7 +14,7 @@
       # add other things for niri
       fuzzel # niri defaults
       alacritty # niri defaults
-      xwayland-satellite
+      xwayland-satellite-unstable
       niri-unstable
       gamescope
       cage

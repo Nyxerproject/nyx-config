@@ -2,7 +2,8 @@
   description = "My silly (bad) flake :3";
 
   inputs = {
-    nixpkgs.url = "github:NixOS/nixpkgs/271ffd08a7c5cf41e9d367bbbf9e549fd166868c";
+    # nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
+    nixpkgs.url = "github:NixOS/nixpkgs/89fdd511b41582cf114eca825484d3deca1372eb";
     nixos-hardware.url = "github:NixOS/nixos-hardware";
 
     disko = {
@@ -21,6 +22,8 @@
     };
 
     monadoVulkanLayer.url = "github:Scrumplex/nixpkgs/nixos/monado/vulkan-layers"; # TODO: remove when merged
+
+    pkgs-wivrn.url = "github:PassiveLemon/nixpkgs/wivrn-init"; # TODO: remove when merged
 
     chaotic.url = "github:chaotic-cx/nyx/nyxpkgs-unstable";
 
