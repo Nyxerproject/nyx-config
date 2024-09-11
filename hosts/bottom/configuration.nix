@@ -26,6 +26,10 @@
   boot = {
     kernelPackages = pkgs.linuxPackages_cachyos;
 
+    kernelParams = [
+      "nvidia_drm.fbdev=1"
+    ];
+
     loader = {
       systemd-boot.enable = true;
       efi.canTouchEfiVariables = true;
@@ -39,7 +43,7 @@
     # there is an issue with the theme and qt6 vs qt5.
     # TODO fix: https://github.com/NixOS/nixpkgs/issues/292761
     displayManager = {
-      # defaultSession = "niri";
+      defaultSession = "plasma";
     };
     xserver = {
       enable = true;

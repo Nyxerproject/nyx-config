@@ -17,5 +17,6 @@
 
     # tools
     gparted
+    keepassxc
   ];
 }
