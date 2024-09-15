@@ -23,6 +23,7 @@
 
     monadoVulkanLayer.url = "github:Scrumplex/nixpkgs/nixos/monado/vulkan-layers"; # TODO: remove when merged
 
+    #pkgs-wivrn.url = "github:Nyxerproject/nixpkgs/wivrn-init"; # TODO: remove when merged
     pkgs-wivrn.url = "github:PassiveLemon/nixpkgs/wivrn-init"; # TODO: remove when merged
 
     chaotic.url = "github:chaotic-cx/nyx/nyxpkgs-unstable";
