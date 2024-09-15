@@ -92,6 +92,8 @@
     corectrl
     qbittorrent
     ungoogled-chromium
+    vlc
+    mpv
   ];
 
   environment.sessionVariables = {
