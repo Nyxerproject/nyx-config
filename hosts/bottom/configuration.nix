@@ -25,9 +25,9 @@
   boot = {
     kernelPackages = pkgs.linuxPackages_cachyos;
 
-    kernelParams = [
-      "nvidia_drm.fbdev=1"
-    ];
+    #kernelParams = [
+    #"nvidia_drm.fbdev=1"
+    #];
 
     loader = {
       systemd-boot.enable = true;
@@ -35,7 +35,8 @@
     };
   };
   chaotic.scx.enable = true; # by default uses scx_rustland scheduler
-  chaotic.scx.scheduler = "scx_qmap";
+  #chaotic.scx.scheduler = "scx_qmap";
+  chaotic.scx.scheduler = "scx_rusty";
 
   services = {
     desktopManager.plasma6.enable = true;
@@ -46,7 +47,7 @@
     };
     xserver = {
       enable = true;
-      videoDrivers = ["nvidia"];
+      #videoDrivers = ["nvidia"];
     };
     printing.enable = true;
     openssh.enable = true;
@@ -64,24 +65,24 @@
     graphics = {
       enable = true;
       enable32Bit = true;
-      extraPackages = let
-        monadoVulkanLayer = import inputs.monadoVulkanLayer {
-          config.allowUnfree = true;
-          system = "x86_64-linux"; # TODO there is prob a better way of declaring this
-        };
-      in [monadoVulkanLayer.monado-vulkan-layers];
+      #extraPackages = let
+      #monadoVulkanLayer = import inputs.monadoVulkanLayer {
+      #config.allowUnfree = true;
+      #system = "x86_64-linux"; # TODO there is prob a better way of declaring this
+      #};
+      #in [monadoVulkanLayer.monado-vulkan-layers];
     };
 
-    nvidia = {
-      modesetting.enable = true;
-      powerManagement = {
-        enable = false;
-        finegrained = false;
-      };
-      open = true;
-      nvidiaSettings = true;
-      package = config.boot.kernelPackages.nvidiaPackages.stable;
-    };
+    #nvidia = {
+    #  modesetting.enable = true;
+    #  powerManagement = {
+    #    enable = false;
+    #    finegrained = false;
+    #  };
+    #  open = true;
+    #  nvidiaSettings = true;
+    #  package = config.boot.kernelPackages.nvidiaPackages.stable;
+    #};
   };
 
   programs.fish.enable = true;
