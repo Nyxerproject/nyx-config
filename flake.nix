@@ -3,9 +3,9 @@
 
   inputs = {
     # nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
-    nixpkgs.url = "github:NixOS/nixpkgs/89fdd511b41582cf114eca825484d3deca1372eb";
+    #nixpkgs.url = "github:nyxerproject/nixpkgs/wivrn-init";
+    nixpkgs.url = "github:PassiveLemon/nixpkgs/wivrn-init";
     nixos-hardware.url = "github:NixOS/nixos-hardware";
-
     disko = {
       url = "github:nix-community/disko";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -22,9 +22,6 @@
     };
 
     monadoVulkanLayer.url = "github:Scrumplex/nixpkgs/nixos/monado/vulkan-layers"; # TODO: remove when merged
-
-    #pkgs-wivrn.url = "github:Nyxerproject/nixpkgs/wivrn-init"; # TODO: remove when merged
-    pkgs-wivrn.url = "github:PassiveLemon/nixpkgs/wivrn-init"; # TODO: remove when merged
 
     chaotic.url = "github:chaotic-cx/nyx/nyxpkgs-unstable";
 

@@ -23,20 +23,12 @@
         width = 1920;
         refresh = 60.0;
       };
-      transform.rotation = 90;
+      transform.rotation = 270;
       position = {
         x = 1920;
         y = -540;
       };
     };
-
-    # outputs."lease-DP-2" = {
-    #   mode = {
-    #     height = 2880;
-    #     width = 1600;
-    #     refresh = 144.00;
-    #   };
-    # };
 
     outputs."DP-3" = {
       mode = {

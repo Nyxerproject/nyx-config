@@ -13,7 +13,6 @@
     ../common/desktop/gaming.nix
     ../common/zram.nix
     ../common
-    "${inputs.pkgs-wivrn}/nixos/modules/services/video/wivrn.nix"
   ];
 
   # Enable networking
@@ -98,7 +97,7 @@
 
   environment.sessionVariables = {
     FLAKE = "/home/nyx/nyx-config";
-    MOZ_ENABLE_WAYLAND = 0; # TODO move to firefox.nix
+    # MOZ_ENABLE_WAYLAND = 0; # TODO move to firefox.nix
   };
 
   system.stateVersion = "24.05"; #DONT TOUCH!
