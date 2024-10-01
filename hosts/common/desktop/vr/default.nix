@@ -11,7 +11,7 @@
     XRT_COMPOSITOR_COMPUTE = "1";
     WMR_HANDTRACKING = "0";
     #LIBMONADO_PATH = "${pkgs.monado}/lib/libmonado.so";
-    LIBMONADO_PATH = "${pkgs.wivrn}/lib/wivrn/libmonado.so";
+    #LIBMONADO_PATH = "${pkgs.wivrn}/lib/wivrn/libopenxr_wivrn.so";
     # U_PACING_APP_IMMEDIATE_WAIT_FRAME_RETURN = "1";
     # U_PACING_APP_USE_MIN_WAKE_PERIOD = "1";
     # U_PACING_COMP_MIN_TIME_MS = "4";
