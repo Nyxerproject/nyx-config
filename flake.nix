@@ -90,6 +90,7 @@
         modules = [
           ./hosts/down
           inputs.niri.nixosModules.niri
+          inputs.nixvim.nixosModules.nixvim
           inputs.disko.nixosModules.disko
           inputs.sddm-sugar-candy-nix.nixosModules.default
           inputs.home-manager.nixosModules.home-manager
@@ -103,6 +104,7 @@
         modules = [
           ./hosts/muon
           inputs.niri.nixosModules.niri
+          inputs.nixvim.nixosModules.nixvim
           inputs.disko.nixosModules.disko
           inputs.sddm-sugar-candy-nix.nixosModules.default
           inputs.home-manager.nixosModules.home-manager
@@ -134,7 +136,6 @@
             system.stateVersion = "24.05";
             wsl.enable = true;
             wsl.defaultUser = "nyx";
-            # services.resolved.enable = true;
           }
         ];
         specialArgs = {
