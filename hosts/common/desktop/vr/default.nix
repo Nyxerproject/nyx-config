@@ -22,7 +22,7 @@
   programs.envision.enable = true;
   services = {
     monado = {
-      enable = true;
+      #enable = true;
       #defaultRuntime = true;
     };
 
