@@ -18,7 +18,6 @@
         capabilities = "vim.tbl_deep_extend( 'force', capabilities or {}, { workspace = { didChangeWatchedFiles = { dynamicRegistration = true, }, }, })"
       })
     '';
-
     plugins.cmp.settings.completion.keyword_pattern = "[[\(\k\| \|\/\|#\)\+]]";
   };
   nixpkgs = {

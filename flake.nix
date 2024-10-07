@@ -16,14 +16,17 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    nixos-generators = {
+      url = "github:nix-community/nixos-generators";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     nixpkgs-xr = {
       url = "github:nix-community/nixpkgs-xr";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
     monadoVulkanLayer.url = "github:Scrumplex/nixpkgs/nixos/monado/vulkan-layers"; # TODO: remove when merged
-
-    #lemonake.url = "github:PassiveLemon/lemonake";
 
     chaotic.url = "github:chaotic-cx/nyx/nyxpkgs-unstable";
 
@@ -77,6 +80,7 @@
           inputs.nixpkgs-xr.nixosModules.nixpkgs-xr
           inputs.nixvim.nixosModules.nixvim
           inputs.niri.nixosModules.niri
+          inputs.nixos-generators.nixosModules.all-formats
           inputs.sddm-sugar-candy-nix.nixosModules.default
           inputs.home-manager.nixosModules.home-manager
           inputs.chaotic.nixosModules.default

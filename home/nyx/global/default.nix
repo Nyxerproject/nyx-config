@@ -69,6 +69,9 @@
       ethtool
       #pciutils # lspci
       #usbutils # lsusb
+
+      keepassxc
+      keepass-diff
     ];
   };
 

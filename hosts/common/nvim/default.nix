@@ -21,4 +21,6 @@
       lunarvim
     ];
   };
+
+  #extraConfigLua = "require('my-plugin').setup({foo = "bar"})";
 }
