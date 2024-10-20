@@ -10,7 +10,9 @@
       sddm = {
         enable = true;
         wayland.enable = true;
-        package = pkgs.libsForQt5.sddm;
+        package = pkgs.lib.mkForce pkgs.libsForQt5.sddm;
+        extraPackages = pkgs.lib.mkForce [];
+        theme = "sddm-sugar-candy-nix";
       };
     };
   };

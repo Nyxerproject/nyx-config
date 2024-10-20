@@ -26,11 +26,11 @@
       #defaultRuntime = true;
     };
 
-    wivrn = {
-      openFirewall = true;
-      defaultRuntime = true;
-      #package = inputs.lemonake.packages.x86_64-linux.wivrn;
-    };
+    #wivrn = {
+    #openFirewall = true;
+    #defaultRuntime = true;``
+    #package = inputs.lemonake.packages.x86_64-linux.wivrn;
+    #};
   };
 
   environment.systemPackages = with pkgs; [
