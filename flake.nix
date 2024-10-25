@@ -2,9 +2,7 @@
   description = "My silly (bad) flake :3";
 
   inputs = {
-    #nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
-    #nixpkgs.url = "github:nyxerproject/nixpkgs/wivrn-init";
-    nixpkgs.url = "github:PassiveLemon/nixpkgs/wivrn-init";
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
     nixos-hardware.url = "github:NixOS/nixos-hardware";
     disko = {
       url = "github:nix-community/disko";

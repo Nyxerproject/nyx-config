@@ -1,8 +1,4 @@
-{
-  pkgs,
-  inputs,
-  ...
-}: {
+{pkgs, ...}: {
   imports = [./jeezyvim];
 
   programs.neovim = {
@@ -18,6 +14,7 @@
     };
     systemPackages = with pkgs; [
       neovim
+      tectonic
       lunarvim
     ];
   };
