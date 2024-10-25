@@ -38,7 +38,7 @@
       url = "github:StardustXR/kiara";
     };
 
-    jeezyvim.url = "github:LGUG2Z/JeezyVim";
+    jeezyvim.url = "github:nyxerproject/JeezyVim";
 
     nixvim.url = "github:nix-community/nixvim";
 
