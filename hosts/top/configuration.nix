@@ -1,7 +1,7 @@
 {
   imports = [
-    # ./hardware-configuration.nix
-    # ./disko-config.nix
+    ./hardware-configuration.nix
+    ./disko-config.nix
     ../../users/nyx.nix
     ../common
   ];
