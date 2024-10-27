@@ -46,10 +46,10 @@
       # };
 
       focus-ring = {
-        enable = true;
+        enable = false;
         active = {color = "rgb(68, 71, 90)";};
         inactive = {color = "rgb(40 42 54)";};
-        width = 9;
+        width = 3;
       };
 
       border = {
@@ -58,7 +58,7 @@
         active = {
           gradient = {
             from = "#FF99FF";
-            to = "#FF99CC";
+            to = "#99FFFF";
             angle = 0;
             relative-to = "window";
           };
@@ -67,7 +67,7 @@
         inactive = {
           gradient = {
             from = "#720072";
-            to = "#720039";
+            to = "#727200";
             angle = 0;
             relative-to = "window";
           };
@@ -90,17 +90,8 @@
       # }
       {command = ["bash" "-c" "nm-applet" "&"];}
       {command = ["bash" "-c" "blueman-applet" "&"];}
-      {
-        command = [
-          "bash"
-          "-c"
-          "dbus-update-activation-environment"
-          "--systemd"
-          "WAYLAND_DISPLAY"
-          "XDG_CURRENT_DESKTOP &"
-        ];
-      }
-      {command = ["bash" "-c" "export" "$(dbus-launch)"];}
+      #{ command = [ "bash" "-c" "dbus-update-activation-environment" "--systemd" "WAYLAND_DISPLAY" "XDG_CURRENT_DESKTOP &" ]; }
+      # {command = ["bash" "-c" "export" "$(dbus-launch)"];} # TODO: Figure out what this does. Why do did I put these here?
       # {command = ["bash" "-c" "kdeconnect-indicator" "&"];}
       # {command = ["bash" "-c" "xwayland-satellite" "&"];}
       {command = ["${lib.meta.getExe pkgs.xwayland-satellite}" ":5"];}

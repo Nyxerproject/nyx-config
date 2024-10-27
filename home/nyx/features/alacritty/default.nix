@@ -2,11 +2,11 @@
   programs = {
     alacritty = {
       enable = true;
-      # TODO create alacritty nix file (or better yet options like in the vimjoyer)
+      # TODO: create alacritty nix file (or better yet options like in the vimjoyer)
       settings = {
         env.TERM = "xterm-256color";
         font = {
-          size = 12;
+          size = 8;
           normal = {
             family = "FiraCode Nerd Font";
             style = "Regular";
