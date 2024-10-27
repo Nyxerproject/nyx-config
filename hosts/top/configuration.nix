@@ -26,9 +26,6 @@
     xserver = {
       enable = false;
     };
-    nextcloud = {
-      enable = true;
-    };
     jellyfin = {
       enable = true;
     };
