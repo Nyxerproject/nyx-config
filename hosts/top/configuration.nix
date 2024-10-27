@@ -3,6 +3,7 @@
     ./hardware-configuration.nix
     ./disko-config.nix
     ../../users/nyx.nix
+    ../common/desktop/nextcloud
     ../common
   ];
 
