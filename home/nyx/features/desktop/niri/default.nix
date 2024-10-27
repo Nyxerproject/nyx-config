@@ -57,8 +57,8 @@
         width = 5;
         active = {
           gradient = {
-            from = "#8080FF";
-            to = "#FF00FF";
+            from = "#FF00FF";
+            to = "#FF0080";
             angle = 0;
             relative-to = "window";
           };
@@ -66,8 +66,8 @@
 
         inactive = {
           gradient = {
-            from = "#EFE6EE";
-            to = "#700070";
+            from = "#B300B3";
+            to = "#B3005A";
             angle = 0;
             relative-to = "window";
           };
