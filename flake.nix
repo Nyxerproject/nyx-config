@@ -100,6 +100,7 @@
           inputs.niri.nixosModules.niri
           inputs.nixvim.nixosModules.nixvim
           inputs.disko.nixosModules.disko
+          inputs.nixvim.nixosModules.nixvim
           inputs.sddm-sugar-candy-nix.nixosModules.default
           inputs.home-manager.nixosModules.home-manager
           inputs.attic.nixosModules.atticd
@@ -115,6 +116,7 @@
           inputs.niri.nixosModules.niri
           inputs.nixvim.nixosModules.nixvim
           inputs.disko.nixosModules.disko
+          inputs.nixvim.nixosModules.nixvim
           inputs.sddm-sugar-candy-nix.nixosModules.default
           inputs.home-manager.nixosModules.home-manager
         ];
