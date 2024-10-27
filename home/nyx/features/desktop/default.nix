@@ -6,22 +6,22 @@
   ];
 
   home = {
-    # TODO cleanup
+    # TODO: cleanup
     packages = with pkgs; [
       # Instant messaging packages
-      # TODO --consider moving to home. shouldn't be on every desktop and user--
-      # TODO make sure these work well
+      # TODO: --consider moving to home. shouldn't be on every desktop and user--
+      # TODO: make sure these work well
       webcord
       tdesktop
-      element-desktop
+      # element-desktop # only one should be added. otherwise there will be a colision
       element-desktop-wayland
       kdePackages.neochat
       iamb
 
       # keyboard tools
-      zmkBATx # TODO shouldn't be here
+      zmkBATx # TODO: shouldn't be here
 
-      # desktop notifications # TODO shouldn't be in home defaults
+      # desktop notifications # TODO: shouldn't be in home defaults
       mako
 
       vulkan-tools
@@ -31,7 +31,7 @@
       coppwr
 
       # necessary stuff
-      firefox # TODO make this a seporate file
+      firefox # TODO: make this a seporate file
       thunderbird
     ];
   };

@@ -22,6 +22,9 @@ requests if you have any questions, comments, concerns, or suggestions.
   - make specilization for plasma
   - make specilization for sway
   - make specilization for hyprland
+- add tealdear (that tldr man page helper)
+- add nutrino as a live usb device along with kexec profiles using my attic and tailscale
+- add jovian-nixos for steamdeck
 - add eww config
 - move to NVK driver
 - add tailscale
