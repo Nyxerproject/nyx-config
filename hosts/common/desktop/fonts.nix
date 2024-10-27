@@ -1,10 +1,7 @@
 {pkgs, ...}: {
   fonts = {
     packages = with pkgs; [
-      hack-font
-      noto-fonts-cjk-sans
-      fira
-      monocraft
+      (nerdfonts.override {fonts = ["FiraCode"];})
       fira-code
       roboto
       gohufont
@@ -15,8 +12,7 @@
     fontDir = {
       enable = true;
       decompressFonts = true;
-    };
-
+    }; #https://general-metrics.com/articles/nixos-nerd-fonts/
     fontconfig = {
       cache32Bit = true;
       defaultFonts = {

@@ -25,6 +25,12 @@
     xserver = {
       enable = false;
     };
+    nextcloud = {
+      enble = true;
+    };
+    jellyfin = {
+      enable = true;
+    };
   };
 
   home-manager = {
