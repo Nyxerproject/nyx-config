@@ -26,7 +26,7 @@
       enable = false;
     };
     nextcloud = {
-      enble = true;
+      enable = true;
     };
     jellyfin = {
       enable = true;
