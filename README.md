@@ -13,6 +13,11 @@ requests if you have any questions, comments, concerns, or suggestions.
 - add rekeying for secrets
 - add other laptops
 - add syncthing
+- add more debugging support/help
+- add stack tracing to nix by default
+- add nix develop for this flake
+- add attic
+  - use s3 database
 - fully switch to niri
   - make specilization for plasma
   - make specilization for sway

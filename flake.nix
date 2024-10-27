@@ -44,10 +44,6 @@
 
     nixvim.url = "github:nix-community/nixvim";
 
-    attic = {
-      url = "github:zhaofengli/attic";
-    };
-
     # nixpkgs-wayland = {
     #   url = "github:nix-community/nixpkgs-wayland";
     #   inputs.nixpkgs.follows = "nixpkgs";
@@ -87,7 +83,6 @@
           inputs.sddm-sugar-candy-nix.nixosModules.default
           inputs.home-manager.nixosModules.home-manager
           inputs.chaotic.nixosModules.default
-          inputs.attic.nixosModules.atticd
         ];
         specialArgs = {
           inherit inputs;
@@ -98,12 +93,10 @@
         modules = [
           ./hosts/down
           inputs.niri.nixosModules.niri
-          inputs.nixvim.nixosModules.nixvim
           inputs.disko.nixosModules.disko
           inputs.nixvim.nixosModules.nixvim
           inputs.sddm-sugar-candy-nix.nixosModules.default
           inputs.home-manager.nixosModules.home-manager
-          inputs.attic.nixosModules.atticd
         ];
         specialArgs = {
           inherit inputs;
@@ -116,7 +109,6 @@
           inputs.niri.nixosModules.niri
           inputs.nixvim.nixosModules.nixvim
           inputs.disko.nixosModules.disko
-          inputs.nixvim.nixosModules.nixvim
           inputs.sddm-sugar-candy-nix.nixosModules.default
           inputs.home-manager.nixosModules.home-manager
         ];
