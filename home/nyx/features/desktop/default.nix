@@ -12,7 +12,10 @@
       # TODO make sure these work well
       webcord
       tdesktop
+      element-desktop
       element-desktop-wayland
+      kdePackages.neochat
+
       iamb
 
       # keyboard tools
@@ -29,6 +32,7 @@
 
       # necessary stuff
       firefox # TODO make this a seporate file
+      thunderbird
     ];
   };
 }

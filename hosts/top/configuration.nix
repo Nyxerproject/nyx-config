@@ -3,7 +3,7 @@
     ./hardware-configuration.nix
     ./disko-config.nix
     ../../users/nyx.nix
-    ../common/desktop/nextcloud
+    ../common/services
     ../common
   ];
 
@@ -25,9 +25,6 @@
   services = {
     xserver = {
       enable = false;
-    };
-    jellyfin = {
-      enable = true;
     };
   };
 
