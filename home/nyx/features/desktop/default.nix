@@ -21,8 +21,21 @@
       # keyboard tools
       zmkBATx # TODO: shouldn't be here
 
-      # desktop notifications # TODO: shouldn't be in home defaults
-      mako
+      lazygit
+      # wofi
+      # clipman
+      # wl-clipboard
+      # foliate
+      # espeak
+      # distrobox
+      # xq
+      # signal-desktop
+      # remmina
+      # firefox-wayland
+      # grimblast
+      # nixd
+      # vial
+      # anki-bin
 
       vulkan-tools
       wayland-utils

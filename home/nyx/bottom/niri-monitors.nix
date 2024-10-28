@@ -1,21 +1,4 @@
-{pkgs, ...}: {
-  home.packages = with pkgs; [
-    lazygit
-    # wofi
-    # clipman
-    # wl-clipboard
-    # foliate
-    # espeak
-    # distrobox
-    # xq
-    # signal-desktop
-    # remmina
-    # firefox-wayland
-    # grimblast
-    # nixd
-    # vial
-    # anki-bin
-  ];
+{
   programs.niri.settings = {
     outputs."DP-2" = {
       mode = {

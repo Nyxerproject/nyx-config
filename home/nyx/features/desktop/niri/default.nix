@@ -6,7 +6,6 @@
 }: {
   home.packages = with pkgs; [
     xwayland
-    xwayland-satellite
   ];
   programs.niri.settings = {
     input = {
