@@ -57,19 +57,19 @@
         width = 5;
         active = {
           gradient = {
-            from = "#FF99FF";
-            to = "#99FFFF";
+            from = "#FDEFF9";
+            to = "#EC38BC";
             angle = 0;
-            relative-to = "window";
+            relative-to = "workspace-view";
           };
         };
 
         inactive = {
           gradient = {
-            from = "#720072";
-            to = "#727200";
+            from = "#7303C0";
+            to = "#03001E";
             angle = 0;
-            relative-to = "window";
+            relative-to = "workspace-view";
           };
         };
       };

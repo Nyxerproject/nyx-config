@@ -6,7 +6,7 @@
       settings = {
         env.TERM = "xterm-256color";
         font = {
-          size = 8;
+          size = 10;
           normal = {
             family = "FiraCode Nerd Font";
             style = "Regular";
