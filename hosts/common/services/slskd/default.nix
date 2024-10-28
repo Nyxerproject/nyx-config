@@ -1,7 +1,7 @@
 {pkgs, ...}: {
   services.slskd = {
-    enable = true;
-    #domain = "localhost/slskd";
+    enable = false;
+    domain = "localhost";
     #user = "nyx";
   };
 }

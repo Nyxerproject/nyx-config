@@ -8,5 +8,4 @@
     enable = true;
     openFirewall = true;
   };
-  user = "nyx";
 }
