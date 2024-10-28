@@ -14,6 +14,7 @@
       alacritty # niri defaults
       gamescope
       cage
+      ddcutil
       xwayland-run
     ];
   };

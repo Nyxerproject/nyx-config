@@ -4,6 +4,9 @@
   lib,
   ...
 }: {
+  imports = [
+    ../wluma.nix
+  ];
   home.packages = with pkgs; [
     xwayland
   ];
