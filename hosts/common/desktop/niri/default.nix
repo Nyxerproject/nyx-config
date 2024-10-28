@@ -12,6 +12,7 @@
       # add other things for niri
       fuzzel # niri defaults
       alacritty # niri defaults
+      brightnessctl
       gamescope
       cage
       ddcutil

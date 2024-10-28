@@ -4,12 +4,8 @@
   lib,
   ...
 }: {
-  imports = [
-    ../wluma.nix
-  ];
-  home.packages = with pkgs; [
-    xwayland
-  ];
+  imports = [../wluma.nix];
+  home.packages = with pkgs; [xwayland];
   programs.niri.settings = {
     input = {
       keyboard.xkb = {
@@ -26,9 +22,9 @@
       };
     };
 
-    cursor = {
-      size = 12;
-    };
+    #cursor = {
+    #  size = 12;
+    #};
 
     layout = {
       gaps = 12;
@@ -77,7 +73,7 @@
       };
     };
     environment = {
-      # SDL_VIDEO_WAYLAND_PREFER_LIBDECOR = "1";
+      SDL_VIDEO_WAYLAND_PREFER_LIBDECOR = "1";
       DISPLAY = ":5";
     };
     spawn-at-startup = [
@@ -111,8 +107,50 @@
       "XF86AudioLowerVolume".action.spawn = ["wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "0.1-"];
       "XF86AudioMute".action.spawn = ["wpctl" "set-mute" "@DEFAULT_AUDIO_SINK@" "toggle"];
       "XF86AudioMicMute".action.spawn = ["wpctl" "set-mute" "@DEFAULT_AUDIO_SOURCE@" "toggle"];
-      "XF86MonBrightnessUp".action.spawn = ["light" "-A" "5"];
-      "XF86MonBrightnessDown".action.spawn = ["light" "-U" "5"];
+      "XF86MonBrightnessDown".action.spawn = [
+        "bash"
+        "-c"
+        "brightnessctl"
+        "-c"
+        "backlight"
+        "set"
+        "1-"
+        "&&"
+        "notify-send"
+        "-c"
+        "\"system\""
+        "\" Brightness:"
+        "$(brightnessctl"
+        "-m"
+        "|"
+        "cut"
+        "-d','"
+        "-f4)\""
+      ];
+
+      "XF86MonBrightnessUp".action.spawn = [
+        "bash"
+        "-c"
+        "brightnessctl"
+        "-c"
+        "backlight"
+        "set"
+        "+1"
+        "&&"
+        "notify-send"
+        "-c"
+        "\"system\""
+        "\" Brightness:"
+        "$(brightnessctl"
+        "-m"
+        "|"
+        "cut"
+        "-d','"
+        "-f4)\""
+      ];
+
+      #"XF86MonBrightnessUp".action.spawn = ["light" "-A" "5"];
+      #"XF86MonBrightnessDown".action.spawn = ["light" "-U" "5"];
 
       # Everything regarding windows
       "Alt+Shift+C".action = close-window;

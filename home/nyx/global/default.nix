@@ -57,10 +57,13 @@
       iftop # network monitoring
       # nvtopPackages.full # gpu monitoring # TODO do some work to make this install without unfree=true
       bottom # cpu monitoring
+      navi
+      tealdeer
 
       # system call monitoring
       strace # system call monitoring
       ltrace # library call monitoring
+      systeroid
       #lsof # list open files
 
       # system tools
