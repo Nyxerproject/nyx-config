@@ -18,6 +18,12 @@
       cage
       ddcutil
       xwayland-run
+
+      # portals
+      xdg-desktop-portal-gnome
+      xdg-desktop-portal-wlr
+      xdg-desktop-portal-gtk
+      gnome.gnome-keyring
     ];
   };
   programs = {
