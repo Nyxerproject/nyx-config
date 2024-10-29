@@ -6,6 +6,7 @@
   imports = [
     ./notifications
     ./fuzzel.nix
+    ./lan-mouse
   ];
   environment = {
     systemPackages = with pkgs; [
