@@ -1,8 +1,5 @@
 {
   imports = [
-    ./slskd
-    ./synapse
-    ./jellyfin
-    ./nextcloud
+    ./syncthing
   ];
 }

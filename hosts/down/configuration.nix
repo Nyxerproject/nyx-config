@@ -4,6 +4,7 @@
     ./hardware-configuration.nix
     ./disko-config.nix
     ../common/desktop/niri
+    ../common/services
     ../common/desktop
     ../common
   ];

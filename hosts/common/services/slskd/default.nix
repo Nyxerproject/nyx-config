@@ -1,4 +1,4 @@
-{pkgs, ...}: {
+{
   services.slskd = {
     enable = false;
     domain = "localhost";

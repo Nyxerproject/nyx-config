@@ -5,7 +5,10 @@
   ...
 }: {
   imports = [../wluma.nix];
-  home.packages = with pkgs; [xwayland];
+  home.packages = with pkgs; [
+    xwayland
+    xwayland-satellite-unstable
+  ];
   programs.niri.settings = {
     input = {
       keyboard.xkb = {
@@ -92,7 +95,7 @@
       # {command = ["bash" "-c" "export" "$(dbus-launch)"];} # TODO: Figure out what this does. Why do did I put these here?
       # {command = ["bash" "-c" "kdeconnect-indicator" "&"];}
       # {command = ["bash" "-c" "xwayland-satellite" "&"];}
-      {command = ["${lib.meta.getExe pkgs.xwayland-satellite}" ":5"];}
+      {command = ["${lib.meta.getExe pkgs.xwayland-satellite-unstable}" ":5"];}
     ];
 
     screenshot-path = "~/Pictures/Screenshots/Screenshot from %Y-%m-%d %H-%M-%s.png";
