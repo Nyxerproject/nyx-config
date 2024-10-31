@@ -4,7 +4,11 @@
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
     # nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
+
     nixos-hardware.url = "github:NixOS/nixos-hardware";
+
+    add-gem5.url = "github:nyxerproject/nixpkgs/add-gem5";
+
     disko = {
       url = "github:nix-community/disko";
       inputs.nixpkgs.follows = "nixpkgs";

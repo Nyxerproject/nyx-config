@@ -111,45 +111,19 @@
       "XF86AudioMute".action.spawn = ["wpctl" "set-mute" "@DEFAULT_AUDIO_SINK@" "toggle"];
       "XF86AudioMicMute".action.spawn = ["wpctl" "set-mute" "@DEFAULT_AUDIO_SOURCE@" "toggle"];
       "XF86MonBrightnessDown".action.spawn = [
-        "bash"
-        "-c"
         "brightnessctl"
         "-c"
         "backlight"
         "set"
-        "1-"
-        "&&"
-        "notify-send"
-        "-c"
-        "\"system\""
-        "\" Brightness:"
-        "$(brightnessctl"
-        "-m"
-        "|"
-        "cut"
-        "-d','"
-        "-f4)\""
+        "10%-"
       ];
 
       "XF86MonBrightnessUp".action.spawn = [
-        "bash"
-        "-c"
         "brightnessctl"
         "-c"
         "backlight"
         "set"
-        "+1"
-        "&&"
-        "notify-send"
-        "-c"
-        "\"system\""
-        "\" Brightness:"
-        "$(brightnessctl"
-        "-m"
-        "|"
-        "cut"
-        "-d','"
-        "-f4)\""
+        "10%+"
       ];
 
       #"XF86MonBrightnessUp".action.spawn = ["light" "-A" "5"];

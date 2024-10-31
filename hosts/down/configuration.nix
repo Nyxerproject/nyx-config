@@ -1,4 +1,4 @@
-{
+{inputs, ...}: {
   imports = [
     ../../users/nyx.nix
     ./hardware-configuration.nix
@@ -38,6 +38,13 @@
     useUserPackages = true;
     users.nyx = import ../../home/nyx/down;
   };
+
+  environment.systemPackages = let
+    gem5 = import inputs.add-gem5 {
+      config.allowUnfree = true;
+      system = "x86_64-linux"; # TODO: there is prob a better way of declaring this
+    };
+  in [gem5.gem5];
 
   environment = {
     sessionVariables = {

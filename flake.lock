@@ -1,5 +1,21 @@
 {
   "nodes": {
+    "add-gem5": {
+      "locked": {
+        "lastModified": 1730355565,
+        "narHash": "sha256-tWaTCjQv0J8oXyU2V4tJgcsBHOwBVPB8IXBIen69+TY=",
+        "owner": "nyxerproject",
+        "repo": "nixpkgs",
+        "rev": "be077ce4472cbbd15cc6907bfeed9fdcd380be7a",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nyxerproject",
+        "ref": "add-gem5",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
     "aquamarine": {
       "inputs": {
         "hyprutils": [
@@ -1643,6 +1659,7 @@
     },
     "root": {
       "inputs": {
+        "add-gem5": "add-gem5",
         "chaotic": "chaotic",
         "disko": "disko",
         "home-manager": "home-manager_2",

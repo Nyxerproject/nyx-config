@@ -41,7 +41,7 @@
   services = {
     desktopManager.plasma6.enable = true;
     # there is an issue with the theme and qt6 vs qt5.
-    # TODO fix: https://github.com/NixOS/nixpkgs/issues/292761
+    # TODO: https://github.com/NixOS/nixpkgs/issues/292761
     displayManager = {
       defaultSession = "plasma";
     };
@@ -68,7 +68,7 @@
       extraPackages = let
         monadoVulkanLayer = import inputs.monadoVulkanLayer {
           config.allowUnfree = true;
-          system = "x86_64-linux"; # TODO there is prob a better way of declaring this
+          system = "x86_64-linux"; # TODO: there is prob a better way of declaring this
         };
       in [monadoVulkanLayer.monado-vulkan-layers];
     };
@@ -87,7 +87,7 @@
 
   programs.fish.enable = true;
 
-  # TODO make a seporate packages file
+  # TODO: make a seporate packages file
   environment.systemPackages = with pkgs; [
     corectrl
     qbittorrent
