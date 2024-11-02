@@ -10,5 +10,6 @@
     ./scripts.nix
     ./tailscale.nix
     ./ssh.nix
+    ./development.nix
   ];
 }
