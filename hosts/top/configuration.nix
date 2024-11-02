@@ -4,6 +4,7 @@
     ./disko-config.nix
     ../../users/nyx.nix
     ../common/services
+    ../common/zram.nix
     ../common/services/server_stuff.nix
     ../common
   ];
