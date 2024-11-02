@@ -1047,22 +1047,6 @@
         "type": "github"
       }
     },
-    "monadoVulkanLayer": {
-      "locked": {
-        "lastModified": 1729774902,
-        "narHash": "sha256-QNt/fyO1hEIMkHu148ZXTrrO+f9525pWHgWdk4yMKpA=",
-        "owner": "Scrumplex",
-        "repo": "nixpkgs",
-        "rev": "0642aa2f53748a29834a897f2cdb391762d621f6",
-        "type": "github"
-      },
-      "original": {
-        "owner": "Scrumplex",
-        "ref": "nixos/monado/vulkan-layers",
-        "repo": "nixpkgs",
-        "type": "github"
-      }
-    },
     "niri": {
       "inputs": {
         "flake-parts": "flake-parts_3",
@@ -1666,7 +1650,6 @@
         "hyprland": "hyprland",
         "jeezyvim": "jeezyvim",
         "kiara": "kiara",
-        "monadoVulkanLayer": "monadoVulkanLayer",
         "niri": "niri",
         "nix-index-database": "nix-index-database",
         "nixos-generators": "nixos-generators",

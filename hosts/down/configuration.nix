@@ -44,7 +44,9 @@
       config.allowUnfree = true;
       system = "x86_64-linux"; # TODO: there is prob a better way of declaring this
     };
-  in [gem5.gem5];
+  in [
+    #gem5.gem5
+  ];
 
   environment = {
     sessionVariables = {

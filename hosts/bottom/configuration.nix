@@ -65,12 +65,6 @@
     graphics = {
       enable = true;
       enable32Bit = true;
-      extraPackages = let
-        monadoVulkanLayer = import inputs.monadoVulkanLayer {
-          config.allowUnfree = true;
-          system = "x86_64-linux"; # TODO: there is prob a better way of declaring this
-        };
-      in [monadoVulkanLayer.monado-vulkan-layers];
     };
 
     nvidia = {

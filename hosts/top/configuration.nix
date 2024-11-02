@@ -36,12 +36,12 @@
     users.nyx = import ../../home/nyx/top;
   };
 
-  environment.systemPackages = let
-    gem5 = import inputs.add-gem5 {
-      config.allowUnfree = true;
-      system = "x86_64-linux"; # TODO: there is prob a better way of declaring this
-    };
-  in [gem5.gem5];
+  #  environment.systemPackages = let
+  #    gem5 = import inputs.add-gem5 {
+  #      config.allowUnfree = true;
+  #      system = "x86_64-linux"; # TODO: there is prob a better way of declaring this
+  #    };
+  #  in [gem5.gem5];
 
   environment = {
     sessionVariables = {
