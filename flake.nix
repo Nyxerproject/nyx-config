@@ -32,6 +32,10 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    wivrn_pkgs.url = "github:PassiveLemon/nixpkgs/wivrn-update";
+
+    hyprland.url = "github:hyprwm/Hyprland";
+
     niri = {
       url = "github:sodiboo/niri-flake";
       inputs.nixpkgs.follows = "nixpkgs";
