@@ -1,8 +1,4 @@
-{
-  pkgs,
-  inputs,
-  ...
-}: {
+{pkgs, ...}: {
   imports = [./wivrn ./monado];
 
   environment.variables = {

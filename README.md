@@ -60,4 +60,14 @@ requests if you have any questions, comments, concerns, or suggestions.
 - sddm theme
 - stylix
 
+## Things to read
+
+- [https://lgug2z.com/articles/providing-runtime-secrets-to-nixos-services/]
+- [https://lgug2z.com/articles/handling-secrets-in-nixos-an-overview/]
+- [https://lgug2z.com/articles/managing-dotfiles-on-windows-11-with-nixos/]
+- [https://lgug2z.com/articles/set-your-nix-path-to-your-system-flakes-nixpkgs-for-a-more-predictable-nix-shell/]
+- [https://lgug2z.com/articles/cloudflare-and-nixos-tips-when-deploying-a-personal-mastodon-server/]
+- [https://lgug2z.com/articles/deploying-a-cloudflare-r2-backed-nix-binary-cache-attic-on-fly-io/]
+- [https://lgug2z.com/articles/selectivey-using-service-modules-from-nixos-unstable/]
+
 ## ps, you better not think I know what I am doing. I'm just trying my best ^ω^
