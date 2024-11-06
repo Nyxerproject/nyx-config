@@ -16,7 +16,7 @@
       neovim
       tectonic
       lunarvim
-      dotnet-sdk # for c sharp lsp
+      dotnetCorePackages.dotnet_8.sdk # for c sharp lsp
     ];
   };
 

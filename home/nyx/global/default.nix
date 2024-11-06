@@ -6,7 +6,6 @@
     packages = with pkgs; [
       # Packages that should be installed to the user profile.
       # here is some command line tools I use frequently
-      yazi # terminal file manager
       thefuck
       # archives
       zip

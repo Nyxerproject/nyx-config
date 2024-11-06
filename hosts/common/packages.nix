@@ -14,4 +14,7 @@
     comma
     nix-health
   ];
+  programs.yazi = {
+    enable = true;
+  };
 }
