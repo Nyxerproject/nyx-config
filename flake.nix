@@ -6,7 +6,7 @@
 
     nixos-hardware.url = "github:NixOS/nixos-hardware";
 
-    #add-gem5.url = "github:nyxerproject/nixpkgs/add-gem5";
+    # add-gem5.url = "github:nyxerproject/nixpkgs/add-gem5";
 
     disko = {
       url = "github:nix-community/disko";

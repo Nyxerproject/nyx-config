@@ -5,6 +5,7 @@
     git
     htop
     zoxide
+    #pik # process interactive kill # doesn't work on wsi???? idk
 
     # nixos stuff
     alejandra

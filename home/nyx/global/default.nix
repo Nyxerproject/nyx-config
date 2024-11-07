@@ -1,51 +1,45 @@
 {pkgs, ...}: {
   home = {
-    stateVersion = "24.05";
+    stateVersion = "24.11";
     # TODO this is a mix of cli and gui stuff. it should be broken into parts
     # TODO cleanup
     packages = with pkgs; [
-      # Packages that should be installed to the user profile.
-      # here is some command line tools I use frequently
       thefuck
+
       # archives
       zip
       xz
       unzip
-      #p7zip
+      crabz
+      ouch
 
       # utils
-      #ripgrep # recursively searches directories for a regex pattern
-      #jq # A lightweight and flexible command-line JSON processor
-      #yq-go # yaml processor https://github.com/mikefarah/yq
-      eza # A modern replacement for ‘ls’
-      lsd
-      fzf # A command-line fuzzy finder
+      lsd # ls but better
+      atuin # better history for shell
+
+      skim # fzf but better
+      fd
+      bat
+
+      sig
+
+      # development
+      gitui
 
       # networking tools
-      #mtr # A network diagnostic tool
-      #iperf3
-      #dnsutils  # `dig` + `nslookup`
-      #ldns # replacement of `dig`, it provide the command `drill`
-      #aria2 # A lightweight multi-protocol & multi-source command-line download utility
-      #socat # replacement of openbsd-netcat
+      trippy
       nmap # A utility for network discovery and security auditing
-      #ipcalc  # it is a calculator for the IPv4/v6 addresses
+      netscanner
+      iftop # network monitoring
+
+      # drive space
+      parallel-disk-usage
 
       # misc
-      #cowsay
-      #file
-      #which
       tree
-      #gnused
-      #gnutar
-      #gawk
-      #zstd
-      #gnupg
 
       # nix related
-      #
-      # it provides the command `nom` works just like `nix`
-      # with more details log output
+
       # productivity
 
       #hugo # static site generator
@@ -53,17 +47,20 @@
 
       btop # replacement of htop/nmon
       iotop # io monitoring
-      iftop # network monitoring
       # nvtopPackages.full # gpu monitoring # TODO do some work to make this install without unfree=true
+      lact
       bottom # cpu monitoring
-      navi
-      tealdeer
+      navi # cheat sheet for shell
+      tealdeer # gives tldrs for commands
 
       # system call monitoring
       strace # system call monitoring
       ltrace # library call monitoring
-      systeroid
-      #lsof # list open files
+      systeroid # alt to sysctl (w/ a tui :3)
+      procs # alt to ps
+
+      # drive space
+      parallel-disk-usage
 
       # system tools
       sysstat
@@ -71,6 +68,7 @@
       ethtool
       #pciutils # lspci
       #usbutils # lsusb
+      kmon # kernel monitoring
 
       keepassxc
       keepass-diff
