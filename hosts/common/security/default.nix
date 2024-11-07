@@ -1,21 +1,11 @@
 {
-  system,
   inputs,
+  pkgs,
   ...
 }: {
   environment.systemPackages = [
-    inputs.agenix.packages."${system}".default
+    inputs.agenix.packages."${pkgs.system}".default
   ];
-  agenixSecrets = {files}: {
-    age = {
-      identityPaths = [
-        "/etc/ssh/ssh_host_ed25519_key"
-        "/etc/ssh/ssh_host_rsa_key"
-      ];
-
-      secrets = files;
-    };
-  };
 }
 # TODO: add rules for sudo
 # TODO: look into allowing passwordless sudo execution for wheel/sudo group

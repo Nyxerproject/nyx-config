@@ -8,7 +8,5 @@ let
 
   systems = [top down];
 in {
-  "slskd_env.age".publicKeys = systems;
-  "secret1.age".publicKeys = [nyx down];
-  "secret2.age".publicKeys = users ++ systems;
+  "secrets.age".publicKeys = users ++ systems;
 }

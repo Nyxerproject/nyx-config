@@ -1,14 +1,9 @@
-{
-  inputs,
-  pkgs,
-  ...
-}: {
+{pkgs, ...}: {
   imports = [
     ../../users/nyx.nix
     ./hardware-configuration.nix
     ./disko-config.nix
     ../common/desktop/niri
-    ../common/desktop/gaming.nix
     ../common/services
     ../common/desktop
     ../common
@@ -44,15 +39,7 @@
     users.nyx = import ../../home/nyx/down;
   };
 
-  environment.systemPackages = let
-    gem5 = import inputs.add-gem5 {
-      config.allowUnfree = true;
-      system = "x86_64-linux"; # TODO: there is prob a better way of declaring this
-    };
-  in [
-    pkgs.libreoffice-qt6-fresh
-    gem5.gem5
-  ];
+  environment.systemPackages = [pkgs.libreoffice-qt6-fresh];
 
   environment = {
     sessionVariables = {

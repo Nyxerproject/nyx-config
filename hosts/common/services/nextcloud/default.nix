@@ -1,5 +1,8 @@
-{config, ...}: {
-  environment.etc."nextcloud-admin-pass".text = "PWD";
+{
+  pkgs,
+  config,
+  ...
+}: {
   services.nextcloud = {
     settings = let
       prot = "http";
@@ -9,7 +12,7 @@
       enable = true;
       configureRedis = true;
       hostName = "localhost";
-      config.adminpassFile = "/etc/nextcloud-admin-pass";
+      config.adminpassFile = config.age.secrets.nextcloud.path;
       overwriteprotocol = prot;
       overwritehost = host;
       overwritewebroot = dir;
@@ -19,5 +22,10 @@
     extraApps = {
       inherit (config.services.nextcloud.package.packages.apps) news contacts calendar tasks;
     };
+  };
+  age.secrets.nextcloud = {
+    file = ./secrets/secrets.age;
+    owner = "nextcloud";
+    group = "nextcloud";
   };
 }
