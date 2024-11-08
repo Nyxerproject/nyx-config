@@ -1,4 +1,8 @@
-{inputs, ...}: {
+{
+  inputs,
+  pkgs,
+  ...
+}: {
   imports = [
     ../../users/nyx.nix
     ./hardware-configuration.nix
@@ -45,7 +49,8 @@
       system = "x86_64-linux"; # TODO: there is prob a better way of declaring this
     };
   in [
-    #gem5.gem5
+    pkgs.libreoffice-qt6-fresh
+    gem5.gem5
   ];
 
   environment = {

@@ -1,9 +1,26 @@
-{}
-# TODO add rules for sudo
-# TODO look into allowing passwordless sudo execution for wheel/sudo group
-# TODO add polkit authentication
-# TODO add agenix and/or sops-nix
-# agenix has the rekeying and idk if sops does
+{
+  system,
+  inputs,
+  ...
+}: {
+  environment.systemPackages = [
+    inputs.agenix.packages."${system}".default
+  ];
+  agenixSecrets = {files}: {
+    age = {
+      identityPaths = [
+        "/etc/ssh/ssh_host_ed25519_key"
+        "/etc/ssh/ssh_host_rsa_key"
+      ];
+
+      secrets = files;
+    };
+  };
+}
+# TODO: add rules for sudo
+# TODO: look into allowing passwordless sudo execution for wheel/sudo group
+# TODO: add polkit authentication
+# TODO: add agenix and/or sops-nix. agenix has the rekeying and idk if sops does
 /*
 helpful links:
 

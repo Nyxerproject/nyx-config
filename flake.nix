@@ -6,7 +6,7 @@
 
     nixos-hardware.url = "github:NixOS/nixos-hardware";
 
-    # add-gem5.url = "github:nyxerproject/nixpkgs/add-gem5";
+    add-gem5.url = "github:nyxerproject/nixpkgs/add-gem5";
 
     disko = {
       url = "github:nix-community/disko";
@@ -17,6 +17,8 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    agenix.url = "github:ryantm/agenix";
 
     nixos-generators = {
       url = "github:nix-community/nixos-generators";
@@ -84,6 +86,7 @@
           inputs.sddm-sugar-candy-nix.nixosModules.default
           inputs.home-manager.nixosModules.home-manager
           inputs.chaotic.nixosModules.default
+          inputs.agenix.nixosModules.default
         ];
         specialArgs = {
           inherit inputs;
@@ -98,6 +101,7 @@
           inputs.nixvim.nixosModules.nixvim
           inputs.sddm-sugar-candy-nix.nixosModules.default
           inputs.home-manager.nixosModules.home-manager
+          inputs.agenix.nixosModules.default
         ];
         specialArgs = {
           inherit inputs;
@@ -112,6 +116,7 @@
           inputs.disko.nixosModules.disko
           inputs.sddm-sugar-candy-nix.nixosModules.default
           inputs.home-manager.nixosModules.home-manager
+          inputs.agenix.nixosModules.default
         ];
         specialArgs = {
           inherit inputs;
@@ -124,6 +129,7 @@
           inputs.home-manager.nixosModules.home-manager
           inputs.disko.nixosModules.disko
           inputs.nixvim.nixosModules.nixvim
+          inputs.agenix.nixosModules.default
         ];
         specialArgs = {
           inherit inputs;
@@ -136,6 +142,7 @@
           inputs.home-manager.nixosModules.home-manager
           inputs.nixos-wsl.nixosModules.default
           inputs.nixvim.nixosModules.nixvim
+          inputs.agenix.nixosModules.default
           {
             system.stateVersion = "24.05";
             wsl.enable = true;
