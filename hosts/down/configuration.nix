@@ -25,6 +25,13 @@
     device = "/dev/disk/by-id/nvme-WDC_PC_SN730_SDBPNTY-512G-1006_20204F801215_1";
   };
 
+  hardware.opengl = {
+    enable = true;
+    extraPackages = with pkgs; [
+      vpl-gpu-rt # for newer GPUs on NixOS >24.05 or unstable
+    ];
+  };
+
   # services and background things
   services = {
     xserver = {
@@ -39,7 +46,7 @@
     users.nyx = import ../../home/nyx/down;
   };
 
-  environment.systemPackages = [pkgs.libreoffice-qt6-fresh];
+  #environment.systemPackages = [pkgs.libreoffice-qt6-fresh];
 
   environment = {
     sessionVariables = {

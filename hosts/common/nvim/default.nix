@@ -15,8 +15,6 @@
     systemPackages = with pkgs; [
       neovim
       tectonic
-      lunarvim
-      dotnetCorePackages.dotnet_8.sdk # for c sharp lsp
     ];
   };
 
