@@ -1,10 +1,18 @@
 {pkgs, ...}: {
+  imports = [
+    ../features
+  ];
+
   home = {
     stateVersion = "24.11";
     # TODO this is a mix of cli and gui stuff. it should be broken into parts
     # TODO cleanup
     packages = with pkgs; [
-      thefuck
+      # helpers
+      thefuck # terminal helper
+      navi # cheat sheet for shell
+      tealdeer # gives tldrs for commands
+      halp # cli tool to help with cli tools
 
       # archives
       zip
@@ -14,24 +22,36 @@
       ouch
 
       # utils
-      lsd # ls but better
       atuin # better history for shell
-
-      skim # fzf but better
-      fd
+      ## replacments
+      lsd # ls but better
       bat
-
+      skim # fzf but better
       sig
+      fd
 
       # development
       gitui
+<<<<<<< HEAD
       git-cliff
+=======
+      delta # better highlighting
+      koji # better git commiter
+      cocogitto # conventional commits
+      difftastic
+>>>>>>> 834435d (bad derivation)
 
       # networking tools
-      trippy
+      trippy # network scanner
       nmap # A utility for network discovery and security auditing
-      netscanner
+      netscanner # network scanner
       iftop # network monitoring
+      termscp # download stuff easilly
+      bluetui # tui for bluetooth
+      impala # tui for wifi
+
+      fend # calculator
+      ripgrep-all # ripgrep anything
 
       # drive space
       parallel-disk-usage
@@ -40,28 +60,26 @@
       tree
 
       # nix related
-
       # productivity
+      taskwarrior-tui # todo list thing
+      mask
+      #rucola # in a pr
+      comrak
+      mdbook
+      presenterm
 
-      #hugo # static site generator
-      #glow # markdown previewer in terminal
-
+      # Monitoring
       btop # replacement of htop/nmon
       iotop # io monitoring
-      # nvtopPackages.full # gpu monitoring # TODO do some work to make this install without unfree=true
-      lact
       bottom # cpu monitoring
-      navi # cheat sheet for shell
-      tealdeer # gives tldrs for commands
+      mprocs # run multiple commands in parrallel
 
-      # system call monitoring
+      lact # gpu configuration
+
       strace # system call monitoring
       ltrace # library call monitoring
       systeroid # alt to sysctl (w/ a tui :3)
       procs # alt to ps
-
-      # drive space
-      parallel-disk-usage
 
       # system tools
       sysstat
@@ -70,6 +88,9 @@
       #pciutils # lspci
       #usbutils # lsusb
       kmon # kernel monitoring
+
+      # drive space
+      parallel-disk-usage
 
       keepassxc
       keepass-diff
@@ -88,7 +109,37 @@
     git = {
       enable = true;
       userName = "Nyxerproject";
-      userEmail = "nxyerproject@gmail.com";
-    };
+      userEmail = "nyxerproject@gmail.com";
+      lfs.enable = true;
+      delta = {
+        enable = true;
+        options.features = "decorations side-by-side line-numbers";
+      };
+      ignores = [
+        "*~"
+        ".direnv"
+      ];
+      # extraConfig = {
+      #   gitlab.user = userinfo.gitlabUser;
+      #   core.editor = "nvim";
+      #   push.default = "upstream";
+      #   pull.rebase = true;
+      #   rebase.autoStash = true;
+      #   init.defaultBranch = "main";
+      #   color = {
+      #     ui = "auto";
+      #     branch = "auto";
+      #     status = "auto";
+      #     diff = "auto";
+      #     interactive = "auto";
+      #     grep = "auto";
+      #     decorate = "auto";
+      #     showbranch = "auto";
+      #     pager = true;
+      #   };
+      # };
+    }; # look here https://github.com/johnae/world/blob/main/users/profiles/git.nix
+    gitui.enable = true;
+    bat.enable = true;
   };
 }

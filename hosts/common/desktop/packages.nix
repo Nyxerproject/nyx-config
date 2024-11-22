@@ -18,5 +18,6 @@
     # tools
     gparted
     keepassxc
+    qbittorrent
   ];
 }

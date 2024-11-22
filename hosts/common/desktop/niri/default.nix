@@ -11,6 +11,9 @@
   xdg.portal = {
     enable = true;
     wlr.enable = true;
+    extraPortals = [
+      pkgs.xdg-desktop-portal-wlr
+    ];
   };
   environment = {
     systemPackages = with pkgs; [

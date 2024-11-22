@@ -1,8 +1,7 @@
 {
   imports = [
     ../global
-    ../features/games/gaming.nix
-    ../features/nvim
+    ../features
     ../features/desktop
   ];
 }

@@ -83,7 +83,6 @@
   # TODO: make a seporate packages file
   environment.systemPackages = with pkgs; [
     corectrl
-    qbittorrent
     ungoogled-chromium
     vlc
     cudaPackages.cudatoolkit-legacy-runfile

@@ -2,6 +2,6 @@
   imports = [
     ../global
     ../features/desktop
-    ../features/nvim
+    ../features
   ];
 }

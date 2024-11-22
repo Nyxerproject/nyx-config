@@ -1,6 +1,7 @@
 {pkgs, ...}: {
   imports = [
     ../alacritty
+    ../rio
     ../pkm
     ./niri
   ];

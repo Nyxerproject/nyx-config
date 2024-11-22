@@ -4,7 +4,7 @@
     ../features/desktop
     ../features/games/gaming.nix
     ../features/vr
-    ../features/nvim
+    ../features
     ./niri-monitors.nix
     ./niri.nix
     ./hyprland.nix
