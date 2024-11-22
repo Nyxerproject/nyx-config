@@ -46,6 +46,8 @@ requests if you have any questions, comments, concerns, or suggestions.
 - add nyx keyboard configuration
 - add system for backups
 - set up gitlab on server
+- add wthrr on shell init
+- add starship
 
 ## Things to look into
 
@@ -59,6 +61,26 @@ requests if you have any questions, comments, concerns, or suggestions.
 - nix-health
 - sddm theme
 - stylix
+- SuckIT
+- Federated services
+  - Multimedia
+    - Owncast, peertube, pixelfed, castopod
+  - Music
+    - Nextcloud, funkwhale
+  - Books
+    - BookWyrm
+  - Writing
+    - plume
+    - write freely
+  - Events (?)
+    - bonfire
+    - mobilizzon
+  - Networking
+    - mastodon
+    - pleroma
+    - misskey
+- DefGuard
+- neko
 
 ## Things to read
 

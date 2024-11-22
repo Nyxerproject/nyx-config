@@ -25,6 +25,7 @@
 
       # development
       gitui
+      git-cliff
 
       # networking tools
       trippy
