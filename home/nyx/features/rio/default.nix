@@ -11,30 +11,30 @@
         blur = true;
         decorations = "Disabled";
       };
-      # fonts = {
-      #   family = "FiraCode Nerd Font";
-      #   #size = 15;
-      # };
-      fonts = {
+      font = {
         size = 10;
         normal = {
           family = "FiraCode Nerd Font";
           style = "Regular";
         };
-        bold = {
-          family = "FiraCode Nerd Font";
-          style = "Bold";
-        };
+        # bold = {
+        #   family = "FiraCode Nerd Font";
+        #   style = "Bold";
+        # };
         italic = {
           family = "FiraCode Nerd Font";
           style = "Italic";
         };
-        bold_italic = {
-          family = "FiraCode Nerd Font";
-          style = "Bold_Italic";
-        };
+        # bold_italic = {
+        #   family = "FiraCode Nerd Font";
+        #   style = "Bold_Italic";
+        # };
       };
 
+      # fonts = {
+      #   family = "FiraCode Nerd Font";
+      #   #size = 15;
+      # };
       # shell = {
       #   program = "${pkgs.zellij}/bin/zellij";
       #   args = ["-s" "local-dev" "attach" "-c" "local-dev"];
