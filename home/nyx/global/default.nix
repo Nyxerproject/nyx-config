@@ -32,14 +32,11 @@
 
       # development
       gitui
-<<<<<<< HEAD
       git-cliff
-=======
       delta # better highlighting
       koji # better git commiter
       cocogitto # conventional commits
       difftastic
->>>>>>> 834435d (bad derivation)
 
       # networking tools
       trippy # network scanner

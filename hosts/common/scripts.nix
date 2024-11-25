@@ -8,30 +8,25 @@
       ''
         #!/usr/bin/env bash
         set -e # Edit your config
-        $EDITOR ~/nyx-config/ # cd to your config dir
         pushd ~/nyx-config/
-        # Early return if no changes were detected (thanks @singiamtel!)
-        #if git diff --cached --quiet HEAD -- '*.nix'; then
+        $EDITOR ~/nyx-config/ # cd to your config dir
         if git diff --quiet HEAD -- '*.nix'; then
             echo "No changes detected, exiting."
             popd
             exit 0
         fi
-        # Autoformat your nix files
         alejandra . &>/dev/null \
           || ( alejandra . ; echo "formatting failed!" && exit 1)
-        # Shows your changes
-        git diff -U0 '*.nix'
+        git diff
         echo "NixOS Rebuilding..."
         # Rebuild, output simplified errors, log trackebacks
-        sudo nixos-rebuild switch --flake . &>nixos-switch.log || (cat nixos-switch.log | grep --color error && exit 1)
+        nh os switch
+        #>nixos-switch.log || (bat nixos-switch.log)
         # Get current generation metadata
         current=$(nixos-rebuild list-generations | grep current)
         # Commit all changes witih the generation metadata
         git commit -am "$current"
-        # Back to where you were
         popd
-        # Notify all OK!
         notify-send -e "NixOS Rebuilt OK!" --icon=software-update-available
       '';
   in [nyx-rebuild];

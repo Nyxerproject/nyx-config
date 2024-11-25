@@ -102,32 +102,17 @@
 
     binds = with config.lib.niri.actions; {
       "Mod+Shift+Slash".action = show-hotkey-overlay;
-      "Alt+Return".action.spawn = "alacritty";
-      "Alt+Shift+Return".action.spawn = "fuzzel";
+      "Alt+Return".action.spawn = "rio";
+      "Alt+Shift+Return".action.spawn = "kickoff";
 
       # "Alt+L".action.spawn = ["swaylock" "-f" "--image" "~/Pictures/wallpaper-master/nixos.png" "--clock"];
       "XF86AudioRaiseVolume".action.spawn = ["wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "0.1+"];
       "XF86AudioLowerVolume".action.spawn = ["wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "0.1-"];
       "XF86AudioMute".action.spawn = ["wpctl" "set-mute" "@DEFAULT_AUDIO_SINK@" "toggle"];
       "XF86AudioMicMute".action.spawn = ["wpctl" "set-mute" "@DEFAULT_AUDIO_SOURCE@" "toggle"];
-      "XF86MonBrightnessDown".action.spawn = [
-        "brightnessctl"
-        "-c"
-        "backlight"
-        "set"
-        "10%-"
-      ];
+      "XF86MonBrightnessDown".action.spawn = ["brightnessctl" "-c" "backlight" "set" "10%-"];
 
-      "XF86MonBrightnessUp".action.spawn = [
-        "brightnessctl"
-        "-c"
-        "backlight"
-        "set"
-        "10%+"
-      ];
-
-      #"XF86MonBrightnessUp".action.spawn = ["light" "-A" "5"];
-      #"XF86MonBrightnessDown".action.spawn = ["light" "-U" "5"];
+      "XF86MonBrightnessUp".action.spawn = ["brightnessctl" "-c" "backlight" "set" "10%+"];
 
       # Everything regarding windows
       "Alt+Shift+C".action = close-window;

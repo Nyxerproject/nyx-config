@@ -5,7 +5,7 @@
 }: {
   imports = [
     ./notifications
-    ./fuzzel.nix
+    ../kickoff
     ./lan-mouse
   ];
   xdg.portal = {
@@ -18,7 +18,6 @@
   environment = {
     systemPackages = with pkgs; [
       # add other things for niri
-      fuzzel # niri defaults
       alacritty # niri defaults
       brightnessctl
       gamescope
