@@ -1,8 +1,4 @@
-{
-  pkgs,
-  inputs,
-  ...
-}: {
+{pkgs, ...}: {
   environment.variables = {
     WIVRN_USE_STEAMVR_LH = 1;
     LH_DISCOVER_WAIT_MS = 6000;
@@ -18,7 +14,6 @@
       openFirewall = true;
       autoStart = true;
       defaultRuntime = true;
-      package = inputs.wivrn_pkgs.outputs.legacyPackages.x86_64-linux.wivrn;
     };
   };
 

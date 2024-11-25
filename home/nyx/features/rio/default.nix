@@ -90,7 +90,7 @@ in {
           opacity = with config.stylix.opacity; terminal;
           blur = false;
         };
-        fonts = with config.stylix.fonts; {
+        #fonts = with config.stylix.fonts; {
           #family = monospace.name;
           #size = 12;
         };
@@ -116,5 +116,4 @@ in {
           light_cyan = bright-cyan;
         };
       };
-  };
 }

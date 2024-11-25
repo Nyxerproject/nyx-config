@@ -3,7 +3,21 @@
   pkgs,
   ...
 }: {
+<<<<<<< HEAD
   networking.hostName = "bottom";
+=======
+  imports = [
+    ../../users/nyx.nix
+    ./hardware-configuration.nix
+    ../common/desktop/vr
+    ../common/desktop/niri
+    ../common/desktop
+    ../common/services
+    ../common/desktop/gaming.nix
+    ../common/zram.nix
+    ../common
+  ];
+>>>>>>> e036dc8 ( :3)
 
   boot = {
     kernelPackages = pkgs.linuxPackages_cachyos;
