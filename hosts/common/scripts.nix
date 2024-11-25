@@ -9,7 +9,7 @@
         #!/usr/bin/env bash
         set -e # Edit your config
         pushd ~/nyx-config/
-        $EDITOR ~/nyx-config/ # cd to your config dir
+        $EDITOR
         if git diff --quiet HEAD -- '*.nix'; then
           echo "No changes detected, exiting."
           popd
@@ -32,6 +32,8 @@
         else
           notify-send -e "NixOS Build Failed!" --icon=software-update-available
         fi
+        popd
+        exit 0
       '';
   in [nyx-rebuild];
 }
