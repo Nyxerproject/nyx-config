@@ -11,23 +11,27 @@
         pushd ~/nyx-config/
         $EDITOR ~/nyx-config/ # cd to your config dir
         if git diff --quiet HEAD -- '*.nix'; then
-            echo "No changes detected, exiting."
-            popd
-            exit 0
+          echo "No changes detected, exiting."
+          popd
+          exit 0
         fi
         alejandra . &>/dev/null \
           || ( alejandra . ; echo "formatting failed!" && exit 1)
-        git diff
+        git diff -U0 '*.nix'
         echo "NixOS Rebuilding..."
-        # Rebuild, output simplified errors, log trackebacks
-        nh os switch
-        #>nixos-switch.log || (bat nixos-switch.log)
-        # Get current generation metadata
-        current=$(nixos-rebuild list-generations | grep current)
-        # Commit all changes witih the generation metadata
-        git commit -am "$current"
-        popd
-        notify-send -e "NixOS Rebuilt OK!" --icon=software-update-available
+
+        if nh os build ; then
+          if nh os switch >/dev/null ; then
+            current=$(nixos-rebuild list-generations | grep current)
+            git commit -am "$current"
+            popd
+            notify-send -e "NixOS Rebuilt OK!" --icon=software-update-available
+          else
+            notify-send -e "NixOS Switch Failed!" --icon=software-update-available
+          fi
+        else
+          notify-send -e "NixOS Build Failed!" --icon=software-update-available
+        fi
       '';
   in [nyx-rebuild];
 }

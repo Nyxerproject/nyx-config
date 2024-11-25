@@ -6,7 +6,7 @@
         width = 1920;
         refresh = 60.0;
       };
-      scale = 0.75;
+      scale = 1.0;
       position = {
         x = 0;
         y = 0;
