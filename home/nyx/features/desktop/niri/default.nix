@@ -67,7 +67,7 @@
 
         inactive = {
           gradient = {
-            to = "#0B006B";
+            to = "#03001E";
             from = "#7303C0";
             angle = 90;
             relative-to = "workspace-view";
