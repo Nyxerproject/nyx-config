@@ -75,13 +75,19 @@
         };
       };
     };
+    prefer-no-csd = true;
     environment = {
-      SDL_VIDEO_WAYLAND_PREFER_LIBDECOR = "1";
-      DISPLAY = ":5";
+      #SDL_VIDEO_WAYLAND_PREFER_LIBDECOR = "1";
+      DISPLAY = ":0";
     };
     spawn-at-startup = [
       # { command = ["bash" "-c" "~/.config/start.sh"]; }
       {command = ["bash" "-c" "waybar &"];}
+      {command = ["firefox"];}
+      {command = ["element-desktop"];}
+      {command = ["webcord"];}
+      {command = ["telegram-desktop"];}
+      {command = ["thunderbird"];}
       # {command = ["bash" "-c" "waypaper --restore &"];}
       # {command = [
       #     "bash"
@@ -95,7 +101,7 @@
       # {command = ["bash" "-c" "export" "$(dbus-launch)"];} # TODO: Figure out what this does. Why do did I put these here?
       # {command = ["bash" "-c" "kdeconnect-indicator" "&"];}
       # {command = ["bash" "-c" "xwayland-satellite" "&"];}
-      {command = ["${lib.meta.getExe pkgs.xwayland-satellite-unstable}" ":5"];}
+      {command = ["${lib.meta.getExe pkgs.xwayland-satellite-unstable}" ":0"];}
     ];
 
     screenshot-path = "~/Pictures/Screenshots/Screenshot from %Y-%m-%d %H-%M-%s.png";
