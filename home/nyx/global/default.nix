@@ -90,7 +90,6 @@
       parallel-disk-usage
 
       keepassxc
-      keepass-diff
     ];
   };
 
