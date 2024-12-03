@@ -1,5 +1,9 @@
 {
   programs.niri.settings = {
+    switch-events = {
+      tablet-mode-on.action.spawn = ["killallokill -s 1 $(ps -C wvkbd)"];
+      tablet-mode-off.action.spawn = ["killallokill -s 2 $(ps -C wvkbd)"];
+    };
     outputs."eDP-1" = {
       mode = {
         height = 1080;

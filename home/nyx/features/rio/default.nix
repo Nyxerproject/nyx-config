@@ -12,7 +12,7 @@
         decorations = "Disabled";
       };
       font = {
-        size = 10;
+        #size = 10;
         normal = {
           family = "FiraCode Nerd Font";
           style = "Regular";
@@ -21,10 +21,10 @@
         #   family = "FiraCode Nerd Font";
         #   style = "Bold";
         # };
-        italic = {
-          family = "FiraCode Nerd Font";
-          style = "Italic";
-        };
+        # italic = {
+        #   family = "FiraCode Nerd Font";
+        #   style = "Italic";
+        # };
         # bold_italic = {
         #   family = "FiraCode Nerd Font";
         #   style = "Bold_Italic";

@@ -18,13 +18,13 @@
   environment = {
     systemPackages = with pkgs; [
       # add other things for niri
-      alacritty # niri defaults
       brightnessctl
       gamescope
       cage
       ddcutil
       xwayland-run
       xwayland-satellite-unstable
+      wvkbd
 
       # portals
       xdg-desktop-portal
