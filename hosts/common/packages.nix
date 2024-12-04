@@ -7,6 +7,8 @@
     zoxide
     pik # process interactive kill # doesn't work on wsi???? idk
 
+    bk # terminal epub reader
+
     # nixos stuff
     alejandra
     nh

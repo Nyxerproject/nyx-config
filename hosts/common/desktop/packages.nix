@@ -7,7 +7,6 @@
 
     # terminal emulators
     rio
-    #alacritty # this is declared everywhere so it is commented out
 
     # copy paste stuff
     wl-clipboard
@@ -19,5 +18,8 @@
     gparted
     keepassxc
     qbittorrent
+
+    vlc # video player
+    foliate # epub reader
   ];
 }
