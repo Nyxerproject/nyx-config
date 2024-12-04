@@ -18,6 +18,9 @@
         alejandra . &>/dev/null \
           || ( alejandra . ; echo "formatting failed!" && exit 1)
         git diff -U0 '*.nix'
+        echo "Please add any new files to git manually"
+        git add -u
+        koji
         echo "NixOS Rebuilding..."
 
         if nh os build ; then
