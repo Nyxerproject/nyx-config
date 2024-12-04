@@ -20,6 +20,9 @@
         layout = "us";
         variant = "";
       };
+      trackball = {
+        enable = true;
+      };
       touchpad = {
         dwt = true;
         tap = true;
@@ -27,16 +30,16 @@
         #click-method = "clickfinger";
       };
       mouse = {
-        natural-scroll = true;
+        natural-scroll = false;
         accel-speed = 1.0;
       };
       tablet.map-to-output = "eDP-1";
       touch.map-to-output = "eDP-1";
     };
 
-    #cursor = {
-    #  size = 12;
-    #};
+    cursor = {
+      size = 12;
+    };
 
     hotkey-overlay.skip-at-startup = true;
 
@@ -69,7 +72,7 @@
       # fog of war
       focus-ring = {
         enable = true;
-        width = 3;
+        width = 30;
         active.color = "rgb(68, 71, 90)";
         inactive.color = "rgb(40 42 54)";
       };
