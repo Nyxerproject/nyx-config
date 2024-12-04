@@ -4,7 +4,9 @@
   lib,
   ...
 }: {
-  imports = [../wluma.nix];
+  # imports = [
+  #   ../wluma.nix
+  # ];
   home.packages = with pkgs; [
     wl-clipboard
     wayland-utils
@@ -72,9 +74,23 @@
       # fog of war
       focus-ring = {
         enable = true;
-        width = 30;
-        active.color = "rgb(68, 71, 90)";
-        inactive.color = "rgb(40 42 54)";
+        width = 10;
+        active = {
+          gradient = {
+            from = "#FDEFF9";
+            to = "#EC38BC";
+            angle = 0;
+            relative-to = "workspace-view";
+          };
+        };
+        inactive = {
+          gradient = {
+            to = "#03001E";
+            from = "#7303C0";
+            angle = 90;
+            relative-to = "workspace-view";
+          };
+        };
       };
 
       border = {
