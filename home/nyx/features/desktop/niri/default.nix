@@ -52,7 +52,7 @@
     layout = {
       gaps = 12;
       center-focused-column = "never";
-      default-column-width = {proportion = 0.5;};
+      default-column-width.proportion = 0.5;
       preset-column-widths = [
         {proportion = 0.333;}
         {proportion = 0.5;}
@@ -68,8 +68,8 @@
 
       # fog of war
       focus-ring = {
-        # enable = true;
-        width = 10000;
+        enable = true;
+        width = 3;
         active.color = "rgb(68, 71, 90)";
         inactive.color = "rgb(40 42 54)";
       };
