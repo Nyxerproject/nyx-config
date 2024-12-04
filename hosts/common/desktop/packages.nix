@@ -21,5 +21,7 @@
 
     vlc # video player
     foliate # epub reader
+    rnote # handwritten notes
+    spacedrive
   ];
 }

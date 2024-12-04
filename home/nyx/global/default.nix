@@ -31,6 +31,7 @@
       fd
 
       # development
+      git
       gitui
       git-cliff
       delta # better highlighting
@@ -90,6 +91,9 @@
       parallel-disk-usage
 
       keepassxc
+
+      termusic
+      ytermusic
     ];
   };
 

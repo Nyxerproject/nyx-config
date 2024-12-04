@@ -1,8 +1,8 @@
 {
   programs.niri.settings = {
     switch-events = {
-      tablet-mode-on.action.spawn = ["wvkbd-mobintl"];
-      tablet-mode-off.action.spawn = ["kill -s 2 $(ps -C wvkbd-mobintl)"];
+      # tablet-mode-on.action.spawn = ["wvkbd-mobintl"];
+      # tablet-mode-off.action.spawn = ["kill -s 2 $(ps -C wvkbd-mobintl)"];
     };
     outputs."eDP-1" = {
       mode = {

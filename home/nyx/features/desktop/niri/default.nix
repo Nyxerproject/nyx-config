@@ -6,7 +6,12 @@
 }: {
   imports = [../wluma.nix];
   home.packages = with pkgs; [
-    xwayland
+    wl-clipboard
+    wayland-utils
+    libsecret
+    cage
+    gamescope
+    swaybg
     xwayland-satellite-unstable
   ];
   programs.niri.settings = {
@@ -18,16 +23,31 @@
       touchpad = {
         dwt = true;
         tap = true;
-        natural-scroll = false;
+        natural-scroll = true;
+        #click-method = "clickfinger";
       };
       mouse = {
-        natural-scroll = false;
+        natural-scroll = true;
+        accel-speed = 1.0;
       };
+      tablet.map-to-output = "eDP-1";
+      touch.map-to-output = "eDP-1";
     };
 
     #cursor = {
     #  size = 12;
     #};
+
+    hotkey-overlay.skip-at-startup = true;
+
+    switch-events = with config.lib.niri.actions; let
+      sh = spawn "sh" "-c";
+    in {
+      tablet-mode-on.action = sh "notify-send tablet-mode-on";
+      tablet-mode-off.action = sh "notify-send tablet-mode-off";
+      lid-open.action = sh "notify-send lid-open";
+      lid-close.action = sh "notify-send lid-close";
+    };
 
     layout = {
       gaps = 12;
@@ -46,11 +66,12 @@
       #   };
       # };
 
+      # fog of war
       focus-ring = {
-        enable = false;
-        active = {color = "rgb(68, 71, 90)";};
-        inactive = {color = "rgb(40 42 54)";};
-        width = 3;
+        # enable = true;
+        width = 10000;
+        active.color = "rgb(68, 71, 90)";
+        inactive.color = "rgb(40 42 54)";
       };
 
       border = {
@@ -80,15 +101,65 @@
       #SDL_VIDEO_WAYLAND_PREFER_LIBDECOR = "1";
       DISPLAY = ":0";
     };
-    spawn-at-startup = [
-      # { command = ["bash" "-c" "~/.config/start.sh"]; }
-      {command = ["bash" "-c" "waybar &"];}
+
+    spawn-at-startup = let
+      get-wayland-display = "systemctl --user show-environment | awk -F 'WAYLAND_DISPLAY=' '{print $2}' | awk NF";
+      wrapper = name: op:
+        pkgs.writeScript "${name}" ''
+          if [ "$(${get-wayland-display})" ${op} "$WAYLAND_DISPLAY" ]; then
+            exec "$@"
+          fi
+        '';
+
+      only-on-session = wrapper "only-on-session" "=";
+      only-without-session = wrapper "only-without-session" "!=";
+      # modulated-wallpaper = pkgs.runCommand "modulated-wallpaper.png" {} ''
+      #   ${lib.getExe pkgs.imagemagick} ${config.stylix.image} -modulate 100,100,14 $out
+      # '';
+    in [
+      # {
+      #   command = [
+      #     "${only-on-session}"
+      #     "${lib.getExe pkgs.gammastep}"
+      #     "-l"
+      #     "59:11" # lol, doxxed
+      #   ];
+      # }
+      {
+        command = [
+          "${only-without-session}"
+          "${lib.getExe pkgs.waybar}"
+        ];
+      }
+      {
+        command = [
+          "${only-without-session}"
+          "${lib.getExe pkgs.swaybg}"
+          "--mode"
+          "fill"
+          "--image"
+          "./../../../../../hosts/common/theme/backgrounds/background.png"
+        ];
+      }
+      {
+        command = let
+          units = [
+            "niri"
+            "graphical-session.target"
+            "xdg-desktop-portal"
+            "xdg-desktop-portal-gnome"
+            "waybar"
+          ];
+          commands = builtins.concatStringsSep ";" (map (unit: "systemctl --user status ${unit}") units);
+        in ["${only-on-session}" "rio" "--" "sh" "-c" "env SYSTEMD_COLORS=1 watch -n 1 -d --color '${commands}'"];
+      }
+      # {command = ["${only-without-session}" "rio" "--" "sh" "-c" "${lib.getExe pkgs.wayvnc} -L=debug"];}
+
       {command = ["firefox"];}
       {command = ["element-desktop"];}
       {command = ["webcord"];}
       {command = ["telegram-desktop"];}
       {command = ["thunderbird"];}
-      # {command = ["bash" "-c" "waypaper --restore &"];}
       # {command = [
       #     "bash"
       #     "-c"
@@ -103,6 +174,44 @@
       # {command = ["bash" "-c" "xwayland-satellite" "&"];}
       {command = ["${lib.meta.getExe pkgs.xwayland-satellite-unstable}" ":0"];}
     ];
+
+    animations.shaders.window-resize = ''
+      vec4 resize_color(vec3 coords_curr_geo, vec3 size_curr_geo) {
+          vec3 coords_next_geo = niri_curr_geo_to_next_geo * coords_curr_geo;
+
+          vec3 coords_stretch = niri_geo_to_tex_next * coords_curr_geo;
+          vec3 coords_crop = niri_geo_to_tex_next * coords_next_geo;
+
+          // We can crop if the current window size is smaller than the next window
+          // size. One way to tell is by comparing to 1.0 the X and Y scaling
+          // coefficients in the current-to-next transformation matrix.
+          bool can_crop_by_x = niri_curr_geo_to_next_geo[0][0] <= 1.0;
+          bool can_crop_by_y = niri_curr_geo_to_next_geo[1][1] <= 1.0;
+
+          vec3 coords = coords_stretch;
+          if (can_crop_by_x)
+              coords.x = coords_crop.x;
+          if (can_crop_by_y)
+              coords.y = coords_crop.y;
+
+          vec4 color = texture2D(niri_tex_next, coords.st);
+
+          // However, when we crop, we also want to crop out anything outside the
+          // current geometry. This is because the area of the shader is unspecified
+          // and usually bigger than the current geometry, so if we don't fill pixels
+          // outside with transparency, the texture will leak out.
+          //
+          // When stretching, this is not an issue because the area outside will
+          // correspond to client-side decoration shadows, which are already supposed
+          // to be outside.
+          if (can_crop_by_x && (coords_curr_geo.x < 0.0 || 1.0 < coords_curr_geo.x))
+              color = vec4(0.0);
+          if (can_crop_by_y && (coords_curr_geo.y < 0.0 || 1.0 < coords_curr_geo.y))
+              color = vec4(0.0);
+
+          return color;
+      }
+    '';
 
     screenshot-path = "~/Pictures/Screenshots/Screenshot from %Y-%m-%d %H-%M-%s.png";
 
@@ -196,5 +305,8 @@
       "Ctrl+Print".action = screenshot-screen;
       "Alt+Print".action = screenshot-window;
     };
+  };
+  services.swaync = {
+    enable = true;
   };
 }

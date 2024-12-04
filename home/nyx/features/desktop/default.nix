@@ -12,8 +12,9 @@
       # Instant messaging packages
       # TODO: --consider moving to home. shouldn't be on every desktop and user--
       # TODO: make sure these work well
-      webcord
-      tdesktop
+      webcord # discord client
+      dissent # discord client
+      tdesktop # telegram client
       # element-desktop # only one should be added. otherwise there will be a colision
       element-desktop-wayland
       kdePackages.neochat

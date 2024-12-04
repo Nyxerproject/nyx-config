@@ -19,8 +19,6 @@
     systemPackages = with pkgs; [
       # add other things for niri
       brightnessctl
-      gamescope
-      cage
       ddcutil
       xwayland-run
       xwayland-satellite-unstable
