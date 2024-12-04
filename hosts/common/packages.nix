@@ -3,6 +3,7 @@
     wget
     curl
     git
+    direnv
     koji # makes better commits
     htop # better top
     zoxide # better cd
