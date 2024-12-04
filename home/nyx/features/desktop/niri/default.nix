@@ -74,7 +74,7 @@
       # fog of war
       focus-ring = {
         enable = true;
-        width = 10;
+        width = 5;
         active = {
           gradient = {
             from = "#FDEFF9";
@@ -83,14 +83,14 @@
             relative-to = "workspace-view";
           };
         };
-        inactive = {
-          gradient = {
-            to = "#03001E";
-            from = "#7303C0";
-            angle = 90;
-            relative-to = "workspace-view";
-          };
-        };
+        # inactive = {
+        #   gradient = {
+        #     to = "#03001E";
+        #     from = "#7303C0";
+        #     angle = 90;
+        #     relative-to = "workspace-view";
+        #   };
+        # };
       };
 
       border = {
