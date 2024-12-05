@@ -1,7 +1,7 @@
 {
   imports = [
     ./theme
-    ./nvim
+    ./nixvim
     ./nix
     ./fish.nix
     ./localization.nix
@@ -12,5 +12,7 @@
     ./tailscale.nix
     ./ssh.nix
     ./development.nix
+    ./homemanager
+    ./networking
   ];
 }

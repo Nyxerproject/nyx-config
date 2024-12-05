@@ -7,6 +7,9 @@
     stateVersion = "24.11";
     # TODO this is a mix of cli and gui stuff. it should be broken into parts
     # TODO cleanup
+    programs.lsd = {
+      enable = true;
+    };
     packages = with pkgs; [
       # helpers
       thefuck # terminal helper
@@ -24,7 +27,6 @@
       # utils
       atuin # better history for shell
       ## replacments
-      lsd # ls but better
       bat
       skim # fzf but better
       sig
@@ -37,12 +39,14 @@
       delta # better highlighting
       koji # better git commiter
       cocogitto # conventional commits
-      difftastic
+      difftastic # irrelevent: optimistic merging http://hintjens.com/blog:106
+      verco # tui for multiple version control systems
 
       # networking tools
       trippy # network scanner
       nmap # A utility for network discovery and security auditing
       netscanner # network scanner
+      rustscan # another network scanner
       iftop # network monitoring
       termscp # download stuff easilly
       bluetui # tui for bluetooth
@@ -56,15 +60,19 @@
 
       # misc
       tree
+      tre-command # tree alternative
 
-      # nix related
-      # productivity
+      # development related
+      ## productivity
       taskwarrior-tui # todo list thing
-      mask
-      #rucola # in a pr
+      taskwarrior3
+      taskchampion-sync-server
+      timewarrior # time
+      mask # start task from markdown file
+      rucola
       comrak
-      mdbook
-      presenterm
+      mdbook # make a book
+      presenterm # present markdown files
 
       # Monitoring
       btop # replacement of htop/nmon
@@ -80,11 +88,7 @@
       procs # alt to ps
 
       # system tools
-      sysstat
-      #lm_sensors # for `sensors` command
-      ethtool
-      #pciutils # lspci
-      #usbutils # lsusb
+      sysstat # performance testing
       kmon # kernel monitoring
 
       # drive space
@@ -92,8 +96,11 @@
 
       keepassxc
 
-      termusic
-      ytermusic
+      # media playback
+      termusic # music in terminal
+      ytermusic # download stuff in terminal
+
+      tabiew # view CSV and other documents in terminal
     ];
   };
 
@@ -119,6 +126,11 @@
         "*~"
         ".direnv"
       ];
+      aliases = {
+        s = "status";
+        p = "pull --rebase";
+        f = "fetch";
+      };
       # extraConfig = {
       #   gitlab.user = userinfo.gitlabUser;
       #   core.editor = "nvim";
@@ -141,5 +153,12 @@
     }; # look here https://github.com/johnae/world/blob/main/users/profiles/git.nix
     gitui.enable = true;
     bat.enable = true;
+  };
+
+  programs.nh = {
+    flake = "/home/nyx/nyx-config";
+    enable = true;
+    clean.enable = true;
+    clean.dates = "monthly";
   };
 }

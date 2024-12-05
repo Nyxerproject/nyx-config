@@ -47,7 +47,7 @@ requests if you have any questions, comments, concerns, or suggestions.
 - add system for backups
 - set up gitlab on server
 - add wthrr on shell init
-- add starship
+- add syncall and sync everything
 
 ## Things to look into
 

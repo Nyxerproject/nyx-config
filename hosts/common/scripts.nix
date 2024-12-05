@@ -17,23 +17,19 @@
         fi
         alejandra . &>/dev/null \
           || ( alejandra . ; echo "formatting failed!" && exit 1)
-        git diff -U0 '*.nix'
-        echo "Please add any new files to git manually"
-        git add -u
-        koji
+        git diff '*.nix'
         echo "NixOS Rebuilding..."
 
         if nh os build ; then
+          koji
+          notify-send -e "NixOS Rebuilt OK!" --icon=dialog-password
           if nh os switch >/dev/null ; then
-            current=$(nixos-rebuild list-generations | grep current)
-            git commit -am "$current"
+            notify-send -e "NixOS Rebuilt OK!" --icon=software-update-urgent
             popd
-            notify-send -e "NixOS Rebuilt OK!" --icon=software-update-available
-          else
-            notify-send -e "NixOS Switch Failed!" --icon=software-update-available
+            exit 0
           fi
         else
-          notify-send -e "NixOS Build Failed!" --icon=software-update-available
+        notify-send -e "NixOS Build Failed!" --icon=dialog-warning
         fi
         popd
         exit 0

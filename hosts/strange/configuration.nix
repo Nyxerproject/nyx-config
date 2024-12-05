@@ -1,35 +1,9 @@
 {
-  imports = [
-    ../../users/nyx.nix
-    ../common
-  ];
+  networking.hostName = "strange";
 
-  # networking
-  networking = {
-    hostName = "strange";
-    networkmanager.enable = true;
-    # firewall.enable = true;
-    dhcpcd.enable = false;
-  };
+  services.xserver.enable = false;
 
-  # services and background things
-  services = {
-    xserver = {
-      enable = false;
-    };
-  };
-
-  home-manager = {
-    useGlobalPkgs = true;
-    useUserPackages = true;
-    users.nyx = import ../../home/nyx/strange;
-  };
-
-  environment = {
-    sessionVariables = {
-      FLAKE = "/home/nyx/nyx-config";
-    };
-  };
+  home-manager.users.nyx = import ../../home/nyx/strange;
 
   system.stateVersion = "24.05";
 }

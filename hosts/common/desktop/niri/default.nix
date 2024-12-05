@@ -7,6 +7,7 @@
     ./notifications
     ../kickoff
     ./lan-mouse
+    inputs.niri.nixosModules.niri
   ];
   xdg.portal = {
     enable = true;

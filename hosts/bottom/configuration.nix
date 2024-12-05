@@ -3,62 +3,30 @@
   pkgs,
   ...
 }: {
-  imports = [
-    ../../users/nyx.nix
-    ./hardware-configuration.nix
-    ../common/desktop/vr
-    ../common/desktop/niri
-    ../common/desktop
-    ../common/desktop/gaming.nix
-    ../common/zram.nix
-    ../common
-  ];
+  networking.hostName = "bottom";
 
-  # Enable networking
-  networking = {
-    networkmanager.enable = true;
-    hostName = "bottom";
-  };
-
-  # Bootloader.
   boot = {
     kernelPackages = pkgs.linuxPackages_cachyos;
-
-    kernelParams = [
-      "nvidia_drm.fbdev=1"
-    ];
-
-    loader = {
-      systemd-boot.enable = true;
-      efi.canTouchEfiVariables = true;
-    };
+    kernelParams = ["nvidia_drm.fbdev=1"];
   };
+
   chaotic.scx.enable = true; # by default uses scx_rustland scheduler
   chaotic.scx.scheduler = "scx_qmap";
   #chaotic.scx.scheduler = "scx_rusty";
 
   services = {
     desktopManager.plasma6.enable = true;
-    # there is an issue with the theme and qt6 vs qt5.
     # TODO: https://github.com/NixOS/nixpkgs/issues/292761
     displayManager = {
-      defaultSession = "plasma";
+      defaultSession = "niri";
     };
     xserver = {
       enable = true;
       videoDrivers = ["nvidia"];
     };
-    printing.enable = true;
-    openssh.enable = true;
-    tailscale.enable = true;
   };
 
-  home-manager = {
-    backupFileExtension = "backup";
-    useGlobalPkgs = true;
-    useUserPackages = true;
-    users.nyx = import ../../home/nyx/bottom;
-  };
+  home-manager.users.nyx = import ../../home/nyx/bottom;
 
   hardware = {
     graphics = {
@@ -88,10 +56,6 @@
     cudaPackages.cudatoolkit-legacy-runfile
     mpv
   ];
-
-  environment.sessionVariables = {
-    FLAKE = "/home/nyx/nyx-config";
-  };
 
   system.stateVersion = "24.05"; #DONT TOUCH!
 }

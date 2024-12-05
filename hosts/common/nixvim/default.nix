@@ -3,8 +3,16 @@
   pkgs,
   ...
 }: {
+  imports = [
+    ./config
+    inputs.nixvim.nixosModules.nixvim
+  ];
+
   programs.nixvim = {
+    defaultEditor = true;
     enable = true;
+    viAlias = true;
+    vimAlias = true;
     extraConfigLua = ''
       local capabilities = vim.lsp.protocol.make_client_capabilities()
 
@@ -14,12 +22,15 @@
       })
     '';
   };
-  nixpkgs = {
-    overlays = [
-      inputs.jeezyvim.overlays.default
+
+  environment = {
+    sessionVariables = {
+      EDITOR = "nvim";
+      VISUAL = "nvim";
+    };
+    systemPackages = with pkgs; [
+      neovim
+      tectonic # TODO: move tectonic elseware. it shouldn't be here
     ];
   };
-  environment.systemPackages = with pkgs; [
-    jeezyvim
-  ];
 }
