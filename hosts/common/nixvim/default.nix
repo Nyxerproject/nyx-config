@@ -4,13 +4,13 @@
   ...
 }: {
   imports = [
-    ./config
     inputs.nixvim.nixosModules.nixvim
   ];
 
   programs.nixvim = {
-    defaultEditor = true;
     enable = true;
+    imports = [./config];
+    defaultEditor = true;
     viAlias = true;
     vimAlias = true;
     extraConfigLua = ''
