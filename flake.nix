@@ -10,7 +10,6 @@
     stylix.url = "github:danth/stylix";
     nixos-wsl.url = "github:nix-community/NixOS-WSL/main";
     sops-nix.url = "github:Mic92/sops-nix";
-    #hyprland.url = "github:hyprwm/Hyprland";
     #kiara.url = "github:StardustXR/kiara";
     nixos-generators = {
       url = "github:nix-community/nixos-generators";
