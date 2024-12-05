@@ -150,7 +150,10 @@
     }; # look here https://github.com/johnae/world/blob/main/users/profiles/git.nix
     gitui.enable = true;
     bat.enable = true;
-    lsd.enable = true;
+    lsd = {
+      enable = true;
+      enableAliases = true;
+    };
     nh = {
       flake = "/home/nyx/nyx-config";
       enable = true;
