@@ -10,15 +10,13 @@
     # TODO: cleanup
     packages = with pkgs; [
       # Instant messaging packages
-      # TODO: --consider moving to home. shouldn't be on every desktop and user--
-      # TODO: make sure these work well
       webcord # discord client
       dissent # discord client
       tdesktop # telegram client
-      # element-desktop # only one should be added. otherwise there will be a colision
-      element-desktop-wayland
-      kdePackages.neochat
+      element-desktop
       iamb
+
+      libnotify
 
       # keyboard tools
       zmkBATx # TODO: shouldn't be here
@@ -31,11 +29,8 @@
       # espeak
       # distrobox
       # xq
-      # signal-desktop
       # remmina
-      # firefox-wayland
       # grimblast
-      # nixd
       # vial
       # anki-bin
 

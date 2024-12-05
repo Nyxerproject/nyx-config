@@ -1,5 +1,5 @@
 {
   imports = [
-    ./swaync.nix
+    # ./swaync.nix
   ];
 }
