@@ -7,9 +7,6 @@
     stateVersion = "24.11";
     # TODO this is a mix of cli and gui stuff. it should be broken into parts
     # TODO cleanup
-    programs.lsd = {
-      enable = true;
-    };
     packages = with pkgs; [
       # helpers
       thefuck # terminal helper
@@ -153,12 +150,12 @@
     }; # look here https://github.com/johnae/world/blob/main/users/profiles/git.nix
     gitui.enable = true;
     bat.enable = true;
-  };
-
-  programs.nh = {
-    flake = "/home/nyx/nyx-config";
-    enable = true;
-    clean.enable = true;
-    clean.dates = "monthly";
+    lsd.enable = true;
+    nh = {
+      flake = "/home/nyx/nyx-config";
+      enable = true;
+      clean.enable = true;
+      clean.dates = "monthly";
+    };
   };
 }
