@@ -158,7 +158,10 @@
       flake = "/home/nyx/nyx-config";
       enable = true;
       clean.enable = true;
-      clean.dates = "monthly";
+      clean = {
+        dates = "monthly";
+        extraArgs = "--keep 3 --keep-since 7d";
+      };
     };
   };
 }

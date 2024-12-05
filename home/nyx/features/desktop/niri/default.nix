@@ -3,10 +3,12 @@
   pkgs,
   lib,
   ...
-}: {
-  # imports = [
-  #   ../wluma.nix
-  # ];
+}: let
+  defaultKeyBind = import ./defaultKeyBind.nix;
+in {
+  imports = [
+    ../wluma.nix
+  ];
   home.packages = with pkgs; [
     wl-clipboard
     wayland-utils
