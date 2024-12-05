@@ -9,12 +9,30 @@
   stylix = {
     enable = true;
     autoEnable = true;
-    polarity = "dark";
-    base16Scheme = "${pkgs.base16-schemes}/share/themes/nord.yaml";
+    #polarity = "dark";
+    #base16Scheme = "${pkgs.base16-schemes}/share/themes/nord.yaml";
     image = ./../backgrounds/background.png;
-    cursor.name = lib.mkDefault "phinger-cursors-${config.stylix.polarity}";
-    cursor.package = lib.mkDefault pkgs.phinger-cursors;
-    fonts.monospace.name = lib.mkDefault "Fira Code";
-    fonts.monospace.package = pkgs.nerd-fonts.fira-code;
+    cursor = {
+      name = lib.mkDefault "phinger-cursors-${config.stylix.polarity}";
+      package = lib.mkDefault pkgs.phinger-cursors;
+    };
+    fonts = {
+      serif = {
+        package = pkgs.nerd-fonts.fira-code;
+        name = "Fira Code";
+      };
+      sansSerif = {
+        package = pkgs.nerd-fonts.fira-code;
+        name = "Fira Code";
+      };
+      monospace = {
+        package = pkgs.nerd-fonts.fira-code;
+        name = "Fira Code";
+      };
+      emoji = {
+        package = pkgs.noto-fonts-emoji;
+        name = "Noto Color Emoji";
+      };
+    };
   };
 }
