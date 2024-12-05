@@ -10,7 +10,7 @@
     stylix.url = "github:danth/stylix";
     nixos-wsl.url = "github:nix-community/NixOS-WSL/main";
     sops-nix.url = "github:Mic92/sops-nix";
-    #kiara.url = "github:StardustXR/kiara";
+    kiara.url = "github:StardustXR/kiara";
     nixos-generators = {
       url = "github:nix-community/nixos-generators";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -48,6 +48,11 @@
       bottom = inputs.nixpkgs.lib.nixosSystem {
         inherit system;
         modules = [./hosts/bottom];
+        specialArgs = {inherit inputs;};
+      };
+      antidown = inputs.nixpkgs.lib.nixosSystem {
+        inherit system;
+        modules = [./hosts/antidown];
         specialArgs = {inherit inputs;};
       };
       down = inputs.nixpkgs.lib.nixosSystem {
