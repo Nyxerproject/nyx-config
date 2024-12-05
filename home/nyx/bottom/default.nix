@@ -7,6 +7,6 @@
     ../features
     ./niri-monitors.nix
     ./niri.nix
-    ./hyprland.nix
+    # ./hyprland.nix
   ];
 }

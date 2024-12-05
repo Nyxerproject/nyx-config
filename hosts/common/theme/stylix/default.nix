@@ -15,6 +15,7 @@
     cursor = {
       name = lib.mkDefault "phinger-cursors-${config.stylix.polarity}";
       package = lib.mkDefault pkgs.phinger-cursors;
+      size = 12;
     };
     fonts = {
       serif = {

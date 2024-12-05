@@ -8,12 +8,15 @@
   #   ../wluma.nix
   # ];
   home.packages = with pkgs; [
+<<<<<<< HEAD
     wl-clipboard
     wayland-utils
     libsecret
     cage
     gamescope
     swaybg
+    xwayland
+    kickoff
     xwayland-satellite-unstable
   ];
   programs.niri.settings = {
@@ -37,10 +40,6 @@
       };
       tablet.map-to-output = "eDP-1";
       touch.map-to-output = "eDP-1";
-    };
-
-    cursor = {
-      size = 12;
     };
 
     hotkey-overlay.skip-at-startup = true;

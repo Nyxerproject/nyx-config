@@ -12,9 +12,6 @@
   xdg.portal = {
     enable = true;
     wlr.enable = true;
-    extraPortals = [
-      pkgs.xdg-desktop-portal-wlr
-    ];
   };
   environment = {
     systemPackages = with pkgs; [
@@ -34,18 +31,12 @@
     ];
   };
   programs = {
-    xwayland = {
-      enable = true;
-    };
+    xwayland.enable = true;
     niri = {
       package = pkgs.niri-unstable;
       enable = true;
     };
   };
   niri-flake.cache.enable = true;
-  nixpkgs = {
-    overlays = [
-      inputs.niri.overlays.niri
-    ];
-  };
+  nixpkgs.overlays = [inputs.niri.overlays.niri];
 }
