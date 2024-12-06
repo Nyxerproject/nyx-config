@@ -145,11 +145,6 @@ in {
       # }
       {
         command = [
-          "${lib.getExe pkgs.waybar}"
-        ];
-      }
-      {
-        command = [
           "${lib.getExe pkgs.swaybg}"
           "--mode"
           "fill"

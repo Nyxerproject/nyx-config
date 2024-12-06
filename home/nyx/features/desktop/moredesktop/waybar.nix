@@ -34,6 +34,7 @@ in
     programs.waybar = {
       enable = true;
       #systemd.enable = true;
+      systemd.enable = true;
       settings.mainBar = {
         layer = "top";
         modules-left = ["wireplumber" "wireplumber#source" "idle_inhibitor"];
