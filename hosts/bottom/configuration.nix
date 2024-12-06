@@ -3,29 +3,15 @@
   pkgs,
   ...
 }: {
-<<<<<<< HEAD
   networking.hostName = "bottom";
-=======
-  imports = [
-    ../../users/nyx.nix
-    ./hardware-configuration.nix
-    ../common/desktop/vr
-    ../common/desktop/niri
-    ../common/desktop
-    ../common/services
-    ../common/desktop/gaming.nix
-    ../common/zram.nix
-    ../common
-  ];
->>>>>>> e036dc8 ( :3)
 
   boot = {
     kernelPackages = pkgs.linuxPackages_cachyos;
     kernelParams = ["nvidia_drm.fbdev=1"];
   };
 
-  chaotic.scx.enable = true; # by default uses scx_rustland scheduler
-  chaotic.scx.scheduler = "scx_qmap";
+  # chaotic.scx.enable = true; # by default uses scx_rustland scheduler
+  # chaotic.scx.scheduler = "scx_qmap";
   #chaotic.scx.scheduler = "scx_rusty";
 
   services = {

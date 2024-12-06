@@ -11,8 +11,8 @@
 
   services = {
     monado = {
-      enable = true;
-      defaultRuntime = true;
+      enable = false;
+      defaultRuntime = false;
     };
   };
 }

@@ -1457,7 +1457,6 @@
         "sddm-sugar-candy-nix": "sddm-sugar-candy-nix",
         "sops-nix": "sops-nix",
         "stylix": "stylix",
-        "wivrn_pkgs": "wivrn_pkgs",
         "zen-browser": "zen-browser"
       }
     },
@@ -1729,22 +1728,6 @@
       "original": {
         "owner": "numtide",
         "repo": "treefmt-nix",
-        "type": "github"
-      }
-    },
-    "wivrn_pkgs": {
-      "locked": {
-        "lastModified": 1733526778,
-        "narHash": "sha256-x6j23zqDSOdwN1QDfHVdONyOuKnfTtGDwcwdfn4FQRw=",
-        "owner": "PassiveLemon",
-        "repo": "nixpkgs",
-        "rev": "7a625d3ccf9b0fa9d45412aea94daffb27233657",
-        "type": "github"
-      },
-      "original": {
-        "owner": "PassiveLemon",
-        "ref": "wivrn-update",
-        "repo": "nixpkgs",
         "type": "github"
       }
     },

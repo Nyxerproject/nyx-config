@@ -10,9 +10,9 @@ in {
     enable = true;
     settings =
       {
+        hide-cursor-when-typing = true;
         #cursor = "▇";
         #blinking-cursor = true;
-        hide-cursor-when-typing = true;
         #theme = "default";
         # padding-x = 4;
         window = {
@@ -91,9 +91,8 @@ in {
           blur = false;
         };
         #fonts = with config.stylix.fonts; {
-          #family = monospace.name;
-          #size = 12;
-        };
+        #family = monospace.name;
+        #size = 12;
         # navigation = {
         #   color-automation = [];
         # };
@@ -116,4 +115,5 @@ in {
           light_cyan = bright-cyan;
         };
       };
+  };
 }
