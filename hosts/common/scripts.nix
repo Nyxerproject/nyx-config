@@ -21,11 +21,6 @@
 
         pushd $FLAKE
         $EDITOR
-        if git diff --quiet HEAD -- '*.nix'; then
-          echo "No changes detected, exiting."
-          popd
-          exit 0
-        fi
 
         # TODO: make this into a git hook instead
         alejandra . &>/dev/null \
@@ -39,6 +34,12 @@
             notify-send -e "Please add or ignore files"
             popd
             exit 1
+        fi
+
+        if git diff --quiet HEAD -- '*.nix'; then
+          echo "No changes detected, exiting."
+          popd
+          exit 0
         fi
 
         git diff '*.nix'

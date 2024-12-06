@@ -7,6 +7,7 @@
   defaultKeyBind = import ./niriKeyBind.nix;
 in {
   imports = [
+    ../waybar.nix
     ../wluma.nix
   ];
   home.packages = with pkgs; [
@@ -247,8 +248,8 @@ in {
     screenshot-path = "~/Pictures/Screenshots/Screenshot from %Y-%m-%d %H-%M-%s.png";
 
     binds = with config.lib.niri.actions;
-      defaultKeyBind
-      // {
+    #defaultKeyBind //
+      {
         # "Mod+Shift+Slash".action = show-hotkey-overlay;
         "Alt+Return".action.spawn = "rio";
         "Alt+Shift+Return".action.spawn = "kickoff";
@@ -333,7 +334,7 @@ in {
 
         # Screenshots, Monitor off and Exit
         "Alt+Shift+Q".action = quit;
-        # "Alt+Shift+P".action = power-off-monitors;
+        "Alt+Shift+P".action = power-off-monitors;
         "Print".action = screenshot;
         "Ctrl+Print".action = screenshot-screen;
         "Alt+Print".action = screenshot-window;
