@@ -55,7 +55,7 @@
     obs-studio
     kooha
     vlc
-    cudaPackages.cudatoolkit-legacy-runfile
+    #cudaPackages.cudatoolkit-legacy-runfile
     mpv
   ];
 
