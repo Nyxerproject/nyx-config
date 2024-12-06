@@ -1,6 +1,6 @@
 {
   programs.mangohud = {
-    enable = true;
+    #enable = true;
     #enableSessionWide = true;
 
     # settings = {
