@@ -1,10 +1,6 @@
 {
   programs.starship = {
     enable = true;
-    presets = [
-      "nerd-font-symbols"
-      #"Pastel Powerline"
-    ]; # INFO: https://starship.rs/presets/
     settings = {
       add_newline = true;
 
