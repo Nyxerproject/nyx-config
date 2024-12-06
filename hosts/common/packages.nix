@@ -22,11 +22,12 @@
 
     # nixos stuff
     alejandra
-    nh
     nvd
     nix-output-monitor
     comma
     nix-health
+    nix-init
+    # TODO: move all of this to nix.nix
   ];
   programs.yazi = {
     enable = true;

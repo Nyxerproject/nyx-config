@@ -1,70 +1,66 @@
 {pkgs, ...}: {
-  imports = [
-    ../features
-  ];
+  imports = [../features];
 
   home = {
     stateVersion = "24.11";
-    # TODO this is a mix of cli and gui stuff. it should be broken into parts
-    # TODO cleanup
     packages = with pkgs; [
-      # helpers
-      thefuck # terminal helper
-      navi # cheat sheet for shell
-      tealdeer # gives tldrs for commands
-      halp # cli tool to help with cli tools
+      thefuck # helper: terminal helper
+      navi # helper: cheat sheet for shell
+      tealdeer # helper: gives tldrs for commands
+      halp # helper: cli tool to help with cli tools
 
-      # archives
-      zip
-      xz
-      unzip
-      crabz
-      ouch
+      xz # utility: compression
+      ouch # utility: compression
 
-      # utils
       atuin # better history for shell
-      ## replacments
-      bat
       skim # fzf but better
-      sig
-      fd
+      fzf
+      funzzy # file watcher
+      #sig # ??? # TODO: figure out these
+      #fd # ????
 
+      # other text editors that I care less about but want to try
+      zed
+      lapce
+      helix
+      ox
       # development
-      git
-      gitui
-      git-cliff
-      delta # better highlighting
-      koji # better git commiter
+      git # dev: version control
+      gitui # dev: tui for git
+      git-cliff # dev: changlog maker
+      lazygit
+      koji # dev: better git commiter
+      sad # dev: sed but better (idk what sed is lol)
       cocogitto # conventional commits
-      difftastic # irrelevent: optimistic merging http://hintjens.com/blog:106
-      verco # tui for multiple version control systems
+      difftastic # dev: better diffs
+      delta # dev: better diff highlighting
+      gdbgui
+      typos
+      # irrelevent: optimistic merging http://hintjens.com/blog:106
+      #verco # dev: tui for multiple version control systems
 
-      # networking tools
-      trippy # network scanner
-      nmap # A utility for network discovery and security auditing
-      netscanner # network scanner
-      rustscan # another network scanner
-      iftop # network monitoring
-      termscp # download stuff easilly
-      bluetui # tui for bluetooth
-      impala # tui for wifi
-
-      fend # calculator
-      ripgrep-all # ripgrep anything
-
-      # drive space
-      parallel-disk-usage
-
-      # misc
-      tree
-      tre-command # tree alternative
+      #trippy # utility: network scanner
+      nmap # utility: A utility for network discovery and security auditing
+      #netscanner # utility: network scanner
+      #rustscan # utility: another network scanner
+      #iftop # utility: network monitoring
+      termscp # utility: download stuff easilly
+      bluetui # settings: tui for bluetooth
+      impala # settings: tui for wifi
+      #fend # utility: calculator
+      ripgrep-all # utility: ripgrep anything
+      parallel-disk-usage # utility: drive space
+      tree # utility: recursive dir viewer
+      tre-command # utility: tree alternative
 
       # development related
       ## productivity
-      taskwarrior-tui # todo list thing
+      taskwarrior-tui # TODO: list thing
       taskwarrior3
+      # vault-tasks # tui markdown task manager WARN: not in nixpkgs yet
       taskchampion-sync-server
-      timewarrior # time
+      timewarrior # time thing
+      furtherance # time managment
       mask # start task from markdown file
       rucola
       comrak
@@ -85,17 +81,22 @@
       procs # alt to ps
 
       # system tools
-      sysstat # performance testing
-      kmon # kernel monitoring
+      sysstat # monitoring: performance testing
+      kmon # monitoring: kernel monitoring
 
       # drive space
       parallel-disk-usage
 
-      keepassxc
+      keepassxc # security: password manager
+      waveterm # TODO: move waveterm elseware
+      spacedrive
+
+      wthrr # utility: cute weather thing
+      qrtool # utility: qrcode scanner and maker
 
       # media playback
-      termusic # music in terminal
-      ytermusic # download stuff in terminal
+      termusic # media:  music in terminal
+      ytermusic # media: download stuff in terminal
 
       tabiew # view CSV and other documents in terminal
     ];
@@ -108,7 +109,7 @@
       enableBashIntegration = true;
       enableFishIntegration = true;
       options = ["--cmd cd"];
-    }; # TODO alias this to cd
+    }; # TODO: alias this to cd
 
     git = {
       enable = true;
@@ -119,35 +120,21 @@
         enable = true;
         options.features = "decorations side-by-side line-numbers";
       };
-      ignores = [
-        "*~"
-        ".direnv"
-      ];
+      #difftasti.enable = true; # I can prob remove, but i wanna try it eventually
+      ignores = ["*~" ".direnv"];
       aliases = {
         s = "status";
         p = "pull --rebase";
         f = "fetch";
       };
-      # extraConfig = {
-      #   gitlab.user = userinfo.gitlabUser;
-      #   core.editor = "nvim";
-      #   push.default = "upstream";
-      #   pull.rebase = true;
-      #   rebase.autoStash = true;
-      #   init.defaultBranch = "main";
-      #   color = {
-      #     ui = "auto";
-      #     branch = "auto";
-      #     status = "auto";
-      #     diff = "auto";
-      #     interactive = "auto";
-      #     grep = "auto";
-      #     decorate = "auto";
-      #     showbranch = "auto";
-      #     pager = true;
-      #   };
-      # };
-    }; # look here https://github.com/johnae/world/blob/main/users/profiles/git.nix
+      extraConfig = {
+        core.editor = "nvim";
+        push.default = "upstream";
+        pull.rebase = true;
+        rebase.autoStash = true;
+        init.defaultBranch = "main";
+      };
+    };
     gitui.enable = true;
     bat.enable = true;
     lsd = {
@@ -160,8 +147,11 @@
       clean.enable = true;
       clean = {
         dates = "monthly";
-        extraArgs = "--keep 3 --keep-since 7d";
+        extraArgs = "--keep 5 --keep-since 7d";
       };
+    };
+    nushell = {
+      enable = true;
     };
   };
 }

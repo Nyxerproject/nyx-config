@@ -9,9 +9,13 @@
   stylix = {
     enable = true;
     autoEnable = true;
-    polarity = "dark";
-    #base16Scheme = "${pkgs.base16-schemes}/share/themes/nord.yaml";
     image = ./../backgrounds/background.png;
+    polarity = "dark";
+    base16Scheme = "${pkgs.base16-schemes}/share/themes/nord.yaml";
+    opacity = {
+      terminal = 0.9;
+      popups = 0.9;
+    };
     cursor = {
       name = lib.mkDefault "phinger-cursors-${config.stylix.polarity}";
       package = lib.mkDefault pkgs.phinger-cursors;
@@ -35,5 +39,6 @@
         name = "Noto Color Emoji";
       };
     };
+    targets.grub.useImage = true;
   };
 }

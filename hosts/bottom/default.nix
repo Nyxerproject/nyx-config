@@ -1,6 +1,5 @@
 {inputs, ...}: {
   imports = [
-    inputs.nixos-generators.nixosModules.all-formats
     inputs.chaotic.nixosModules.default
     ../../users/nyx.nix
     ./hardware-configuration.nix

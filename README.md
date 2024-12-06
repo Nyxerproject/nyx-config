@@ -62,6 +62,12 @@ requests if you have any questions, comments, concerns, or suggestions.
 - sddm theme
 - stylix
 - SuckIT
+- keyoxide
+- nixvim
+  - swap "select from dropdown menu" to not use enter
+- security
+  - raspirus is a malware scanner if I wanna be funny and unreasonably rust pilled
+  - backups
 - Federated services
   - Multimedia
     - Owncast, peertube, pixelfed, castopod

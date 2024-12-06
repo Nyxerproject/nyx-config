@@ -1,4 +1,6 @@
 {pkgs, ...}: {
+  programs.command-not-found.enable = true;
+
   environment.systemPackages = with pkgs; [
     # Polkit agent
     # TODO move to security dir(?)
@@ -6,7 +8,10 @@
     #kdePackages.polkit-kde-agent-1
 
     # terminal emulators
-    rio
+    foot
+    kitty
+    wezterm
+    waveterm
 
     # copy paste stuff
     wl-clipboard
