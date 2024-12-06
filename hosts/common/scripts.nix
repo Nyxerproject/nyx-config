@@ -10,11 +10,11 @@
         ask_question() {
             local question=$1
             while true; do
-                read -p "$question [y/n]: " answer
+                read -p "$question [Y/n]: " answer
                 case $answer in
                     [Yy]* ) return 0;;
                     [Nn]* ) return 1;;
-                    * ) echo "Please answer yes or no.";;
+                    * ) return 0;;
                 esac
             done
         }
