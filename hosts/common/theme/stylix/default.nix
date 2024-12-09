@@ -14,7 +14,7 @@
     base16Scheme = "${pkgs.base16-schemes}/share/themes/nord.yaml";
     #base16Scheme = "${pkgs.base16-schemes}/share/themes/catppuccin-mocha.yaml";
     opacity = {
-      terminal = 0.75;
+      terminal = 0.85;
       popups = 0.9;
     };
     cursor = {

@@ -17,8 +17,8 @@ in {
         # padding-x = 4;
         window = {
           blur = true;
-          #decorations = "Disabled";
-          decorations = "Transparent";
+          decorations = "Disabled";
+          #decorations = "Transparent";
           mode = "Maximized";
         };
         colors = with config.lib.stylix.colors.withHashtag; {
@@ -83,15 +83,16 @@ in {
           program = "fish";
           args = [];
         };
+        fonts. size = 12;
       }
       // {
         window = {
           opacity = with config.stylix.opacity; terminal;
-          # blur = false;
+          blur = false;
         };
         fonts = with config.stylix.fonts; {
           #family = monospace.name;
-          #size = sizes.terminal;
+          #size = 12;
         };
         # navigation = {
         #   color-automation = [];
