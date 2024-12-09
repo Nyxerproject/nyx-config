@@ -12,7 +12,6 @@ in {
         #theme = "default";
         # padding-x = 4;
         window = {
-          blur = true;
           decorations = "Disabled";
           #decorations = "Transparent";
           mode = "Maximized";
@@ -79,7 +78,7 @@ in {
           program = "fish";
           args = [];
         };
-        fonts. size = 12;
+        fonts.size = 12;
       }
       // {
         window = {
@@ -89,6 +88,7 @@ in {
         #fonts = with config.stylix.fonts; {
         #family = monospace.name;
         #size = 12;
+        #};
         # navigation = {
         #   color-automation = [];
         # };

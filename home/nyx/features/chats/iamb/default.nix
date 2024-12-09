@@ -4,20 +4,21 @@
   programs.iamb = {
     enable = true;
     settings = {
-      profiles.main = {
+      log_level = "debug";
+      profiles.default = {
         user_id = "@nyxerproject:matrix.org";
         settings = {
           image_preview = {
-            protocol.type = "sixel";
+            protocol.type = "kitty";
             size = {
               height = 10;
-              width = 30;
+              width = 66;
             };
           };
           users = {
             "@nyxerproject:matrix.org" = {
               name = "nyx";
-              color = "yellow";
+              color = "magenta";
             };
           };
           message_user_color = false;
@@ -44,11 +45,7 @@
         layout = {
           style = "config";
           tabs = [
-            # {window = "@johnpier:matrix.org";}
-            # {window = "#lobster-general:matrix.org";}
-            # {window = "#gen-ani-cli:matrix.org";}
-            # {window = "!wrozWEyuWGynHqPCZf:mrfluffy.xyz";}
-            # examples ^
+            {window = "@clab:spap.cloud";}
           ];
         };
       };
