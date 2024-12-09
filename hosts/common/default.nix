@@ -3,7 +3,6 @@
     ./theme
     ./nixvim
     ./nix
-    ./fish.nix
     ./localization.nix
     ./security
     ./mullvad.nix

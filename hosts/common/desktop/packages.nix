@@ -1,7 +1,10 @@
-{pkgs, ...}: {
-  programs.command-not-found.enable = true;
-
+{
+  pkgs,
+  inputs,
+  ...
+}: {
   environment.systemPackages = with pkgs; [
+    inputs.zen-browser.packages."${system}".default
     # Polkit agent
     # TODO move to security dir(?)
     # TODO this isn't how you start polkit agents lmao. commenting out for now

@@ -1,4 +1,8 @@
-{pkgs, ...}: {
+{
+  pkgs,
+  inputs,
+  ...
+}: {
   home = {
     packages = with pkgs; [nur.repos.rycee.mozilla-addons-to-nix];
     sessionVariables.MOZ_ENABLE_WAYLAND = "1";

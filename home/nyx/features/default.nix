@@ -3,5 +3,6 @@
     ./zellij
     ./starship
     ./chats
+    ./fish
   ];
 }

@@ -1,7 +1,7 @@
 {pkgs, ...}: {
   environment.systemPackages = let
     nyx-rebuild =
-      pkgs.writers.writeBashBin "nyx-rebuild" {}
+      pkgs.writers.writeBashBin "nr" {}
       /*
       bash
       */
