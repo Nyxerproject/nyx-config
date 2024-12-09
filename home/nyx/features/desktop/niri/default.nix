@@ -132,8 +132,8 @@ in {
 
       only-on-session = wrapper "only-on-session" "=";
       modulated-wallpaper = pkgs.runCommand "modulated-wallpaper.png" {} ''
-          ${lib.getExe pkgs.imagemagick} ${config.stylix.image} -modulate 100,100,14 $out
-        # '';
+        ${lib.getExe pkgs.imagemagick} ${config.stylix.image} -modulate 100,100,14 $out
+      '';
     in [
       # {
       #   command = [
@@ -154,7 +154,7 @@ in {
           "--mode"
           "fill"
           "--image"
-          "${modulated-wallpaper}"
+          "${config.stylix.image}"
         ];
       }
       {
