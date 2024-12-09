@@ -17,7 +17,7 @@
           users = {
             "@nyxerproject:matrix.org" = {
               name = "nyx";
-              color = "purple";
+              color = "yellow";
             };
           };
           message_user_color = false;

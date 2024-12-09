@@ -2,7 +2,6 @@
   imports = [
     ./iamb
   ];
-  programs.nheko.enable = true;
   home = {
     # TODO: cleanup
     packages = with pkgs; [
