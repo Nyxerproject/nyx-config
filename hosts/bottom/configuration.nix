@@ -10,10 +10,12 @@
     kernelParams = ["nvidia_drm.fbdev=1"];
   };
 
-  services.scx = {
+  /*
+     services.scx = {
     enable = true;
     services.scx.scheduler = "scx_rusty";
   };
+  */
 
   services = {
     desktopManager.plasma6.enable = true;
