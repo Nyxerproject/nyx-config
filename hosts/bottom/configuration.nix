@@ -10,9 +10,10 @@
     kernelParams = ["nvidia_drm.fbdev=1"];
   };
 
-  # chaotic.scx.enable = true; # by default uses scx_rustland scheduler
-  # chaotic.scx.scheduler = "scx_qmap";
-  #chaotic.scx.scheduler = "scx_rusty";
+  services.scx = {
+    enable = true;
+    services.scx.scheduler = "scx_rusty";
+  };
 
   services = {
     desktopManager.plasma6.enable = true;
