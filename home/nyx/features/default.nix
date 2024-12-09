@@ -2,5 +2,6 @@
   imports = [
     ./zellij
     ./starship
+    ./chats
   ];
 }

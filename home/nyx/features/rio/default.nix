@@ -1,44 +1,119 @@
-{pkgs, ...}: {
+{
+  pkgs,
+  config,
+  ...
+}: let
+  inherit (config.lib.stylix) colors;
+  inherit (config.theme) fonts;
+in {
   programs.rio = {
     enable = true;
-    settings = {
-      #cursor = "▇";
-      #blinking-cursor = false;
-      #theme = "default";
-      window = {
-        foreground-opacity = 1.0;
-        background-opacity = 0.6;
-        blur = true;
-        decorations = "Disabled";
-      };
-      font = {
-        #size = 10;
-        normal = {
-          family = "FiraCode Nerd Font";
-          style = "Regular";
+    settings =
+      {
+        cursor = "▇";
+        blinking-cursor = true;
+        hide-cursor-when-typing = true;
+        #theme = "default";
+        # padding-x = 4;
+        window = {
+          blur = true;
+          #decorations = "Disabled";
+          decorations = "Transparent";
+          mode = "Maximized";
         };
-        # bold = {
-        #   family = "FiraCode Nerd Font";
-        #   style = "Bold";
+        colors = with config.lib.stylix.colors.withHashtag; {
+          background = base00;
+          foreground = base05;
+          selection-background = base02;
+          selection-foreground = base05;
+          cursor = base05;
+          black = base00;
+          white = base05;
+          inherit red green yellow blue magenta cyan;
+          light_black = base03;
+          light_white = base07;
+          light_red = bright-red;
+          light_green = bright-green;
+          light_yellow = yellow;
+          light_blue = bright-blue;
+          light_magenta = bright-magenta;
+          light_cyan = bright-cyan;
+        };
+        renderer = {
+          performance = "High";
+          backend = "Vulkan"; # or "Automatic"
+          disable-unfocused-render = false;
+        };
+        confirm-before-quit = false;
+        navigation = {
+          #mode = "CollapsedTab";
+          mode = "TopTab";
+          clickable = true;
+          open-config-with-split = true;
+          use-split = true;
+          color-automation = [
+            {
+              program = "nvim";
+              color = "#FF0000";
+            }
+            {
+              program = "nyx-rebuild";
+              color = "#FFFF00";
+            }
+            {
+              program = "ssh";
+              color = "#00FF00";
+            }
+            {
+              program = "zellij";
+              color = "#00FFFF";
+            }
+            {
+              path = "/home/nyx/nyx-config";
+              color = "#0000FF";
+            }
+            {
+              program = "nvim";
+              path = "/home/nyx/nyx-config";
+              color = "#FF00FF";
+            }
+          ];
+        };
+        shell = {
+          program = "fish";
+          args = [];
+        };
+      }
+      // {
+        window = {
+          opacity = with config.stylix.opacity; terminal;
+          # blur = false;
+        };
+        fonts = with config.stylix.fonts; {
+          family = monospace.name;
+          size = sizes.terminal;
+        };
+        # navigation = {
+        #   color-automation = [];
         # };
-        # italic = {
-        #   family = "FiraCode Nerd Font";
-        #   style = "Italic";
-        # };
-        # bold_italic = {
-        #   family = "FiraCode Nerd Font";
-        #   style = "Bold_Italic";
-        # };
+        colors = with config.lib.stylix.colors.withHashtag; {
+          background = base00;
+          foreground = base05;
+          selection-background = base02;
+          selection-foreground = base05;
+          cursor = base05;
+          black = base00;
+          white = base05;
+          inherit red green yellow blue magenta cyan;
+          light_black = base03;
+          light_white = base07;
+          light_red = bright-red;
+          light_green = bright-green;
+          light_yellow = yellow;
+          light_blue = bright-blue;
+          light_magenta = bright-magenta;
+          light_cyan = bright-cyan;
+        };
       };
-
-      # fonts = {
-      #   family = "FiraCode Nerd Font";
-      #   #size = 15;
-      # };
-      # shell = {
-      #   program = "${pkgs.zellij}/bin/zellij";
-      #   args = ["-s" "local-dev" "attach" "-c" "local-dev"];
-      # };
-    };
   };
 }

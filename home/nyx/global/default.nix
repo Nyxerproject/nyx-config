@@ -136,7 +136,15 @@
       };
     };
     gitui.enable = true;
-    bat.enable = true;
+    bat = {
+      enable = true;
+      catppuccin.enable = true;
+      extraPackages = with pkgs.bat-extras; [
+        batdiff
+        batgrep
+        prettybat
+      ];
+    };
     lsd = {
       enable = true;
       enableAliases = true;
@@ -153,5 +161,9 @@
     nushell = {
       enable = true;
     };
+    yazi.enable = true;
+  };
+  shellAliases = {
+    cat = "bat";
   };
 }
