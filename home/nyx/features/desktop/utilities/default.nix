@@ -1,15 +1,4 @@
 {pkgs, ...}: {
-  imports = [
-    ../alacritty
-    ../rio
-    ../pkm
-    ./niri
-    ./firefox
-    ./utilities
-    ./chats
-  ];
-
-  # TODO: cleanup
   home = {
     packages = with pkgs; [
       pwvucontrol # audio control

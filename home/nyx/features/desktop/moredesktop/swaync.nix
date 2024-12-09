@@ -4,7 +4,8 @@
     settings = {
       image-visibility = "when-available";
       hide-on-clear = true;
-      positionY = "bottom";
+      positionY = "top";
+      layer-shell = true;
     };
   };
 }

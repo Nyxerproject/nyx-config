@@ -1,5 +1,6 @@
 {inputs, ...}: {
   imports = [
+    inputs.nur.modules.nixos.default
     inputs.nixos-generators.nixosModules.all-formats
     ./hacks.nix
   ];

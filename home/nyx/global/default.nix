@@ -100,6 +100,7 @@
 
       tabiew # view CSV and other documents in terminal
     ];
+    shellAliases.cat = "bat";
   };
 
   programs = {
@@ -120,7 +121,6 @@
         enable = true;
         options.features = "decorations side-by-side line-numbers";
       };
-      #difftasti.enable = true; # I can prob remove, but i wanna try it eventually
       ignores = ["*~" ".direnv"];
       aliases = {
         s = "status";
@@ -138,7 +138,6 @@
     gitui.enable = true;
     bat = {
       enable = true;
-      catppuccin.enable = true;
       extraPackages = with pkgs.bat-extras; [
         batdiff
         batgrep
@@ -162,8 +161,5 @@
       enable = true;
     };
     yazi.enable = true;
-  };
-  shellAliases = {
-    cat = "bat";
   };
 }

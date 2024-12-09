@@ -10,8 +10,8 @@ in {
     enable = true;
     settings =
       {
-        cursor = "▇";
-        blinking-cursor = true;
+        #cursor = "▇";
+        #blinking-cursor = true;
         hide-cursor-when-typing = true;
         #theme = "default";
         # padding-x = 4;
@@ -90,8 +90,8 @@ in {
           # blur = false;
         };
         fonts = with config.stylix.fonts; {
-          family = monospace.name;
-          size = sizes.terminal;
+          #family = monospace.name;
+          #size = sizes.terminal;
         };
         # navigation = {
         #   color-automation = [];

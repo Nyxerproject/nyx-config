@@ -7,8 +7,7 @@
   defaultKeyBind = import ./niriKeyBind.nix;
 in {
   imports = [
-    ../waybar.nix
-    ../wluma.nix
+    ../moredesktop
   ];
   home.packages = with pkgs; [
     wl-clipboard
