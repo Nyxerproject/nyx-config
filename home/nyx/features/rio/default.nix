@@ -86,6 +86,9 @@
         fonts = {
           family = "FiraCode Nerd Font";
           #italic.family = "Victor Mono NF";
+          extra = {
+            family = "Noto Color Emoji";
+          };
         };
         use-fork = true;
       }
@@ -105,8 +108,8 @@
           bold = {
             family = monospace.name;
             style = "Normal";
-            width = "Normal";
             weight = 800;
+            width = "Normal";
           };
           italic = {
             family = monospace.name;

@@ -33,7 +33,6 @@
         package = pkgs.nerd-fonts.fira-code;
         name = "FiraCodeNerdFont";
       };
-
       monospace = {
         package = pkgs.nerd-fonts.fira-code;
         name = "FiraCodeNerdFont";

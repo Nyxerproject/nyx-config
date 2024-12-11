@@ -122,6 +122,11 @@
   };
 
   programs = {
+    nix-index = {
+      enable = true;
+      enableBashIntegration = true;
+      enableFishIntegration = true;
+    };
     bash.enable = true;
     zoxide = {
       enable = true;
