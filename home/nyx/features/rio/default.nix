@@ -128,24 +128,24 @@
         # navigation = {
         #   color-automation = [];
         # };
-        colors = with config.lib.stylix.colors.withHashtag; {
-          background = base00;
-          foreground = base05;
-          selection-background = base02;
-          selection-foreground = base05;
-          cursor = base05;
-          black = base00;
-          white = base05;
-          inherit red green yellow blue magenta cyan;
-          light_black = base03;
-          light_white = base07;
-          light_red = bright-red;
-          light_green = bright-green;
-          light_yellow = yellow;
-          light_blue = bright-blue;
-          light_magenta = bright-magenta;
-          light_cyan = bright-cyan;
-        };
+        # colors = with config.lib.stylix.colors.withHashtag; {
+        #   background = base00;
+        #   foreground = base05;
+        #   selection-background = base02;
+        #   selection-foreground = base05;
+        #   cursor = base05;
+        #   black = base00;
+        #   white = base05;
+        #   inherit red green yellow blue magenta cyan;
+        #   light_black = base03;
+        #   light_white = base07;
+        #   light_red = bright-red;
+        #   light_green = bright-green;
+        #   light_yellow = yellow;
+        #   light_blue = bright-blue;
+        #   light_magenta = bright-magenta;
+        #   light_cyan = bright-cyan;
+        # };
       };
   };
 }

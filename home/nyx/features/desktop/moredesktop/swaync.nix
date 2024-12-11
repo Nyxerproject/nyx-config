@@ -1,4 +1,5 @@
 {config, ...}: {
+  imports = [./swaync_mod.nix];
   services.swaync = {
     enable = true;
     settings = {
@@ -8,4 +9,5 @@
       layer-shell = true;
     };
   };
+  programs.swaync.enable = true;
 }
