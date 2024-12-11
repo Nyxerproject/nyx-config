@@ -38,8 +38,8 @@
         };
         confirm-before-quit = false;
         navigation = {
-          mode = "CollapsedTab";
-          #mode = "TopTab";
+          #mode = "CollapsedTab";
+          mode = "TopTab";
           clickable = true;
           open-config-with-split = true;
           use-split = true;
@@ -85,25 +85,25 @@
         fonts = with config.stylix.fonts; {
           regular = {
             family = monospace.name;
-            style = "normal";
+            style = "Normal";
             width = "Normal";
             weight = 400;
           };
           bold = {
             family = monospace.name;
-            style = "normal";
+            style = "Normal";
             width = "Normal";
             weight = 800;
           };
           italic = {
             family = monospace.name;
-            style = "normal";
+            style = "Normal";
             width = "Normal";
             weight = 400;
           };
           bold-italic = {
             family = monospace.name;
-            style = "normal";
+            style = "Normal";
             width = "Normal";
             weight = 800;
           };
