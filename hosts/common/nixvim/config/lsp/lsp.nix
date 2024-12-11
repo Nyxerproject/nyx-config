@@ -4,6 +4,7 @@
     servers = {
       markdown_oxide.enable = pkgs.lib.mkDefault true;
       ltex.enable = pkgs.lib.mkDefault true;
+      texlab.enable = pkgs.lib.mkDefault true;
       clangd.enable = pkgs.lib.mkDefault true;
       bashls.enable = pkgs.lib.mkDefault true;
       cmake.enable = pkgs.lib.mkDefault true;
