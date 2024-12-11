@@ -3,6 +3,7 @@
     enable = pkgs.lib.mkDefault true;
     servers = {
       markdown_oxide.enable = pkgs.lib.mkDefault true;
+      ltex.enable = pkgs.lib.mkDefault true;
       clangd.enable = pkgs.lib.mkDefault true;
       bashls.enable = pkgs.lib.mkDefault true;
       cmake.enable = pkgs.lib.mkDefault true;
@@ -13,7 +14,7 @@
       nil_ls.enable = pkgs.lib.mkDefault true;
       pyright.enable = pkgs.lib.mkDefault true;
       lua_ls.enable = pkgs.lib.mkDefault true;
-      typst_lsp.enable = pkgs.lib.mkDefault true;
+      tinymist.enable = pkgs.lib.mkDefault true;
       cssls.enable = pkgs.lib.mkDefault true;
       html.enable = pkgs.lib.mkDefault true;
       yamlls.enable = pkgs.lib.mkDefault true;

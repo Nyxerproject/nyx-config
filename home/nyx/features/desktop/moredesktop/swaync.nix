@@ -9,5 +9,4 @@
       layer-shell = true;
     };
   };
-  programs.swaync.enable = true;
 }
