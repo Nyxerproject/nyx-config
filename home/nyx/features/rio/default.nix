@@ -1,7 +1,4 @@
-{config, ...}: let
-  inherit (config.lib.stylix) colors;
-  inherit (config.theme) fonts;
-in {
+{config, ...}: {
   programs.rio = {
     enable = true;
     settings =
@@ -78,7 +75,7 @@ in {
           program = "fish";
           args = [];
         };
-        fonts.size = 12;
+        fonts.family = config.stylix.fonts.monospace.name;
       }
       // {
         window = {
@@ -86,25 +83,25 @@ in {
           blur = true;
         };
         fonts = with config.stylix.fonts; {
-          regular = with config.stylix.fonts; {
+          regular = {
             family = monospace.name;
             style = "normal";
             width = "Normal";
             weight = 400;
           };
-          bold = with config.stylix.fonts; {
+          bold = {
             family = monospace.name;
             style = "normal";
             width = "Normal";
             weight = 800;
           };
-          italic = with config.stylix.fonts; {
+          italic = {
             family = monospace.name;
             style = "normal";
             width = "Normal";
             weight = 400;
           };
-          bold-italic = with config.stylix.fonts; {
+          bold-italic = {
             family = monospace.name;
             style = "normal";
             width = "Normal";
