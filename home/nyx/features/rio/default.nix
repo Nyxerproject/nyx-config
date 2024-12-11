@@ -1,4 +1,12 @@
-{config, ...}: {
+{
+  config,
+  pkgs,
+  ...
+}: {
+  home.packages = [
+    pkgs.nerd-fonts.fira-code
+    pkgs.nerd-fonts.victor-mono
+  ];
   programs.rio = {
     enable = true;
     settings =
@@ -75,14 +83,19 @@
           program = "fish";
           args = [];
         };
-        fonts.family = config.stylix.fonts.monospace.name;
+        fonts = {
+          family = "FiraCode Nerd Font";
+          #italic.family = "Victor Mono NF";
+        };
+        use-fork = true;
       }
       // {
         window = {
           opacity = with config.stylix.opacity; terminal;
           blur = true;
         };
-        fonts = with config.stylix.fonts; {
+        /*
+           fonts = with config.stylix.fonts; {
           regular = {
             family = monospace.name;
             style = "Normal";
@@ -108,6 +121,7 @@
             weight = 800;
           };
         };
+        */
         # navigation = {
         #   color-automation = [];
         # };

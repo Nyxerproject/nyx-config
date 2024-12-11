@@ -8,8 +8,9 @@
         # TODO: read posix docs and see if I need env.TERM
 
         # TODO: remove this and other fonts. handled by stylix now.
-        # font = {
-        #   size = 10;
+        font = {
+          size = 12;
+        };
         #   normal = {
         #     family = "FiraCode Nerd Font";
         #     style = "Regular";

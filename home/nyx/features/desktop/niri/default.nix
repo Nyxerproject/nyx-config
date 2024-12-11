@@ -11,6 +11,7 @@ in {
   ];
   home.packages = with pkgs; [
     wl-clipboard
+    kitty
     wayland-utils
     libsecret
     cage
