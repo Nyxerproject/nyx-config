@@ -27,16 +27,16 @@
     fonts = {
       serif = {
         package = pkgs.nerd-fonts.fira-code;
-        name = "Fira Code";
+        name = "FiraCodeNerdFont";
       };
       sansSerif = {
         package = pkgs.nerd-fonts.fira-code;
-        name = "Fira Code";
+        name = "FiraCodeNerdFont";
       };
 
       monospace = {
         package = pkgs.nerd-fonts.fira-code;
-        name = "Fira Code";
+        name = "FiraCodeNerdFont";
       };
       emoji = {
         package = pkgs.noto-fonts-emoji;
