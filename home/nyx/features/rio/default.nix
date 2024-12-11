@@ -41,8 +41,8 @@ in {
         };
         confirm-before-quit = false;
         navigation = {
-          #mode = "CollapsedTab";
-          mode = "TopTab";
+          mode = "CollapsedTab";
+          #mode = "TopTab";
           clickable = true;
           open-config-with-split = true;
           use-split = true;
@@ -86,9 +86,30 @@ in {
           blur = true;
         };
         fonts = with config.stylix.fonts; {
-          #family = monospace.name;
-          family = name;
-          size = 12;
+          regular = with config.stylix.fonts; {
+            family = monospace.name;
+            style = "normal";
+            width = "Normal";
+            weight = 400;
+          };
+          bold = with config.stylix.fonts; {
+            family = monospace.name;
+            style = "normal";
+            width = "Normal";
+            weight = 800;
+          };
+          italic = with config.stylix.fonts; {
+            family = monospace.name;
+            style = "normal";
+            width = "Normal";
+            weight = 400;
+          };
+          bold-italic = with config.stylix.fonts; {
+            family = monospace.name;
+            style = "normal";
+            width = "Normal";
+            weight = 800;
+          };
         };
         # navigation = {
         #   color-automation = [];

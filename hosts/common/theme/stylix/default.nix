@@ -11,12 +11,12 @@
     autoEnable = true;
     image = ./../backgrounds/background.png;
     polarity = "dark";
-    base16Scheme = "${pkgs.base16-schemes}/share/themes/nord.yaml";
+    base16Scheme = "${pkgs.base16-schemes}/share/themes/pasque.yaml";
     #base16Scheme = "${pkgs.base16-schemes}/share/themes/caroline.yaml";
     #base16Scheme = "${pkgs.base16-schemes}/share/themes/nord.yaml";
     #base16Scheme = "${pkgs.base16-schemes}/share/themes/catppuccin-mocha.yaml";
     opacity = {
-      terminal = 0.85;
+      terminal = 0.9;
       popups = 0.9;
     };
     cursor = {
@@ -33,6 +33,7 @@
         package = pkgs.nerd-fonts.fira-code;
         name = "Fira Code";
       };
+
       monospace = {
         package = pkgs.nerd-fonts.fira-code;
         name = "Fira Code";
