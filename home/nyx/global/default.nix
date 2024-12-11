@@ -1,4 +1,8 @@
-{pkgs, ...}: {
+{
+  pkgs,
+  inputs,
+  ...
+}: {
   imports = [../features];
 
   home = {
@@ -27,11 +31,13 @@
       # development
       git # dev: version control
       gitui # dev: tui for git
+      gitu # another terminal user inteface
       git-cliff # dev: changlog maker
       lazygit
       koji # dev: better git commiter
       sad # dev: sed but better (idk what sed is lol)
       cocogitto # conventional commits
+      serie # better git commit charts
       difftastic # dev: better diffs
       delta # dev: better diff highlighting
       gdbgui
@@ -44,6 +50,11 @@
       #netscanner # utility: network scanner
       #rustscan # utility: another network scanner
       #iftop # utility: network monitoring
+      sshs # ssh stuff
+      tuisky
+      wiki-tui
+      meli
+
       termscp # utility: download stuff easilly
       bluetui # settings: tui for bluetooth
       impala # settings: tui for wifi
@@ -93,14 +104,21 @@
 
       wthrr # utility: cute weather thing
       qrtool # utility: qrcode scanner and maker
+      viu # png viewer in terminal
+      xplr
 
       # media playback
       termusic # media:  music in terminal
       ytermusic # media: download stuff in terminal
 
       tabiew # view CSV and other documents in terminal
+      ttyper
     ];
-    shellAliases.cat = "bat";
+    shellAliases = {
+      cat = "bat -p";
+      tree = "tre";
+      l = "lsd -l";
+    };
   };
 
   programs = {

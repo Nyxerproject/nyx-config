@@ -1,4 +1,8 @@
-{pkgs, ...}: {
+{
+  pkgs,
+  inputs,
+  ...
+}: {
   environment.systemPackages = with pkgs; [
     wget
     curl
@@ -27,6 +31,7 @@
     comma
     nix-health
     nix-init
+    inputs.vault-tasks.packages.${pkgs.system}.default
     # TODO: move all of this to nix.nix
   ];
   programs.yazi = {

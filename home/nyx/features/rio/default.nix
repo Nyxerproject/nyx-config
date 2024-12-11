@@ -83,12 +83,13 @@ in {
       // {
         window = {
           opacity = with config.stylix.opacity; terminal;
-          blur = false;
+          blur = true;
         };
-        #fonts = with config.stylix.fonts; {
-        #family = monospace.name;
-        #size = 12;
-        #};
+        fonts = with config.stylix.fonts; {
+          #family = monospace.name;
+          family = name;
+          size = 12;
+        };
         # navigation = {
         #   color-automation = [];
         # };
