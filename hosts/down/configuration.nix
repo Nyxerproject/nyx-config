@@ -5,7 +5,7 @@
 
   hardware.opengl = {
     enable = true;
-    extraPackages = with pkgs; [vpl-gpu-rt];
+    extraPackages = with pkgs; [vpl-gpu-rt kdenlive obs-studio];
   };
 
   services.xserver.enable = true;
