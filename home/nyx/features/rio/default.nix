@@ -3,10 +3,10 @@
   pkgs,
   ...
 }: {
-  home.packages = [
-    pkgs.nerd-fonts.fira-code
-    pkgs.nerd-fonts.victor-mono
-  ];
+  # home.packages = [
+  #   pkgs.nerd-fonts.fira-code
+  #   pkgs.nerd-fonts.victor-mono
+  # ];
   programs.rio = {
     enable = true;
     settings =

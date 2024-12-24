@@ -84,15 +84,15 @@
         modules = [./hosts/top];
         specialArgs = {inherit inputs;};
       };
-      strange = inputs.nixpkgs.lib.nixossystem {
+      strange = inputs.nixpkgs.lib.nixosSystem {
         inherit system;
         modules = [./hosts/strange];
-        specialargs = {inherit inputs;};
+        specialArgs = {inherit inputs;};
       };
-      charm = inputs.nixpkgs.lib.nixossystem {
+      charm = inputs.nixpkgs.lib.nixosSystem {
         inherit system;
         modules = [./hosts/charm];
-        specialargs = {inherit inputs;};
+        specialArgs = {inherit inputs;};
       };
     };
   };

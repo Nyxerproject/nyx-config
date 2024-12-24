@@ -1,12 +1,20 @@
-{pkgs, ...}: {
-  networking.hostName = "charm";
+{
+  pkgs,
+  inputs,
+  ...
+}: {
+  imports = [
+    inputs.disko.nixosModules.disko
+    ./hardware-configuration.nix
+    ./disko-config.nix
+    ./configuration.nix
+    #../common/desktop/niri
+    ../common/services
+    ../common/steamdeck
+    ../common/desktop
+    ../common/grub
+    ../common
 
-  boot.loader.grub.device = "/dev/disk/by-id/::<>"; # hehe, terbofish
-
-  #hardware.opengl = {enable = true;};
-
-  #services.xserver.enable = true;
-  home-manager.users.nyx = import ../../home/nyx/charm;
-
-  system.stateVersion = "24.05";
+    ../../users/nyx.nix
+  ];
 }

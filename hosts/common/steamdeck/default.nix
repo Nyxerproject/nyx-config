@@ -1,5 +1,7 @@
 {inputs, ...}: {
-  imports = [inputs.jovian.modules];
+  imports = [
+    inputs.jovian.nixosModules.jovian
+  ];
   jovian = {
     devices.steamdeck = {
       enable = true;
@@ -11,9 +13,10 @@
     };
     hardware.has.amd.gpu = true;
     steam = {
-      defaultSession = "plasma";
+      desktopSession = "niri";
+      user = "nyx";
       autoStart = true;
-      steam.enable = true;
+      enable = true;
     };
   };
 }
