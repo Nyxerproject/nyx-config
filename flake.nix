@@ -7,10 +7,12 @@
     agenix.url = "github:ryantm/agenix";
     chaotic.url = "github:chaotic-cx/nyx/nyxpkgs-unstable";
     nixvim.url = "github:nix-community/nixvim";
-    stylix.url = "github:danth/stylix";
+    #stylix.url = "github:danth/stylix";
+    stylix.url = "github:brckd/stylix/7108ef458c246c30bc37d3a056d2df76317eed0d";
     nixos-wsl.url = "github:nix-community/NixOS-WSL/main";
     sops-nix.url = "github:Mic92/sops-nix";
     kiara.url = "github:StardustXR/kiara";
+    jovian.url = "github:Jovian-Experiments/Jovian-NixOS";
     zen-browser.url = "github:0xc000022070/zen-browser-flake";
     nur = {
       url = "github:nix-community/NUR";
@@ -82,10 +84,15 @@
         modules = [./hosts/top];
         specialArgs = {inherit inputs;};
       };
-      strange = inputs.nixpkgs.lib.nixosSystem {
+      strange = inputs.nixpkgs.lib.nixossystem {
         inherit system;
         modules = [./hosts/strange];
-        specialArgs = {inherit inputs;};
+        specialargs = {inherit inputs;};
+      };
+      charm = inputs.nixpkgs.lib.nixossystem {
+        inherit system;
+        modules = [./hosts/charm];
+        specialargs = {inherit inputs;};
       };
     };
   };

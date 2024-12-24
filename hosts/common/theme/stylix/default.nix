@@ -42,6 +42,12 @@
         name = "Noto Color Emoji";
       };
     };
-    targets.grub.useImage = true;
+    targets = {
+      # steam = {
+      #   enable = true;
+      #   adwaitaForSteam.enable = true;
+      # };
+      grub.useImage = true;
+    };
   };
 }
