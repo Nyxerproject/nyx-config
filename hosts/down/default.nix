@@ -11,6 +11,7 @@
     ../common/desktop/niri
     ../common/services
     ../common/desktop
+    ../common/desktop/gaming.nix
     ../common/zram.nix
     ../common/grub
     ../common

@@ -21,24 +21,10 @@
       extraCompatPackages = with pkgs; [
         proton-ge-bin
         (proton-ge-bin.overrideAttrs (finalAttrs: _: {
-          version = "GE-Proton9-16";
-          src = pkgs.fetchzip {
-            url = "https://github.com/GloriousEggroll/proton-ge-custom/releases/download/${finalAttrs.version}/${finalAttrs.version}.tar.gz";
-            hash = "sha256-n/pU5bAr78Hawo8BMk7VW8uK0FjVsBJGMf78zRMGFPQ=";
-          };
-        }))
-        (proton-ge-bin.overrideAttrs (finalAttrs: _: {
-          version = "GE-Proton9-11-rtsp15";
+          version = "GE-Proton9-20-rtsp16";
           src = pkgs.fetchzip {
             url = "https://github.com/SpookySkeletons/proton-ge-rtsp/releases/download/${finalAttrs.version}/${finalAttrs.version}.tar.gz";
-            hash = "sha256-3QWJUVkMgZldEXFVsry1FoKVE9y6Tg4IREAruPuL+hk=";
-          };
-        }))
-        (proton-ge-bin.overrideAttrs (finalAttrs: _: {
-          version = "GE-Proton9-4-rtsp7";
-          src = pkgs.fetchzip {
-            url = "https://github.com/SpookySkeletons/proton-ge-rtsp/releases/download/${finalAttrs.version}/${finalAttrs.version}.tar.gz";
-            hash = "sha256-l/zt/Kv6g1ZrAzcxDNENByHfUp/fce3jOHVAORc5oy0=";
+            hash = "sha256-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx=";
           };
         }))
       ];
