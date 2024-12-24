@@ -5,6 +5,7 @@
     ../pkm
     ./niri
     ./firefox
+    ./browsers
     ./utilities
     ./chats
   ];
