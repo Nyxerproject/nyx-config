@@ -1,5 +1,6 @@
-{
+{inputs, ...}: {
   imports = [
+    inputs.nixos-generators.nixosModules.all-formats
     ./theme
     ./nixvim
     ./nix

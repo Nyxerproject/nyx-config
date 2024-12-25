@@ -95,5 +95,13 @@
         specialArgs = {inherit inputs;};
       };
     };
+    packages.x86_64-linux = {
+      charm4deck = inputs.nixos-generators.nixosGenerate {
+        inherit system;
+        modules = [./hosts/charm];
+        specialArgs = {inherit inputs;};
+        format = "kexec-bundle";
+      };
+    };
   };
 }
