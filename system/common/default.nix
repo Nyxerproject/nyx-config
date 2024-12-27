@@ -2,6 +2,7 @@
   imports = [
     # common modules
     inputs.nixos-generators.nixosModules.all-formats
+    inputs.disko.nixosModules.disko
 
     ./theme
     ./nixvim

@@ -8,7 +8,7 @@
     chaotic.url = "github:chaotic-cx/nyx/nyxpkgs-unstable";
     nixvim.url = "github:nix-community/nixvim";
     #stylix.url = "github:danth/stylix";
-    stylix.url = "github:brckd/stylix/7108ef458c246c30bc37d3a056d2df76317eed0d";
+    stylix.url = "1e3c0f13803c8169070d65bcf39ed403e1df2111";
     nixos-wsl.url = "github:nix-community/NixOS-WSL/main";
     sops-nix.url = "github:Mic92/sops-nix";
     kiara.url = "github:StardustXR/kiara";

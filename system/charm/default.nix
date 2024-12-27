@@ -8,12 +8,15 @@
     ./hardware-configuration.nix
     ./disko-config.nix
     ./configuration.nix
-    #../common/desktop/niri
+    ../common/desktop/gaming.nix
+    ../common/desktop/niri
+    ../common/desktop/vr
     ../common/services
     ../common/steamdeck
     ../common/desktop
     ../common/grub
     ../common
+    ../common/zram.nix
 
     # home-manager
     ./home.nix
