@@ -43,10 +43,10 @@
       };
     };
     targets = {
-      # steam = {
-      #   enable = true;
-      #   adwaitaForSteam.enable = true;
-      # };
+      steam = {
+        enable = true;
+        #adwaitaForSteam.enable = true;
+      };
       grub.useImage = true;
     };
   };
