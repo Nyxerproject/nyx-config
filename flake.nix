@@ -61,44 +61,44 @@
     nixosConfigurations = {
       bottom = inputs.nixpkgs.lib.nixosSystem {
         inherit system;
-        modules = [./hosts/bottom];
+        modules = [./system/bottom];
         specialArgs = {inherit inputs;};
       };
       antidown = inputs.nixpkgs.lib.nixosSystem {
         inherit system;
-        modules = [./hosts/antidown];
+        modules = [./system/antidown];
         specialArgs = {inherit inputs;};
       };
       down = inputs.nixpkgs.lib.nixosSystem {
         inherit system;
-        modules = [./hosts/down];
+        modules = [./system/down];
         specialArgs = {inherit inputs;};
       };
       muon = inputs.nixpkgs.lib.nixosSystem {
         inherit system;
-        modules = [./hosts/muon];
+        modules = [./system/muon];
         specialArgs = {inherit inputs;};
       };
       top = inputs.nixpkgs.lib.nixosSystem {
         inherit system;
-        modules = [./hosts/top];
+        modules = [./system/top];
         specialArgs = {inherit inputs;};
       };
       strange = inputs.nixpkgs.lib.nixosSystem {
         inherit system;
-        modules = [./hosts/strange];
+        modules = [./system/strange];
         specialArgs = {inherit inputs;};
       };
       charm = inputs.nixpkgs.lib.nixosSystem {
         inherit system;
-        modules = [./hosts/charm];
+        modules = [./system/charm];
         specialArgs = {inherit inputs;};
       };
     };
     packages.x86_64-linux = {
       charm4deck = inputs.nixos-generators.nixosGenerate {
         inherit system;
-        modules = [./hosts/charm];
+        modules = [./system/charm];
         specialArgs = {inherit inputs;};
         format = "kexec-bundle";
       };
