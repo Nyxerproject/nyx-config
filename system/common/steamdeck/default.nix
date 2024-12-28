@@ -13,10 +13,11 @@
     };
     hardware.has.amd.gpu = true;
     steam = {
-      desktopSession = "niri";
+      desktopSession = "plasma";
       user = "nyx";
       autoStart = true;
       enable = true;
     };
   };
+  services.desktopManager.plasma6.enable = true;
 }
