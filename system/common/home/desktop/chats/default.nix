@@ -3,9 +3,10 @@
 
   programs.nheko.enable = true;
   home.packages = with pkgs; [
-    webcord-vencord # discord client
+    #webcord-vencord # discord client
+    webcord # discord client
     dissent # discord client
     kotatogram-desktop # telegram client
-    element-desktop-wayland # matrix client
+    element-desktop # matrix client
   ]; # TODO: cleanup
 }

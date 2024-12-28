@@ -3,7 +3,10 @@
   pkgs,
   ...
 }: {
-  imports = [inputs.agenix.nixosModules.default];
+  imports = [
+    inputs.agenix.nixosModules.default
+    ./fingerprint
+  ];
   environment.systemPackages = [
     inputs.agenix.packages."${pkgs.system}".default
   ];
