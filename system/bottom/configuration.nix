@@ -52,7 +52,6 @@
   # TODO: make a seporate packages file
   environment.systemPackages = with pkgs; [
     corectrl
-    ungoogled-chromium
     obs-studio
     kooha
     vlc

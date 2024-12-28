@@ -1,11 +1,8 @@
 {pkgs, ...}: {
-  imports = [
-    ./iamb
-  ];
-  home = {
-    # TODO: cleanup
-    packages = with pkgs; [
-      iamb # matrix tui client
-    ];
-  };
+  # imports = [
+  #   ./iamb
+  # ];
+  # packages = with pkgs; [
+  #   iamb # matrix tui client
+  # ];
 }

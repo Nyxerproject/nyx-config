@@ -8,12 +8,16 @@
     chaotic.url = "github:chaotic-cx/nyx/nyxpkgs-unstable";
     nixvim.url = "github:nix-community/nixvim";
     #stylix.url = "github:danth/stylix";
-    stylix.url = "1e3c0f13803c8169070d65bcf39ed403e1df2111";
+    stylix.url = "github:brckd/stylix/1e3c0f13803c8169070d65bcf39ed403e1df2111";
     nixos-wsl.url = "github:nix-community/NixOS-WSL/main";
     sops-nix.url = "github:Mic92/sops-nix";
     kiara.url = "github:StardustXR/kiara";
     jovian.url = "github:Jovian-Experiments/Jovian-NixOS";
     zen-browser.url = "github:0xc000022070/zen-browser-flake";
+    deploy-rs = {
+      url = "github:serokell/deploy-rs";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     nur = {
       url = "github:nix-community/NUR";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -55,7 +59,7 @@
     };
   };
 
-  outputs = inputs: let
+  outputs = {self, ...} @ inputs: let
     system = "x86_64-linux";
   in {
     nixosConfigurations = {
@@ -103,5 +107,29 @@
         format = "kexec-bundle";
       };
     };
+    deploy.nodes.example = {
+      sshOpts = ["-p" "2221"];
+      hostname = "localhost";
+      fastConnection = true;
+      interactiveSudo = true;
+      profiles = {
+        charm-er = {
+          sshUser = "nyx";
+          path = inputs.deploy-rs.lib.x86_64-linux.activate.nixos self.nixosConfigurations.charm;
+          user = "root";
+        };
+        down-er = {
+          sshUser = "nyx";
+          path = inputs.deploy-rs.lib.x86_64-linux.activate.nixos self.nixosConfigurations.down;
+          user = "root";
+        };
+        top-er = {
+          sshUser = "nyx";
+          path = inputs.deploy-rs.lib.x86_64-linux.activate.nixos self.nixosConfigurations.top;
+          user = "root";
+        };
+      };
+    };
+    checks = builtins.mapAttrs (system: deployLib: deployLib.deployChecks self.deploy) inputs.deploy-rs.lib;
   };
 }

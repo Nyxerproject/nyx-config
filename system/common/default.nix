@@ -1,4 +1,8 @@
-{inputs, ...}: {
+{
+  inputs,
+  pkgs,
+  ...
+}: {
   imports = [
     # common modules
     inputs.nixos-generators.nixosModules.all-formats
@@ -15,7 +19,7 @@
     ./tailscale.nix
     ./ssh.nix
     ./development.nix
-    ./homemanager
     ./networking
+    ./homemanager
   ];
 }

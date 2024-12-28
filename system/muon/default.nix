@@ -11,6 +11,6 @@
     ./home.nix
   ];
   home-manager.users.nyx.imports = [
-    ../features/desktop
+    ../common/home/desktop
   ];
 }

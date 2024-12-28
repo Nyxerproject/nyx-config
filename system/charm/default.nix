@@ -8,7 +8,6 @@
     ./hardware-configuration.nix
     ./disko-config.nix
     ./configuration.nix
-    ../common/desktop/gaming.nix
     ../common/desktop/niri
     ../common/desktop/vr
     ../common/services

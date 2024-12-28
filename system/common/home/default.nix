@@ -123,14 +123,6 @@
       tree = "tre";
       l = "lsd -l";
     };
-    stylix = {
-      targets = {
-        steam = {
-          enable = true;
-          adwaitaForSteam.enable = true;
-        };
-      };
-    };
   };
 
   programs = {
