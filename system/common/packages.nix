@@ -23,6 +23,13 @@
     presenterm # markdown presentations
     clima # markdown view
     dysk # find info about disk
+    atac # api sender thing
+    gpg-tui
+    caligula # disk imageing
+    tenere # llm thing
+    tui-journal
+
+    russ # RSS reader
 
     # nixos stuff
     alejandra

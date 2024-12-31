@@ -1,8 +1,4 @@
-{
-  pkgs,
-  inputs,
-  ...
-}: {
+{pkgs, ...}: {
   imports = [
     ./zellij
     ./starship
@@ -185,6 +181,13 @@
       };
     };
     yazi.enable = true;
+    broot = {
+      enable = true;
+      enableBashIntegration = true;
+      enableFishIntegration = true;
+      enableNushellIntegration = true;
+      settings.modal = true;
+    };
     #nushell.enable = true;
   };
 }

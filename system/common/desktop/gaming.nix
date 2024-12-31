@@ -3,14 +3,6 @@
   pkgs,
   ...
 }: {
-  environment.systemPackages = with pkgs; [
-    r2modman
-    steam-run
-    protontricks
-    lutris
-    gamemode
-    gamescope
-  ];
   programs = {
     steam = {
       enable = true;
@@ -29,39 +21,25 @@
         }))
       ];
     };
-    # nixpkgs.config.allowUnfreePredicate = pkg:
-    #   builtins.elem (lib.getName pkg) [
-    #     "steam"
-    #     "steam-original"
-    #     "steam-runtime"
-    #   ];
-
-    gamescope = {
-      enable = true;
-      capSysNice = true;
-      args = [
-        "-f"
-      ];
-    };
-
-    gamemode = {
-      enable = true;
-      settings = {
-        general = {
-          defaultgov = config.powerManagement.cpuFreqGovernor;
-          desiredgov = "performance";
-          # softrealtime = "on";
-          # renice = 10;
-          # ioprio = 1;
-          inhibit_screensaver = 0;
-        };
-        custom = {
-          start = "${pkgs.libnotify}/bin/notify-send 'GameMode started'";
-          stop = "${pkgs.libnotify}/bin/notify-send 'GameMode ended'";
-        };
-      };
-    };
+    # gamemode = {
+    #   enable = true;
+    #   settings = {
+    #     general = {
+    #       defaultgov = config.powerManagement.cpuFreqGovernor;
+    #       desiredgov = "performance";
+    #       # softrealtime = "on";
+    #       # renice = 10;
+    #       # ioprio = 1;
+    #       inhibit_screensaver = 0;
+    #     };
+    #     custom = {
+    #       start = "${pkgs.libnotify}/bin/notify-send 'GameMode started'";
+    #       stop = "${pkgs.libnotify}/bin/notify-send 'GameMode ended'";
+    #     };
+    #   };
+    # };
   };
+
   services.udev.extraRules = ''
     # This rule is needed for basic functionality of the controller in
     # Steam and keyboard/mouse emulation

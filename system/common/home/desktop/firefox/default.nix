@@ -1,16 +1,13 @@
-{
-  pkgs,
-  inputs,
-  ...
-}: {
+{pkgs, ...}: {
   home = {
     packages = with pkgs; [nur.repos.rycee.mozilla-addons-to-nix];
-    sessionVariables.MOZ_ENABLE_WAYLAND = "1";
+    #sessionVariables.MOZ_ENABLE_WAYLAND = "1";
   };
 
   programs.firefox = {
     enable = true;
-    profiles = {
+    /*
+       profiles = {
       nyx = {
         name = "nyx";
         id = 777; # TODO: wtf is this?
@@ -133,7 +130,6 @@
           user-agent-string-switcher
         ];
 
-        /*
         settings = {
           # Disable Telemetry (https://support.mozilla.org/kb/share-telemetry-data-mozilla-help-improve-firefox) sends data about the performance and responsiveness of Firefox to Mozilla.
           "toolkit.telemetry.enabled" = false;
@@ -312,7 +308,6 @@
           "ui.context_menus.after_mouseup" = true;
           "widget.use-xdg-desktop-portal" = true;
         };
-        */
 
         extraConfig = ''
           user_pref("toolkit.legacyUserProfileCustomizations.stylesheets", true);
@@ -324,5 +319,6 @@
         userContent = "\n";
       };
     };
+    */
   };
 }

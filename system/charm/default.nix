@@ -8,6 +8,7 @@
     ../common/services
     ../common/steamdeck
     ../common/desktop
+    ../common/desktop/gaming.nix
     ../common/grub
     ../common
     ../common/zram.nix
