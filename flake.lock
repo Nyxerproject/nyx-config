@@ -249,22 +249,6 @@
         "type": "github"
       }
     },
-    "firefox-gnome-theme": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1734969791,
-        "narHash": "sha256-A9PxLienMYJ/WUvqFie9qXrNC2MeRRYw7TG/q7DRjZg=",
-        "owner": "rafaelmardojai",
-        "repo": "firefox-gnome-theme",
-        "rev": "92f4890bd150fc9d97b61b3583680c0524a8cafe",
-        "type": "github"
-      },
-      "original": {
-        "owner": "rafaelmardojai",
-        "repo": "firefox-gnome-theme",
-        "type": "github"
-      }
-    },
     "flake-compat": {
       "flake": false,
       "locked": {
@@ -1470,15 +1454,15 @@
     },
     "nixpkgs_7": {
       "locked": {
-        "lastModified": 1735377767,
-        "narHash": "sha256-boNQJrdjYJu6r+RRQyWVGJ9pHvnXCA+oonwJrUNh99g=",
-        "owner": "Nyxerproject",
+        "lastModified": 1735471104,
+        "narHash": "sha256-0q9NGQySwDQc7RhAV2ukfnu7Gxa5/ybJ2ANT8DQrQrs=",
+        "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "e100d06b156a8a6be203b6146e0fdd489cb2f34f",
+        "rev": "88195a94f390381c6afcdaa933c2f6ff93959cb4",
         "type": "github"
       },
       "original": {
-        "owner": "Nyxerproject",
+        "owner": "NixOS",
         "ref": "nixos-unstable",
         "repo": "nixpkgs",
         "type": "github"
@@ -1681,7 +1665,6 @@
         "base16-fish": "base16-fish",
         "base16-helix": "base16-helix",
         "base16-vim": "base16-vim",
-        "firefox-gnome-theme": "firefox-gnome-theme",
         "flake-compat": "flake-compat_6",
         "flake-utils": "flake-utils_4",
         "gnome-shell": "gnome-shell",
@@ -1693,17 +1676,16 @@
         "tinted-tmux": "tinted-tmux"
       },
       "locked": {
-        "lastModified": 1735261906,
-        "narHash": "sha256-0K0gifL1fCbliiQHk1oW3If2Nj5l/Ib/Ea9je+6EWIo=",
-        "owner": "brckd",
+        "lastModified": 1735664732,
+        "narHash": "sha256-KoXLDDDT/nMBMl6VtoAGxJ58COvT+SWL5aiR+hUPBUo=",
+        "owner": "danth",
         "repo": "stylix",
-        "rev": "1e3c0f13803c8169070d65bcf39ed403e1df2111",
+        "rev": "f48cab39ba162c5eaef3d975aaac467c20db402b",
         "type": "github"
       },
       "original": {
-        "owner": "brckd",
+        "owner": "danth",
         "repo": "stylix",
-        "rev": "1e3c0f13803c8169070d65bcf39ed403e1df2111",
         "type": "github"
       }
     },
