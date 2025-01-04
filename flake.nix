@@ -63,14 +63,19 @@
     system = "x86_64-linux";
   in {
     nixosConfigurations = {
+      antidown = inputs.nixpkgs.lib.nixosSystem {
+        inherit system;
+        modules = [./system/antidown];
+        specialArgs = {inherit inputs;};
+      };
       bottom = inputs.nixpkgs.lib.nixosSystem {
         inherit system;
         modules = [./system/bottom];
         specialArgs = {inherit inputs;};
       };
-      antidown = inputs.nixpkgs.lib.nixosSystem {
+      charm = inputs.nixpkgs.lib.nixosSystem {
         inherit system;
-        modules = [./system/antidown];
+        modules = [./system/charm];
         specialArgs = {inherit inputs;};
       };
       down = inputs.nixpkgs.lib.nixosSystem {
@@ -83,31 +88,18 @@
         modules = [./system/muon];
         specialArgs = {inherit inputs;};
       };
-      top = inputs.nixpkgs.lib.nixosSystem {
-        inherit system;
-        modules = [./system/top];
-        specialArgs = {inherit inputs;};
-      };
       strange = inputs.nixpkgs.lib.nixosSystem {
         inherit system;
         modules = [./system/strange];
         specialArgs = {inherit inputs;};
       };
-      charm = inputs.nixpkgs.lib.nixosSystem {
+      top = inputs.nixpkgs.lib.nixosSystem {
         inherit system;
-        modules = [./system/charm];
+        modules = [./system/top];
         specialArgs = {inherit inputs;};
       };
     };
-    packages.x86_64-linux = {
-      charm4deck = inputs.nixos-generators.nixosGenerate {
-        inherit system;
-        modules = [./system/charm];
-        specialArgs = {inherit inputs;};
-        format = "kexec-bundle";
-      };
-    };
-    deploy.nodes.example = {
+    deploy.nodes.particles = {
       sshOpts = ["-p" "2221"];
       hostname = "localhost";
       fastConnection = true;

@@ -1,6 +1,7 @@
 {
   inputs,
   lib,
+  pkgs,
   ...
 }: {
   imports = [
@@ -9,7 +10,7 @@
     ./hacks.nix
     ./builders.nix
   ];
-
+  environment.systemPackages = with pkgs; [deploy-rs];
   nixpkgs = {
     hostPlatform = lib.mkDefault "x86_64-linux";
     config.allowUnfree = true;
