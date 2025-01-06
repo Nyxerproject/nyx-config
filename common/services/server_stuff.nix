@@ -1,8 +1,9 @@
 {
   imports = [
     ./slskd
-    ./synapse
+    #./synapse
     ./jellyfin
+    ./ssl
     ./nextcloud
   ];
 }

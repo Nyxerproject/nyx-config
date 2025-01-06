@@ -2,7 +2,9 @@
   description = "My silly (bad) flake :3";
 
   inputs = {
-    nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
+    #nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
+    nixpkgs.url = "github:Nyxerproject/nixpkgs/nixos-unstable";
+    fuckthis.url = "github:ibizaman/nixpkgs/node-cert-exporter";
     nixos-hardware.url = "github:NixOS/nixos-hardware";
     agenix.url = "github:ryantm/agenix";
     chaotic.url = "github:chaotic-cx/nyx/nyxpkgs-unstable";
@@ -38,9 +40,6 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-
-    hyprland.url = "github:hyprwm/Hyprland";
-
     niri = {
       url = "github:sodiboo/niri-flake";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -57,11 +56,68 @@
       url = "github:louis-thevenet/vault-tasks";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    selfhostblocks.url = "github:ibizaman/selfhostblocks";
   };
-
-  outputs = {self, ...} @ inputs: let
+  outputs = {
+    self,
+    selfhostblocks,
+    ...
+  } @ inputs
+  : let
     system = "x86_64-linux";
+    # nixpkgs' = (import inputs.nixpkgs {system = "x86_64-linux";}).applyPatches {
+    #   name = "nixpkgs-patched";
+    #   src = inputs.nixpkgs;
+    #   patches = [
+    #     (builtins.fetchurl {
+    #       url = "https://patch-diff.githubusercontent.com/raw/NixOS/nixpkgs/pull/368325.patch";
+    #       sha256 = "sha256:01vrnrr8kh2vdgxkcni99r9xv74jh5l0cc9v0j07invlfdl9jpin=";
+    #     })
+    #   ];
+    # };
+    # inputs.nixpkgs.overlays = [
+    #   (final: prev: {
+    #     nixpkgs = prev.nixpkgs.overrideAttrs (old: {
+    #       patches =
+    #         (old.patches or [])
+    #         ++ [
+    #           (builtins.fetchurl {
+    #             url = "https://patch-diff.githubusercontent.com/raw/NixOS/nixpkgs/pull/368325.patch";
+    #             sha256 = "01vrnrr8kh2vdgxkcni99r9xv74jh5l0cc9v0j07invlfdl9jpin";
+    #           })
+    #         ];
+    #     });
+    #   })
+    # ];
+    # nixpkgs-patched = (import inputs.nixpkgs {inherit system;}).applyPatches {
+    #   name = "nixpkgs-patched-368325";
+    #   src = inputs.nixpkgs;
+    #   patches = [
+    #     (builtins.fetchurl {
+    #       url = "https://patch-diff.githubusercontent.com/raw/NixOS/nixpkgs/pull/368325.patch";
+    #       sha256 = "01vrnrr8kh2vdgxkcni99r9xv74jh5l0cc9v0j07invlfdl9jpin";
+    #     })
+    #   ];
+    # };
+    #pkgs = import nixpkgs-patched {inherit system;};
+    #
+    # originPkgs = selfhostblocks.inputs.nixpkgs.legacyPackages.${system};
+    # patches = originPkgs.lib.optionals [
+    #   (originPkgs.fetchpatch {
+    #     url = "https://patch-diff.githubusercontent.com/raw/NixOS/nixpkgs/pull/368325.patch";
+    #     hash = "sha256-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx=";
+    #   })
+    # ];
+    # patchedNixpkgs = originPkgs.applyPatches {
+    #   name = "nixpkgs-patched";
+    #   src = inputs.nixpkgs;
+    #   inherit patches;
+    # };
   in {
+    nixosModules = {
+      myGraphicalEnv.imports = [];
+      server.imports = [selfhostblocks.nixosModules.${system}.default];
+    }; # TODO: remove "specialArgs = {inherit inputs;};" from all nixosConfigs
     nixosConfigurations = {
       antidown = inputs.nixpkgs.lib.nixosSystem {
         inherit system;
@@ -93,35 +149,55 @@
         modules = [./system/strange];
         specialArgs = {inherit inputs;};
       };
+      #top = pkgs.lib.nixosSystem {
       top = inputs.nixpkgs.lib.nixosSystem {
         inherit system;
-        modules = [./system/top];
+        modules = [
+          selfhostblocks.nixosModules.${system}.default
+          self.nixosModules.server
+          ./system/top
+        ];
         specialArgs = {inherit inputs;};
       };
     };
-    deploy.nodes.particles = {
-      sshOpts = ["-p" "2221"];
-      hostname = "localhost";
-      fastConnection = true;
-      interactiveSudo = true;
-      profiles = {
-        charm-er = {
-          sshUser = "nyx";
-          path = inputs.deploy-rs.lib.x86_64-linux.activate.nixos self.nixosConfigurations.charm;
-          user = "root";
-        };
-        down-er = {
-          sshUser = "nyx";
-          path = inputs.deploy-rs.lib.x86_64-linux.activate.nixos self.nixosConfigurations.down;
-          user = "root";
-        };
-        top-er = {
-          sshUser = "nyx";
-          path = inputs.deploy-rs.lib.x86_64-linux.activate.nixos self.nixosConfigurations.top;
-          user = "root";
-        };
-      };
-    };
-    checks = builtins.mapAttrs (system: deployLib: deployLib.deployChecks self.deploy) inputs.deploy-rs.lib;
+    # deploy.nodes = {
+    #   particles = {
+    #     sshOpts = ["-p" "2221"];
+    #     hostname = "localhost";
+    #     fastConnection = true;
+    #     interactiveSudo = true;
+    #     profiles = {
+    #       charm-er = {
+    #         sshUser = "nyx";
+    #         path = inputs.deploy-rs.lib.x86_64-linux.activate.nixos self.nixosConfigurations.charm;
+    #         user = "root";
+    #       };
+    #       down-er = {
+    #         sshUser = "nyx";
+    #         path = inputs.deploy-rs.lib.x86_64-linux.activate.nixos self.nixosConfigurations.down;
+    #         user = "root";
+    #       };
+    #       top-er = {
+    #         sshUser = "nyx";
+    #         path = inputs.deploy-rs.lib.x86_64-linux.activate.nixos self.nixosConfigurations.top;
+    #         user = "root";
+    #       };
+    #     };
+    #   };
+    #   down = {
+    #     hostname = "down";
+    #     fastConnection = true;
+    #     interactiveSudo = true;
+    #     profiles = {
+    #       system = {
+    #         sshUser = "nyx";
+    #         path = inputs.deploy-rs.lib.x86_64-linux.activate.nixos self.nixosConfigurations.down;
+    #         user = "root";
+    #       };
+    #     };
+    #   };
+    # };
+
+    # checks = builtins.mapAttrs (system: deployLib: deployLib.deployChecks self.deploy) inputs.deploy-rs.lib;
   };
 }
