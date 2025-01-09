@@ -245,7 +245,7 @@ in {
     binds = with config.lib.niri.actions;
     #defaultKeyBind //
       {
-        # "Mod+Shift+Slash".action = show-hotkey-overlay;
+        "Alt+Shift+Slash".action = show-hotkey-overlay;
         "Alt+Return".action.spawn = "rio";
         "Alt+Shift+Return".action.spawn = "kickoff";
 

@@ -33,7 +33,7 @@
       }
     ];
     # required, otherwise remote buildMachines above aren't used
-    distributedBuilds = true;
+    distributedBuilds = false;
     # optional, useful when the builder has a faster internet connection than yours
     settings = {
       builders-use-substitutes = true;
