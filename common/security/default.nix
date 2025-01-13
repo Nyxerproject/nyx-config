@@ -10,9 +10,6 @@
     ./fingerprint
     ./secrets
   ];
-  environment.systemPackages = [
-    inputs.agenix.packages."${pkgs.system}".default
-  ];
 }
 # TODO: add rules for sudo
 # TODO: look into allowing passwordless sudo execution for wheel/sudo group

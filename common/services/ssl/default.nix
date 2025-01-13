@@ -1,10 +1,10 @@
 {config, ...}: {
   shb.certs = {
-    cas.selfsigned.nyxerproject_vpn_ca = {
-      name = "nyxerproject_vpn_ca";
-      #cert = "/var/lib/certs/cas/nyx_vpn.cert";
-      #key = "/var/lib/certs/cas/nyx_vpn.key";
-    };
+    # cas.selfsigned.nyxerproject_vpn_ca = {
+    #   name = "nyxerproject_vpn_ca";
+    #   #cert = "/var/lib/certs/cas/nyx_vpn.cert";
+    #   #key = "/var/lib/certs/cas/nyx_vpn.key";
+    # };
     certs = {
       # selfsigned = {
       #   "nyx" = {

@@ -129,8 +129,8 @@
 
   # Requester Module
   shb.sops.secret."nextcloud/adminpass".request = config.shb.nextcloud.adminPass.request;
-  ##### secret =! secrets
-  #shb.sops.secrets."nextcloud/adminpass".request = config.shb.nextcloud.adminPass.request;
+  ##### secret =! secrets ---like-here---> shb.sops.secrets."nextcloud/adminpass".request = config.shb.nextcloud.adminPass.request;
+
   #shb.nextcloud.adminPass.result = config.sops.secrets."nextcloud/adminpass".result;
 
   # Manual Module

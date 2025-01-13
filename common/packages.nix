@@ -38,7 +38,7 @@
     comma
     nix-health
     nix-init
-    inputs.vault-tasks.packages.${pkgs.system}.default
+    # inputs.vault-tasks.packages.${pkgs.system}.default
     # TODO: move all of this to nix.nix
   ];
   programs.yazi = {
