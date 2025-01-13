@@ -139,17 +139,16 @@
         modules = [./system/down];
         specialArgs = {inherit inputs;};
       };
-      muon = inputs.nixpkgs.lib.nixosSystem {
-        inherit system;
-        modules = [./system/muon];
-        specialArgs = {inherit inputs;};
-      };
-      strange = inputs.nixpkgs.lib.nixosSystem {
-        inherit system;
-        modules = [./system/strange];
-        specialArgs = {inherit inputs;};
-      };
-      #top = pkgs.lib.nixosSystem {
+      # muon = inputs.nixpkgs.lib.nixosSystem {
+      #   inherit system;
+      #   modules = [./system/muon];
+      #   specialArgs = {inherit inputs;};
+      # };
+      # strange = inputs.nixpkgs.lib.nixosSystem {
+      #   inherit system;
+      #   modules = [./system/strange];
+      #   specialArgs = {inherit inputs;};
+      # };
       top = inputs.nixpkgs.lib.nixosSystem {
         inherit system;
         modules = [
@@ -161,42 +160,7 @@
       };
     };
     deploy.nodes = {
-      particles = {
-        sshOpts = ["-p" "2221"];
-        hostname = "localhost";
-        fastConnection = true;
-        interactiveSudo = true;
-        profiles = {
-          charm-er = {
-            sshUser = "nyx";
-            path = inputs.deploy-rs.lib.x86_64-linux.activate.nixos self.nixosConfigurations.charm;
-            user = "root";
-          };
-          down-er = {
-            sshUser = "nyx";
-            path = inputs.deploy-rs.lib.x86_64-linux.activate.nixos self.nixosConfigurations.down;
-            user = "root";
-          };
-          top-er = {
-            sshUser = "nyx";
-            path = inputs.deploy-rs.lib.x86_64-linux.activate.nixos self.nixosConfigurations.top;
-            user = "root";
-          };
-        };
-      };
-      top = {
-        hostname = "top";
-        fastConnection = true;
-        interactiveSudo = true;
-        profiles = {
-          system = {
-            sshUser = "nyx";
-            path = inputs.deploy-rs.lib.x86_64-linux.activate.nixos self.nixosConfigurations.top;
-            user = "root";
-          };
-        };
-      };
-      down = {
+      down-deploy = {
         hostname = "down";
         fastConnection = true;
         interactiveSudo = true;
@@ -204,6 +168,42 @@
           system = {
             sshUser = "nyx";
             path = inputs.deploy-rs.lib.x86_64-linux.activate.nixos self.nixosConfigurations.down;
+            user = "root";
+          };
+        };
+      };
+      antidown-deploy = {
+        hostname = "antidown";
+        fastConnection = true;
+        interactiveSudo = true;
+        profiles = {
+          system = {
+            sshUser = "nyx";
+            path = inputs.deploy-rs.lib.x86_64-linux.activate.nixos self.nixosConfigurations.antidown;
+            user = "root";
+          };
+        };
+      };
+      # charm-deploy = {
+      #   hostname = "charm";
+      #   fastConnection = true;
+      #   interactiveSudo = true;
+      #   profiles = {
+      #     system = {
+      #       sshUser = "nyx";
+      #       path = inputs.deploy-rs.lib.x86_64-linux.activate.nixos self.nixosConfigurations.charm;
+      #       user = "root";
+      #     };
+      #   };
+      # };
+      top-deploy = {
+        hostname = "top";
+        fastConnection = true;
+        interactiveSudo = true;
+        profiles = {
+          system = {
+            sshUser = "nyx";
+            path = inputs.deploy-rs.lib.x86_64-linux.activate.nixos self.nixosConfigurations.top;
             user = "root";
           };
         };

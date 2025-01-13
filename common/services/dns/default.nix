@@ -5,6 +5,7 @@
     username = "nyxerproject";
     # username.result = config.sops.secrets."namecheap_username".result;
     passwordFile = config.sops.secrets."namecheap_password".path;
+    #config.sops.secrets."namecheap_password".path;
     domains = ["nyxer.nyx"];
   };
   # sops.secrets."namecheap_username" = {
@@ -16,8 +17,8 @@
     #mode = "0400";
     path = "/var/lib/ddclient/secrets";
     #request = config.services.ddclient.passwordFile.request;slj
-    owner = "nyx";
-    group = "nyx";
+    # owner = "nyx";
+    # group = "nyx";
   };
   #shb.sops.secret."namecheap_username".request = config.services.ddclient.username.request;
   #shb.sops.secret."namecheap_password".request = config.services.ddclient.passwordFile.request;

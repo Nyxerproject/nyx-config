@@ -1,6 +1,5 @@
 {inputs, ...}: {
   imports = [
-    inputs.chaotic.nixosModules.default
     ../../users/nyx.nix
     ./hardware-configuration.nix
     ../../common/desktop/vr

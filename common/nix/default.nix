@@ -17,6 +17,7 @@
   };
   nix.settings = {
     experimental-features = ["nix-command" "flakes"];
+    trusted-users = ["root" "@wheel"];
 
     # TODO: add more cachix suport and attic support
     extra-substituters = ["https://yazi.cachix.org"];

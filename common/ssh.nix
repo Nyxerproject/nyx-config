@@ -6,9 +6,10 @@
       KbdInteractiveAuthentication = false;
     };
     hostKeys = [
+      # TODO: move to persistent
       {
         bits = 4096;
-        path = "/etc/ssh/ssh_host_rsa_key"; # TODO: move to persistent
+        path = "/etc/ssh/ssh_host_rsa_key";
         type = "rsa";
       }
       {
