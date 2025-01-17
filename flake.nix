@@ -139,23 +139,27 @@
         modules = [./system/down];
         specialArgs = {inherit inputs;};
       };
-      # muon = inputs.nixpkgs.lib.nixosSystem {
-      #   inherit system;
-      #   modules = [./system/muon];
-      #   specialArgs = {inherit inputs;};
-      # };
-      # strange = inputs.nixpkgs.lib.nixosSystem {
-      #   inherit system;
-      #   modules = [./system/strange];
-      #   specialArgs = {inherit inputs;};
-      # };
+      muon = inputs.nixpkgs.lib.nixosSystem {
+        inherit system;
+        modules = [./system/muon];
+        specialArgs = {inherit inputs;};
+      };
+      strange = inputs.nixpkgs.lib.nixosSystem {
+        inherit system;
+        modules = [./system/strange];
+        specialArgs = {inherit inputs;};
+      };
       top = inputs.nixpkgs.lib.nixosSystem {
         inherit system;
         modules = [
-          selfhostblocks.nixosModules.${system}.default
           self.nixosModules.server
           ./system/top
         ];
+        specialArgs = {inherit inputs;};
+      };
+      neutrino = inputs.nixpkgs.lib.nixosSystem {
+        inherit system;
+        modules = [./system/neutrino];
         specialArgs = {inherit inputs;};
       };
     };
@@ -204,6 +208,18 @@
           system = {
             sshUser = "nyx";
             path = inputs.deploy-rs.lib.x86_64-linux.activate.nixos self.nixosConfigurations.top;
+            user = "root";
+          };
+        };
+      };
+      neutrino-deploy = {
+        hostname = "top";
+        fastConnection = true;
+        interactiveSudo = true;
+        profiles = {
+          system = {
+            sshUser = "nyx";
+            path = inputs.deploy-rs.lib.x86_64-linux.activate.nixos self.nixosConfigurations.neutrino;
             user = "root";
           };
         };

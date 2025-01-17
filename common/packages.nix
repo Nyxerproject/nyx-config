@@ -13,23 +13,24 @@
     zoxide # better cd
     pik # process interactive kill # doesn't work on wsi???? idk
 
+    # TODO: move all of this
     bk # terminal epub reader
-    youtube-tui # yt tui
-    tuisky # bluesky tui
+    #youtube-tui # yt tui
+    #tuisky # bluesky tui
     monolith # download page as html
     lemmeknow # cli general helper
     onefetch # neofetch type beat
-    silicon # pretty sourcecode maker
+    #silicon # pretty sourcecode maker
     presenterm # markdown presentations
     clima # markdown view
-    dysk # find info about disk
+    #dysk # find info about disk
     atac # api sender thing
     gpg-tui
-    caligula # disk imageing
+    #caligula # disk imageing
     tenere # llm thing
     tui-journal
 
-    russ # RSS reader
+    #russ # RSS reader
 
     # nixos stuff
     alejandra

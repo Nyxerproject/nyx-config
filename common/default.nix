@@ -4,18 +4,18 @@
     inputs.disko.nixosModules.disko
     inputs.chaotic.nixosModules.default
 
-    ./theme
     ./nixvim
     ./nix
     ./localization.nix
     ./security
-    ./mullvad.nix
-    ./packages.nix
     ./scripts.nix
     ./tailscale.nix
     ./ssh.nix
+
+    ./packages.nix
     ./development.nix
-    ./networking
+    ./theme
     ./homemanager
+    ./networking
   ];
 }
