@@ -16,6 +16,7 @@
     kiara.url = "github:StardustXR/kiara";
     jovian.url = "github:Jovian-Experiments/Jovian-NixOS";
     zen-browser.url = "github:0xc000022070/zen-browser-flake";
+    nixos-facter-modules.url = "github:numtide/nixos-facter-modules";
     deploy-rs = {
       url = "github:serokell/deploy-rs";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -65,60 +66,27 @@
   } @ inputs
   : let
     system = "x86_64-linux";
-    # nixpkgs' = (import inputs.nixpkgs {system = "x86_64-linux";}).applyPatches {
-    #   name = "nixpkgs-patched";
-    #   src = inputs.nixpkgs;
-    #   patches = [
-    #     (builtins.fetchurl {
-    #       url = "https://patch-diff.githubusercontent.com/raw/NixOS/nixpkgs/pull/368325.patch";
-    #       sha256 = "sha256:01vrnrr8kh2vdgxkcni99r9xv74jh5l0cc9v0j07invlfdl9jpin=";
-    #     })
-    #   ];
-    # };
-    # inputs.nixpkgs.overlays = [
-    #   (final: prev: {
-    #     nixpkgs = prev.nixpkgs.overrideAttrs (old: {
-    #       patches =
-    #         (old.patches or [])
-    #         ++ [
-    #           (builtins.fetchurl {
-    #             url = "https://patch-diff.githubusercontent.com/raw/NixOS/nixpkgs/pull/368325.patch";
-    #             sha256 = "01vrnrr8kh2vdgxkcni99r9xv74jh5l0cc9v0j07invlfdl9jpin";
-    #           })
-    #         ];
-    #     });
-    #   })
-    # ];
-    # nixpkgs-patched = (import inputs.nixpkgs {inherit system;}).applyPatches {
-    #   name = "nixpkgs-patched-368325";
-    #   src = inputs.nixpkgs;
-    #   patches = [
-    #     (builtins.fetchurl {
-    #       url = "https://patch-diff.githubusercontent.com/raw/NixOS/nixpkgs/pull/368325.patch";
-    #       sha256 = "01vrnrr8kh2vdgxkcni99r9xv74jh5l0cc9v0j07invlfdl9jpin";
-    #     })
-    #   ];
-    # };
-    #pkgs = import nixpkgs-patched {inherit system;};
-    #
-    # originPkgs = selfhostblocks.inputs.nixpkgs.legacyPackages.${system};
-    # patches = originPkgs.lib.optionals [
-    #   (originPkgs.fetchpatch {
-    #     url = "https://patch-diff.githubusercontent.com/raw/NixOS/nixpkgs/pull/368325.patch";
-    #     hash = "sha256-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx=";
-    #   })
-    # ];
-    # patchedNixpkgs = originPkgs.applyPatches {
-    #   name = "nixpkgs-patched";
-    #   src = inputs.nixpkgs;
-    #   inherit patches;
-    # };
   in {
+    # nixos-anywhere --flake .#generic-nixos-facter --generate-hardware-config nixos-facter facter.json <hostname>
+
     nixosModules = {
       myGraphicalEnv.imports = [];
       server.imports = [selfhostblocks.nixosModules.${system}.default];
     }; # TODO: remove "specialArgs = {inherit inputs;};" from all nixosConfigs
     nixosConfigurations = {
+      generic-nixos-facter = inputs.nixpkgs.lib.nixosSystem {
+        inherit system;
+        modules = [
+          ./configuration.nix
+          inputs.nixos-facter-modules.nixosModules.facter
+          {
+            config.facter.reportPath =
+              if builtins.pathExists ./facter.json
+              then ./facter.json
+              else throw "Have you forgotten to run nixos-anywhere with `--generate-hardware-config nixos-facter ./facter.json`?";
+          }
+        ];
+      };
       antidown = inputs.nixpkgs.lib.nixosSystem {
         inherit system;
         modules = [./system/antidown];
