@@ -11,7 +11,7 @@
           width = 1920;
           refresh = 60.0;
         };
-        scale = 0.8;
+        scale = 0.9;
         position = {
           x = 0;
           y = 0;
