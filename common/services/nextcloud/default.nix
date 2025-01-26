@@ -5,76 +5,36 @@
   pkgs,
   ...
 }: {
-  shb = {
-    nextcloud = {
-      enable = true;
-      subdomain = "nextcloud";
-      domain = "nyxer.xyz";
-      defaultPhoneRegion = "US";
-      adminPass.result = config.shb.sops.secret."nextcloud/adminpass".result;
-      ssl = config.shb.certs.certs.letsencrypt."nyxer.xyz";
-      version = 29;
-
-      apps = {
-        # ldap = {
-        #   enable = true;
-        #   host = "127.0.0.1";
-        #   port = config.shb.ldap.ldapPort;
-        #   dcdomain = config.shb.ldap.dcdomain;
-        #   adminName = "admin";
-        #   adminPassword.result = config.shb.sops.secret."nextcloud/ldap/admin_password".result;
-        #   userGroup = "nextcloud_user";
-        # };
-
-        # sso = {
-        #   enable = true;
-        #   endpoint = "https://${config.shb.authelia.subdomain}.${config.shb.authelia.domain}";
-        #   clientID = "nextcloud";
-        #   fallbackDefaultAuth = true; # TODO: turn off
-        #   secret.result = config.shb.sops.secret."nextcloud/sso/secret".result;
-        #   secretForAuthelia.result = config.shb.sops.secret."nextcloud/sso/secretForAuthelia".result;
-        # };
-      };
+  environment.etc."nextcloud-admin-pass".text = "PWD";
+  services.nextcloud = {
+    enable = true;
+    hostName = "top";
+    config = {
+      adminpassFile = "/etc/nextcloud-admin-pass";
+      dbtype = "pgsql";
     };
   };
-  /*
-     services = {
+}
+/*
+  services = {
     nginx.virtualHosts = {
-      "cloud.nyx" = {
+      "cloud.nyxer.xyz" = {
         forceSSL = true;
         enableACME = true;
       };
 
-      "onlyoffice.nyx" = {
+      "onlyoffice.nyxer.xyz" = {
         forceSSL = true;
         enableACME = true;
       };
     };
 
     nextcloud = {
-      # settings = let
-      #   prot = "http";
-      #   host = "127.0.0.1";
-      #   #dir = "/nextcloud";
-      # in {
-      #   enable = true;
-      #   configureRedis = true;
-      #   hostName = "localhost";
-      #   config.adminpassFile = config.sops.secrets.nextcloud.path;
-      #   overwriteprotocol = prot;
-      #   overwritehost = host;
-      #   overwritewebroot = dir;
-      #   htaccess.RewriteBase = dir;
-      #   overwrite.cli.url = "${prot}://${host}${dir}/";
-      # };
-      extraApps = {
-        inherit (config.services.nextcloud.package.packages.apps) news contacts calendar tasks;
-      };
       enable = true;
-      hostName = "cloud.nyx";
+      hostName = "nextcloud.nyxer.xyz";
 
       # Need to manually increment with every major upgrade.
-      package = pkgs.nextcloud27;
+      package = pkgs.nextcloud30;
 
       # Let NixOS install and configure the database automatically.
       database.createLocally = true;
@@ -84,38 +44,80 @@
 
       # Increase the maximum file upload size to avoid problems uploading videos.
       maxUploadSize = "16G";
-      https = true;
-      enableBrokenCiphersForSSE = false;
+      #https = true;
 
       autoUpdateApps.enable = true;
       extraAppsEnable = true;
       extraApps = with config.services.nextcloud.package.packages.apps; {
         # List of apps we want to install and are already packaged in
         # https://github.com/NixOS/nixpkgs/blob/master/pkgs/servers/nextcloud/packages/nextcloud-apps.json
-        #inherit calendar contacts mail notes onlyoffice tasks;
+        inherit calendar contacts mail notes onlyoffice tasks;
 
         # Custom app installation example.
-        cookbook = pkgs.fetchNextcloudApp rec {
-          url = "https://github.com/nextcloud/cookbook/releases/download/v0.10.2/Cookbook-0.10.2.tar.gz";
-          sha256 = "sha256-XgBwUr26qW6wvqhrnhhhhcN4wkI+eXDHnNSm1HDbP6M=";
-        };
+        # cookbook = pkgs.fetchNextcloudApp rec {
+        #   url = "https://github.com/nextcloud/cookbook/releases/download/v0.10.2/Cookbook-0.10.2.tar.gz";
+        #   sha256 = "sha256-XgBwUr26qW6wvqhrnhhhhcN4wkI+eXDHnNSm1HDbP6M=";
+        # };
       };
 
       config = {
-        overwriteProtocol = "https";
-        defaultPhoneRegion = "PT";
+        #overwriteProtocol = "https";
+        defaultPhoneRegion = "US";
         dbtype = "pgsql";
-        adminuser = "admin";
-        adminpassFile = "/path/to/nextcloud-admin-pass";
+        #adminuser = "nyx";
+        #adminpassFile = config.sops.secrets."nextcloud/adminpass".path;
+        adminpassFile = "/home/nyx/password.txt";
       };
     };
 
     onlyoffice = {
       enable = true;
-      hostname = "onlyoffice.example.com";
+      hostname = "onlyoffice.nyxer.xyz";
     };
   };
-  */
+}
+/*
+{
+  self,
+  config,
+  lib,
+  pkgs,
+  ...
+}: {
+  shb = {
+    nextcloud = {
+      enable = true;
+      subdomain = "nextcloud";
+      domain = "nyxer.xyz";
+      defaultPhoneRegion = "US";
+      adminPass.result = config.shb.sops.secret."nextcloud/adminpass".result;
+      #ssl = config.shb.certs.certs.letsencrypt."nyxer.xyz";
+      #ssl = config.shb.certs.selfsigned."nyxer.xyz";
+      version = 29;
+      dataDir = "/var/lib/nextcloud";
+      tracing = null;
+
+      apps = {
+        #previewgenerator.enable = true;
+        # ldap = {
+        #   enable = true;
+        #   host = "127.0.0.1";
+        #   port = config.shb.ldap.ldapPort;
+        #   dcdomain = config.shb.ldap.dcdomain;
+        #   adminName = "admin";
+        #   adminPassword.result = config.shb.sops.secret."nextcloud/ldap/admin_password".result;
+        #   # userGroup = "nextcloud";
+        # };
+      };
+    };
+    sops.secret = {
+      "nextcloud/adminpass".request = config.shb.nextcloud.adminPass.request;
+      # "nextcloud/ldap/admin_password" = {
+      #   request = config.shb.nextcloud.apps.ldap.adminPassword.request;
+      #   settings.key = "ldap/userPassword";
+      # };
+    };
+  };
 
   # shb.sops.secret."nextcloud/ldap/adminPassword" = {
   #   request = config.shb.nextcloud.apps.ldap.adminPassword.request;
@@ -128,10 +130,12 @@
   # };
 
   # Requester Module
-  shb.sops.secret."nextcloud/adminpass".request = config.shb.nextcloud.adminPass.request;
+  # sops.secrets."nextcloud/adminpass".request = {
+  #   #mode = "0400";
+  #   owner = "nextcloud";
+  #   group = "nextcloud";
+  # };
   ##### secret =! secrets ---like-here---> shb.sops.secrets."nextcloud/adminpass".request = config.shb.nextcloud.adminPass.request;
-
-  #shb.nextcloud.adminPass.result = config.sops.secrets."nextcloud/adminpass".result;
 
   # Manual Module
   # sops.secrets."nextcloud/adminpass".request = {
@@ -141,3 +145,5 @@
   # };
   # shb.nextcloud.adminPass.path = config.sops.secrets."nextcloud/adminpass".path;
 }
+*/
+

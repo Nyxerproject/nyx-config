@@ -4,6 +4,8 @@
     ./jellyfin
     ./ssl
     ./nextcloud
-    ./dns
+    ./syncthing
+    ./ldap
+    #./dns
   ];
 }
