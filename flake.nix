@@ -2,8 +2,8 @@
   description = "My silly (bad) flake :3";
 
   inputs = {
-    #nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
-    nixpkgs.url = "github:Nyxerproject/nixpkgs/nixos-unstable";
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
+    #nixpkgs.url = "github:Nyxerproject/nixpkgs/nixos-unstable";
     fuckthis.url = "github:ibizaman/nixpkgs/node-cert-exporter";
     nixos-hardware.url = "github:NixOS/nixos-hardware";
     agenix.url = "github:ryantm/agenix";
