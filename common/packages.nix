@@ -30,6 +30,7 @@
       #caligula # disk imageing
       tenere # llm thing
       tui-journal
+      inlyne # markdown file viewer
 
       russ # RSS reader
 
