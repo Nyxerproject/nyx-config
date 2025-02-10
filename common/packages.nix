@@ -31,6 +31,7 @@
       tenere # llm thing
       tui-journal
       inlyne # markdown file viewer
+      tectonic # latex compiler
 
       russ # RSS reader
 

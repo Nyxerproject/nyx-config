@@ -4,6 +4,7 @@
     ../../common/desktop/niri
     ../../common/services
     ../../common/desktop
+    ../../common/R.nix
     ../../common
     ../../users/nyx.nix
     ./hardware-configuration.nix
