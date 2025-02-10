@@ -1,7 +1,7 @@
 {pkgs, ...}: {
   plugins.notify = {
     enable = pkgs.lib.mkDefault true;
-    level = "info";
-    backgroundColour = "#191724";
+    settings.level = "info";
+    # settings.background_colour = "#191724";
   };
 }

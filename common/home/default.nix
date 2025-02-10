@@ -108,7 +108,7 @@
       xplr
 
       # media playback
-      termusic # media:  music in terminal
+      #termusic # media:  music in terminal
       ytermusic # media: download stuff in terminal
 
       tabiew # view CSV and other documents in terminal

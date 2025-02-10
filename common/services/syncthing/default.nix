@@ -8,7 +8,7 @@
       configDir = "/home/nyx/.config/syncthing";
       overrideDevices = true; # overrides any devices added or
       #devices = {};
-      folders."Sync" = {
+      settings.folders."Sync" = {
         path = "/home/nyx/Sync";
         # devices = [];
       };

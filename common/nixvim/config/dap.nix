@@ -1,5 +1,8 @@
 {
   plugins = {
+    dap-ui = {enable = true;};
+    dap-python.enable = true;
+    dap-virtual-text.enable = true;
     dap = {
       enable = true;
       adapters = {};
@@ -17,12 +20,6 @@
           texthl = "DapLogPoint";
         };
       };
-      extensions = {
-        dap-ui = {enable = true;};
-        dap-python.enable = true;
-        dap-virtual-text.enable = true;
-      };
-
       adapters.executables.gdb = {
         command = "gdb";
         args = ["-i" "dap"];
