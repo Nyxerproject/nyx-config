@@ -496,22 +496,6 @@
         "type": "github"
       }
     },
-    "fuckthis": {
-      "locked": {
-        "lastModified": 1735219290,
-        "narHash": "sha256-b3w0oevhuRdNHeoYlonMVwsKiHskHw8tfzAHJesNfP8=",
-        "owner": "ibizaman",
-        "repo": "nixpkgs",
-        "rev": "1f52ec9f95614d616ab29254d62a375aa152dcb6",
-        "type": "github"
-      },
-      "original": {
-        "owner": "ibizaman",
-        "ref": "node-cert-exporter",
-        "repo": "nixpkgs",
-        "type": "github"
-      }
-    },
     "git-hooks": {
       "inputs": {
         "flake-compat": [
@@ -674,11 +658,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1739381933,
-        "narHash": "sha256-4gvobxITgcrNGfwsVG5a46QzQCX89btIYw23p0ilbcc=",
+        "lastModified": 1739416022,
+        "narHash": "sha256-Af1CIT+XlXEb+Dk11sgPDzJoOUiada2Xoj5hA8TBvLY=",
         "owner": "nix-community",
         "repo": "home-manager",
-        "rev": "15b59d4191b993ebdfcb1f61b834fced217882ba",
+        "rev": "c9d343cfa0565671cc7e8d5aefebaf61cc840abd",
         "type": "github"
       },
       "original": {
@@ -785,11 +769,11 @@
         "nixpkgs": "nixpkgs_3"
       },
       "locked": {
-        "lastModified": 1739364465,
-        "narHash": "sha256-LhyeVj5plHO3/3QV7SzOSOnvl0sehOjE4h6LHaiiJqU=",
+        "lastModified": 1739415015,
+        "narHash": "sha256-WcHoyeu90uTBoCiMc3Gtb/6y/jt/qVl0hPIBmGMoG2g=",
         "owner": "Jovian-Experiments",
         "repo": "Jovian-NixOS",
-        "rev": "3dab95e02b5eeb9aec44a161bbed2b16b3d03aac",
+        "rev": "27f77b393bb2cf8740d2275cb59254f742469f64",
         "type": "github"
       },
       "original": {
@@ -1356,11 +1340,11 @@
         "treefmt-nix": "treefmt-nix_3"
       },
       "locked": {
-        "lastModified": 1739229047,
-        "narHash": "sha256-sSTgA86wdk8d544c2+gzrfvVPHQF4mbsomvLOW2thn0=",
+        "lastModified": 1739418281,
+        "narHash": "sha256-NvP/dFEwxDuRE+8Ci7hlR/gUxjNpKBEF/SwxZEhwiBQ=",
         "owner": "nix-community",
         "repo": "NUR",
-        "rev": "8348d89f30598a73fee7efb4b5d34c3de201e71b",
+        "rev": "b975d85c22be8b6c5078169b768c44b5501cc5cf",
         "type": "github"
       },
       "original": {
@@ -1392,29 +1376,12 @@
         "type": "github"
       }
     },
-    "rmarkdown-nixpkgs": {
-      "locked": {
-        "lastModified": 1737934476,
-        "narHash": "sha256-Xfe6i5u2eLALjkPeJysi0Ak9EhmZxl7RIxIUK3loXsc=",
-        "owner": "james-atkins",
-        "repo": "nixpkgs",
-        "rev": "5d57a90e2abf555de084876009bffba7dc40f0f2",
-        "type": "github"
-      },
-      "original": {
-        "owner": "james-atkins",
-        "ref": "pr/rstudio-boost-fix",
-        "repo": "nixpkgs",
-        "type": "github"
-      }
-    },
     "root": {
       "inputs": {
         "agenix": "agenix",
         "chaotic": "chaotic",
         "deploy-rs": "deploy-rs",
         "disko": "disko",
-        "fuckthis": "fuckthis",
         "home-manager": "home-manager_3",
         "jovian": "jovian_2",
         "kiara": "kiara",
@@ -1428,7 +1395,6 @@
         "nixpkgs-xr": "nixpkgs-xr",
         "nixvim": "nixvim",
         "nur": "nur",
-        "rmarkdown-nixpkgs": "rmarkdown-nixpkgs",
         "sddm-sugar-candy-nix": "sddm-sugar-candy-nix",
         "selfhostblocks": "selfhostblocks",
         "sops-nix": "sops-nix",
@@ -1894,11 +1860,11 @@
         "nixpkgs": "nixpkgs_12"
       },
       "locked": {
-        "lastModified": 1739377372,
-        "narHash": "sha256-LynHMIeLlnUm+ryyt/il7W3mggiMoZmFPczzTk8Dnvw=",
+        "lastModified": 1739409546,
+        "narHash": "sha256-cBnjF6tljmQ9pCA1mC/4aecmlcSMIeBj/IrdQFYKNvA=",
         "owner": "0xc000022070",
         "repo": "zen-browser-flake",
-        "rev": "f5a239448bcefdb9b9c689ed90491281a3b2ca5d",
+        "rev": "daf9a84cd34c3919deaf4adf7a96a8e934aff990",
         "type": "github"
       },
       "original": {
