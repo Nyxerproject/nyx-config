@@ -11,7 +11,7 @@
         ];
       };
     in [
-      RStudio-for-stats
+      # RStudio-for-stats
       rPackages.rmarkdown
     ];
   };
