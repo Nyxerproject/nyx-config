@@ -18,7 +18,6 @@
       bk # terminal epub reader
       #youtube-tui # yt tui
       #tuisky # bluesky tui
-      monolith # download page as html
       lemmeknow # cli general helper
       onefetch # neofetch type beat
       #silicon # pretty sourcecode maker
@@ -28,10 +27,16 @@
       atac # api sender thing
       gpg-tui
       #caligula # disk imageing
-      tenere # llm thing
-      tui-journal
       inlyne # markdown file viewer
       tectonic # latex compiler
+
+      monolith # download page as html
+      tenere # llm thing
+      tui-journal
+      clock-rs # a clock
+      pipes-rs # pipe screen saver
+      porsmo # pomodora timer
+      uair
 
       russ # RSS reader
 

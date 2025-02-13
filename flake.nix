@@ -3,14 +3,11 @@
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
-    #nixpkgs.url = "github:Nyxerproject/nixpkgs/nixos-unstable";
-    fuckthis.url = "github:ibizaman/nixpkgs/node-cert-exporter";
     nixos-hardware.url = "github:NixOS/nixos-hardware";
     agenix.url = "github:ryantm/agenix";
     chaotic.url = "github:chaotic-cx/nyx/nyxpkgs-unstable";
     nixvim.url = "github:nix-community/nixvim";
     stylix.url = "github:danth/stylix";
-    #stylix.url = "github:brckd/stylix/1e3c0f13803c8169070d65bcf39ed403e1df2111";
     nixos-wsl.url = "github:nix-community/NixOS-WSL/main";
     sops-nix.url = "github:Mic92/sops-nix";
     kiara.url = "github:StardustXR/kiara";
