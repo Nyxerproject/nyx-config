@@ -8,6 +8,7 @@
       RStudio-for-stats = pkgs.rstudioWrapper.override {
         packages = with pkgs.rPackages; [
           #insert packages here
+          ggplot2
         ];
       };
     in [
