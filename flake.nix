@@ -71,19 +71,6 @@
       server.imports = [selfhostblocks.nixosModules.${system}.default];
     }; # TODO: remove "specialArgs = {inherit inputs;};" from all nixosConfigs
     nixosConfigurations = {
-      generic-nixos-facter = inputs.nixpkgs.lib.nixosSystem {
-        inherit system;
-        modules = [
-          ./configuration.nix
-          inputs.nixos-facter-modules.nixosModules.facter
-          {
-            config.facter.reportPath =
-              if builtins.pathExists ./facter.json
-              then ./facter.json
-              else throw "Have you forgotten to run nixos-anywhere with `--generate-hardware-config nixos-facter ./facter.json`?";
-          }
-        ];
-      };
       antidown = inputs.nixpkgs.lib.nixosSystem {
         inherit system;
         modules = [./system/antidown];
