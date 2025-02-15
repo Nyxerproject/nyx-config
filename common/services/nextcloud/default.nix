@@ -26,7 +26,7 @@ in {
       package = pkgs.nextcloud30;
       https = true;
       hostName = host;
-      secretFile = "/var/run/secrets/nextcloud-secrets";
+      #secretFile = "/var/run/secrets/nextcloud-secrets";
 
       /*
       phpOptions."opcache.interned_strings_buffer" = "13";
