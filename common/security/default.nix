@@ -29,4 +29,3 @@ polkit:
   https://github.com/erictossell/nixflakes/blob/9d377831c1357b1796b0ef19d04e7966245694ff/modules/hyprland/default.nix
   https://github.com/erictossell/nixflakes/blob/a9dd4ce7920654b6a409e6b446458e798361aa18/modules/core/security/polkit/default.nix
 */
-
