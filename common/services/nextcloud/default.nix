@@ -16,8 +16,11 @@ in {
     group = "nextcloud";
   };
 
+  environment.etc."nextcloud-admin-pass".text = "PWD";
+
   services = {
     # Set up Nextcloud.
+
     nextcloud = {
       enable = true;
       package = pkgs.nextcloud30;
@@ -98,21 +101,21 @@ in {
       # sopsFile = ./secrets.yaml;
       # NOTE: by default, its all in one file in security.
       # TODO: add secrets file here.
-      mode = "0600";
+      mode = "0666";
       owner = "nextcloud";
       group = "nextcloud";
     };
 
     nextcloud-db-password = {
       # sopsFile = ./secrets.yaml;
-      mode = "0600";
+      mode = "0666";
       owner = "nextcloud";
       group = "nextcloud";
     };
 
     nextcloud-secrets = {
       # sopsFile = ./secrets.yaml;
-      mode = "0600";
+      mode = "0666";
       owner = "nextcloud";
       group = "nextcloud";
     };
