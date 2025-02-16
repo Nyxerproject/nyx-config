@@ -47,7 +47,8 @@
       comma
       nix-health
       nix-init
-      # inputs.vault-tasks.packages.${pkgs.system}.default
+      # inputs.tuesday.packages.${pkgs.system}.default
+      vault-tasks
       # TODO: move all of this to nix.nix
     ];
     enableAllTerminfo = true;

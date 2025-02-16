@@ -9,6 +9,7 @@
     ../../common/desktop/vr
     ../../common/desktop/gaming.nix
     ../../common/zram.nix
+    ../../common/tabby
     ../../common/grub
     ../../common
     ./configuration.nix
