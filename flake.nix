@@ -14,6 +14,12 @@
     jovian.url = "github:Jovian-Experiments/Jovian-NixOS";
     zen-browser.url = "github:0xc000022070/zen-browser-flake";
     nixos-facter-modules.url = "github:numtide/nixos-facter-modules";
+    declarative-nextcloud.url = "github:onny/nixos-nextcloud-testumgebung";
+    nc4nix = {
+      url = "github:helsinki-systems/nc4nix";
+      flake = false;
+    };
+
     deploy-rs = {
       url = "github:serokell/deploy-rs";
       inputs.nixpkgs.follows = "nixpkgs";

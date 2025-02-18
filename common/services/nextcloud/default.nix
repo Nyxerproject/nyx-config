@@ -2,119 +2,160 @@
   self,
   config,
   lib,
+  inputs,
   pkgs,
   ...
 }: let
   host = "nextcloud.nyxer.xyz";
-  backup-name = "restic";
 in {
-  # Set up the user in case you need consistent UIDs and GIDs. And also to make
-  # sure we can write out the secrets file with the proper permissions.
-  users.groups.nextcloud = {};
-  users.users.nextcloud = {
-    isSystemUser = true;
-    group = "nextcloud";
-  };
+  imports = [./nextcloud-extras.nix];
 
-  environment.etc."nextcloud-admin-pass".text = "PWD";
-
+  environment.etc."nextcloud-user-pass".text = "PWD";
   services = {
-    # Set up Nextcloud.
-
     nextcloud = {
       enable = true;
       package = pkgs.nextcloud30;
-      https = true;
+
       hostName = host;
-      #secretFile = "/var/run/secrets/nextcloud-secrets";
+      webserver = "nginx";
+      https = true;
 
-      /*
-      phpOptions."opcache.interned_strings_buffer" = "13";
-      */
-      # WARN: is this needed?
-
+      database.createLocally = true;
       config = {
         dbtype = "mysql";
-        dbname = "nextcloud";
-        dbhost = "localhost";
-        dbpassFile = "/var/run/secrets/nextcloud-db-password";
-
-        adminuser = "admin";
         adminpassFile = "/var/run/secrets/nextcloud-admin-password";
       };
-
+      configureRedis = true;
       settings = {
-        maintenance_window_start = 2; # maintenance down-time window: 02:00
-        default_phone_region = "en";
-        filelocking.enabled = true;
-        # TODO: Find what this is and if it is needed
+        trusted_domains = [
+          "www.nyxer.xyz"
+          "nyxer.xyz"
+          "top"
+        ];
+        overwriteprotocol = "https";
+        # PHP options
+        loglevel = 3;
+        log_type = "file";
+        logfile = "nextcloud.log";
+        default_phone_region = "US";
+        default_language = "en";
+        default_locale = "en_US";
+        maintenance_window_start = 2;
+        # filelocking.enabled = true;
+        enabledPreviewProviders = [
+          "OC\\Preview\\BMP"
+          "OC\\Preview\\GIF"
+          "OC\\Preview\\JPEG"
+          "OC\\Preview\\Krita"
+          "OC\\Preview\\MarkDown"
+          "OC\\Preview\\MP3"
+          "OC\\Preview\\OpenDocument"
+          "OC\\Preview\\PNG"
+          "OC\\Preview\\TXT"
+          "OC\\Preview\\XBitmap"
+          "OC\\Preview\\HEIC"
+          # "OC\\Preview\\PDF"
+        ];
+      };
 
-        redis = {
-          host = config.services.redis.servers.nextcloud.bind;
-          port = config.services.redis.servers.nextcloud.port;
-          dbindex = 0;
-          timeout = 1.5;
+      maxUploadSize = "16G";
+
+      phpOptions."realpath_cache_size" = "0";
+      poolSettings = {
+        pm = "dynamic";
+        "pm.max_children" = 120;
+        "pm.start_servers" = 12;
+        "pm.min_spare_servers" = 6;
+        "pm.max_spare_servers" = 18;
+        "pm.max_requests" = 500;
+      };
+      ensureUsers = {
+        nyx = {
+          email = "nxyerprojec@gmail.com";
+          passwordFile = "/var/run/secrets/nextcloud-nyx-password";
+        };
+        root = {
+          email = "root@localhost";
+          passwordFile = "/var/run/secrets/nextcloud-nyx-password";
         };
       };
 
-      /*
-         caching = {
+      autoUpdateApps.enable = true;
+      appstoreEnable = true;
+      extraAppsEnable = true;
+      extraApps = let
+        version = lib.versions.major config.services.nextcloud.package.version;
+        info = builtins.fromJSON (builtins.readFile "${inputs.nc4nix}/${version}.json");
+        getInfo = package: {
+          inherit (info.${package}) hash url description homepage;
+          appName = package;
+          appVersion = info.${package}.version;
+          license = let
+            licenses = {agpl = "agpl3Only";};
+            originalLincense = builtins.head info.${package}.licenses;
+          in
+            licenses.${originalLincense} or originalLincense;
+        };
+      in
+        builtins.listToAttrs (builtins.map (package: {
+            name = package;
+            value = pkgs.fetchNextcloudApp (getInfo package);
+          }) [
+            "maps"
+            "phonetrack"
+            "twofactor_webauthn"
+            "calendar"
+            "richdocuments"
+            "contacts"
+            "notes"
+            "tasks"
+            "news"
+            "external"
+            "cookbook"
+          ]);
+      caching = {
         redis = true;
         memcached = true;
       };
-      */
-      # TODO: Uncomment this later after understanding more about it
     };
-
-    # Set up backing up the database automatically. The path will be in
-    # `/var/backups/mysql/nextcloud.gz`.
-    mysqlBackup.databases = ["nextcloud"];
-
-    # Restic is already set up to back up the mysql directory but
-    # we also set it up to backup the data.
-    #restic.backups.${backup-name}.paths = ["/var/lib/nextcloud/data"];
 
     # Set up Redis because the admin page was complaining about it.
     # https://discourse.nixos.org/t/nextlcoud-with-redis-distributed-cashing-and-file-locking/25321/3
-    redis.servers.nextcloud = {
-      enable = true;
-      bind = "::1";
-      port = 6379;
+    # redis.servers.nextcloud = {
+    #   enable = true;
+    #   bind = "::1";
+    #   port = 6379;
+    # };
+
+    nginx.virtualHosts.${config.services.nextcloud.hostName} = {
+      forceSSL = true;
+      enableACME = true;
     };
 
-    # Setup Nginx because we have multiple services on this server.
-    nginx = {
-      enable = true;
-      virtualHosts."${host}" = {
-        forceSSL = true;
-        enableACME = true;
-      };
+    # phpfpm = {
+    #   enable = true;
+    #   pools.nextcloud = {
+    #     user = "nextcloud";
+    #     group = "nextcloud";
+    #     settings = {
+    #       "listen.owner" = config.services.nginx.user;
+    #       "listen.group" = config.services.nginx.group;
+    #     };
+    #     phpEnv = {
+    #       NEXTCLOUD_CONFIG_DIR = "var/lib/nextcloud/config";
+    #       PATH = "/run/wrappers/bin:/nix/var/nix/profiles/default/bin:/run/current-system/sw/bin:/usr/bin:/bin";
+    #     };
+    #   };
+    # };
+  };
+  security.acme = {
+    acceptTerms = true;
+    certs = {
+      ${config.services.nextcloud.hostName}.email = "your-letsencrypt-email@example.com";
     };
   };
-
-  # Set up secrets. This is a sops-nix file checked in at the same folder as
-  # this file.
-
   sops.secrets = {
     nextcloud-admin-password = {
-      # nextcloud/adminpass = {
-      # sopsFile = ./secrets.yaml;
-      # NOTE: by default, its all in one file in security.
-      # TODO: add secrets file here.
-      mode = "0666";
-      owner = "nextcloud";
-      group = "nextcloud";
-    };
-
-    nextcloud-db-password = {
-      # sopsFile = ./secrets.yaml;
-      mode = "0666";
-      owner = "nextcloud";
-      group = "nextcloud";
-    };
-
-    nextcloud-secrets = {
-      # sopsFile = ./secrets.yaml;
       mode = "0666";
       owner = "nextcloud";
       group = "nextcloud";
@@ -122,4 +163,9 @@ in {
   };
 
   networking.firewall.allowedTCPPorts = [80 443];
+
+  systemd.services."nextcloud-setup" = {
+    requires = ["mysql.service"];
+    after = ["mysql.service"];
+  };
 }

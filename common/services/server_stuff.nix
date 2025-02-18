@@ -1,11 +1,11 @@
 {
   imports = [
-    ./slskd
-    ./jellyfin
-    ./ssl
+    #./slskd
+    #./jellyfin
+    #./ssl
     ./nextcloud
     ./syncthing
-    ./ldap
+    #./ldap
     #./dns
   ];
 }
