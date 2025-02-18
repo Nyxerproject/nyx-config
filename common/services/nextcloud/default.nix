@@ -71,11 +71,11 @@ in {
       };
       ensureUsers = {
         nyx = {
-          email = "nxyerprojec@gmail.com";
+          email = "nxyerproject@gmail.com";
           passwordFile = "/var/run/secrets/nextcloud-nyx-password";
         };
-        root = {
-          email = "root@localhost";
+        test = {
+          email = "nxyerproject@gmail.com";
           passwordFile = "/var/run/secrets/nextcloud-nyx-password";
         };
       };
