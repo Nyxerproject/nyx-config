@@ -15,7 +15,8 @@
       RStudio-for-stats
       rPackages.rmarkdown
       pandoc
-      texlive
+      # texlive
+      texlive.combined.scheme-full
     ];
   };
 }
