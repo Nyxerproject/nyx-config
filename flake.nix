@@ -170,18 +170,18 @@
           };
         };
       };
-      neutrino-deploy = {
-        hostname = "top";
-        fastConnection = true;
-        interactiveSudo = true;
-        profiles = {
-          system = {
-            sshUser = "nyx";
-            path = inputs.deploy-rs.lib.x86_64-linux.activate.nixos self.nixosConfigurations.neutrino;
-            user = "root";
-          };
-        };
-      };
+      # neutrino-deploy = {
+      #   hostname = "top";
+      #   fastConnection = true;
+      #   interactiveSudo = true;
+      #   profiles = {
+      #     system = {
+      #       sshUser = "nyx";
+      #       path = inputs.deploy-rs.lib.x86_64-linux.activate.nixos self.nixosConfigurations.neutrino;
+      #       user = "root";
+      #     };
+      #   };
+      # };
     };
 
     checks = builtins.mapAttrs (system: deployLib: deployLib.deployChecks self.deploy) inputs.deploy-rs.lib;
