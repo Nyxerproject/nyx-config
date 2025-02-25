@@ -1,4 +1,4 @@
-{
+{lib, ...}: {
   programs.rio = {
     enable = true;
     settings = {
@@ -15,6 +15,13 @@
         performance = "High";
         # backend = "Vulkan"; # or "Automatic"
         disable-unfocused-render = false;
+      };
+      fonts = lib.mkForce {
+        family = lib.mkforce "FiraCode Nerd Font";
+        #italic.family = "Victor Mono NF";
+        extra = {
+          family = "Noto Color Emoji";
+        };
       };
       use-fork = true;
       shell = {
