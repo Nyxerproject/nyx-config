@@ -7,8 +7,6 @@
 
   services.displayManager.sddm.enable = false;
 
-  system.stateVersion = "24.05";
-
   # security.wrappers.flatpak = {
   #   owner = "root";
   #   group = "root";

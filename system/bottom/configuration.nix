@@ -1,61 +1,24 @@
-{
-  config,
-  pkgs,
-  ...
-}: {
+{pkgs, ...}: {
   networking.hostName = "bottom";
 
-  boot = {
-    kernelPackages = pkgs.linuxPackages_cachyos;
-    kernelParams = ["nvidia_drm.fbdev=1"];
-  };
-
-  /*
-     services.scx = {
-    enable = true;
-    services.scx.scheduler = "scx_rusty";
-  };
-  */
-
+  boot.kernelPackages = pkgs.linuxPackages_cachyos;
   services = {
-    desktopManager.plasma6.enable = true;
-    # TODO: https://github.com/NixOS/nixpkgs/issues/292761
-    displayManager = {
-      defaultSession = "niri";
-    };
-    xserver = {
+    scx = {
       enable = true;
-      videoDrivers = ["nvidia"];
+      services.scx.scheduler = "scx_rusty";
     };
+    displayManager.defaultSession = "niri";
+    xserver.enable = true;
   };
+  hardware.graphics.enable = true;
 
-  hardware = {
-    graphics = {
-      enable = true;
-      enable32Bit = true;
-    };
-
-    nvidia = {
-      modesetting.enable = true;
-      powerManagement = {
-        enable = false;
-        finegrained = false;
-      };
-      open = true;
-      nvidiaSettings = true;
-      package = config.boot.kernelPackages.nvidiaPackages.beta;
-    };
-  };
+  # hardware.nvidia.open = true;
+  # services.xserver.videoDrivers = ["nvidia"];
+  # boot.kernelParams = ["nvidia_drm.fbdev=1"];
 
   # TODO: make a seporate packages file
   environment.systemPackages = with pkgs; [
     corectrl
-    obs-studio
-    kooha
-    vlc
-    #cudaPackages.cudatoolkit-legacy-runfile
-    mpv
+    # cudaPackages.cudatoolkit-legacy-runfile # for Wivrn?
   ];
-
-  system.stateVersion = "24.05"; #DONT TOUCH!
 }

@@ -31,5 +31,7 @@
     foliate # epub reader
     rnote # handwritten notes
     spacedrive
+
+    obs-studio
   ];
 }

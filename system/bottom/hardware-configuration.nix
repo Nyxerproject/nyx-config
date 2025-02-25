@@ -24,4 +24,6 @@
   };
 
   hardware.cpu.amd.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
+
+  system.stateVersion = "24.05"; #DONT TOUCH!
 }

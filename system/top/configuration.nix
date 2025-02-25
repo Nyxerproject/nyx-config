@@ -27,5 +27,4 @@
     #   interface = "enp0s13f0u2u2c2";
     # };
   };
-  system.stateVersion = "24.05";
 }
