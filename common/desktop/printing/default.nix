@@ -1,6 +1,4 @@
 {
-  imports = [
-    ./prusaslicer.nix
-    # ./superslicer.nix
-  ];
+  imports = [./prusaslicer.nix];
+  services.printing.enable = true;
 }

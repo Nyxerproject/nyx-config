@@ -1,5 +1,1 @@
-{pkgs, ...}: {
-  environment.systemPackages = with pkgs; [
-    prusa-slicer
-  ];
-}
+{pkgs, ...}: {environment.systemPackages = [pkgs.prusa-slicer];}

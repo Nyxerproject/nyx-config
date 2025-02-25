@@ -13,13 +13,6 @@
       decompressFonts = true;
     };
     # https://general-metrics.com/articles/nixos-nerd-fonts/
-    fontconfig = {
-      cache32Bit = true;
-      # defaultFonts = {
-      #   serif = ["hack-font"];
-      #   sansSerif = ["hack-font"];
-      #   monospace = ["hack-font"];
-      # };
-    };
+    fontconfig.cache32Bit = true;
   };
 }

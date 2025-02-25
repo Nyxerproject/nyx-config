@@ -1,8 +1,4 @@
-{
-  lib,
-  pkgs,
-  ...
-}: {
+{lib, ...}: {
   services = {
     displayManager = {
       autoLogin.enable = false;
@@ -10,8 +6,6 @@
       sddm = {
         enable = lib.mkDefault true;
         wayland.enable = true;
-        #package = pkgs.lib.mkForce pkgs.libsForQt5.sddm; # TODO: check this isn't needed anymore for bottom
-        extraPackages = pkgs.lib.mkForce [];
         theme = "sddm-sugar-candy-nix";
       };
     };

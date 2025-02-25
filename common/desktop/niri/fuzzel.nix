@@ -1,7 +1,1 @@
-{pkgs, ...}: {
-  environment = {
-    systemPackages = with pkgs; [
-      fuzzel
-    ];
-  };
-}
+{pkgs, ...}: {environment.systemPackages = [pkgs.fuzzel];}

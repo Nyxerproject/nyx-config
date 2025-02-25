@@ -3,9 +3,7 @@
   lib,
   ...
 }: {
-  imports = [
-    inputs.sddm-sugar-candy-nix.nixosModules.default
-  ];
+  imports = [inputs.sddm-sugar-candy-nix.nixosModules.default];
   services = {
     displayManager = {
       sddm = {
@@ -24,9 +22,5 @@
       };
     };
   };
-  nixpkgs = {
-    overlays = [
-      inputs.sddm-sugar-candy-nix.overlays.default # TODO: needs to be elseware
-    ];
-  };
+  nixpkgs.overlays = [inputs.sddm-sugar-candy-nix.overlays.default];
 }

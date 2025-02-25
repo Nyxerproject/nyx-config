@@ -8,9 +8,7 @@
     ../niri/notifications
   ];
 
-  programs.sway = {
-    enable = true;
-  };
+  programs.sway = {enable = true;};
 
   environment = {
     systemPackages = with pkgs; [
@@ -20,7 +18,5 @@
       kitty
     ];
   };
-  programs.xwayland = {
-    enable = true;
-  };
+  programs.xwayland = {enable = true;};
 }
