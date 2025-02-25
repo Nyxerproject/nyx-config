@@ -28,7 +28,7 @@
       gpg-tui
       #caligula # disk imageing
       inlyne # markdown file viewer
-      tectonic # latex compiler
+      #tectonic # latex compiler
 
       monolith # download page as html
       tenere # llm thing
