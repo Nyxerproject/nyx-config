@@ -16,8 +16,9 @@
         # backend = "Vulkan"; # or "Automatic"
         disable-unfocused-render = false;
       };
+      confirm-before-quit = false;
       fonts = lib.mkForce {
-        family = lib.mkforce "FiraCode Nerd Font";
+        family = "FiraCode Nerd Font";
         #italic.family = "Victor Mono NF";
         extra = {
           family = "Noto Color Emoji";
