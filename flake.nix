@@ -144,6 +144,11 @@
         ];
         specialArgs = {inherit inputs;};
       };
+      z-boson = inputs.nixpkgs.lib.nixosSystem {
+        inherit system;
+        modules = [./system/z-boson];
+        specialArgs = {inherit inputs;};
+      };
       neutrino = inputs.nixpkgs.lib.nixosSystem {
         inherit system;
         modules = [
