@@ -3,7 +3,7 @@
     ./configuration.nix
     ../../users/nyx.nix
     ../../common
-    ../../common/wsl.nix
+    ../../common/wsl
     ./home.nix
   ];
 

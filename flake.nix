@@ -10,16 +10,15 @@
     stylix.url = "github:danth/stylix";
     nixos-wsl.url = "github:nix-community/NixOS-WSL/main";
     sops-nix.url = "github:Mic92/sops-nix";
-    kiara.url = "github:StardustXR/kiara";
     jovian.url = "github:Jovian-Experiments/Jovian-NixOS";
     zen-browser.url = "github:0xc000022070/zen-browser-flake";
     nixos-facter-modules.url = "github:numtide/nixos-facter-modules";
     declarative-nextcloud.url = "github:onny/nixos-nextcloud-testumgebung";
+    selfhostblocks.url = "github:ibizaman/selfhostblocks";
     nc4nix = {
       url = "github:helsinki-systems/nc4nix";
       flake = false;
     };
-
     deploy-rs = {
       url = "github:serokell/deploy-rs";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -60,31 +59,50 @@
       url = "github:louis-thevenet/vault-tasks";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    selfhostblocks.url = "github:ibizaman/selfhostblocks";
   };
-  outputs = {
-    self,
-    selfhostblocks,
-    ...
-  } @ inputs
-  : let
+  outputs = {self, ...} @ inputs: let
     system = "x86_64-linux";
   in {
-    # nixos-anywhere --flake .#generic-nixos-facter --generate-hardware-config nixos-facter facter.json <hostname>
-
+    nixpkgs.overlays = [
+      inputs.sddm-sugar-candy-nix.overlays.default
+      inputs.niri.overlays.niri
+    ];
     nixosModules = {
-      myGraphicalEnv.imports = [];
-      server.imports = [selfhostblocks.nixosModules.${system}.default];
-    }; # TODO: remove "specialArgs = {inherit inputs;};" from all nixosConfigs
+      default.imports = [
+        inputs.nixos-generators.nixosModules.all-formats
+        inputs.nixvim.nixosModules.nixvim
+        inputs.home-manager.nixosModules.home-manager
+        inputs.agenix.nixosModules.default
+        inputs.sops-nix.nixosModules.default
+        inputs.stylix.nixosModules.stylix
+        inputs.sddm-sugar-candy-nix.nixosModules.default
+        inputs.nur.modules.nixos.default
+      ];
+      chaoic.imports = [inputs.chaotic.nixosModules.default];
+      disko.imports = [inputs.disko.nixosModules.disko];
+      gui.imports = [{home-manager.users.nyx.imports = [inputs.niri.homeModules.niri];}];
+      xr.imports = [inputs.nixpkgs-xr.nixosModules.nixpkgs-xr];
+      server.imports = [inputs.selfhostblocks.nixosModules.${system}.default];
+      steamdeck.imports = [inputs.jovian.nixosModules.jovian];
+      wsl.imports = [inputs.nixos-wsl.nixosModules.default];
+    };
+    # TODO: remove "specialArgs = {inherit inputs;};" from all nixosConfigs
     nixosConfigurations = {
       antidown = inputs.nixpkgs.lib.nixosSystem {
         inherit system;
-        modules = [./system/antidown];
+        modules = [
+          ./system/antidown
+          self.nixosModules.default
+          self.nixosModules.gui
+          self.nixosModules.disko
+        ];
         specialArgs = {inherit inputs;};
       };
       bottom = inputs.nixpkgs.lib.nixosSystem {
         inherit system;
-        modules = [./system/bottom];
+        modules = [
+          ./system/bottom
+        ];
         specialArgs = {inherit inputs;};
       };
       charm = inputs.nixpkgs.lib.nixosSystem {
@@ -94,7 +112,13 @@
       };
       down = inputs.nixpkgs.lib.nixosSystem {
         inherit system;
-        modules = [./system/down];
+        modules = [
+          ./system/down
+          self.nixosModules.default
+          self.nixosModules.gui
+          self.nixosModules.disko
+          self.nixosModules.xr
+        ];
         specialArgs = {inherit inputs;};
       };
       muon = inputs.nixpkgs.lib.nixosSystem {
@@ -109,10 +133,7 @@
       };
       top = inputs.nixpkgs.lib.nixosSystem {
         inherit system;
-        modules = [
-          self.nixosModules.server
-          ./system/top
-        ];
+        modules = [./system/top];
         specialArgs = {inherit inputs;};
       };
       neutrino = inputs.nixpkgs.lib.nixosSystem {

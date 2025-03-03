@@ -1,5 +1,1 @@
-{
-  imports = [
-    ./syncthing
-  ];
-}
+{imports = [./syncthing];}
