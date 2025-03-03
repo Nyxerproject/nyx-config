@@ -46,6 +46,7 @@
       russ # RSS reader
 
       # nixos stuff
+      deploy-rs
       alejandra
       nvd
       nix-output-monitor

@@ -63,12 +63,14 @@
   outputs = {self, ...} @ inputs: let
     system = "x86_64-linux";
   in {
-    nixpkgs.overlays = [
-      inputs.sddm-sugar-candy-nix.overlays.default
-      inputs.niri.overlays.niri
-    ];
     nixosModules = {
       default.imports = [
+        {
+          nixpkgs.overlays = [
+            inputs.sddm-sugar-candy-nix.overlays.default
+            inputs.niri.overlays.niri
+          ];
+        }
         inputs.nixos-generators.nixosModules.all-formats
         inputs.nixvim.nixosModules.nixvim
         inputs.home-manager.nixosModules.home-manager
@@ -102,6 +104,10 @@
         inherit system;
         modules = [
           ./system/bottom
+          self.nixosModules.default
+          self.nixosModules.gui
+          self.nixosModules.disko
+          self.nixosModules.xr
         ];
         specialArgs = {inherit inputs;};
       };
@@ -119,7 +125,6 @@
           self.nixosModules.disko
           self.nixosModules.xr
         ];
-        specialArgs = {inherit inputs;};
       };
       muon = inputs.nixpkgs.lib.nixosSystem {
         inherit system;

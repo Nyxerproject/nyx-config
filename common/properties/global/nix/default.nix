@@ -1,17 +1,7 @@
-{
-  lib,
-  inputs,
-  pkgs,
-  ...
-}: {
-  environment.systemPackages = with pkgs; [deploy-rs];
+{lib, ...}: {
   nixpkgs = {
     hostPlatform = lib.mkDefault "x86_64-linux";
     config.allowUnfree = true;
-    overlays = [
-      inputs.sddm-sugar-candy-nix.overlays.default
-      inputs.niri.overlays.niri
-    ];
   };
   nix.settings = {
     experimental-features = ["nix-command" "flakes"];
