@@ -15,50 +15,28 @@
     nixos-facter-modules.url = "github:numtide/nixos-facter-modules";
     declarative-nextcloud.url = "github:onny/nixos-nextcloud-testumgebung";
     selfhostblocks.url = "github:ibizaman/selfhostblocks";
-    nc4nix = {
-      url = "github:helsinki-systems/nc4nix";
-      flake = false;
-    };
-    deploy-rs = {
-      url = "github:serokell/deploy-rs";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-    nur = {
-      url = "github:nix-community/NUR";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-    nixos-generators = {
-      url = "github:nix-community/nixos-generators";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-    nixpkgs-xr = {
-      url = "github:nix-community/nixpkgs-xr";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-    disko = {
-      url = "github:nix-community/disko";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-    home-manager = {
-      url = "github:nix-community/home-manager";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-    niri = {
-      url = "github:sodiboo/niri-flake";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-    sddm-sugar-candy-nix = {
-      url = "gitlab:Zhaith-Izaliel/sddm-sugar-candy-nix";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-    nix-index-database = {
-      url = "github:nix-community/nix-index-database";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-    vault-tasks = {
-      url = "github:louis-thevenet/vault-tasks";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+    nc4nix = {url = "github:helsinki-systems/nc4nix";};
+    nc4nix = {flake = false;};
+    deploy-rs = {url = "github:serokell/deploy-rs";};
+    deploy-rs = {inputs.nixpkgs.follows = "nixpkgs";};
+    nur = {url = "github:nix-community/NUR";};
+    nur = {inputs.nixpkgs.follows = "nixpkgs";};
+    nixos-generators = {url = "github:nix-community/nixos-generators";};
+    nixos-generators = {inputs.nixpkgs.follows = "nixpkgs";};
+    nixpkgs-xr = {url = "github:nix-community/nixpkgs-xr";};
+    nixpkgs-xr = {inputs.nixpkgs.follows = "nixpkgs";};
+    disko.url = "github:nix-community/disko";
+    disko.inputs.nixpkgs.follows = "nixpkgs";
+    home-manager.url = "github:nix-community/home-manager";
+    home-manager.inputs.nixpkgs.follows = "nixpkgs";
+    niri.url = "github:sodiboo/niri-flake";
+    niri.inputs.nixpkgs.follows = "nixpkgs";
+    sddm-sugar-candy-nix.url = "gitlab:Zhaith-Izaliel/sddm-sugar-candy-nix";
+    sddm-sugar-candy-nix.inputs.nixpkgs.follows = "nixpkgs";
+    nix-index-database.url = "github:nix-community/nix-index-database";
+    nix-index-database.inputs.nixpkgs.follows = "nixpkgs";
+    vault-tasks.url = "github:louis-thevenet/vault-tasks";
+    vault-tasks.inputs.nixpkgs.follows = "nixpkgs";
   };
   outputs = {self, ...} @ inputs: let
     system = "x86_64-linux";
@@ -80,15 +58,14 @@
         inputs.sddm-sugar-candy-nix.nixosModules.default
         inputs.nur.modules.nixos.default
       ];
-      chaoic.imports = [inputs.chaotic.nixosModules.default];
+      chaotic.imports = [inputs.chaotic.nixosModules.default];
       disko.imports = [inputs.disko.nixosModules.disko];
-      gui.imports = [{home-manager.users.nyx.imports = [inputs.niri.homeModules.niri];}];
+      gui.imports = [inputs.niri.nixosModules.niri];
       xr.imports = [inputs.nixpkgs-xr.nixosModules.nixpkgs-xr];
       server.imports = [inputs.selfhostblocks.nixosModules.${system}.default];
       steamdeck.imports = [inputs.jovian.nixosModules.jovian];
       wsl.imports = [inputs.nixos-wsl.nixosModules.default];
     };
-    # TODO: remove "specialArgs = {inherit inputs;};" from all nixosConfigs
     nixosConfigurations = {
       antidown = inputs.nixpkgs.lib.nixosSystem {
         inherit system;
@@ -98,23 +75,29 @@
           self.nixosModules.gui
           self.nixosModules.disko
         ];
-        specialArgs = {inherit inputs;};
       };
       bottom = inputs.nixpkgs.lib.nixosSystem {
         inherit system;
         modules = [
           ./system/bottom
           self.nixosModules.default
+          self.nixosModules.chaotic
           self.nixosModules.gui
           self.nixosModules.disko
           self.nixosModules.xr
         ];
-        specialArgs = {inherit inputs;};
       };
       charm = inputs.nixpkgs.lib.nixosSystem {
         inherit system;
-        modules = [./system/charm];
-        specialArgs = {inherit inputs;};
+        modules = [
+          ./system/charm
+          self.nixosModules.default
+          self.nixosModules.steamdeck
+          self.nixosModules.chaotic
+          self.nixosModules.gui
+          self.nixosModules.disko
+          self.nixosModules.xr
+        ];
       };
       down = inputs.nixpkgs.lib.nixosSystem {
         inherit system;
@@ -126,25 +109,31 @@
           self.nixosModules.xr
         ];
       };
-      muon = inputs.nixpkgs.lib.nixosSystem {
-        inherit system;
-        modules = [./system/muon];
-        specialArgs = {inherit inputs;};
-      };
       strange = inputs.nixpkgs.lib.nixosSystem {
         inherit system;
-        modules = [./system/strange];
-        specialArgs = {inherit inputs;};
+        modules = [
+          ./system/strange
+          self.nixosModules.default
+          self.nixosModules.wsl
+        ];
       };
       top = inputs.nixpkgs.lib.nixosSystem {
         inherit system;
-        modules = [./system/top];
+        modules = [
+          ./system/top
+          self.nixosModules.default
+          self.nixosModules.server
+          self.nixosModules.disko
+        ];
         specialArgs = {inherit inputs;};
       };
       neutrino = inputs.nixpkgs.lib.nixosSystem {
         inherit system;
-        modules = [./system/neutrino];
-        specialArgs = {inherit inputs;};
+        modules = [
+          ./system/neutrino
+          self.nixosModules.default
+          self.nixosModules.disko
+        ];
       };
     };
     deploy.nodes = {
@@ -160,30 +149,6 @@
           };
         };
       };
-      antidown-deploy = {
-        hostname = "antidown";
-        fastConnection = true;
-        interactiveSudo = true;
-        profiles = {
-          system = {
-            sshUser = "nyx";
-            path = inputs.deploy-rs.lib.x86_64-linux.activate.nixos self.nixosConfigurations.antidown;
-            user = "root";
-          };
-        };
-      };
-      # charm-deploy = {
-      #   hostname = "charm";
-      #   fastConnection = true;
-      #   interactiveSudo = true;
-      #   profiles = {
-      #     system = {
-      #       sshUser = "nyx";
-      #       path = inputs.deploy-rs.lib.x86_64-linux.activate.nixos self.nixosConfigurations.charm;
-      #       user = "root";
-      #     };
-      #   };
-      # };
       top-deploy = {
         hostname = "top";
         fastConnection = true;
@@ -196,20 +161,7 @@
           };
         };
       };
-      # neutrino-deploy = {
-      #   hostname = "top";
-      #   fastConnection = true;
-      #   interactiveSudo = true;
-      #   profiles = {
-      #     system = {
-      #       sshUser = "nyx";
-      #       path = inputs.deploy-rs.lib.x86_64-linux.activate.nixos self.nixosConfigurations.neutrino;
-      #       user = "root";
-      #     };
-      #   };
-      # };
     };
-
     checks = builtins.mapAttrs (system: deployLib: deployLib.deployChecks self.deploy) inputs.deploy-rs.lib;
   };
 }

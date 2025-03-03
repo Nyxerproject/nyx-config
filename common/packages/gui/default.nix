@@ -25,9 +25,11 @@
       coppwr # pipewire control
 
       # tools
-      keepassxc
-      gparted
       qbittorrent
+      keepassxc
+
+      gparted
+      corectrl
 
       vlc # video player
       foliate # epub reader

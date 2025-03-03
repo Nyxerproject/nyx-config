@@ -9,7 +9,6 @@
     ../../common
     ../../common/desktop
     ../../common/desktop/gaming
-    ../../common/desktop/gaming/vr
     ../../common/boot/grub
   ];
 }

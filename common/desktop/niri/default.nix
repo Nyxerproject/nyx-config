@@ -1,9 +1,12 @@
 {pkgs, ...}: {
   imports = [../environment];
+  programs.niri.enable = true; # WARNING: THIS IS NEEDED!!!!
   home-manager.users.nyx = {
     imports = [./niri-binds];
     programs.niri = {
-      enable = true;
+      # WARNING: Do not use 'home-manager.users.me.programs.niri.enable = true'
+      # Niri-flake doesn't have that setting, but it does require
+      # 'programs.niri.enable = true' system wide
       package = pkgs.niri-unstable;
       settings = {
         input = {

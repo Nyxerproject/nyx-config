@@ -7,9 +7,6 @@
 
     ../../common
     ../../common/desktop
-    ../../common/services
     ../../common/packages/R.nix
   ];
-
-  home-manager.users.nyx.imports = [../../common/home/desktop];
 }
