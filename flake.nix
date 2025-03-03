@@ -15,6 +15,7 @@
     nixos-facter-modules.url = "github:numtide/nixos-facter-modules";
     declarative-nextcloud.url = "github:onny/nixos-nextcloud-testumgebung";
     selfhostblocks.url = "github:ibizaman/selfhostblocks";
+    selfhostblocks.inputs.nixpkgs.follows = "nixpkgs";
     nc4nix = {url = "github:helsinki-systems/nc4nix";};
     nc4nix = {flake = false;};
     deploy-rs = {url = "github:serokell/deploy-rs";};
@@ -40,6 +41,20 @@
   };
   outputs = {self, ...} @ inputs: let
     system = "x86_64-linux";
+    domain = "nyxer.xyz";
+    # originPkgs = inputs.selfhostblocks.inputs.nixpkgs;
+    originPkgs = inputs.nixpkgs;
+    # shbNixpkgs = originPkgs.legacyPackages.${system}.applyPatches {
+    #   name = "nixpkgs-patched";
+    #   src = originPkgs;
+    #   patches = inputs.selfhostblocks.patches.${system};
+    # };
+    nixpkgs' = originPkgs.legacyPackages.${system}.applyPatches {
+      name = "nixpkgs-patched";
+      src = originPkgs;
+      patches = inputs.selfhostblocks.patches.${system};
+    };
+    shbNixpkgs = import nixpkgs' {inherit system;};
   in {
     nixosModules = {
       default.imports = [
@@ -117,6 +132,7 @@
           self.nixosModules.wsl
         ];
       };
+      # top = shbNixpkgs.lib.nixosSystem {
       top = inputs.nixpkgs.lib.nixosSystem {
         inherit system;
         modules = [
