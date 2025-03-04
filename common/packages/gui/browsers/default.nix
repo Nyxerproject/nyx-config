@@ -7,5 +7,4 @@
       nyxt
     ];
   };
-  #environment.systemPackages = [inputs.zen-browser.packages."${system}".default];
 }

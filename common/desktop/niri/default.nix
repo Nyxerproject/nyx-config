@@ -41,10 +41,10 @@
 
         spawn-at-startup = [
           {command = ["firefox"];}
-          {command = ["element-desktop"];}
-          {command = ["webcord"];}
-          {command = ["telegram-desktop"];}
-          {command = ["thunderbird"];}
+          # {command = ["element-desktop"];}
+          # {command = ["webcord"];}
+          # {command = ["telegram-desktop"];}
+          # {command = ["thunderbird"];}
         ];
         window-rules = [
           {

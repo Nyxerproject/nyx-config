@@ -9,6 +9,7 @@
     ../../common
     ../../common/desktop
     ../../common/desktop/gaming
+    ../../common/packages/R.nix
     ../../common/boot/grub
   ];
 }

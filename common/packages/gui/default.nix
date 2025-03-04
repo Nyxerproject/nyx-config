@@ -4,8 +4,7 @@
     ./terminals
     ./communications
   ];
-
-  home-manager.users.nyx.home.packages = [];
+  home-manager.users.nyx.home.packages = with pkgs; [];
   environment = {
     systemPackages = with pkgs; [
       zed-editor
@@ -35,9 +34,12 @@
       foliate # epub reader
       rnote # handwritten notes
       spacedrive
+      celeste
+      inlyne
 
       prusa-slicer
       obs-studio
+      planify
     ];
     sessionVariables.NIXOS_OZONE_WL = "1";
   };

@@ -1,76 +1,56 @@
 {pkgs, ...}: {
   imports = [./nixvim];
-  environment = {
-    systemPackages = with pkgs; [
-      wget
-      curl
+  environment.enableAllTerminfo = true;
 
-      git
-
-      koji # makes better commits
-
-      htop # better top
-
-      zoxide # better cd
-      pik # process interactive kill # doesn't work on wsi???? idk
-      lemmeknow # cli general helper
-
-      onefetch # neofetch type beat
-
-      youtube-tui # yt tui
-      tuisky # bluesky tui
-
-      presenterm # markdown presentations
-      dysk # find info about disk
-
-      atac # api sender thing
-
-      gpg-tui # gpg tui thing.
-      caligula # disk imageing
-
-      inlyne # markdown file viewer
-      clima # markdown view
-
-      tenere # llm thing
-      monolith # download page as html
-
-      tui-journal # journal thing
-      vault-tasks
-      pipes-rs # pipe screen saver
-      clock-rs # a clock
-
-      porsmo # pomodora timer
-      uair # pomodora
-
-      bk # terminal epub reader
-      russ # RSS reader
-
-      # nixos stuff
-      deploy-rs
-      alejandra
-      nvd
-      nix-output-monitor
-      comma
-      nix-health
-      nix-init
-    ];
-    enableAllTerminfo = true;
-  };
   programs.direnv.enable = true;
+
   home-manager.users.nyx = {
     home = {
       packages = with pkgs; [
+        # monitoring
+        htop # better top
+
+        # system utilities
+        zoxide # better cd
+        pik # process interactive kill # doesn't work on wsi???? idk
+        dysk # find info about disk
+        caligula # disk imageing
+
+        ## compression
+        xz # utility: compression
+        ouch # utility: compression
+
+        ## info grabbers
+        onefetch # neofetch type beat
+
+        ## Helpers
+        lemmeknow # cli general helper
         thefuck # helper: terminal helper
         navi # helper: cheat sheet for shell
         tealdeer # helper: gives tldrs for commands
         halp # helper: cli tool to help with cli tools
-        xz # utility: compression
-        ouch # utility: compression
+
+        ## tui
+        gpg-tui # gpg tui thing.
+        youtube-tui # yt tui
+        tuisky # bluesky tui
+        bk # terminal epub reader
+        russ # RSS reader
+        wiki-tui
+        meli
+
+        # nixos stuff
+        deploy-rs
+        alejandra
+        nvd
+        nix-output-monitor
+        comma
+        nix-health
+        nix-init
 
         atuin # better history for shell
         skim # fzf but better
         fzf
-        funzzy # file watcher
 
         # other text editors that I care less about but want to try
         helix
@@ -78,35 +58,33 @@
 
         # development
         git # dev: version control
-        gitui # dev: tui for git
         gitu # another terminal user inteface
-        git-cliff # dev: changlog maker
+        gitui # dev: tui for git
         lazygit
+
         koji # dev: better git commiter
-        sad # dev: sed but better (idk what sed is lol)
+        git-cliff # dev: changlog maker
         cocogitto # conventional commits
+
         serie # better git commit charts
+
         difftastic # dev: better diffs
         delta # dev: better diff highlighting
-        gdbgui
+
         typos
-        # irrelevent: optimistic merging http://hintjens.com/blog:106
-        # verco # dev: tui for multiple version control systems
+        sad # dev: sed but better (idk what sed is lol)
 
-        #trippy # utility: network scanner
+        # networking thing
+        trippy # utility: network scanner
         nmap # utility: A utility for network discovery and security auditing
-        # netscanner # utility: network scanner
-        # rustscan # utility: another network scanner
-        # iftop # utility: network monitoring
         sshs # ssh stuff
-        tuisky
-        wiki-tui
-        meli
+        atac # api sender thing
 
+        ## download tools
+        wget
+        curl
         termscp # utility: download stuff easilly
-
-        bluetui # settings: tui for bluetooth
-        impala # settings: tui for wifi
+        monolith # download page as html
 
         #fend # utility: calculator
         ripgrep-all # utility: ripgrep anything
@@ -126,6 +104,11 @@
         comrak
         mdbook # make a book
         presenterm # present markdown files
+        clima # markdown view
+        tenere # llm thing
+        tui-journal # journal thing
+        vault-tasks # todo
+        uair # pomodora
 
         # Monitoring
         btop # replacement of htop/nmon
@@ -141,6 +124,9 @@
         procs # alt to ps
 
         # system tools
+        bluetui # settings: tui for bluetooth
+        impala # settings: tui for wifi
+
         sysstat # monitoring: performance testing
         kmon # monitoring: kernel monitoring
 
