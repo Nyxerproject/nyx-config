@@ -8,6 +8,10 @@
     home = {
       packages = with pkgs; [
         # monitoring
+        btop # replacement of htop/nmon
+        iotop # io monitoring
+        bottom # cpu monitoring
+        mprocs # run multiple commands in parrallel
         htop # better top
 
         # system utilities
@@ -61,16 +65,12 @@
         gitu # another terminal user inteface
         gitui # dev: tui for git
         lazygit
-
         koji # dev: better git commiter
         git-cliff # dev: changlog maker
         cocogitto # conventional commits
-
         serie # better git commit charts
-
         difftastic # dev: better diffs
         delta # dev: better diff highlighting
-
         typos
         sad # dev: sed but better (idk what sed is lol)
 
@@ -86,7 +86,7 @@
         termscp # utility: download stuff easilly
         monolith # download page as html
 
-        #fend # utility: calculator
+        fend # utility: calculator
         ripgrep-all # utility: ripgrep anything
         parallel-disk-usage # utility: drive space
         tree # utility: recursive dir viewer
@@ -97,27 +97,22 @@
         taskwarrior-tui # TODO: list thing
         taskwarrior3
         taskchampion-sync-server
+        vault-tasks # todo
+
         timewarrior # time thing
         furtherance # time managment
-        mask # start task from markdown file
-        rucola
-        comrak
-        mdbook # make a book
-        presenterm # present markdown files
-        clima # markdown view
-        tenere # llm thing
-        tui-journal # journal thing
-        vault-tasks # todo
         uair # pomodora
 
-        # Monitoring
-        btop # replacement of htop/nmon
-        iotop # io monitoring
-        bottom # cpu monitoring
-        mprocs # run multiple commands in parrallel
+        tui-journal # journal thing
+
+        presenterm # present markdown files
+        clima # markdown view
+        rucola
+        mask # start task from markdown file
+
+        tenere # llm thing
 
         lact # gpu configuration
-
         strace # system call monitoring
         ltrace # library call monitoring
         systeroid # alt to sysctl (w/ a tui :3)

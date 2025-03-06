@@ -60,14 +60,15 @@
       };
     };
   };
-  # environment = {
-  #   systemPackages = with pkgs; [
-  #     # portals
-  #     xdg-desktop-portal
-  #     xdg-desktop-portal-gnome
-  #     xdg-desktop-portal-wlr
-  #     xdg-desktop-portal-gtk
-  #     gnome-keyring
-  #   ];
-  # };
+  environment = {
+    systemPackages = with pkgs; [
+      # portals
+      xdg-desktop-portal
+      xdg-desktop-portal-gnome
+      xdg-desktop-portal-wlr
+      xdg-desktop-portal-gtk
+      gnome-keyring
+    ];
+    sessionVariables.DISPLAY = ":0";
+  };
 }

@@ -40,6 +40,7 @@
       prusa-slicer
       obs-studio
       planify
+      nautilus
     ];
     sessionVariables.NIXOS_OZONE_WL = "1";
   };
