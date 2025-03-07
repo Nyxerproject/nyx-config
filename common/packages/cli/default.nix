@@ -41,7 +41,7 @@
         bk # terminal epub reader
         russ # RSS reader
         wiki-tui
-        meli
+        meli # email
 
         # nixos stuff
         deploy-rs
@@ -52,18 +52,19 @@
         nix-health
         nix-init
 
+        # shell utils
         atuin # better history for shell
+
+        # fuzzy finders
         skim # fzf but better
         fzf
 
-        # other text editors that I care less about but want to try
+        # text editors
         helix
         ox
 
         # development
-        git # dev: version control
         gitu # another terminal user inteface
-        gitui # dev: tui for git
         lazygit
         koji # dev: better git commiter
         git-cliff # dev: changlog maker
@@ -121,21 +122,16 @@
         # system tools
         bluetui # settings: tui for bluetooth
         impala # settings: tui for wifi
-
         sysstat # monitoring: performance testing
         kmon # monitoring: kernel monitoring
-
         wthrr # utility: cute weather thing
         qrtool # utility: qrcode scanner and maker
         viu # png viewer in terminal
-        xplr
+        xplr # terminal file manager
 
         # media playback
-        #termusic # media:  music in terminal
         ytermusic # media: download stuff in terminal
-
         tabiew # view CSV and other documents in terminal
-        ttyper
       ];
       shellAliases = {
         cat = "bat -p";
@@ -175,7 +171,7 @@
       git = {
         enable = true;
         userName = "Nyxerproject";
-        userEmail = "nyxerproject@gmail.com";
+        userEmail = "nxyerproject@gmail.com";
         lfs.enable = true;
         delta = {
           enable = true;
@@ -247,8 +243,6 @@
           "glgb" = "git log --all --graph --decorate --oneline --simplify-by-decoration";
           "gs" = "git status";
         };
-
-        #nix-your-shell fish | source
         interactiveShellInit = ''
           set fish_greeting # Disable greeting
         '';

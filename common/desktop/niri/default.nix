@@ -1,4 +1,9 @@
-{pkgs, ...}: {
+{
+  pkgs,
+  config,
+  lib,
+  ...
+}: {
   imports = [../environment];
   programs.niri.enable = true; # WARNING: THIS IS NEEDED!!!!
   home-manager.users.nyx = {
@@ -39,12 +44,26 @@
         prefer-no-csd = true;
         screenshot-path = "~/Pictures/Screenshots/Screenshot from %Y-%m-%d %H-%M-%s.png";
 
+        environment.DISPLAY = ":0";
         spawn-at-startup = [
           {command = ["firefox"];}
+          {command = ["keepassxc"];}
           # {command = ["element-desktop"];}
           # {command = ["webcord"];}
           # {command = ["telegram-desktop"];}
           # {command = ["thunderbird"];}
+          {
+            command = [
+              "${lib.getExe pkgs.swaybg}"
+              "--mode"
+              "fill"
+              "--image"
+              "${config.stylix.image}"
+            ];
+          }
+          # {command = ["bash" "-c" "export" "$(dbus-launch)"];} # TODO: Figure out what this does. Why do did I put these here?
+          # {command = ["bash" "-c" "xwayland-satellite" "&"];}
+          {command = ["${lib.meta.getExe pkgs.xwayland-satellite-unstable}"];}
         ];
         window-rules = [
           {
@@ -60,15 +79,21 @@
       };
     };
   };
+  xdg.portal = {
+    enable = true;
+    wlr.enable = true;
+  };
   environment = {
     systemPackages = with pkgs; [
-      # portals
-      xdg-desktop-portal
-      xdg-desktop-portal-gnome
-      xdg-desktop-portal-wlr
-      xdg-desktop-portal-gtk
-      gnome-keyring
+      # xwayland-satellite-unstable
+      # swaybg
+      # xwayland
+      # # portals
+      # xdg-desktop-portal
+      # xdg-desktop-portal-gnome
+      # xdg-desktop-portal-wlr
+      # xdg-desktop-portal-gtk
+      # gnome-keyring
     ];
-    sessionVariables.DISPLAY = ":0";
   };
 }

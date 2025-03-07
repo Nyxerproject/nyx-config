@@ -151,6 +151,11 @@
           self.nixosModules.disko
         ];
       };
+      tau = inputs.nixpkgs.lib.nixosSystem {
+        system = "aarch64-linux";
+        format = "sd-aarch64";
+        modules = [./system/tau];
+      };
     };
     deploy.nodes = {
       down-deploy = {
