@@ -3,10 +3,10 @@
     ./configuration.nix
     ../../users/nyx.nix
 
-    ./boot
-    ./secrets
-    ./properties
-    # ./services
-    ./packages
+    ../../common/boot
+    ../../common/secrets
+    ../../common/properties
+    # ../../common/services
+    ../../common/packages
   ];
 }

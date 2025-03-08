@@ -8,11 +8,6 @@
     #   options uvcvideo nodrop=1 timeout=6000
     # '';
     loader = {
-      raspberryPi = {
-        enable = true;
-        version = 3;
-        uboot.enable = true;
-      };
       grub.enable = false;
       generic-extlinux-compatible.enable = true;
     };
