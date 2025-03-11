@@ -111,6 +111,7 @@
         rucola
         mask # start task from markdown file
 
+        goose-cli # llm cli thing
         tenere # llm thing
 
         lact # gpu configuration
