@@ -113,6 +113,7 @@
 
         goose-cli # llm cli thing
         tenere # llm thing
+        aichat # llm stuff
 
         lact # gpu configuration
         strace # system call monitoring

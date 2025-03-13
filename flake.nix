@@ -118,6 +118,7 @@
         inherit system;
         modules = [
           ./system/down
+          {services.tabby = {enable = true;};}
           self.nixosModules.default
           self.nixosModules.gui
           self.nixosModules.disko
