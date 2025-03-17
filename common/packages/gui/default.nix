@@ -46,5 +46,4 @@
 
     sessionVariables.NIXOS_OZONE_WL = "1";
   };
-  config.android_sdk.accept_license = true;
 }
