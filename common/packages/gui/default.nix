@@ -47,4 +47,9 @@
 
     sessionVariables.NIXOS_OZONE_WL = "1";
   };
+  services.udev.packages = [
+    pkgs.android-udev-rules
+  ];
+  programs.adb.enable = true;
+  users.users.nyx.extraGroups = ["adbusers"];
 }
