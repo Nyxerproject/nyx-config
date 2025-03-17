@@ -43,6 +43,8 @@
       nautilus
       androidenv.androidPkgs.androidsdk # android stuff lol
     ];
+
     sessionVariables.NIXOS_OZONE_WL = "1";
   };
+  config.android_sdk.accept_license = true;
 }
