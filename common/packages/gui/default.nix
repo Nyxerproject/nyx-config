@@ -42,6 +42,7 @@
       planify
       nautilus
       androidenv.androidPkgs.androidsdk # android stuff lol
+      android-tools
     ];
 
     sessionVariables.NIXOS_OZONE_WL = "1";
