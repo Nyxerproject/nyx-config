@@ -42,14 +42,13 @@
       planify
       nautilus
       androidenv.androidPkgs.androidsdk # android stuff lol
+      androidenv.androidPkgs.platform-tools
       android-tools
     ];
 
     sessionVariables.NIXOS_OZONE_WL = "1";
   };
-  services.udev.packages = [
-    pkgs.android-udev-rules
-  ];
+  services.udev.packages = [pkgs.android-udev-rules];
   programs.adb.enable = true;
   users.users.nyx.extraGroups = ["adbusers"];
 }
