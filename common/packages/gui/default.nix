@@ -41,6 +41,7 @@
       obs-studio
       planify
       nautilus
+      androidenv.androidPkgs.androidsdk # android stuff lol
     ];
     sessionVariables.NIXOS_OZONE_WL = "1";
   };
