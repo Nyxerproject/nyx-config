@@ -41,6 +41,9 @@
       obs-studio
       planify
       nautilus
+
+      nextcloud-client
+
       androidenv.androidPkgs.androidsdk # android stuff lol
       androidenv.androidPkgs.platform-tools
       android-tools
