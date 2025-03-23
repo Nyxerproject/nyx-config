@@ -10,7 +10,7 @@
 in {
   imports = [./nextcloud-extras.nix];
 
-  environment.etc."nextcloud-user-pass".text = "PWD";
+  environment.etc."nextcloud-user-pass".text = "PWD"; # TODO: remove i think
   services = {
     nextcloud = {
       enable = true;
@@ -101,8 +101,6 @@ in {
             name = package;
             value = pkgs.fetchNextcloudApp (getInfo package);
           }) [
-            "maps"
-            "phonetrack"
             "twofactor_webauthn"
             "calendar"
             "richdocuments"
@@ -111,8 +109,7 @@ in {
             "notes"
             "tasks"
             "news"
-            "external"
-            "cookbook"
+            "external" # embbed external sites in nextcloud
           ]);
       caching = {
         redis = true;
@@ -122,45 +119,25 @@ in {
 
     # Set up Redis because the admin page was complaining about it.
     # https://discourse.nixos.org/t/nextlcoud-with-redis-distributed-cashing-and-file-locking/25321/3
-    # redis.servers.nextcloud = {
-    #   enable = true;
-    #   bind = "::1";
-    #   port = 6379;
-    # };
+    redis.servers.nextcloud = {
+      enable = true;
+      bind = "::1";
+      port = 6379;
+    };
 
     nginx.virtualHosts.${config.services.nextcloud.hostName} = {
       forceSSL = true;
       enableACME = true;
     };
-
-    # phpfpm = {
-    #   enable = true;
-    #   pools.nextcloud = {
-    #     user = "nextcloud";
-    #     group = "nextcloud";
-    #     settings = {
-    #       "listen.owner" = config.services.nginx.user;
-    #       "listen.group" = config.services.nginx.group;
-    #     };
-    #     phpEnv = {
-    #       NEXTCLOUD_CONFIG_DIR = "var/lib/nextcloud/config";
-    #       PATH = "/run/wrappers/bin:/nix/var/nix/profiles/default/bin:/run/current-system/sw/bin:/usr/bin:/bin";
-    #     };
-    #   };
-    # };
   };
   security.acme = {
     acceptTerms = true;
-    certs = {
-      ${config.services.nextcloud.hostName}.email = "your-letsencrypt-email@example.com";
-    };
+    certs.${config.services.nextcloud.hostName}.email = "your-letsencrypt-email@example.com";
   };
-  sops.secrets = {
-    nextcloud-admin-password = {
-      mode = "0666";
-      owner = "nextcloud";
-      group = "nextcloud";
-    };
+  sops.secrets.nextcloud-admin-password = {
+    mode = "0666";
+    owner = "nextcloud";
+    group = "nextcloud";
   };
 
   networking.firewall.allowedTCPPorts = [80 443];
