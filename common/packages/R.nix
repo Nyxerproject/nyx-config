@@ -7,6 +7,7 @@
       rPackages.rmarkdown
       tectonic # latex compiler
       texliveMedium
+      pandoc
     ];
   };
 }
