@@ -119,15 +119,15 @@
         modules = [
           ./system/down
           {services.tabby = {enable = true;};}
-          {
-            environment.systemPackages = with inputs.nixpkgs.${system}.pkgs; [
-              androidenv.androidPkgs.androidsdk # android stuff lol
-              androidenv.androidPkgs.platform-tools
-              android-tools
-            ];
-            programs.adb.enable = true;
-            users.users.nyx.extraGroups = ["adbusers"];
-          }
+          # {
+          #   environment.systemPackages = with inputs.nixpkgs.${system}.pkgs; [
+          #     androidenv.androidPkgs.androidsdk # android stuff lol
+          #     androidenv.androidPkgs.platform-tools
+          #     android-tools
+          #   ];
+          #   # programs.adb.enable = true;
+          #   # users.users.nyx.extraGroups = ["adbusers"];
+          # }
           self.nixosModules.default
           self.nixosModules.gui
           self.nixosModules.disko

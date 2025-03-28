@@ -5,6 +5,8 @@
     in [
       RStudio-for-stats
       rPackages.rmarkdown
+      tectonic # latex compiler
+      texliveMedium
     ];
   };
 }
