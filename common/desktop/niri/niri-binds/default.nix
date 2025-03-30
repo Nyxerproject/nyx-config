@@ -91,7 +91,7 @@
     "Alt+Shift+Q".action = quit;
     "Alt+Shift+P".action = power-off-monitors;
     "Print".action = screenshot;
-    "Ctrl+Print".action = screenshot-screen;
-    "Alt+Print".action = screenshot-window;
+    # "Ctrl+Print".action = screenshot-screen;
+    # "Alt+Print".action = screenshot-window;
   };
 }

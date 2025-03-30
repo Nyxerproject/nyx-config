@@ -5,13 +5,13 @@
         packages = with pkgs; [
           rPackages.ggplot2
           rPackages.tinytex
+          rPackages.rmarkdown
         ];
       };
     in [
       RStudio-for-stats
-      rPackages.rmarkdown
       tectonic # latex compiler
-      texliveMedium
+      texliveFull
       pandoc
     ];
   };
