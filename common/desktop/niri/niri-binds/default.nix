@@ -62,15 +62,15 @@
     "Alt+Shift+7".action = move-column-to-workspace 7;
     "Alt+Shift+8".action = move-column-to-workspace 8;
     "Alt+Shift+9".action = move-column-to-workspace 9;
-    "Alt+Ctrl+1".action = move-window-to-workspace 1;
-    "Alt+Ctrl+2".action = move-window-to-workspace 2;
-    "Alt+Ctrl+3".action = move-window-to-workspace 3;
-    "Alt+Ctrl+4".action = move-window-to-workspace 4;
-    "Alt+Ctrl+5".action = move-window-to-workspace 5;
-    "Alt+Ctrl+6".action = move-window-to-workspace 6;
-    "Alt+Ctrl+7".action = move-window-to-workspace 7;
-    "Alt+Ctrl+8".action = move-window-to-workspace 8;
-    "Alt+Ctrl+9".action = move-window-to-workspace 9;
+    # "Alt+Ctrl+1".action = move-window-to-workspace 1;
+    # "Alt+Ctrl+2".action = move-window-to-workspace 2;
+    # "Alt+Ctrl+3".action = move-window-to-workspace 3;
+    # "Alt+Ctrl+4".action = move-window-to-workspace 4;
+    # "Alt+Ctrl+5".action = move-window-to-workspace 5;
+    # "Alt+Ctrl+6".action = move-window-to-workspace 6;
+    # "Alt+Ctrl+7".action = move-window-to-workspace 7;
+    # "Alt+Ctrl+8".action = move-window-to-workspace 8;
+    # "Alt+Ctrl+9".action = move-window-to-workspace 9;
 
     # Column and Window stuff
     "Alt+Comma".action = consume-window-into-column;

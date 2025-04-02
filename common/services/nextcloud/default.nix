@@ -15,11 +15,9 @@ in {
     nextcloud = {
       enable = true;
       package = pkgs.nextcloud30;
-
       hostName = host;
       webserver = "nginx";
       https = true;
-
       database.createLocally = true;
       config = {
         dbtype = "mysql";
@@ -54,7 +52,6 @@ in {
           "OC\\Preview\\TXT"
           "OC\\Preview\\XBitmap"
           "OC\\Preview\\HEIC"
-          # "OC\\Preview\\PDF"
         ];
       };
 
@@ -116,32 +113,22 @@ in {
         memcached = true;
       };
     };
-
-    # Set up Redis because the admin page was complaining about it.
-    # https://discourse.nixos.org/t/nextlcoud-with-redis-distributed-cashing-and-file-locking/25321/3
     redis.servers.nextcloud = {
       enable = true;
       bind = "::1";
       port = 6379;
     };
-
     nginx.virtualHosts.${config.services.nextcloud.hostName} = {
       forceSSL = true;
       enableACME = true;
     };
-  };
-  security.acme = {
-    acceptTerms = true;
-    certs.${config.services.nextcloud.hostName}.email = "your-letsencrypt-email@example.com";
   };
   sops.secrets.nextcloud-admin-password = {
     mode = "0666";
     owner = "nextcloud";
     group = "nextcloud";
   };
-
   networking.firewall.allowedTCPPorts = [80 443];
-
   systemd.services."nextcloud-setup" = {
     requires = ["mysql.service"];
     after = ["mysql.service"];

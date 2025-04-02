@@ -1,4 +1,11 @@
-{imports = [./nextcloud ./syncthing];}
+{
+  imports = [
+    ./nextcloud
+    ./syncthing
+    # ./forgejo
+    # ./ssl
+  ];
+}
 # TODO:
 ## add some things that these links reference
 ## - https://github.com/krateng/maloja

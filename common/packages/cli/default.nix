@@ -118,7 +118,7 @@
         lact # gpu configuration
         strace # system call monitoring
         ltrace # library call monitoring
-        systeroid # alt to sysctl (w/ a tui :3)
+        # systeroid # alt to sysctl (w/ a tui :3)
         procs # alt to ps
 
         # system tools
