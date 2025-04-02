@@ -3,7 +3,7 @@
     ./nextcloud
     ./syncthing
     # ./forgejo
-    # ./ssl
+    ./ssl
   ];
 }
 # TODO:
