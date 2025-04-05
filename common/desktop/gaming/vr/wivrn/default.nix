@@ -17,7 +17,11 @@
     sidequest
     android-tools
     motoc
+    # androidenv.androidPkgs.androidsdk # android stuff lol
+    # androidenv.androidPkgs.platform-tools
   ];
+  programs.adb.enable = true;
+  users.users.nyx.extraGroups = ["adbusers"];
 
   home-manager.users.nyx.xdg.configFile."openxr/1/active_runtime.json".source = "${pkgs.wivrn}/share/openxr/1/openxr_wivrn.json";
 }
