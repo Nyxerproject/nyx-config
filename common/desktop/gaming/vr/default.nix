@@ -14,6 +14,7 @@
     stardust-xr-magnetar
     stardust-xr-flatland
     stardust-xr-protostar
+    vrcx
   ];
   # home-manager.users.nyx.
   # programs.xdg.enable = true;
