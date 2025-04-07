@@ -102,7 +102,6 @@ in {
             "calendar"
             "richdocuments"
             "contacts"
-            "money"
             "notes"
             "tasks"
             "news"
