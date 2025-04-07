@@ -1,9 +1,9 @@
 {
   imports = [
     ./nextcloud
-    ./syncthing
     ./forgejo
     ./ssl
+    ./authelia
   ];
 }
 # TODO:

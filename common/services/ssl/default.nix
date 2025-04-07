@@ -8,7 +8,9 @@
         adminEmail = "nxyerproject@gmail.com";
         extraDomains = [
           "nextcloud.nyxer.xyz"
+          "ldap.nyxer.xyz"
           "forgejo.nyxer.xyz"
+          "auth.nyxer.xyz"
         ];
       };
     };

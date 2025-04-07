@@ -1,1 +1,1 @@
-{imports = [./syncthing];}
+{imports = [];}
