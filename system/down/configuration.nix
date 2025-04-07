@@ -6,4 +6,7 @@
     enable = true;
     extraPackages = with pkgs; [vpl-gpu-rt];
   };
+  specialisation.android-tools.configuration = {
+    imports = [../../common/packages/cli/android-tools];
+  };
 }
