@@ -9,6 +9,7 @@
     systemPackages = with pkgs; [
       zed-editor
       lapce
+      code-cursor
 
       # terminal emulators
       rio
