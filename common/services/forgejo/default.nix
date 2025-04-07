@@ -4,47 +4,53 @@
       enable = true;
       subdomain = "forgejo";
       domain = "nyxer.xyz";
-      ssl = config.shb.certs.certs.letsencrypt."nyxer.xyz";
+
+      # # ssl = config.shb.certs.certs.letsencrypt."nyxer.xyz";
+      databasePassword.result = config.shb.sops.secret."forgejo/databasePassword".result;
+
+      # ldap = {
+      #   enable = true;
+      #   host = "127.0.0.1";
+      #   port = config.shb.ldap.ldapPort;
+      #   dcdomain = config.shb.ldap.dcdomain;
+      #   adminPassword.result = config.shb.sops.secret."forgejo/ldap_admin_password".result;
+      # };
+
       users = {
         "adminUser" = {
           isAdmin = true;
           email = "admin@nyxer.xyz";
-          password.result = config.shb.hardcodedsecret.forgejoAdminPassword.result;
+          password.result = config.shb.sops.secret."forgejo/adminPassword".result;
         };
         "nyx" = {
           email = "user@nyxer.xyz";
-          password.result = config.shb.hardcodedsecret.forgejoUserPassword.result;
+          password.result = config.shb.sops.secret."forgejo/userPassword".result;
         };
       };
     };
   };
 
-  shb.hardcodedsecret."forgejo/admin/password" = {
-    request = config.shb.forgejo.users."theadmin".password.request;
-  };
-
-  shb.hardcodedsecret."forgejo/user/password" = {
-    request = config.shb.forgejo.users."theuser".password.request;
-  };
-
-  # services.forgejo.settings.repository.ENABLE_PUSH_CREATE_USER = true;
-  # shb.sops.secret = {
-  #   "forgejo/adminPassword".request = config.shb.forgejo.adminPassword.request;
-  #   "forgejo/databasePassword".request = config.shb.forgejo.databasePassword.request;
-  #   "forgejo/smtpPassword".request = {
-  #     mode = "0400";
-  #     owner = config.services.forgejo.user;
-  #     restartUnits = ["forgejo.service"];
-  #   };
-  #   "forgejo/ldap_admin_password" = {
-  #     request = config.shb.forgejo.ldap.adminPassword.request;
-  #     settings.key = "ldap/user_password";
-  #   };
-  #   "forgejo/ssoSecret".request = config.shb.forgejo.sso.sharedSecret.request;
-  #   "forgejo/authelia-ssoSecret" = {
-  #     request = config.shb.forgejo.sso.sharedSecretForAuthelia.request;
-  #     settings.key = "forgejo/ssoSecret";
-  #   };
+  shb.sops.secret."forgejo/adminPassword".request = config.shb.forgejo.users."adminUser".password.request;
+  shb.sops.secret."forgejo/userPassword".request = config.shb.forgejo.users."nyx".password.request;
+  shb.sops.secret."forgejo/databasePassword".request = config.shb.forgejo.databasePassword.request;
+  # shb.sops.secret."forgejo/ldap_admin_password" = {
+  #   request = config.shb.forgejo.ldap.adminPassword.request;
+  #   settings.key = "ldap-userPassword";
   # };
-  # shb.zfs.datasets."safe/forgejo" = config.shb.forgejo.mount;
+
+  shb.ldap = {
+    enable = true;
+    domain = "nyxer.xyz";
+    subdomain = "ldap";
+    ssl = config.shb.certs.certs.letsencrypt."nyxer.xyz";
+    ldapPort = 3890;
+    webUIListenPort = 17170;
+    dcdomain = "dc=nyxer,dc=xyz";
+    ldapUserPassword.result = config.shb.sops.secret."ldap-userPassword".result;
+    jwtSecret.result = config.shb.sops.secret."ldap-jwtSecret".result;
+  };
+
+  shb.certs.certs.letsencrypt."nyxer.xyz".extraDomains = ["ldap.nyxer.xyz"];
+  shb.sops.secret."ldap-userPassword".request = config.shb.ldap.ldapUserPassword.request;
+  shb.sops.secret."ldap-jwtSecret".request = config.shb.ldap.jwtSecret.request;
 }

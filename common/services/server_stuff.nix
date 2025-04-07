@@ -2,7 +2,7 @@
   imports = [
     ./nextcloud
     ./syncthing
-    # ./forgejo
+    ./forgejo
     ./ssl
   ];
 }

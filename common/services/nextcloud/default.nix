@@ -106,7 +106,6 @@ in {
             "notes"
             "tasks"
             "news"
-            "external" # embbed external sites in nextcloud
           ]);
       caching = {
         redis = true;
