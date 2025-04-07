@@ -120,7 +120,6 @@
           ./system/down
           {services.tabby = {enable = true;};}
           self.nixosModules.default
-          self.nixosModules.android
           self.nixosModules.gui
           self.nixosModules.disko
           self.nixosModules.xr
