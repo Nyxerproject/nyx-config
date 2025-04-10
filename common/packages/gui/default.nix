@@ -11,6 +11,9 @@
       lapce
       code-cursor
       kicad
+      kicadAddons.kikit
+      kicadAddons.kikit-library
+      kikit
 
       # terminal emulators
       rio
