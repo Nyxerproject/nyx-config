@@ -10,6 +10,7 @@
       zed-editor
       lapce
       code-cursor
+      kicad
 
       # terminal emulators
       rio
