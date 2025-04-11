@@ -1,15 +1,41 @@
-{pkgs, ...}: {
-  environment.variables = {
-    WIVRN_USE_STEAMVR_LH = 1;
-    LH_DISCOVER_WAIT_MS = 6000;
-  };
-
+{
+  lib,
+  pkgs,
+  inputs,
+  ...
+}: {
   services = {
     wivrn = {
       enable = true;
       openFirewall = true;
       autoStart = true;
+      # highPriority = true;
       defaultRuntime = true;
+      config = {
+        enable = true;
+        json = {
+          scale = 0.6;
+          bitrate = 100000000;
+          encoders = [
+            {
+              encoder = "nvenc";
+              codec = "h264";
+              width = 1.0;
+              height = 1.0;
+              offset_x = 0.0;
+              offset_y = 0.0;
+            }
+          ];
+        };
+      };
+      package = inputs.lemonake.packages.${pkgs.system}.wivrn.override {
+        cudaSupport = true;
+        ovrCompatSearchPaths = "${pkgs.xrizer}/lib/xrizer";
+      };
+      monadoEnvironment = {
+        WIVRN_USE_STEAMVR_LH = "1";
+        LH_DISCOVER_WAIT_MS = "6000";
+      };
     };
   };
 
@@ -20,8 +46,6 @@
     # androidenv.androidPkgs.androidsdk # android stuff lol
     # androidenv.androidPkgs.platform-tools
   ];
-  programs.adb.enable = true;
-  users.users.nyx.extraGroups = ["adbusers"];
-
-  home-manager.users.nyx.xdg.configFile."openxr/1/active_runtime.json".source = "${pkgs.wivrn}/share/openxr/1/openxr_wivrn.json";
+  # programs.adb.enable = true;
+  # users.users.nyx.extraGroups = ["adbusers"];
 }
