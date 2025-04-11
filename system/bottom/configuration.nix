@@ -18,7 +18,7 @@
     "nvidia_drm.fbdev=1"
     "module_blacklist=amdgpu"
   ];
-  environment.systemPackages = with pkgs; [
-    cudaPackages.cudatoolkit-legacy-runfile # for Wivrn?
-  ];
+  # environment.systemPackages = with pkgs; [
+  #   cudaPackages.cudatoolkit-legacy-runfile # for Wivrn?
+  # ];
 }
