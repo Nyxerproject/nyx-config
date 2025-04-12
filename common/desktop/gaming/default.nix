@@ -8,6 +8,7 @@
       # dedicatedServer.openFirewall = false;
       localNetworkGameTransfers.openFirewall = true;
       extraCompatPackages = with pkgs; [
+        proton-ge-rtsp-bin
         proton-ge-bin
         (proton-ge-bin.overrideAttrs (finalAttrs: _: {
           version = "GE-Proton9-22-rtsp17-1";

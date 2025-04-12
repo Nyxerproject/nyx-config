@@ -15,6 +15,7 @@
     stardust-xr-flatland
     stardust-xr-protostar
     vrcx
+    wayvr-dashboard
   ];
   # home-manager.users.nyx.
   # programs.xdg.enable = true;
