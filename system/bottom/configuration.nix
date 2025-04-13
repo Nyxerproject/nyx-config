@@ -1,6 +1,6 @@
 {
   pkgs,
-  input,
+  inputs,
   ...
 }: {
   networking.hostName = "bottom";
@@ -18,7 +18,7 @@
     };
   };
   hardware.graphics.enable = true;
-  hardware.graphics.extraPackages = [input.lemonake.packages.${pkgs.system}.monado-vulkan-layers];
+  hardware.graphics.extraPackages = [inputs.lemonake.packages.${pkgs.system}.monado-vulkan-layers-git];
   hardware.nvidia.open = true;
   boot.kernelParams = [
     "nvidia_drm.fbdev=1"

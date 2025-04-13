@@ -71,6 +71,7 @@
       server.imports = [inputs.selfhostblocks.nixosModules.${system}.default];
       steamdeck.imports = [inputs.jovian.nixosModules.jovian];
       wsl.imports = [inputs.nixos-wsl.nixosModules.default];
+      lemonake.imports = [inputs.lemonake.nixosModules.wivrn];
     };
     nixosConfigurations = {
       antidown = inputs.nixpkgs.lib.nixosSystem {
@@ -86,12 +87,14 @@
         inherit system;
         modules = [
           ./system/bottom
+          # self.nixosModules.lemonake
           self.nixosModules.default
           self.nixosModules.chaotic
           self.nixosModules.gui
           self.nixosModules.disko
           self.nixosModules.xr
         ];
+        specialArgs = {inherit inputs;};
       };
       charm = inputs.nixpkgs.lib.nixosSystem {
         inherit system;
