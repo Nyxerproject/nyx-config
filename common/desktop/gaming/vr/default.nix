@@ -19,23 +19,23 @@
   ];
   # home-manager.users.nyx.
   # programs.xdg.enable = true;
-  # home-manager.users.nyx.xdg.configFile."openvr/openvrpaths.vrpath".text = ''
-  #   {
-  #     "config" :
-  #     [
-  #       "${config.home-manager.users.nyx.xdg.dataHome}/Steam/config"
-  #     ],
-  #     "external_drivers" : null,
-  #     "jsonid" : "vrpathreg",
-  #     "log" :
-  #     [
-  #       "${config.home-manager.users.nyx.xdg.dataHome}/Steam/logs"
-  #     ],
-  #     "runtime" :
-  #     [
-  #       "${pkgs.opencomposite}/lib/opencomposite"
-  #     ],
-  #     "version" : 1
-  #   }
-  # '';
+  home-manager.users.nyx.xdg.configFile."openvr/openvrpaths.vrpath".text = ''
+    {
+      "config" :
+      [
+        "${config.home-manager.users.nyx.xdg.dataHome}/Steam/config"
+      ],
+      "external_drivers" : null,
+      "jsonid" : "vrpathreg",
+      "log" :
+      [
+        "${config.home-manager.users.nyx.xdg.dataHome}/Steam/logs"
+      ],
+      "runtime" :
+      [
+        "${pkgs.opencomposite}/lib/opencomposite"
+      ],
+      "version" : 1
+    }
+  '';
 }
