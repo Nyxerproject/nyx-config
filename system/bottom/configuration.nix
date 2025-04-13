@@ -1,4 +1,8 @@
-{pkgs, ...}: {
+{
+  pkgs,
+  inputs,
+  ...
+}: {
   networking.hostName = "bottom";
   boot.kernelPackages = pkgs.linuxPackages_cachyos;
   nixpkgs.config.cudaSupport = true;
@@ -14,6 +18,7 @@
     };
   };
   hardware.graphics.enable = true;
+  hardware.graphics.extraPackages = [inputs.lemonake.packages.${pkgs.system}.monado-vulkan-layers];
   hardware.nvidia.open = true;
   boot.kernelParams = [
     "nvidia_drm.fbdev=1"

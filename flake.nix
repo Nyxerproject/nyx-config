@@ -26,6 +26,7 @@
     nixos-generators = {inputs.nixpkgs.follows = "nixpkgs";};
     nixpkgs-xr = {url = "github:nix-community/nixpkgs-xr";};
     nixpkgs-xr = {inputs.nixpkgs.follows = "nixpkgs";};
+    lemonake.url = "github:passivelemon/lemonake";
     disko.url = "github:nix-community/disko";
     disko.inputs.nixpkgs.follows = "nixpkgs";
     home-manager.url = "github:nix-community/home-manager";
