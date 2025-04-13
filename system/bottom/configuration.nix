@@ -1,6 +1,7 @@
 {pkgs, ...}: {
   networking.hostName = "bottom";
   boot.kernelPackages = pkgs.linuxPackages_cachyos;
+  nixpkgs.config.cudaSupport = true;
   services = {
     scx = {
       enable = true;
