@@ -12,10 +12,7 @@
       videoDrivers = ["nvidia"];
     };
   };
-  hardware.graphics = {
-    enable = true;
-    extraPackages = [pkgs.nvidia-vaapi-driver];
-  };
+  hardware.graphics.enable = true;
   hardware.nvidia.open = true;
   boot.kernelParams = [
     "nvidia_drm.fbdev=1"
