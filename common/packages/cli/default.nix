@@ -69,7 +69,7 @@
         koji # dev: better git commiter
         git-cliff # dev: changlog maker
         cocogitto # conventional commits
-        serie # better git commit charts
+        just
         difftastic # dev: better diffs
         delta # dev: better diff highlighting
         typos
