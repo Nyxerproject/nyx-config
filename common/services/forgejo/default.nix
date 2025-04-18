@@ -1,7 +1,7 @@
 {config, ...}: {
   shb = {
     forgejo = {
-      enable = true;
+      enable = false;
       subdomain = "forgejo";
       domain = "nyxer.xyz";
 
