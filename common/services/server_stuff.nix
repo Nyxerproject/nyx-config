@@ -4,6 +4,7 @@
     ./forgejo
     ./ssl
     ./authelia
+    ./octoprint
   ];
 }
 # TODO:

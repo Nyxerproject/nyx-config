@@ -11,6 +11,7 @@
           "ldap.nyxer.xyz"
           "forgejo.nyxer.xyz"
           "auth.nyxer.xyz"
+          "octoprint.nyxer.xyz"
         ];
       };
     };

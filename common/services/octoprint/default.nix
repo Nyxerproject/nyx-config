@@ -5,7 +5,7 @@
 }: {
   services.nginx = {
     enable = true;
-    nginx.virtualHosts.${config.services.octoprint.hostName} = {
+    virtualHosts."octoprint.nyxer.xyz" = {
       forceSSL = true;
       enableACME = true;
     };
@@ -37,13 +37,14 @@
   services.octoprint = {
     enable = true;
     user = "octoprint";
+    port = 80;
     # stateDir = "/var/lib/octoprint";
     extraConfig = {
       # Set server commands for nixos paths
       server.commands = {
         serverRestartCommand = "/run/wrappers/bin/sudo ${pkgs.systemd}/bin/systemctl restart octoprint.service";
-        systemRestartCommand = "/run/wrappers/bin/sudo ${pkgs.systemd}/bin/systemctl reboot";
-        systemShutdownCommand = "/run/wrappers/bin/sudo ${pkgs.systemd}/bin/systemctl poweroff";
+        # systemRestartCommand = "/run/wrappers/bin/sudo ${pkgs.systemd}/bin/systemctl reboot";
+        # systemShutdownCommand = "/run/wrappers/bin/sudo ${pkgs.systemd}/bin/systemctl poweroff";
       };
     };
   };
@@ -61,14 +62,14 @@
         # Let user octoprint use some systemctl commands NOPASSWD
         users = ["octoprint"];
         commands = [
-          {
-            command = "${pkgs.systemd}/bin/systemctl reboot";
-            options = ["NOPASSWD"];
-          }
-          {
-            command = "${pkgs.systemd}/bin/systemctl poweroff";
-            options = ["NOPASSWD"];
-          }
+          # {
+          #   command = "${pkgs.systemd}/bin/systemctl reboot";
+          #   options = ["NOPASSWD"];
+          # }
+          # {
+          #   command = "${pkgs.systemd}/bin/systemctl poweroff";
+          #   options = ["NOPASSWD"];
+          # }
           {
             command = "${pkgs.systemd}/bin/systemctl restart octoprint.service";
             options = ["NOPASSWD"];
