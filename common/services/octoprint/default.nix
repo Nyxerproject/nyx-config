@@ -37,7 +37,7 @@
   services.octoprint = {
     enable = true;
     user = "octoprint";
-    port = 80;
+    # port = 443;
     # stateDir = "/var/lib/octoprint";
     extraConfig = {
       # Set server commands for nixos paths
