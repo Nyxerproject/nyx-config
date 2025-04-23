@@ -119,6 +119,7 @@
         modules = [
           ./system/down
           {services.tabby = {enable = true;};}
+          self.nixosModules.chaotic
           self.nixosModules.default
           self.nixosModules.gui
           self.nixosModules.disko
