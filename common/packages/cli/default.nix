@@ -136,7 +136,7 @@
         tabiew # view CSV and other documents in terminal
       ];
       shellAliases = {
-        cat = "bat -p";
+        # cat = "bat -p";
         tree = "tre";
         l = "lsd -l";
         ga = "git add";
