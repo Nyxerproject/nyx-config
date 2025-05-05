@@ -6,11 +6,11 @@
   pkgs,
   ...
 }: let
-  host = "nextcloud.nyxer.xyz";
+  domain = "nyxer.xyz";
+  host = "nextcloud.${domain}";
 in {
   imports = [./nextcloud-extras.nix];
 
-  environment.etc."nextcloud-user-pass".text = "PWD"; # TODO: remove i think
   services = {
     nextcloud = {
       enable = true;
@@ -26,9 +26,8 @@ in {
       configureRedis = true;
       settings = {
         trusted_domains = [
-          "www.nyxer.xyz"
-          "nyxer.xyz"
-          "top"
+          "${host}"
+          "www.${host}"
         ];
         overwriteprotocol = "https";
         # PHP options
@@ -65,16 +64,6 @@ in {
         "pm.min_spare_servers" = 6;
         "pm.max_spare_servers" = 18;
         "pm.max_requests" = 500;
-      };
-      ensureUsers = {
-        nyx = {
-          email = "nxyerproject@gmail.com";
-          passwordFile = "/var/run/secrets/nextcloud-nyx-password";
-        };
-        test = {
-          email = "nxyerproject@gmail.com";
-          passwordFile = "/var/run/secrets/nextcloud-nyx-password";
-        };
       };
 
       autoUpdateApps.enable = true;

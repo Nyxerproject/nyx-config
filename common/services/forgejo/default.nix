@@ -1,7 +1,9 @@
-{config, ...}: {
+{config, ...}: let
+  domain = "nyxer.xyz";
+in {
   shb = {
     forgejo = {
-      enable = false;
+      enable = true;
       subdomain = "forgejo";
       domain = "nyxer.xyz";
 
@@ -37,10 +39,10 @@
   };
   services.forgejo.settings.repository.ENABLE_PUSH_CREATE_USER = true;
 
-  services.nginx.virtualHosts."forgejo.${config.services.forgejo.settings.server.DOMAIN}" = {
-    forceSSL = true;
-    enableACME = true;
-  };
+  # services.nginx.virtualHosts."forgejo.${config.services.forgejo.settings.server.DOMAIN}" = {
+  # forceSSL = true;
+  # enableACME = true;
+  # };
 
   shb.sops.secret."forgejo/adminPassword".request = config.shb.forgejo.users."adminUser".password.request;
   shb.sops.secret."forgejo/userPassword".request = config.shb.forgejo.users."nyx".password.request;
