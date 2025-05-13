@@ -60,6 +60,7 @@
         fzf
 
         # text editors
+        zed
         helix
         ox
 
@@ -202,10 +203,7 @@
           prettybat
         ];
       };
-      lsd = {
-        enable = true;
-        enableAliases = true;
-      };
+      lsd.enable = true;
       nh = {
         flake = "/home/nyx/nyx-config";
         enable = true;
