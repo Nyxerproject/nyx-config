@@ -37,6 +37,8 @@
     nix-index-database.url = "github:nix-community/nix-index-database";
     nix-index-database.inputs.nixpkgs.follows = "nixpkgs";
     vault-tasks.url = "github:louis-thevenet/vault-tasks";
+    zed.url = "github:zed-industries/zed";
+    zed-editor.url = "github:HPsaucii/zed-editor-flake";
     vault-tasks.inputs.nixpkgs.follows = "nixpkgs";
   };
   outputs = {self, ...} @ inputs: let
@@ -110,6 +112,7 @@
           self.nixosModules.disko
           self.nixosModules.xr
         ];
+        specialArgs = {inherit inputs;};
       };
       strange = inputs.nixpkgs.lib.nixosSystem {
         inherit system;

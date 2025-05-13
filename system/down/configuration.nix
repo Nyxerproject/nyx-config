@@ -1,4 +1,8 @@
-{pkgs, ...}: {
+{
+  pkgs,
+  inputs,
+  ...
+}: {
   networking.hostName = "down";
   boot.kernelPackages = pkgs.linuxPackages_cachyos;
   services.scx = {
@@ -6,7 +10,7 @@
     scheduler = "scx_rustland";
   };
 
-  environment.systemPackages = [pkgs.zed-editor-fhs_git];
+  environment.systemPackages = [inputs.zed-editor.packages.${pkgs.system}.zed-editor-bin-fhs];
 
   boot.loader.grub.device = "/dev/disk/by-id/nvme-WDC_PC_SN730_SDBPNTY-512G-1006_20204F801215_1";
   services.xserver.enable = true;
