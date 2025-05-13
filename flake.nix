@@ -41,20 +41,6 @@
   };
   outputs = {self, ...} @ inputs: let
     system = "x86_64-linux";
-    domain = "nyxer.xyz";
-    # originPkgs = inputs.selfhostblocks.inputs.nixpkgs;
-    originPkgs = inputs.nixpkgs;
-    # shbNixpkgs = originPkgs.legacyPackages.${system}.applyPatches {
-    #   name = "nixpkgs-patched";
-    #   src = originPkgs;
-    #   patches = inputs.selfhostblocks.patches.${system};
-    # };
-    nixpkgs' = originPkgs.legacyPackages.${system}.applyPatches {
-      name = "nixpkgs-patched";
-      src = originPkgs;
-      patches = inputs.selfhostblocks.patches.${system};
-    };
-    shbNixpkgs = import nixpkgs' {inherit system;};
   in {
     nixosModules = {
       default.imports = [
@@ -73,7 +59,7 @@
         inputs.sddm-sugar-candy-nix.nixosModules.default
         inputs.nur.modules.nixos.default
       ];
-      chaotic.imports = [inputs.chaotic.nixosModules.default];
+      chaotic.imports = [inputs.chaotic.nixosModules.default {chaotic.nyx.cache.enable = true;}];
       disko.imports = [inputs.disko.nixosModules.disko];
       gui.imports = [inputs.niri.nixosModules.niri];
       xr.imports = [inputs.nixpkgs-xr.nixosModules.nixpkgs-xr];
@@ -118,7 +104,6 @@
         inherit system;
         modules = [
           ./system/down
-          {services.tabby = {enable = true;};}
           self.nixosModules.chaotic
           self.nixosModules.default
           self.nixosModules.gui
@@ -134,7 +119,6 @@
           self.nixosModules.wsl
         ];
       };
-      # top = shbNixpkgs.lib.nixosSystem {
       top = inputs.nixpkgs.lib.nixosSystem {
         inherit system;
         modules = [

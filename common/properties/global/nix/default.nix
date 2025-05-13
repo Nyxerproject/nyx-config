@@ -8,7 +8,6 @@
     experimental-features = ["nix-command" "flakes"];
     trusted-users = ["root" "@wheel"];
     extra-substituters = [
-      "https://cachix.org"
       "https://cache.nixos.org/"
       "https://nix-community.cachix.org"
       "https://yazi.cachix.org"
