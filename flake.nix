@@ -38,7 +38,9 @@
     nix-index-database.inputs.nixpkgs.follows = "nixpkgs";
     vault-tasks.url = "github:louis-thevenet/vault-tasks";
     zed.url = "github:zed-industries/zed";
-    zed-editor.url = "github:HPsaucii/zed-editor-flake";
+    # zed-editor.url = "github:HPsaucii/zed-editor-flake";
+    zed-editor.url = "github:Tebro/zed-editor-flake/preview";
+    zed-editor.inputs.nixpkgs.follows = "nixpkgs";
     vault-tasks.inputs.nixpkgs.follows = "nixpkgs";
   };
   outputs = {self, ...} @ inputs: let

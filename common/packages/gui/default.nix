@@ -7,7 +7,6 @@
   home-manager.users.nyx.home.packages = with pkgs; [];
   environment = {
     systemPackages = with pkgs; [
-      zed-editor
       lapce
       code-cursor
       kicad
