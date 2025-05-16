@@ -7,19 +7,18 @@
   home-manager.users.nyx.home.packages = with pkgs; [];
   environment = {
     systemPackages = with pkgs; [
-      lapce
-      code-cursor
       kicad
       kicadAddons.kikit
       kicadAddons.kikit-library
       kikit
 
       # terminal emulators
-      rio
       foot
       kitty
       wezterm
       waveterm
+
+      lapce
 
       # audio
       qpwgraph

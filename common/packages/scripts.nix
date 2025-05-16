@@ -6,39 +6,22 @@
       bash
       */
       ''
-        #!/usr/bin/env bash
-        ask_question() {
-            local question=$1
-            while true; do
-                read -p "$question [Y/n]: " answer
-                case $answer in
-                    [Yy]* ) return 0;;
-                    [Nn]* ) return 1;;
-                    * ) return 0;;
-                esac
-            done
-        }
-
-        pushd $FLAKE
-        $EDITOR
+        $EDITOR $NH_FLAKE
 
         # TODO: make this into a git hook instead
-        alejandra . &>/dev/null \
-          || ( alejandra . ; echo "formatting failed!" && exit 1)
+        alejandra $NH_FLAKE &>/dev/null \
+          || ( alejandra $NH_FLAKE ; echo "formatting failed!" && exit 1)
 
-        untracked_files=$(git ls-files -o --exclude-standard)
+        untracked_files=$(git -C $NH_FLAKE ls-files -o --exclude-standard)
         if [[ -n "$untracked_files" ]]; then
             echo "Untracked files found:"
             echo "$untracked_files"
             echo "Please add or ignore these files before proceeding."
-            notify-send -e "Please add or ignore files"
-            popd
             exit 1
         fi
 
         if git diff --quiet HEAD -- '*.nix'; then
           echo "No changes detected, exiting."
-          popd
           exit 0
         fi
 
@@ -60,7 +43,6 @@
         else
             echo "ogi :3"
         fi
-        popd
         exit 0
       '';
   in [nyx-rebuild];

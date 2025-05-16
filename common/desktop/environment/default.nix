@@ -18,6 +18,7 @@
       wayland-utils
       wl-clipboard
       wvkbd
+      libnotify
 
       libsecret
     ];
