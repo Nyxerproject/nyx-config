@@ -7,7 +7,7 @@ in {
   ];
   environment.systemPackages = with pkgs; [
     (mistral-rs.overrideAttrs (finalAttrs: previousAttrs: {
-      version = "unstable-2025-05-16";
+      # version = "unstable-2025-05-16";
       src = pkgs.fetchFromGitHub {
         owner = "EricLBuehler";
         repo = "mistral.rs";
