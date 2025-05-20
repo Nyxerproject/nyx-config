@@ -42,7 +42,6 @@
 
       prusa-slicer
       obs-studio
-      planify
       nautilus
 
       nextcloud-client

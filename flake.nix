@@ -38,11 +38,9 @@
     nix-index-database.url = "github:nix-community/nix-index-database";
     nix-index-database.inputs.nixpkgs.follows = "nixpkgs";
     vault-tasks.url = "github:louis-thevenet/vault-tasks";
-    zed.url = "github:zed-industries/zed";
-    # zed-editor.url = "github:HPsaucii/zed-editor-flake";
-    zed-editor.url = "github:Tebro/zed-editor-flake/preview";
-    zed-editor.inputs.nixpkgs.follows = "nixpkgs";
     vault-tasks.inputs.nixpkgs.follows = "nixpkgs";
+    zed-editor.url = "github:HPsaucii/zed-editor-flake";
+    zed-editor.inputs.nixpkgs.follows = "nixpkgs";
   };
   outputs = {self, ...} @ inputs: let
     system = "x86_64-linux";
@@ -66,7 +64,11 @@
       ];
       chaotic.imports = [inputs.chaotic.nixosModules.default {chaotic.nyx.cache.enable = true;}];
       disko.imports = [inputs.disko.nixosModules.disko];
-      gui.imports = [inputs.niri.nixosModules.niri];
+      gui.imports = [
+        inputs.niri.nixosModules.niri
+        {environment.systemPackages = [inputs.zed-editor.packages.${system}.zed-editor-preview-bin-fhs];}
+      ];
+      zed.imports = [{environment.systemPackages = [inputs.zed-editor.packages.${system}.zed-editor];}];
       xr.imports = [inputs.nixpkgs-xr.nixosModules.nixpkgs-xr];
       server.imports = [inputs.selfhostblocks.nixosModules.${system}.default];
       steamdeck.imports = [inputs.jovian.nixosModules.jovian];
