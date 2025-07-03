@@ -39,7 +39,7 @@
     nix-index-database.inputs.nixpkgs.follows = "nixpkgs";
     vault-tasks.url = "github:louis-thevenet/vault-tasks";
     vault-tasks.inputs.nixpkgs.follows = "nixpkgs";
-    zed-editor.url = "github:HPsaucii/zed-editor-flake";
+    zed-editor.url = "github:HPsaucii/zed-editor-flake/update-zed-editor-packages";
     zed-editor.inputs.nixpkgs.follows = "nixpkgs";
   };
   outputs = {self, ...} @ inputs: let
@@ -51,6 +51,7 @@
           nixpkgs.overlays = [
             inputs.sddm-sugar-candy-nix.overlays.default
             inputs.niri.overlays.niri
+            # inputs.lemonake.overlays.wivrn
           ];
         }
         inputs.nixos-generators.nixosModules.all-formats
@@ -73,7 +74,6 @@
       server.imports = [inputs.selfhostblocks.nixosModules.${system}.default];
       steamdeck.imports = [inputs.jovian.nixosModules.jovian];
       wsl.imports = [inputs.nixos-wsl.nixosModules.default];
-      lemonake.imports = [inputs.lemonake.nixosModules.wivrn];
     };
     nixosConfigurations = {
       antidown = inputs.nixpkgs.lib.nixosSystem {
@@ -89,7 +89,6 @@
         inherit system;
         modules = [
           ./system/bottom
-          # self.nixosModules.lemonake
           self.nixosModules.default
           self.nixosModules.chaotic
           self.nixosModules.gui

@@ -8,16 +8,15 @@
       scheduler = "scx_rustland";
     };
     displayManager.defaultSession = "niri";
-    xserver = {
-      enable = true;
-      videoDrivers = ["nvidia"];
-    };
+    xserver.videoDrivers = ["nvidia"];
   };
-  hardware.graphics.enable = true;
-  hardware.nvidia.open = true;
+  hardware = {
+    nvidia.open = true;
+    graphics.enable = true;
+  };
   boot.kernelParams = [
-    "nvidia_drm.fbdev=1"
+    # "nvidia_drm.fbdev=1"
     "module_blacklist=amdgpu"
   ];
-  nixpkgs.config.cudaSupport = true;
+  # nixpkgs.config.cudaSupport = true;
 }

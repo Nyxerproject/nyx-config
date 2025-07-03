@@ -5,6 +5,11 @@
       alsa.enable = true;
       pulse.enable = true;
       jack.enable = true;
+      wireplumber.extraConfig."11-bluetooth-policy" = {
+        "wireplumber.settings" = {
+          "bluetooth.autoswitch-to-headset-profile" = false;
+        };
+      };
     };
   };
 }
