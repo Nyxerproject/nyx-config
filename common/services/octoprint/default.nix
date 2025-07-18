@@ -11,15 +11,18 @@
         "/" = {
           proxyPass = "http://127.0.0.1:5000/";
           proxyWebsockets = true; # needed to use WebSocket
-          extraConfig = "proxy_ssl_server_name on;
-          proxy_set_header Host $http_host;
-          proxy_set_header Upgrade $http_upgrade;
-          proxy_set_header Connection \" upgrade \";
-          proxy_set_header X-Real-IP $remote_addr;
-          proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
-          proxy_set_header X-Scheme $scheme;
-          proxy_http_version 1.1;
-          client_max_body_size 0;";
+          # extraConfig = "
+          # proxy_set_header Host $http_host;
+          # proxy_set_header X-Scheme $scheme;
+          # proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+          # ";
+
+          # proxy_set_header Accept-Encoding \"$http_accept_encoding\";
+          # proxy_set_header Upgrade $http_upgrade;
+          # proxy_set_header Connection \" upgrade \";
+          # proxy_set_header X-Real-IP $remote_addr;
+          # proxy_http_version 1.1;
+          # client_max_body_size 50M;
         };
         # "/webcam/" = {
         #   proxyPass = "http://127.0.0.1:8080/";
