@@ -25,7 +25,7 @@
           tablet.map-to-output = "eDP-1";
           touch.map-to-output = "eDP-1";
           focus-follows-mouse.enable = true;
-          warp-mouse-to-focus = true;
+          warp-mouse-to-focus.enable = true;
         };
 
         hotkey-overlay.skip-at-startup = true;
@@ -47,7 +47,7 @@
         environment.DISPLAY = ":0";
         spawn-at-startup = [
           {command = ["firefox"];}
-          {command = ["keepassxc"];}
+          # {command = ["keepassxc"];}
           # {command = ["element-desktop"];}
           # {command = ["webcord"];}
           # {command = ["telegram-desktop"];}
@@ -81,7 +81,7 @@
   };
   xdg.portal = {
     enable = true;
-    wlr.enable = true;
+    # wlr.enable = true;
   };
   environment = {
     systemPackages = with pkgs; [

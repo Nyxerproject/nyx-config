@@ -1,7 +1,7 @@
 {lib, ...}: {
   services = {
     displayManager = {
-      autoLogin.enable = false;
+      autoLogin.enable = true;
       autoLogin.user = "nyx";
       sddm = {
         enable = lib.mkDefault true;

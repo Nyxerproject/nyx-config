@@ -9,7 +9,7 @@
       enable = true;
       openFirewall = true;
       autoStart = true;
-      # highPriority = true;
+      highPriority = true;
       defaultRuntime = true;
       config = {
         enable = true;
@@ -30,7 +30,7 @@
       };
       package = inputs.lemonake.packages.${pkgs.system}.wivrn.override {
         cudaSupport = true;
-        ovrCompatSearchPaths = "${pkgs.xrizer}/lib/xrizer";
+        # ovrCompatSearchPaths = "${pkgs.xrizer}/lib/xrizer";
       };
       monadoEnvironment = {
         WIVRN_USE_STEAMVR_LH = "1";

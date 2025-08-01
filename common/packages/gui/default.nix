@@ -19,6 +19,7 @@
       waveterm
 
       lapce
+      godot
 
       # audio
       qpwgraph
