@@ -5,18 +5,17 @@
   inputs,
   pkgs,
   ...
-}: let
+}:
+let
   domain = "nyxer.xyz";
   host = "nextcloud.${domain}";
-in {
-  imports = [./nextcloud-extras.nix];
-
+in
+{
   services = {
     nextcloud = {
-      enable = true;
+      enable = false;
       package = pkgs.nextcloud31;
       hostName = host;
-      webserver = "nginx";
       https = true;
       database.createLocally = true;
       config = {
@@ -66,45 +65,58 @@ in {
         "pm.max_requests" = 500;
       };
 
-      autoUpdateApps.enable = true;
+      # autoUpdateApps.enable = true; # NOTE: Should this really be true?
       appstoreEnable = true;
       extraAppsEnable = true;
-      extraApps = let
-        version = lib.versions.major config.services.nextcloud.package.version;
-        info = builtins.fromJSON (builtins.readFile "${inputs.nc4nix}/${version}.json");
-        getInfo = package: {
-          inherit (info.${package}) hash url description homepage;
-          appName = package;
-          appVersion = info.${package}.version;
-          license = let
-            licenses = {agpl = "agpl3Only";};
-            originalLincense = builtins.head info.${package}.licenses;
-          in
-            licenses.${originalLincense} or originalLincense;
-        };
-      in
-        builtins.listToAttrs (builtins.map (package: {
-            name = package;
-            value = pkgs.fetchNextcloudApp (getInfo package);
-          }) [
-            "twofactor_webauthn"
-            "calendar"
-            "richdocuments"
-            "contacts"
-            "notes"
-            "tasks"
-            "news"
-          ]);
-      caching = {
-        redis = true;
-        memcached = true;
-      };
+      # extraApps =
+      #   let
+      #     version = lib.versions.major config.services.nextcloud.package.version;
+      #     info = builtins.fromJSON (builtins.readFile "${inputs.nc4nix}/${version}.json");
+      #     getInfo = package: {
+      #       inherit (info.${package})
+      #         hash
+      #         url
+      #         description
+      #         homepage
+      #         ;
+      #       appName = package;
+      #       appVersion = info.${package}.version;
+      #       license =
+      #         let
+      #           licenses = {
+      #             agpl = "agpl3Only";
+      #           };
+      #           originalLincense = builtins.head info.${package}.licenses;
+      #         in
+      #         licenses.${originalLincense} or originalLincense;
+      #     };
+      #   in
+      #   builtins.listToAttrs (
+      #     builtins.map
+      #       (package: {
+      #         name = package;
+      #         value = pkgs.fetchNextcloudApp (getInfo package);
+      #       })
+      #       [
+      #         "twofactor_webauthn"
+      #         "calendar"
+      #         "richdocuments"
+      #         "contacts"
+      #         "notes"
+      #         "tasks"
+      #         "news"
+      #       ]
+      #   );
+      # caching = {
+      #   redis = true;
+      #   memcached = true;
+      # };
     };
-    redis.servers.nextcloud = {
-      enable = true;
-      bind = "::1";
-      port = 6379;
-    };
+    # redis.servers.nextcloud = {
+    #   enable = true;
+    #   bind = "::1";
+    #   port = 6379;
+    # };
     nginx.virtualHosts.${config.services.nextcloud.hostName} = {
       forceSSL = true;
       enableACME = true;
@@ -114,10 +126,5 @@ in {
     mode = "0666";
     owner = "nextcloud";
     group = "nextcloud";
-  };
-  networking.firewall.allowedTCPPorts = [80 443];
-  systemd.services."nextcloud-setup" = {
-    requires = ["mysql.service"];
-    after = ["mysql.service"];
   };
 }

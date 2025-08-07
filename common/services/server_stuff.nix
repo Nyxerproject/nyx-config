@@ -1,9 +1,8 @@
 {
   imports = [
-    ./nextcloud
     ./forgejo
+    ./jellyfin
     ./ssl
-    ./authelia
     ./octoprint
   ];
 }
@@ -29,4 +28,3 @@
 ## - https://github.com/static-web-server/static-web-server/
 ## - https://wiki.nixos.org/wiki/Forgejo
 ## - https://wiki.nixos.org/wiki/Lemmy
-

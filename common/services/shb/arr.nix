@@ -3,21 +3,28 @@
   lib,
   pkgs,
   ...
-}: let
+}:
+let
   inherit (lib) optionals optionalAttrs;
   inherit (config.me) domain;
-in {
-  imports = [./ssl.nix ./sso.nix];
-  options = {me.domain = lib.mkOption {type = lib.types.str;};};
+in
+{
+  imports = [
+    ./ssl.nix
+    ./sso.nix
+  ];
+  options = {
+    me.domain = lib.mkOption { type = lib.types.str; };
+  };
 
   config = lib.mkMerge [
     (optionalAttrs true {
       shb = {
         user = {
           radarr.uid = 10010;
-          radarr.extraGroups = ["media"];
+          radarr.extraGroups = [ "media" ];
           sonarr.uid = 10011;
-          sonarr.extraGroups = ["media"];
+          sonarr.extraGroups = [ "media" ];
           jackett.uid = 10015;
         };
 
@@ -68,19 +75,19 @@ in {
             mode = "0440";
             owner = "radarr";
             group = "radarr";
-            restartUnits = ["radarr.service"];
+            restartUnits = [ "radarr.service" ];
           };
           "sonarr/apikey".request = {
             mode = "0440";
             owner = "sonarr";
             group = "sonarr";
-            restartUnits = ["sonarr.service"];
+            restartUnits = [ "sonarr.service" ];
           };
           "jackett/apikey".request = {
             mode = "0440";
             owner = "jackett";
             group = "jackett";
-            restartUnits = ["jackett.service"];
+            restartUnits = [ "jackett.service" ];
           };
         };
 

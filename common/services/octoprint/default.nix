@@ -2,7 +2,8 @@
   config,
   pkgs,
   ...
-}: {
+}:
+{
   services.nginx = {
     virtualHosts."octoprint.nyxer.xyz" = {
       forceSSL = true;
@@ -49,18 +50,21 @@
 
   # Make sure octoprint starts after state dir is mounted
   systemd.services = {
-    octoprint.after = ["var-lib-octoprint.mount"];
+    octoprint.after = [ "var-lib-octoprint.mount" ];
     # nginx.after = ["var-lib-octoprint.mount"];
   };
 
-  networking.firewall.allowedTCPPorts = [5000 5001];
+  networking.firewall.allowedTCPPorts = [
+    5000
+    5001
+  ];
 
   security.sudo = {
     enable = true;
     extraRules = [
       {
         # Let user octoprint use some systemctl commands NOPASSWD
-        users = ["octoprint"];
+        users = [ "octoprint" ];
         commands = [
           # {
           #   command = "${pkgs.systemd}/bin/systemctl reboot";
@@ -72,7 +76,7 @@
           # }
           {
             command = "${pkgs.systemd}/bin/systemctl restart octoprint.service";
-            options = ["NOPASSWD"];
+            options = [ "NOPASSWD" ];
           }
         ];
       }
