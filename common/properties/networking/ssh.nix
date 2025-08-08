@@ -19,7 +19,6 @@
     ];
     #settings.PermitRootLogin = "yes";
   };
-  programs.ssh.startAgent = true;
   users.users."nyx".openssh.authorizedKeys = {
     keys = [
       "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIPe4SX4TqpeC4WSWKwv/k52oZL+7cT/Y8YOkmv3rlO5B nyx@nixos"

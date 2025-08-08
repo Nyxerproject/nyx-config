@@ -29,7 +29,6 @@
 
         ## Helpers
         lemmeknow # cli general helper
-        thefuck # helper: terminal helper
         navi # helper: cheat sheet for shell
         tealdeer # helper: gives tldrs for commands
         halp # helper: cli tool to help with cli tools
