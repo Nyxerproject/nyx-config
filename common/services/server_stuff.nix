@@ -3,7 +3,7 @@
     ./forgejo
     ./jellyfin
     ./ssl
-    ./octoprint
+    ./stalwart
   ];
 }
 # TODO:
