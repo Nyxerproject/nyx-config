@@ -7,15 +7,15 @@
   environment.systemPackages = with pkgs; [
     opencomposite
     index_camera_passthrough
-    wlx-overlay-s
     xrgears
+    vrcx
+    wlx-overlay-s
+    wayvr-dashboard
     stardust-xr-server
     stardust-xr-gravity
     stardust-xr-magnetar
     stardust-xr-flatland
     stardust-xr-protostar
-    vrcx
-    wayvr-dashboard
   ];
   # home-manager.users.nyx.
   # programs.xdg.enable = true;

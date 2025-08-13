@@ -9,7 +9,7 @@
       enable = true;
       openFirewall = true;
       autoStart = true;
-      highPriority = true;
+      # highPriority = true;
       defaultRuntime = true;
       config = {
         enable = true;
@@ -28,10 +28,19 @@
           ];
         };
       };
-      package = inputs.lemonake.packages.${pkgs.system}.wivrn.override {
+      # package = inputs.lemonake.packages.${pkgs.system}.wivrn.override {
+      # package = pkgs.wivrn.override {
+      # cudaSupport = true;
+      # ovrCompatSearchPaths = "${pkgs.xrizer}/lib/xrizer";
+      # };
+      package = pkgs.wivrn.overrideAttrs (old: {
         cudaSupport = true;
-        # ovrCompatSearchPaths = "${pkgs.xrizer}/lib/xrizer";
-      };
+        cmakeFlags =
+          old.cmakeFlags
+          ++ [
+            (lib.cmakeBool "WIVRN_FEATURE_STEAMVR_LIGHTHOUSE" true)
+          ];
+      });
       monadoEnvironment = {
         WIVRN_USE_STEAMVR_LH = "1";
         LH_DISCOVER_WAIT_MS = "6000";
