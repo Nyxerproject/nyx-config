@@ -9,8 +9,6 @@
     ../../common
     ../../common/desktop
     ../../common/desktop/gaming
-    ../../common/packages/R.nix
-    ../../common/packages/gui/openhands.nix
     ../../common/boot/grub
   ];
 }
