@@ -1,8 +1,9 @@
-{pkgs, ...}: {
+{ pkgs, ... }:
+{
   home.packages = with pkgs; [
-    webcord-vencord # discord client w/ swag
+    # webcord-vencord # discord client w/ swag
+    telegram-desktop
     # webcord # discord client
-    kotatogram-desktop # telegram client
     element-desktop # matrix client
   ];
 }

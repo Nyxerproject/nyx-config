@@ -3,10 +3,11 @@
   pkgs,
   inputs,
   ...
-}: {
+}:
+{
   services = {
     wivrn = {
-      enable = true;
+      enable = false;
       openFirewall = true;
       autoStart = true;
       # highPriority = true;
@@ -33,24 +34,24 @@
       # cudaSupport = true;
       # ovrCompatSearchPaths = "${pkgs.xrizer}/lib/xrizer";
       # };
-      package = pkgs.wivrn.overrideAttrs (old: {
-        cudaSupport = true;
-        cmakeFlags =
-          old.cmakeFlags
-          ++ [
-            (lib.cmakeBool "WIVRN_FEATURE_STEAMVR_LIGHTHOUSE" true)
-          ];
-      });
-      monadoEnvironment = {
-        WIVRN_USE_STEAMVR_LH = "1";
-        LH_DISCOVER_WAIT_MS = "6000";
-      };
+      # package = pkgs.wivrn.overrideAttrs (old: {
+      #   cudaSupport = true;
+      #   cmakeFlags =
+      #     old.cmakeFlags
+      #     ++ [
+      #       (lib.cmakeBool "WIVRN_FEATURE_STEAMVR_LIGHTHOUSE" true)
+      #     ];
+      # });
+      # monadoEnvironment = {
+      #   WIVRN_USE_STEAMVR_LH = "1";
+      #   LH_DISCOVER_WAIT_MS = "6000";
+      # };
     };
   };
 
   environment.systemPackages = with pkgs; [
     sidequest
-    android-tools
+    # android-tools
     motoc
     # androidenv.androidPkgs.androidsdk # android stuff lol
     # androidenv.androidPkgs.platform-tools

@@ -1,4 +1,5 @@
-{lib, ...}: {
+{ lib, ... }:
+{
   services = {
     displayManager = {
       autoLogin.enable = true;
@@ -6,7 +7,7 @@
       sddm = {
         enable = lib.mkDefault true;
         wayland.enable = true;
-        theme = "sddm-sugar-candy-nix";
+        # theme = "sugar-candy";
       };
     };
   };

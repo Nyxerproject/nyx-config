@@ -1,25 +1,23 @@
-{pkgs, ...}: {
+{ pkgs, ... }:
+{
+  imports = [ ./terminals ];
   home-manager.users.nyx.imports = [
     ./browsers
-    ./terminals
     ./communications
   ];
-  home-manager.users.nyx.home.packages = with pkgs; [];
+  home-manager.users.nyx.home.packages = with pkgs; [ ];
   environment = {
     systemPackages = with pkgs; [
-      kicad
-      kicadAddons.kikit
-      kicadAddons.kikit-library
-      kikit
+      # kicad
+      # kicadAddons.kikit
+      # kicadAddons.kikit-library
+      # kikit
 
       # terminal emulators
-      foot
-      kitty
-      wezterm
-      waveterm
+      # wezterm
+      # waveterm
 
       lapce
-      godot
 
       # audio
       qpwgraph
@@ -37,15 +35,13 @@
       vlc # video player
       foliate # epub reader
       rnote # handwritten notes
-      spacedrive
-      celeste
-      inlyne
 
-      prusa-slicer
+      # prusa-slicer
       obs-studio
       nautilus
 
-      nextcloud-client
+      obsidian
+      appflowy
     ];
 
     sessionVariables.NIXOS_OZONE_WL = "1";

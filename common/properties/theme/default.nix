@@ -3,7 +3,8 @@
   pkgs,
   config,
   ...
-}: {
+}:
+{
   stylix = {
     enable = true;
     autoEnable = true;
@@ -12,10 +13,10 @@
     base16Scheme = "${pkgs.base16-schemes}/share/themes/pasque.yaml";
     #base16Scheme = "${pkgs.base16-schemes}/share/themes/nord.yaml";
     #base16Scheme = "${pkgs.base16-schemes}/share/themes/catppuccin-mocha.yaml";
-    opacity = {
-      terminal = 0.9;
-      popups = 0.9;
-    };
+    # opacity = {
+    #   terminal = 0.9;
+    #   popups = 0.9;
+    # };
     cursor = {
       name = lib.mkDefault "phinger-cursors-${config.stylix.polarity}";
       package = lib.mkDefault pkgs.phinger-cursors;
@@ -35,28 +36,31 @@
         name = "FiraCodeNerdFont";
       };
       emoji = {
-        package = pkgs.noto-fonts-emoji;
+        package = pkgs.noto-fonts-color-emoji;
         name = "Noto Color Emoji";
       };
     };
-    targets.grub.useImage = true;
+    targets = {
+      grub.useWallpaper = true;
+      # firefox.profileNames = [ "nyx" ];
+    };
   };
   services = {
     displayManager = {
-      sddm = {
-        theme = "sddm-sugar-candy-nix";
-        sugarCandyNix = {
-          enable = true; # set SDDM's theme to "sddm-sugar-candy-nix".
-          settings = {
-            Background = lib.cleanSource ./background.png;
-            ScreenWidth = 1920;
-            ScreenHeight = 1080;
-            FormPosition = "left";
-            HaveFormBackground = true;
-            PartialBlur = true;
-          };
-        };
-      };
+      # sddm = {
+      #   theme = "sugar-candy";
+      #   sugarCandyNix = {
+      #     enable = true; # set SDDM's theme to "sddm-sugar-candy-nix".
+      #     settings = {
+      #       Background = lib.cleanSource ./background.png;
+      #       ScreenWidth = 1920;
+      #       ScreenHeight = 1080;
+      #       FormPosition = "left";
+      #       HaveFormBackground = true;
+      #       PartialBlur = true;
+      #     };
+      #   };
+      # };
     };
   };
 }

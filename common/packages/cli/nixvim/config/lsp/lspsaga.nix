@@ -1,5 +1,6 @@
-{pkgs, ...}: {
-  plugins.lspsaga = {
+{ pkgs, ... }:
+{
+  plugins.lspsaga.settings = {
     enable = pkgs.lib.mkDefault true;
     ui.border = "rounded";
     ui.codeAction = "";
@@ -13,7 +14,9 @@
       sign = pkgs.lib.mkDefault true;
       virtualText = pkgs.lib.mkDefault false;
     };
-    outline = {layout = "float";};
+    outline = {
+      layout = "float";
+    };
     symbolInWinbar.enable = pkgs.lib.mkDefault true;
   };
 }

@@ -1,8 +1,11 @@
-{pkgs, ...}: {
-  imports = [./nixvim];
+{ pkgs, ... }:
+{
+  imports = [ ./nixvim ];
   environment.enableAllTerminfo = true;
 
-  programs.direnv.enable = true;
+  environment.systemPackages = with pkgs; [
+    nix-your-shell
+  ];
 
   home-manager.users.nyx = {
     home = {
@@ -11,12 +14,12 @@
         btop # replacement of htop/nmon
         iotop # io monitoring
         bottom # cpu monitoring
-        mprocs # run multiple commands in parrallel
+        # mprocs # run multiple commands in parrallel
         htop # better top
 
         # system utilities
         zoxide # better cd
-        pik # process interactive kill # doesn't work on wsi???? idk
+        # pik # process interactive kill # doesn't work on wsi???? idk
         dysk # find info about disk
         caligula # disk imageing
 
@@ -26,33 +29,32 @@
 
         ## info grabbers
         onefetch # neofetch type beat
+        bunbun
 
         ## Helpers
-        lemmeknow # cli general helper
         navi # helper: cheat sheet for shell
         tealdeer # helper: gives tldrs for commands
-        halp # helper: cli tool to help with cli tools
+        # halp # helper: cli tool to help with cli tools
 
         ## tui
-        gpg-tui # gpg tui thing.
-        youtube-tui # yt tui
-        tuisky # bluesky tui
-        bk # terminal epub reader
-        russ # RSS reader
+        # gpg-tui # gpg tui thing.
+        # youtube-tui # yt tui
+        # tuisky # bluesky tui
+        # bk # terminal epub reader
+        # russ # RSS reader
         wiki-tui
-        meli # email
 
         # nixos stuff
-        deploy-rs
+        # deploy-rs
         alejandra
-        nvd
+        # nvd
         nix-output-monitor
         comma
         nix-health
         nix-init
 
         # shell utils
-        atuin # better history for shell
+        # atuin # better history for shell
 
         # fuzzy finders
         skim # fzf but better
@@ -60,8 +62,8 @@
 
         # text editors
         zed
-        helix
-        ox
+        evil-helix
+        # ox
 
         # development
         gitu # another terminal user inteface
@@ -70,55 +72,52 @@
         git-cliff # dev: changlog maker
         cocogitto # conventional commits
         just
-        difftastic # dev: better diffs
+        # difftastic # dev: better diffs
         delta # dev: better diff highlighting
         typos
-        sad # dev: sed but better (idk what sed is lol)
+        # sad # dev: sed but better (idk what sed is lol)
 
         # networking thing
         trippy # utility: network scanner
         nmap # utility: A utility for network discovery and security auditing
-        sshs # ssh stuff
+        # sshs # ssh stuff
         atac # api sender thing
 
         ## download tools
         wget
         curl
         termscp # utility: download stuff easilly
-        monolith # download page as html
+        # monolith # download page as html
 
         fend # utility: calculator
         ripgrep-all # utility: ripgrep anything
-        parallel-disk-usage # utility: drive space
+        # parallel-disk-usage # utility: drive space
         tree # utility: recursive dir viewer
         tre-command # utility: tree alternative
 
         # development related
         ## productivity
-        taskwarrior-tui # TODO: list thing
-        taskwarrior3
-        taskchampion-sync-server
-        vault-tasks # todo
+        # taskwarrior-tui # TODO: list thing
+        # taskwarrior3
+        # taskchampion-sync-server
+        # vault-tasks # todo
 
-        timewarrior # time thing
-        furtherance # time managment
+        # timewarrior # time thing
+        # furtherance # time managment
         uair # pomodora
 
-        tui-journal # journal thing
+        # tui-journal # journal thing
 
         presenterm # present markdown files
-        clima # markdown view
+        # clima # markdown view
         rucola
-        mask # start task from markdown file
+        # mask # start task from markdown file
 
-        goose-cli # llm cli thing
-        tenere # llm thing
-        aichat # llm stuff
-        mistral-rs # llm inference server
+        # goose-cli # llm cli thing
+        # tenere # llm thing
+        # aichat # llm stuff
 
-        lact # gpu configuration
         strace # system call monitoring
-        ltrace # library call monitoring
         # systeroid # alt to sysctl (w/ a tui :3)
         procs # alt to ps
 
@@ -127,79 +126,79 @@
         impala # settings: tui for wifi
         sysstat # monitoring: performance testing
         kmon # monitoring: kernel monitoring
-        wthrr # utility: cute weather thing
-        qrtool # utility: qrcode scanner and maker
+        # wthrr # utility: cute weather thing
+        # qrtool # utility: qrcode scanner and maker
         viu # png viewer in terminal
-        xplr # terminal file manager
+        # xplr # terminal file manager
 
         # media playback
-        ytermusic # media: download stuff in terminal
-        tabiew # view CSV and other documents in terminal
+        # ytermusic # media: download stuff in terminal
+        # tabiew # view CSV and other documents in terminal
+
+        cargo
+        bacon
       ];
-      shellAliases = {
-        # cat = "bat -p";
-        tree = "tre";
-        l = "lsd -l";
-        ga = "git add";
-        gc = "git commit";
-        gcam = "git commit -am";
-        gcm = "git commit -m";
-        gco = "git checkout";
-        gcob = "git checkout -b";
-        gcom = "git checkout master";
-        gcod = "git checkout develop";
-        gd = "git diff";
-        gp = "git push";
-        gdc = "git diff --cached";
-        glg = "git log --color --graph --pretty --oneline";
-        glgb = "git log --all --graph --decorate --oneline --simplify-by-decoration";
-        gs = "git status";
-      };
     };
 
     programs = {
+      direnv.enable = true;
+      nix-your-shell.enable = true;
+      helix = {
+        enable = true;
+        package = pkgs.evil-helix;
+        # languages = {
+        #   language = [
+        #     {
+        #       name = "rust";
+        #       # auto-format = false;
+        #     }
+        #   ];
+        # };
+      };
       nix-index = {
         enable = true;
         enableBashIntegration = true;
         enableFishIntegration = true;
       };
-      bash.enable = true;
       zoxide = {
         enable = true;
         enableBashIntegration = true;
         enableFishIntegration = true;
-        options = ["--cmd cd"];
-      }; # TODO: alias this to cd
+        options = [ "--cmd cd" ];
+      };
 
       git = {
         enable = true;
-        userName = "Nyxerproject";
-        userEmail = "nxyerproject@gmail.com";
-        lfs.enable = true;
-        delta = {
-          enable = true;
-          options.features = "decorations side-by-side line-numbers";
-        };
-        ignores = ["*~" ".direnv"];
-        aliases = {
-          s = "status";
-          p = "pull --rebase";
-          f = "fetch";
-        };
-        extraConfig = {
+        settings = {
+          user = {
+            name = "Nyxerproject";
+            email = "nxyerproject@gmail.com";
+          };
           core.editor = "nvim";
           push.default = "upstream";
           pull.rebase = true;
           rebase.autoStash = true;
           init.defaultBranch = "main";
+          lfs.enable = true;
+          # delta = {
+          #   enable = true;
+          #   options.features = "decorations side-by-side line-numbers";
+          # };
+          alias = {
+            s = "status";
+            p = "pull --rebase";
+            f = "fetch";
+          };
         };
+        ignores = [
+          "*~"
+          ".direnv"
+        ];
       };
-      gitui.enable = true;
       bat = {
         enable = true;
         extraPackages = with pkgs.bat-extras; [
           batdiff
-          batgrep
           prettybat
         ];
       };
@@ -228,26 +227,26 @@
       fish = {
         enable = true;
         shellAbbrs = {
+          "gs" = "git status";
+          "tree" = "tre";
+          "l" = "lsd -l";
           "ga" = "git add";
           "gc" = "git commit";
           "gcam" = "git commit -am";
           "gcm" = "git commit -m";
           "gco" = "git checkout";
-          "gcob" = "git checkout -b";
-          "gcom" = "git checkout master";
-          "gcod" = "git checkout develop";
           "gd" = "git diff";
           "gp" = "git push";
           "gdc" = "git diff --cached";
           "glg" = "git log --color --graph --pretty --oneline";
-          "glgb" = "git log --all --graph --decorate --oneline --simplify-by-decoration";
-          "gs" = "git status";
         };
         interactiveShellInit = ''
           set fish_greeting # Disable greeting
+          nix-your-shell fish | source
         '';
       };
-      #nushell.enable = true;
+      # bash.enable = true;
+      # nushell.enable = true;
     };
   };
 }

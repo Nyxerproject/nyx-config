@@ -1,8 +1,15 @@
-{lib, ...}: {
-  imports = [./tailscale.nix ./ssh.nix];
+{ lib, ... }:
+{
+  imports = [
+    ./tailscale.nix
+    ./ssh.nix
+  ];
   networking = {
-    networkmanager.enable = true;
+    wireless.iwd.enable = true;
+    wireless.enable = false;
+    # networkmanager.enable = true;
     useDHCP = lib.mkDefault true;
     firewall.enable = true;
   };
+  security.pki.certificateFiles = [ (./. + "/dogstar.crt") ];
 }

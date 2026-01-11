@@ -2,8 +2,9 @@
   config,
   pkgs,
   ...
-}: {
-  imports = [./wivrn];
+}:
+{
+  imports = [ ./wivrn ];
   environment.systemPackages = with pkgs; [
     opencomposite
     index_camera_passthrough

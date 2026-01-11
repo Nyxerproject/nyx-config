@@ -3,11 +3,12 @@
   config,
   lib,
   ...
-}: {
-  imports = [../environment];
+}:
+{
+  imports = [ ../environment ];
   programs.niri.enable = true; # WARNING: THIS IS NEEDED!!!!
   home-manager.users.nyx = {
-    imports = [./niri-binds];
+    imports = [ ./niri-binds ];
     programs.niri = {
       # WARNING: Do not use 'home-manager.users.me.programs.niri.enable = true'
       # Niri-flake doesn't have that setting, but it does require
@@ -46,7 +47,7 @@
 
         environment.DISPLAY = ":0";
         spawn-at-startup = [
-          {command = ["firefox"];}
+          { command = [ "firefox" ]; }
           # {command = ["keepassxc"];}
           # {command = ["element-desktop"];}
           # {command = ["webcord"];}
@@ -63,7 +64,7 @@
           }
           # {command = ["bash" "-c" "export" "$(dbus-launch)"];} # TODO: Figure out what this does. Why do did I put these here?
           # {command = ["bash" "-c" "xwayland-satellite" "&"];}
-          {command = ["${lib.meta.getExe pkgs.xwayland-satellite-unstable}"];}
+          { command = [ "${lib.meta.getExe pkgs.xwayland-satellite-unstable}" ]; }
         ];
         window-rules = [
           {

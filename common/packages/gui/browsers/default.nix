@@ -1,10 +1,12 @@
-{pkgs, ...}: {
+{ pkgs, ... }:
+{
   programs.firefox.enable = true;
   home = {
     packages = with pkgs; [
-      browsers
+      # browsers
+      # brave
       ungoogled-chromium
-      nyxt
+      # nyxt
     ];
   };
 }

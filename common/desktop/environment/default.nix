@@ -1,5 +1,6 @@
-{pkgs, ...}: {
-  imports = [];
+{ pkgs, ... }:
+{
+  imports = [ ];
   home-manager.users.nyx.imports = [
     # ./wluma.nix
     ./waybar.nix

@@ -1,4 +1,5 @@
-{pkgs, ...}: {
+{ pkgs, ... }:
+{
   plugins.none-ls = {
     enable = pkgs.lib.mkDefault true;
     sources = {
@@ -32,7 +33,6 @@
         isort.enable = pkgs.lib.mkDefault true;
         prettier.enable = pkgs.lib.mkDefault true;
         prettier.disableTsServerFormatter = pkgs.lib.mkDefault true;
-        typstfmt.enable = pkgs.lib.mkDefault true;
       };
     };
   };
