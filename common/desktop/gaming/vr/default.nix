@@ -4,14 +4,14 @@
   ...
 }:
 {
-  imports = [ ./wivrn ];
+  # imports = [ ./wivrn ];
+  # imports = [ ./monado ];
   environment.systemPackages = with pkgs; [
     opencomposite
     index_camera_passthrough
     xrgears
     vrcx
-    wlx-overlay-s
-    wayvr-dashboard
+    wayvr
     stardust-xr-server
     stardust-xr-gravity
     stardust-xr-magnetar
@@ -20,23 +20,23 @@
   ];
   # home-manager.users.nyx.
   # programs.xdg.enable = true;
-  # home-manager.users.nyx.xdg.configFile."openvr/openvrpaths.vrpath".text = ''
-  #   {
-  #     "config" :
-  #     [
-  #       "${config.home-manager.users.nyx.xdg.dataHome}/Steam/config"
-  #     ],
-  #     "external_drivers" : null,
-  #     "jsonid" : "vrpathreg",
-  #     "log" :
-  #     [
-  #       "${config.home-manager.users.nyx.xdg.dataHome}/Steam/logs"
-  #     ],
-  #     "runtime" :
-  #     [
-  #       "${pkgs.opencomposite}/lib/opencomposite"
-  #     ],
-  #     "version" : 1
-  #   }
-  # '';
+  home-manager.users.nyx.xdg.configFile."openvr/openvrpaths.vrpath".text = ''
+    {
+      "config" :
+      [
+        "${config.home-manager.users.nyx.xdg.dataHome}/Steam/config"
+      ],
+      "external_drivers" : null,
+      "jsonid" : "vrpathreg",
+      "log" :
+      [
+        "${config.home-manager.users.nyx.xdg.dataHome}/Steam/logs"
+      ],
+      "runtime" :
+      [
+        "${pkgs.opencomposite}/lib/opencomposite"
+      ],
+      "version" : 1
+    }
+  '';
 }

@@ -36,7 +36,7 @@
       foliate # epub reader
       rnote # handwritten notes
 
-      # prusa-slicer
+      orca-slicer
       obs-studio
       nautilus
 

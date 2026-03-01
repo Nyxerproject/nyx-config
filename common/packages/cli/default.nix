@@ -66,7 +66,7 @@
         # ox
 
         # development
-        gitu # another terminal user inteface
+        # gitu # another terminal user inteface
         lazygit
         koji # dev: better git commiter
         git-cliff # dev: changlog maker
@@ -91,7 +91,7 @@
 
         fend # utility: calculator
         ripgrep-all # utility: ripgrep anything
-        # parallel-disk-usage # utility: drive space
+        parallel-disk-usage # utility: drive space
         tree # utility: recursive dir viewer
         tre-command # utility: tree alternative
 

@@ -44,7 +44,6 @@
     nixpkgs-xr = {
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    # rio.url = "github:raphamorim/rio/main";
     disko.url = "github:nix-community/disko";
     disko.inputs.nixpkgs.follows = "nixpkgs";
     home-manager.url = "github:nix-community/home-manager";

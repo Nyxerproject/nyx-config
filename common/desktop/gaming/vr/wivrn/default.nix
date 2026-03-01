@@ -10,7 +10,7 @@
       enable = false;
       openFirewall = true;
       autoStart = true;
-      # highPriority = true;
+      highPriority = true;
       defaultRuntime = true;
       config = {
         enable = true;
