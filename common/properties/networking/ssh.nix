@@ -25,6 +25,8 @@
       "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIK97A9B9GmNFaHYGCZfiMzud4RKSfZ9G8L184fl3+PbW nyx@nixos"
       "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAICubDSSytI0oeAPdlruWgV9lD2lovabGbp5BVYs/HHql root@top"
       "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIO2jS22HmJlyqLYzcUVT96j9wXQmlb99UFW5BPMMQwVW root@down"
+      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIPoDNwpTzF49AHUYDbMSVjL2QoV8LvrVt3uvKZvpLXvV nxyerproject@gmail.com"
+      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIK97A9B9GmNFaHYGCZfiMzud4RKSfZ9G8L184fl3+PbW root@bottom"
     ];
     # keyFile = [];
   }; # TODO: move to home-manager?
