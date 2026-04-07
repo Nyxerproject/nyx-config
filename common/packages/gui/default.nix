@@ -6,6 +6,7 @@
     ./communications
   ];
   home-manager.users.nyx.home.packages = with pkgs; [ ];
+  home-manager.users.nyx.programs.prismlauncher.enable = true;
   environment = {
     systemPackages = with pkgs; [
       # kicad
